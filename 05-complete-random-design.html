@@ -254,7 +254,6 @@
       <div class="accordion-body">
         <ul><li><a href="#a-single-qualitative-factor">A single qualitative factor</a></li>
 <li><a href="#analysis-of-variance-anova">Analysis of variance (ANOVA)</a></li>
-<li><a href="#equal-variances-and-normality">Equal variances and normality</a></li>
 <li><a href="#confidence-intervals">Confidence intervals</a></li>
 <li><a href="#inference">Inference</a></li>
 <li><a href="#prediction-intervals">Prediction intervals</a></li>
@@ -485,15 +484,62 @@ of variation.</p>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">heart_rate</span> <span class="op">%&gt;%</span> <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">exercise_group</span>, <span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">heart_rate</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>exercise_group <span class="op">=</span> <span class="fu">fct_reorder</span><span class="op">(</span><span class="va">exercise_group</span>, </span>
+<span>                                                   <span class="va">heart_rate</span>, </span>
+<span>                                                   .fun<span class="op">=</span><span class="st">'median'</span>, </span>
+<span>                                                   .desc <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>  <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">exercise_group</span>, <span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="fig/05-complete-random-design-rendered-boxplots-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>By eye it appears that there is a difference in mean heart rate
+between exercise groups, and that increasing exercise intensity
+decreases mean heart rate. We want to know if there is any statistically
+significant difference between mean heart rates in the three exercise
+groups. The R function <code>aov()</code> performs analysis of variance
+(ANOVA) to answer this question.</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">summary</span><span class="op">(</span><span class="fu">aov</span><span class="op">(</span><span class="va">heart_rate</span> <span class="op">~</span> <span class="va">exercise_group</span>, data <span class="op">=</span> <span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in heart_rate %&gt;% ggplot(aes(exercise_group, heart_rate)): could not find function "%&gt;%"</code></pre>
+<pre class="output" tabindex="0"><code>                 Df Sum Sq Mean Sq F value   Pr(&gt;F)
+exercise_group    2   5214  2607.1   25.52 1.24e-11 ***
+Residuals      1563 159645   102.1
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
-</section><section><h2 class="section-heading" id="equal-variances-and-normality">Equal variances and normality<a class="anchor" aria-label="anchor" href="#equal-variances-and-normality"></a></h2>
-<hr class="half-width"></section><section><h2 class="section-heading" id="confidence-intervals">Confidence intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"></a></h2>
+<p>The output tells us that there are two terms in the model we
+provided: exercise group plus some experimental error (residuals). The
+Sum of Squares for the treatment (exercise group)</p>
+<p>Exercise group has 2 degrees of freedom, one less than the number of
+exercise groups. Think of degrees of freedom as the number of values
+that are free to vary. Or, if you know two of the exercise groups, the
+identity of the third is revealed. The degrees of freedom for the
+residuals is equal to the number of groups (3) times one less than the
+number of observations in each group (521), or 1563.</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">heart_rate</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>exercise_group <span class="op">=</span> <span class="fu">fct_reorder</span><span class="op">(</span><span class="va">exercise_group</span>, </span>
+<span>                                                   <span class="va">heart_rate</span>, </span>
+<span>                                                   .fun<span class="op">=</span><span class="st">'median'</span>, </span>
+<span>                                                   .desc <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>  <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">exercise_group</span>, <span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span>alpha<span class="op">=</span><span class="fl">0.1</span>, linewidth<span class="op">=</span><span class="fl">0.1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_jitter</span><span class="op">(</span>alpha<span class="op">=</span><span class="fl">0.1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, </span>
+<span>              <span class="fu">aes</span><span class="op">(</span>group<span class="op">=</span><span class="fl">1</span><span class="op">)</span>, </span>
+<span>              se<span class="op">=</span><span class="cn">FALSE</span>, </span>
+<span>              linewidth<span class="op">=</span><span class="fl">0.7</span><span class="op">)</span></span></code></pre>
+</div>
+<p><img src="fig/05-complete-random-design-rendered-boxplot_lm-1.png" style="display: block; margin: auto;" class="figure">
+## Equal variances and normality</p>
+</section><section><h2 class="section-heading" id="confidence-intervals">Confidence intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"></a></h2>
 <hr class="half-width"></section><section><h2 class="section-heading" id="inference">Inference<a class="anchor" aria-label="anchor" href="#inference"></a></h2>
 <hr class="half-width"></section><section><h2 class="section-heading" id="prediction-intervals">Prediction intervals<a class="anchor" aria-label="anchor" href="#prediction-intervals"></a></h2>
 <hr class="half-width"></section><section><h2 class="section-heading" id="design-issues">Design issues<a class="anchor" aria-label="anchor" href="#design-issues"></a></h2>
