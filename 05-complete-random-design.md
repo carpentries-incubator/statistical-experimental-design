@@ -105,14 +105,66 @@ and compares these two sources of variation.
 
 
 ``` r
-heart_rate %>% ggplot(aes(exercise_group, heart_rate)) + geom_boxplot()
+heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
+                                                   heart_rate, 
+                                                   .fun='median', 
+                                                   .desc = TRUE))  %>% 
+  ggplot(aes(exercise_group, heart_rate)) + 
+  geom_boxplot()
 ```
 
-``` error
-Error in heart_rate %>% ggplot(aes(exercise_group, heart_rate)): could not find function "%>%"
+<img src="fig/05-complete-random-design-rendered-boxplots-1.png" style="display: block; margin: auto;" />
+
+By eye it appears that there is a difference in mean heart rate between exercise
+groups, and that increasing exercise intensity decreases mean heart rate. We 
+want to know if there is any statistically significant difference between mean 
+heart rates in the three exercise groups. The R function `aov()` performs
+analysis of variance (ANOVA) to answer this question.
+
+
+``` r
+summary(aov(heart_rate ~ exercise_group, data = heart_rate))
 ```
 
+``` output
+                 Df Sum Sq Mean Sq F value   Pr(>F)    
+exercise_group    2   5214  2607.1   25.52 1.24e-11 ***
+Residuals      1563 159645   102.1                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
 
+The output tells us that there are two terms in the model we provided: exercise 
+group plus some experimental error (residuals). The Sum of Squares for the
+treatment (exercise group) 
+
+
+Exercise group has 2 degrees of
+freedom, one less than the number of exercise groups. Think of degrees of 
+freedom as the number of values that are free to vary. Or, if you know two of 
+the exercise groups, the identity of the third is revealed. The degrees of 
+freedom for the residuals is equal to the number of groups 
+(3) times one less than the number 
+of observations in each group (521), 
+or 1563.
+
+
+
+``` r
+heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
+                                                   heart_rate, 
+                                                   .fun='median', 
+                                                   .desc = TRUE))  %>% 
+  ggplot(aes(exercise_group, heart_rate)) + 
+  geom_boxplot(alpha=0.1, linewidth=0.1) +
+  geom_jitter(alpha=0.1) +
+  geom_smooth(method = "lm", 
+              aes(group=1), 
+              se=FALSE, 
+              linewidth=0.7)
+```
+
+<img src="fig/05-complete-random-design-rendered-boxplot_lm-1.png" style="display: block; margin: auto;" />
 ## Equal variances and normality
 
 ## Confidence intervals
