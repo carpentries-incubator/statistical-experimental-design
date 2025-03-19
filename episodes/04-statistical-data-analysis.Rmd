@@ -156,7 +156,10 @@ The Generation 100 study aims to determine whether high-intensity exercise in
 elderly adults affects lifespan and healthspan.
 
 ```{r boxplot}
-heart_rate %>% filter(exercise_group %in% c("moderate intensity", "control")) %>%     ggplot(aes(exercise_group, heart_rate)) + geom_boxplot()
+heart_rate %>% 
+  filter(exercise_group %in% c("moderate intensity", "control")) %>%
+  ggplot(aes(exercise_group, heart_rate)) + 
+  geom_boxplot()
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -213,14 +216,14 @@ controlHR <- heart_rate %>%
                 filter(exercise_group == "control") %>% 
                 select(heart_rate) %>% 
                 unlist() 
-meanDiff <- mean(controlHR) - mean(highHR)
+meanDiff <- mean(controlHR) - mean(moderateHR)
 meanDiff
 ```
 
 The actual difference in mean heart rates between the two groups is
-`r  round(mean(moderateHR) - mean(controlHR), 2)`. Another way of 
+`r  round(mean(controlHR) - mean(moderateHR), 2)`. Another way of 
 stating this is that the moderate-intensity group had a mean heart rate that was
-`r round(((mean(moderateHR) - mean(controlHR))/mean(controlHR)) * 100)` 
+`r round(((mean(controlHR) - mean(moderateHR))/mean(controlHR)) * 100, 1)` 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -363,27 +366,26 @@ the disparity between the data we have and the data distribution that might have
 been. To understand this better, we'll explore probability distributions next.
 
 ## The alternative hypothesis
-We assume that our observations are drawn from a null distribution with mean <i>&mu;<sub>0</sub></i>, which in this case equals zero because the null 
-hypothesis states that there is no difference between the treatment groups. We 
-reject the null hypothesis for values that fall within the region defined by 
-<i>&alpha;</i>, they Type I error rate. If we have a value that falls within 
-this region, it is possible to falsely reject the null hypothesis and to assume 
-that there is a treatment effect when in reality none exists. False positives 
-(Type I errors) are typically set at a low rate (0.05) in good experimental 
-design so that specificity (1 - <i>&alpha;</i>) remains high. Specificity 
-describes the likelihood of true negatives, or accepting the null hypothesis 
-when it is true and correctly assuming that no effect exists. 
+We assume that our observations are drawn from a null distribution with mean 
+$\mu_0$, which in this case equals zero because the null hypothesis states that 
+there is no difference between the treatment groups. We reject the null 
+hypothesis for values that fall within the region defined by $\alpha$, they Type 
+I error rate. If we have a value that falls within this region, it is possible 
+to falsely reject the null hypothesis and to assume that there is a treatment 
+effect when in reality none exists. False positives (Type I errors) are 
+typically set at a low rate (0.05) in good experimental design so that 
+specificity (1 - $\alpha$) remains high. Specificity describes the likelihood of 
+true negatives, or accepting the null hypothesis when it is true and correctly 
+assuming that no effect exists. 
 
 ![](fig/Null-hypothesis.png){alt='null hypothesis'}
 
 ![](fig/Alternative-hypothesis.png){alt='alternative hypothesis'}
 
 The alternative hypothesis challenges the null by stating that an effect exists 
-and that the mean difference, <i>&mu;<sub>A</sub></i>, is greater than zero. The 
-difference between <i>&mu;<sub>0</sub></i> and <i>&mu;<sub>A</sub></i> is known 
-as the effect size, which is expressed in units of standard deviation: 
-<i>d</i> = <i>&mu;<sub>A</sub></i> - <i>&mu;<sub>0</sub></i> / <i>&sigma;</i>. 
-
+and that the mean difference, $\mu_A$, is greater than zero. The difference 
+between  $\mu_0$ and  $\mu_A$ is known as the effect size, which is expressed in 
+units of standard deviation: $d = (\mu_A - \mu_0) / \sigma$. 
 
 ## Probability and probability distributions
 
@@ -433,7 +435,7 @@ value falls in a particular interval, say from *a* to *b*, is given by the area
 under the curve between *a* and *b*. When the histogram of a list of numbers 
 approximates the normal distribution, we can use a convenient mathematical 
 formula to approximate the proportion of values or outcomes in any given 
-interval. That formula is conveniently stored in the function `pnorm`
+interval. That formula is conveniently stored in the function `pnorm`.
 
 If the normal approximation holds for our list of data values, then the mean and
 variance (spread) of the data can be used. For example, when we noticed that
