@@ -89,11 +89,16 @@ stratified by marital status because this would also influence study outcomes.
 
 ## Analysis of variance (ANOVA)
 Previously we tested the difference in means between two treatment groups, 
-high intensity and control, using a t-test. We could continue using the t-test
-to determine whether there is a significant difference between high intensity
-and moderate intensity, and between moderate intensity and control groups. This
-would be tedious though because we would need to test each possible combination 
-of two treatment groups separately.
+moderate intensity and control, using a two-sample t-test. We could continue 
+using the t-test to determine whether there is a significant difference between 
+high intensity and moderate intensity, and between high intensity and control 
+groups. This would be tedious though because we would need to test each possible
+combination of two treatment groups separately. It is also susceptible to bias.
+If we were to test the difference in means between the highest and lowest heart
+rate groups (high intensity vs. control), there is more than a 5% probability 
+that just by random chance we can obtain a p-value less than .05. Comparing the 
+highest to the lowest mean groups biases the t-test to report a statistically 
+significant difference when in reality there might be no difference in means.
 
 Analysis of variance (ANOVA) addresses two sources of variation in the data:
 1) the variation within each treatment group; and 2) the variation among the
@@ -114,39 +119,99 @@ heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group,
 ```
 
 <img src="fig/05-complete-random-design-rendered-boxplots-1.png" style="display: block; margin: auto;" />
-
 By eye it appears that there is a difference in mean heart rate between exercise
 groups, and that increasing exercise intensity decreases mean heart rate. We 
 want to know if there is any statistically significant difference between mean 
-heart rates in the three exercise groups. The R function `aov()` performs
-analysis of variance (ANOVA) to answer this question.
+heart rates in the three exercise groups. The R function `anova()` performs
+analysis of variance (ANOVA) to answer this question. We provide `anova()` with
+a linear model (`lm()`) stating that heart rate depends on exercise group.
 
 
 ``` r
-summary(aov(heart_rate ~ exercise_group, data = heart_rate))
+anova(lm(heart_rate ~ exercise_group, data = heart_rate))
 ```
 
 ``` output
-                 Df Sum Sq Mean Sq F value   Pr(>F)    
-exercise_group    2   5214  2607.1   25.52 1.24e-11 ***
-Residuals      1563 159645   102.1                     
+Analysis of Variance Table
+
+Response: heart_rate
+                 Df Sum Sq Mean Sq F value    Pr(>F)    
+exercise_group    2   5214 2607.05  25.524 1.236e-11 ***
+Residuals      1563 159645  102.14                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 The output tells us that there are two terms in the model we provided: exercise 
-group plus some experimental error (residuals). The Sum of Squares for the
-treatment (exercise group) 
+group plus some experimental error (residuals). The Sum of Squares (`Sum Sq`) 
+for the treatment (exercise group) subtracts the overall mean for all groups
+(70.2) from each individual observation,
+squares the difference so that only positive numbers result, then sums all of 
+the squared differences together and multiplies the result by the number of
+observations in each group (522). 
+In the boxplots below, imagine drawing a vertical line from the overall mean
+(70.2) to an individual data point in the
+control group. Square this line by adding sides of the same length to create a
+box. Calculate the area of the box (the length of the line squared). Repeat this
+for all data points in the group, then sum up the areas of all 
+522 boxes. Repeat the process with the 
+other two groups, then multiply the total by 
+522. This used to be a manual process.
+Fortunately R does all of this labor for us.
 
 
-Exercise group has 2 degrees of
-freedom, one less than the number of exercise groups. Think of degrees of 
-freedom as the number of values that are free to vary. Or, if you know two of 
-the exercise groups, the identity of the third is revealed. The degrees of 
-freedom for the residuals is equal to the number of groups 
+``` r
+heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
+                                                   heart_rate, 
+                                                   .fun='median', 
+                                                   .desc = TRUE))  %>% 
+  ggplot(aes(exercise_group, heart_rate)) + 
+  geom_boxplot(alpha=0.1, linewidth=0.1) +
+  geom_jitter(alpha=0.1) 
+```
+
+<img src="fig/05-complete-random-design-rendered-boxplot-1.png" style="display: block; margin: auto;" />
+
+Exercise group has 2 degrees of freedom, one less than the number of exercise 
+groups. Think of degrees of freedom as the number of values that are free to 
+vary. Or, if you know two of the exercise groups, the identity of the third is 
+revealed. The mean squares values for the treatment (`Mean Sq`) divides the
+sum of squares by the degrees of freedom
+(5214 / 
+2). The 
+treatment mean square is a measure of the variance among the treatment groups,
+which is shown horizontally in the boxplots as upward or downward shift of the 
+treatment groups relative to one another.
+
+The degrees of freedom for the residuals is equal to the number of groups 
 (3) times one less than the number 
 of observations in each group (521), 
 or 1563.
+The sum of squares for the residuals subtracts the group mean, not the overall
+mean, from each data point in that group, squares the difference, sums all of
+the squares for that group, then sums all of the squares for all groups. The
+total sum of squares for the errors 
+(1.59645\times 10^{5})
+is divided by the residual degrees of freedom
+(1563) to
+produce the error mean square. Error mean square is an estimate of variance
+within the groups, which is shown in the vertical length of the each boxplot and 
+its whiskers.
+
+The `F value`, or F statistic, equals the treatment mean square divided by the
+error mean square, or among-group variation divided by within-group variation
+(2607 /
+102).
+
+`F value` = among-group variance / within-group variance
+
+These variance estimates are statistically independent of one another, such that 
+you could move any of the three boxplots up or down and this would not affect 
+the within-group variance. Among-group variance would change, but not 
+within-group variance. 
+
+
+
 
 
 

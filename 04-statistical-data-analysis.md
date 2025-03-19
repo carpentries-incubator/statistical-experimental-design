@@ -92,20 +92,7 @@ library(tidyverse)
 
 # read in the simulated heart rate data
 heart_rate <- read_csv("data/simulated_heart_rates.csv")
-```
 
-``` output
-Rows: 1566 Columns: 3
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (2): exercise_group, sex
-dbl (1): heart_rate
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
-
-``` r
 # take a random sample of 100 and create a histogram
 # first set the seed for the random number generator
 set.seed(42)
@@ -113,7 +100,7 @@ sample100 <- sample(heart_rate$heart_rate, 100)
 hist(sample100, xlab = "resting heart rate for 100 participants")
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-statistical-data-analysis-rendered-load_data-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -141,7 +128,7 @@ Now create a boxplot of the same sample data.
 boxplot(sample100)
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -174,17 +161,20 @@ elderly adults affects lifespan and healthspan.
 
 
 ``` r
-heart_rate %>% filter(exercise_group %in% c("high intensity", "control")) %>%     ggplot(aes(exercise_group, heart_rate)) + geom_boxplot()
+heart_rate %>% 
+  filter(exercise_group %in% c("moderate intensity", "control")) %>%
+  ggplot(aes(exercise_group, heart_rate)) + 
+  geom_boxplot()
 ```
 
 <img src="fig/04-statistical-data-analysis-rendered-boxplot-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 4: Comparing two groups - control vs. high intensity
+## Exercise 4: Comparing two groups - control vs. moderate intensity exercise
 
 1. Does there appear to be a significant heart rate difference between the
-  control and high intensity exercise groups? How would you know?
+  moderate and control exercise groups? How would you know?
 2. Do any of the data overlap between the two boxplots?
 3. Can you know which exercise group a person belongs to just by knowing their
   heart rate? For example, for a heart rate of 80 could you say with certainty
@@ -194,7 +184,7 @@ heart_rate %>% filter(exercise_group %in% c("high intensity", "control")) %>%   
 
 ## Solution to Exercise 4
 
-1. There appears to be a trend of lower heart rate in the high-intensity
+1. There appears to be a trend of lower heart rate in the moderate-intensity
   exercise group, however, we can't say whether or not it is significant
   without performing statistical tests.
 2. There is considerable overlap between the two groups, which shows that
@@ -210,7 +200,7 @@ heart_rate %>% filter(exercise_group %in% c("high intensity", "control")) %>%   
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-The boxplots above show a trend of lower heart rate in the high-intensity
+The boxplots above show a trend of lower heart rate in the moderate-intensity
 exercise group and higher heart rate in the control exercise group. There
 is inherent variability in heart rate in both groups however, which is to be
 expected. That variability appears in the box and whisker lengths of the
@@ -226,26 +216,26 @@ question about exercise intensity.
 ``` r
 # calculate the means of the two groups
 # unlist() converts a tibble (special tidyverse table) to a vector
-highHR <- heart_rate %>% 
-            filter(exercise_group == "high intensity") %>% 
+moderateHR <- heart_rate %>% 
+            filter(exercise_group == "moderate intensity") %>% 
             select(heart_rate) %>% 
             unlist() 
 controlHR <- heart_rate %>% 
                 filter(exercise_group == "control") %>% 
                 select(heart_rate) %>% 
                 unlist() 
-meanDiff <- mean(controlHR) - mean(highHR)
+meanDiff <- mean(controlHR) - mean(moderateHR)
 meanDiff
 ```
 
 ``` output
-[1] 4.456752
+[1] 1.934968
 ```
 
 The actual difference in mean heart rates between the two groups is
-4.46. Another way of 
-stating this is that the high-intensity group had a mean heart rate that was
-6 
+1.93. Another way of 
+stating this is that the moderate-intensity group had a mean heart rate that was
+2.7 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -264,13 +254,13 @@ for those samples.
 
 ``` r
 # calculate the sample mean of 100 people in each group
-HI100 <- mean(sample(highHR, size = 100))
+moderate100 <- mean(sample(moderateHR, size = 100))
 control100 <- mean(sample(controlHR, size = 100))
-control100 - HI100 
+control100 - moderate100 
 ```
 
 ``` output
-[1] 4.830802
+[1] 1.435633
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -279,13 +269,13 @@ means.
 
 ``` r
 # calculate the sample mean of 100 people in each group
-HI100 <- mean(sample(highHR, size = 100))
+moderate100 <- mean(sample(moderateHR, size = 100))
 control100 <- mean(sample(controlHR, size = 100))
-control100 - HI100
+control100 - moderate100
 ```
 
 ``` output
-[1] 4.836228
+[1] 2.986274
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -305,14 +295,14 @@ entire population, so this is a thought exercise.
 ``` r
 # read in the heart rates of the entire population of all elderly people
 population <- heart_rate %>% 
-              filter(exercise_group %in% c("high intensity", "control"))
+              filter(exercise_group %in% c("moderate intensity", "control"))
 
 # sample 100 of them and calculate the mean three times
 mean(sample(population$heart_rate, size = 100))
 ```
 
 ``` output
-[1] 69.49368
+[1] 71.22144
 ```
 
 ``` r
@@ -320,7 +310,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ``` output
-[1] 71.02936
+[1] 73.79602
 ```
 
 ``` r
@@ -328,7 +318,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ``` output
-[1] 68.73223
+[1] 70.62123
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -363,7 +353,7 @@ mean(control) - mean(treatment)
 ```
 
 ``` output
-[1] -0.4151924
+[1] -0.9269467
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -377,7 +367,7 @@ hist(null)
 abline(v=meanDiff, col="red", lwd=2)
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
 `null` contains the differences in means between the two groups sampled 10,000
 times each. The value of the observed difference in means between the two 
@@ -391,13 +381,13 @@ mean(null >= meanDiff)
 ```
 
 ``` output
-[1] 4e-04
+[1] 0.0804
 ```
 
-Approximately 0% of the 10,000 
+Approximately 8% of the 10,000 
 simulations are greater than the observed difference in means. We can expect 
 then that we will see a difference in means approximately 
-0% of the time even if there is no 
+8% of the time even if there is no 
 effect of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -417,27 +407,39 @@ significance of the difference in mean values?
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 P-values are often misinterpreted as the probability that, in this example,
-high-intensity and control exercise result in the same average heart rate.
-However, "high-intensity and control exercise result in the same average heart
-rate" is not a **random variable** like the number of heads or tails in 10 flips
-of a coin. It's a statement that doesn't have a **probability distribution**, so
-you can't make probability statements about it. The p-value summarizes the
-comparison between our data and the data we might have obtained from a
-probability distribution if there were no difference in mean heart rates.
-Specifically, the p-value tells us how far out on the tail of that distribution
-the data we got falls. The smaller the p-value, the greater the disparity 
-between the data we have and the data distribution that might have been. To 
-understand this better, we'll explore probability distributions next.
+moderate-intensity and control exercise result in the same average heart rate.
+However, "moderate-intensity and control exercise result in the same average 
+heart rate" is not a **random variable** like the number of heads or tails in 10 
+flips of a coin. It's a statement that doesn't have a 
+**probability distribution**, so you can't make probability statements about it. 
+The p-value summarizes the comparison between our data and the data we might 
+have obtained from a probability distribution if there were no difference in 
+mean heart rates. Specifically, the p-value tells us how far out on the tail of 
+that distribution the data we got falls. The smaller the p-value, the greater 
+the disparity between the data we have and the data distribution that might have 
+been. To understand this better, we'll explore probability distributions next.
 
 ## The alternative hypothesis
-We assume that our observations are drawn from a null distribution with mean <i>&mu;<sub>0</sub></i>, which in this case equals zero because the null hypothesis states that there is no difference between the treatment groups. We reject the null hypothesis for values that fall within the region defined by <i>&alpha;</i>, they Type I error rate. If we have a value that falls within this region, it is possible to falsely reject the null hypothesis and to assume that there is a treatment effect when in reality none exists. False positives (Type I errors) are typically set at a low rate (0.05) in good experimental design so that specificity (1 - <i>&alpha;</i>) remains high. Specificity describes the likelihood of true negatives, or accepting the null hypothesis when it is true and correctly assuming that no effect exists. 
+We assume that our observations are drawn from a null distribution with mean 
+$\mu_0$, which in this case equals zero because the null hypothesis states that 
+there is no difference between the treatment groups. We reject the null 
+hypothesis for values that fall within the region defined by $\alpha$, they Type 
+I error rate. If we have a value that falls within this region, it is possible 
+to falsely reject the null hypothesis and to assume that there is a treatment 
+effect when in reality none exists. False positives (Type I errors) are 
+typically set at a low rate (0.05) in good experimental design so that 
+specificity (1 - $\alpha$) remains high. Specificity describes the likelihood of 
+true negatives, or accepting the null hypothesis when it is true and correctly 
+assuming that no effect exists. 
 
 ![](fig/Null-hypothesis.png){alt='null hypothesis'}
 
 ![](fig/Alternative-hypothesis.png){alt='alternative hypothesis'}
 
-The alternative hypothesis challenges the null by stating that an effect exists and that the mean difference, <i>&mu;<sub>A</sub></i>, is greater than zero. The difference between <i>&mu;<sub>0</sub></i> and <i>&mu;<sub>A</sub></i> is known as the effect size, which is expressed in units of standard deviation: <i>d</i> = <i>&mu;<sub>A</sub></i> - <i>&mu;<sub>0</sub></i> / <i>&sigma;</i>. 
-
+The alternative hypothesis challenges the null by stating that an effect exists 
+and that the mean difference, $\mu_A$, is greater than zero. The difference 
+between  $\mu_0$ and  $\mu_A$ is known as the effect size, which is expressed in 
+units of standard deviation: $d = (\mu_A - \mu_0) / \sigma$. 
 
 ## Probability and probability distributions
 
@@ -462,14 +464,15 @@ population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 ```
 
 <img src="fig/04-statistical-data-analysis-rendered-population_hist-1.png" style="display: block; margin: auto;" />
+
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
 individuals in any given interval. For example, there are approximately
-29 individuals 
-(~2.8%) 
+40 individuals 
+(~3.8%) 
 with a resting heart rate greater than 90, and another 
-31 individuals
-(~3%) 
+14 individuals
+(~1.3%) 
 with a resting heart rate below 50.
 
 The histogram above approximates one that is very common in nature: the bell
@@ -486,11 +489,11 @@ value falls in a particular interval, say from *a* to *b*, is given by the area
 under the curve between *a* and *b*. When the histogram of a list of numbers 
 approximates the normal distribution, we can use a convenient mathematical 
 formula to approximate the proportion of values or outcomes in any given 
-interval. That formula is conveniently stored in the function `pnorm`
+interval. That formula is conveniently stored in the function `pnorm`.
 
 If the normal approximation holds for our list of data values, then the mean and
 variance (spread) of the data can be used. For example, when we noticed that
-~ 0% of the values in the null 
+~ 8% of the values in the null 
 distribution were greater than `meanDiff`, the mean difference between control
 and high-intensity groups. We can compute the proportion of values below a value
 `x` with `pnorm(x, mu, sigma)` where `mu` is the mean and `sigma` the standard
@@ -502,8 +505,9 @@ deviation (the square root of the variance).
 ```
 
 ``` output
-[1] 0.0006295383
+[1] 0.07716492
 ```
+
 A useful characteristic of this approximation is that we only need to know `mu`
 and `sigma` to describe the entire distribution. From this, we can compute the
 proportion of values in any interval.
@@ -582,13 +586,13 @@ t.test(formula = heart_rate ~ exercise_group, data = population)
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 7.1567, df = 1039.9, p-value = 1.559e-12
-alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
+t = 3.1213, df = 1040.6, p-value = 0.00185
+alternative hypothesis: true difference in means between group control and group moderate intensity is not equal to 0
 95 percent confidence interval:
- 3.234779 5.678725
+ 0.7185399 3.1513970
 sample estimates:
-       mean in group control mean in group high intensity 
-                    72.36999                     67.91324 
+           mean in group control mean in group moderate intensity 
+                        72.36999                         70.43502 
 ```
 ## The perils of p-values
 You can access the p-value alone from the t-test by saving the results and 
@@ -602,7 +606,7 @@ result$p.value
 ```
 
 ``` output
-[1] 1.559161e-12
+[1] 0.001849945
 ```
 The p-value indicates a statistically significant difference between exercise
 groups. It is not enough, though, to report only a p-value. The p-value says
@@ -631,15 +635,15 @@ result$conf.int
 ```
 
 ``` output
-[1] 3.234779 5.678725
+[1] 0.7185399 3.1513970
 attr(,"conf.level")
 [1] 0.95
 ```
 
 The confidence interval states that the true difference in means is between
-3.23 and 5.68. We can
+0.72 and 3.15. We can
 say, with 95% confidence, that high intensity exercise could decrease mean heart 
-rate from 3.23 to 5.68
+rate from 0.72 to 3.15
 beats per minute. Note that these are simulated data and are not the outcomes of
 the Generation 100 study. 
 
@@ -801,10 +805,10 @@ power.t.test(n = 783, delta = meanDiff, sd = sd(heart_rate$heart_rate),
      Two-sample t test power calculation 
 
               n = 783
-          delta = 4.456752
+          delta = 1.934968
              sd = 10.26359
       sig.level = 0.05
-          power = 1
+          power = 0.9614711
     alternative = two.sided
 
 NOTE: n is number in *each* group
@@ -829,8 +833,8 @@ power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate),
 
      Two-sample t test power calculation 
 
-              n = 84.22402
-          delta = 4.456752
+              n = 442.6224
+          delta = 1.934968
              sd = 10.26359
       sig.level = 0.05
           power = 0.8
@@ -855,7 +859,7 @@ n
 ```
 
 ``` output
-[1] 84.85574
+[1] 450.1636
 ```
 Often budget constraints determine sample size. Lehr's equation can be 
 rearranged to determine the effect size that can be detected for a given 
