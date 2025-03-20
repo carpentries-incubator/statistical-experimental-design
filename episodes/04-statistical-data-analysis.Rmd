@@ -641,28 +641,25 @@ ggplot(data.frame(x = c(0, 10)), aes(x = x)) +
   annotate('text', x = 6.5, y = 0.3, label= "mean = 5\nsd = 1", color = "#d95f02")
 ```
 
-```{r standard-deviation}
-heart_rate %>% group_by(exercise_group) %>%
-  summarise_at(vars(heart_rate), list(variance=var, standard_deviation = sd))
-```
-
 As a rule of thumb, if the ratio of the larger to the smaller variance is less
 than 4, the groups have equal variances. 
 
 ```{r variance-ratio}
-heart_rate %>% group_by(exercise_group) %>%
-  summarise_at(vars(heart_rate), var) 
+heart_rate %>% 
+  group_by(exercise_group) %>%
+  summarise(across(heart_rate, list(variance=var, standard_deviation = sd))) 
 ```
 
 A more formal approach uses an F test to compare variances between samples drawn
 from a normal population.
 
 ```{r f-test}
-var.test(heart_rate ~ exercise_group, data=heart_rate)
+var.test(heart_rate$exercise_group == "control",
+         heart_rate$exercise_group == "moderate intensity")
 ```
-
 The F test reports that the variances between the groups are not the same, 
-however, the ratio of variances is very close to 1.
+however, the ratio of variances is very close to 1 as indicated by the 
+confidence interval.
 
 ## Sample sizes and power curves
 Statistical power analysis is an important preliminary step in experimental 
@@ -687,9 +684,9 @@ mean(p_vals < .05) # check power (i.e. proportion of p-values that are smaller
                    # than alpha-level of .05)
 ```
 
-Let's calculate the statistical power of our experiment so 
-far, and then determine the sample size we would need to run a similar 
-experiment on a different population.
+Let's calculate the statistical power of our experiment so far, and then 
+determine the sample size we would need to run a similar experiment on a 
+different population.
 
 ```{r power-analysis-1}
 # sample size = 783 per group
