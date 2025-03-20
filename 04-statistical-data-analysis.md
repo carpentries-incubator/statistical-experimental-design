@@ -703,37 +703,23 @@ means.
 
 <img src="fig/04-statistical-data-analysis-rendered-compare-means-standard-deviation-1.png" style="display: block; margin: auto;" />
 
-
-``` r
-heart_rate %>% group_by(exercise_group) %>%
-  summarise_at(vars(heart_rate), list(variance=var, standard_deviation = sd))
-```
-
-``` output
-# A tibble: 3 × 3
-  exercise_group     variance standard_deviation
-  <chr>                 <dbl>              <dbl>
-1 control                96.6               9.83
-2 high intensity        106.               10.3 
-3 moderate intensity    104.               10.2 
-```
-
 As a rule of thumb, if the ratio of the larger to the smaller variance is less
 than 4, the groups have equal variances. 
 
 
 ``` r
-heart_rate %>% group_by(exercise_group) %>%
-  summarise_at(vars(heart_rate), var) 
+heart_rate %>% 
+  group_by(exercise_group) %>%
+  summarise(across(heart_rate, list(variance=var, standard_deviation = sd))) 
 ```
 
 ``` output
-# A tibble: 3 × 2
-  exercise_group     heart_rate
-  <chr>                   <dbl>
-1 control                  96.6
-2 high intensity          106. 
-3 moderate intensity      104. 
+# A tibble: 3 × 3
+  exercise_group     heart_rate_variance heart_rate_standard_deviation
+  <chr>                            <dbl>                         <dbl>
+1 control                           96.6                          9.83
+2 high intensity                   106.                          10.3 
+3 moderate intensity               104.                          10.2 
 ```
 
 A more formal approach uses an F test to compare variances between samples drawn
@@ -741,15 +727,26 @@ from a normal population.
 
 
 ``` r
-var.test(heart_rate ~ exercise_group, data=heart_rate)
+var.test(heart_rate$exercise_group == "control",
+         heart_rate$exercise_group == "moderate intensity")
 ```
 
-``` error
-Error in var.test.formula(heart_rate ~ exercise_group, data = heart_rate): grouping factor must have exactly 2 levels
-```
+``` output
 
+	F test to compare two variances
+
+data:  heart_rate$exercise_group == "control" and heart_rate$exercise_group == "moderate intensity"
+F = 1, num df = 1565, denom df = 1565, p-value = 1
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.9056303 1.1042033
+sample estimates:
+ratio of variances 
+                 1 
+```
 The F test reports that the variances between the groups are not the same, 
-however, the ratio of variances is very close to 1.
+however, the ratio of variances is very close to 1 as indicated by the 
+confidence interval.
 
 ## Sample sizes and power curves
 Statistical power analysis is an important preliminary step in experimental 
@@ -782,9 +779,9 @@ mean(p_vals < .05) # check power (i.e. proportion of p-values that are smaller
                    # than alpha-level of .05)
 ```
 
-Let's calculate the statistical power of our experiment so 
-far, and then determine the sample size we would need to run a similar 
-experiment on a different population.
+Let's calculate the statistical power of our experiment so far, and then 
+determine the sample size we would need to run a similar experiment on a 
+different population.
 
 
 ``` r
