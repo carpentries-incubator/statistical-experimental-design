@@ -112,7 +112,7 @@ and compares these two sources of variation.
 ``` r
 heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
                                                    heart_rate, 
-                                                   .fun='median', 
+                                                   .fun='mean', 
                                                    .desc = TRUE))  %>% 
   ggplot(aes(exercise_group, heart_rate)) + 
   geom_boxplot()
@@ -136,8 +136,8 @@ Analysis of Variance Table
 
 Response: heart_rate
                  Df Sum Sq Mean Sq F value    Pr(>F)    
-exercise_group    2   5214 2607.05  25.524 1.236e-11 ***
-Residuals      1563 159645  102.14                      
+exercise_group    2  12673  6336.7  250.84 < 2.2e-16 ***
+Residuals      1564  39510    25.3                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -145,30 +145,19 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 The output tells us that there are two terms in the model we provided: exercise 
 group plus some experimental error (residuals). The Sum of Squares (`Sum Sq`) 
 for the treatment (exercise group) subtracts the overall mean for all groups
-(70.2) from each individual observation,
+(68) from each individual observation,
 squares the difference so that only positive numbers result, then sums all of 
 the squared differences together and multiplies the result by the number of
-observations in each group (522). 
+observations in each group (391.75). 
 In the boxplots below, imagine drawing a vertical line from the overall mean
-(70.2) to an individual data point in the
+(68) to an individual data point in the
 control group. Square this line by adding sides of the same length to create a
 box. Calculate the area of the box (the length of the line squared). Repeat this
 for all data points in the group, then sum up the areas of all 
-522 boxes. Repeat the process with the 
+391.75 boxes. Repeat the process with the 
 other two groups, then multiply the total by 
-522. This used to be a manual process.
+391.75. This used to be a manual process.
 Fortunately R does all of this labor for us.
-
-
-``` r
-heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
-                                                   heart_rate, 
-                                                   .fun='median', 
-                                                   .desc = TRUE))  %>% 
-  ggplot(aes(exercise_group, heart_rate)) + 
-  geom_boxplot(alpha=0.1, linewidth=0.1) +
-  geom_jitter(alpha=0.1) 
-```
 
 <img src="fig/05-complete-random-design-rendered-boxplot-1.png" style="display: block; margin: auto;" />
 
@@ -177,31 +166,33 @@ groups. Think of degrees of freedom as the number of values that are free to
 vary. Or, if you know two of the exercise groups, the identity of the third is 
 revealed. The mean squares values for the treatment (`Mean Sq`) divides the
 sum of squares by the degrees of freedom
-(5214 / 
-2). The 
-treatment mean square is a measure of the variance among the treatment groups,
-which is shown horizontally in the boxplots as upward or downward shift of the 
-treatment groups relative to one another.
+(1.2673\times 10^{4} / 
+2 = 
+6336.72). 
+The treatment mean square is a measure of the variance among the treatment 
+groups, which is shown horizontally in the boxplots as upward or downward shift 
+of the treatment groups relative to one another.
 
 The degrees of freedom for the residuals is equal to the number of groups 
-(3) times one less than the number 
-of observations in each group (521), 
-or 1563.
+(4) times one less than the number 
+of observations in each group (390.75), 
+or 1564.
 The sum of squares for the residuals subtracts the group mean, not the overall
 mean, from each data point in that group, squares the difference, sums all of
 the squares for that group, then sums all of the squares for all groups. The
 total sum of squares for the errors 
-(1.59645\times 10^{5})
+(3.951\times 10^{4})
 is divided by the residual degrees of freedom
-(1563) to
+(1564) to
 produce the error mean square. Error mean square is an estimate of variance
 within the groups, which is shown in the vertical length of the each boxplot and 
 its whiskers.
 
 The `F value`, or F statistic, equals the treatment mean square divided by the
 error mean square, or among-group variation divided by within-group variation
-(2607 /
-102).
+(6337 /
+25 = 
+250.84).
 
 `F value` = among-group variance / within-group variance
 
@@ -211,25 +202,8 @@ the within-group variance. Among-group variance would change, but not
 within-group variance. 
 
 
-
-
-
-
-``` r
-heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
-                                                   heart_rate, 
-                                                   .fun='median', 
-                                                   .desc = TRUE))  %>% 
-  ggplot(aes(exercise_group, heart_rate)) + 
-  geom_boxplot(alpha=0.1, linewidth=0.1) +
-  geom_jitter(alpha=0.1) +
-  geom_smooth(method = "lm", 
-              aes(group=1), 
-              se=FALSE, 
-              linewidth=0.7)
-```
-
 <img src="fig/05-complete-random-design-rendered-boxplot_lm-1.png" style="display: block; margin: auto;" />
+
 ## Equal variances and normality
 
 ## Confidence intervals
