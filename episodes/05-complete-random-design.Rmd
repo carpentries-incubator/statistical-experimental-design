@@ -114,7 +114,7 @@ and compares these two sources of variation.
 ```{r boxplots, message=FALSE}
 heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
                                                    heart_rate, 
-                                                   .fun='median', 
+                                                   .fun='mean', 
                                                    .desc = TRUE))  %>% 
   ggplot(aes(exercise_group, heart_rate)) + 
   geom_boxplot()
@@ -147,7 +147,7 @@ other two groups, then multiply the total by
 `r dim(heart_rate)[1]/dim(heart_rate)[2]`. This used to be a manual process.
 Fortunately R does all of this labor for us.
 
-```{r boxplot, message=FALSE}
+```{r boxplot, echo=FALSE, message=FALSE}
 heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
                                                    heart_rate, 
                                                    .fun='median', 
@@ -163,10 +163,11 @@ vary. Or, if you know two of the exercise groups, the identity of the third is
 revealed. The mean squares values for the treatment (`Mean Sq`) divides the
 sum of squares by the degrees of freedom
 (`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[2]][1])` / 
-`r anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[1]][1]`). The 
-treatment mean square is a measure of the variance among the treatment groups,
-which is shown horizontally in the boxplots as upward or downward shift of the 
-treatment groups relative to one another.
+`r anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[1]][1]` = 
+`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[3]][1], 2)`). 
+The treatment mean square is a measure of the variance among the treatment 
+groups, which is shown horizontally in the boxplots as upward or downward shift 
+of the treatment groups relative to one another.
 
 The degrees of freedom for the residuals is equal to the number of groups 
 (`r dim(heart_rate)[2]`) times one less than the number 
@@ -176,7 +177,7 @@ The sum of squares for the residuals subtracts the group mean, not the overall
 mean, from each data point in that group, squares the difference, sums all of
 the squares for that group, then sums all of the squares for all groups. The
 total sum of squares for the errors 
-(`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[2]][2])`)
+(`r ceiling(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[2]][2])`)
 is divided by the residual degrees of freedom
 (`r anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[1]][2]`) to
 produce the error mean square. Error mean square is an estimate of variance
@@ -186,7 +187,8 @@ its whiskers.
 The `F value`, or F statistic, equals the treatment mean square divided by the
 error mean square, or among-group variation divided by within-group variation
 (`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[3]][1])` /
-`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[3]][2])`).
+`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[3]][2])` = 
+`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[4]][1], 3)`).
 
 `F value` = among-group variance / within-group variance
 
@@ -196,13 +198,10 @@ the within-group variance. Among-group variance would change, but not
 within-group variance. 
 
 
-
-
-
-```{r boxplot_lm, message=FALSE}
+```{r boxplot_lm, message=FALSE, echo=FALSE}
 heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
                                                    heart_rate, 
-                                                   .fun='median', 
+                                                   .fun='mean', 
                                                    .desc = TRUE))  %>% 
   ggplot(aes(exercise_group, heart_rate)) + 
   geom_boxplot(alpha=0.1, linewidth=0.1) +
@@ -212,6 +211,7 @@ heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group,
               se=FALSE, 
               linewidth=0.7)
 ```
+
 ## Equal variances and normality
 
 ## Confidence intervals

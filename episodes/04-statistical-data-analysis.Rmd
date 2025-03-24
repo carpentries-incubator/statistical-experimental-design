@@ -271,8 +271,7 @@ entire population, so this is a thought exercise.
 
 ```{r}
 # read in the heart rates of the entire population of all elderly people
-population <- heart_rate %>% 
-              filter(exercise_group %in% c("moderate intensity", "control"))
+population <- heart_rate
 
 # sample 100 of them and calculate the mean three times
 mean(sample(population$heart_rate, size = 100))
@@ -507,12 +506,21 @@ groups in light of inherent variability in heart rate measurements. What does it
 mean that a difference is statistically significant? We can eye plots like the 
 boxplots above and see a difference, however, we need something more objective 
 than eyeballs to claim a significant difference. A t-test will report whether 
-the difference in mean values between the two groups is significant. The **null hypothesis** would state that there is no difference in mean values, while the **alternative hypothesis** states that there is a difference in the means of the 
-two **samples** from the whole **population** of elders in Norway.
+the difference in mean values between the two groups is significant. The 
+**null hypothesis** would state that there is no difference in mean values, 
+while the **alternative hypothesis** states that there is a difference in the 
+means of the two **samples** from the whole **population** of elders in Norway.
 
 ```{r t-test}
-# provide a formula stating that heart rate is dependent on exercise intensity
-t.test(formula = heart_rate ~ exercise_group, data = population)
+# Extract two exercise groups from the data
+# Compare the means of the two groups
+
+control_group <- population %>%
+  filter(exercise_group == "control") 
+moderate_group <- population %>%
+  filter(exercise_group == "moderate intensity") 
+t.test(x = control_group$heart_rate,
+       y = moderate_group$heart_rate)
 ```
 ## The perils of p-values
 You can access the p-value alone from the t-test by saving the results and 
@@ -520,7 +528,8 @@ accessing individual elements with the `$` operator.
 
 ```{r p-value}
 # save the t-test result and access the p-value alone
-result <- t.test(formula = heart_rate ~ exercise_group, data = population)
+result <- t.test(x = control_group$heart_rate,
+                 y = moderate_group$heart_rate)
 result$p.value
 ```
 The p-value indicates a statistically significant difference between exercise
@@ -550,10 +559,10 @@ result$conf.int
 
 The confidence interval states that the true difference in means is between
 `r round(result$conf.int[1], 2)` and `r round(result$conf.int[2], 2)`. We can
-say, with 95% confidence, that high intensity exercise could decrease mean heart 
-rate from `r round(result$conf.int[1], 2)` to `r round(result$conf.int[2], 2)`
-beats per minute. Note that these are simulated data and are not the outcomes of
-the Generation 100 study. 
+say, with 95% confidence, that moderate intensity exercise could decrease mean 
+heart rate from `r round(result$conf.int[1], 2)` to 
+`r round(result$conf.int[2], 2)` beats per minute. Note that these are 
+*simulated data and are not the real outcomes* of the Generation 100 study. 
 
 A 95% confidence interval states that 95% of random intervals will contain the 
 true value. This is not the same as saying that there is a 95% chance that the 
@@ -580,9 +589,9 @@ for (i in 1:B) {
 ```
 
 If we generate `r B` confidence intervals for the sample mean heart rate, those 
-confidence intervals will include the population mean (vertical gray dotted 
+confidence intervals will include the true population mean (vertical gray dotted 
 line) approximately 95% of the time. You will see that about 5% of the 
-confidence intervals (shown in red) fail to cover the mean.
+confidence intervals (shown in red) fail to cover the true population mean.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -591,8 +600,8 @@ confidence intervals (shown in red) fail to cover the mean.
 For each statement, explain to a partner why you believe the statement is true
 or untrue.
 
-1. A p-value of .02 means that there is only a 2% chance that high-intensity and
-control exercise result in the same average heart rate.
+1. A p-value of .02 means that there is only a 2% chance that moderate-intensity 
+and control exercise result in the same average heart rate.
 2. A p-value of .02 demonstrates that there is a meaningful difference in 
 average heart rates between the two groups.
 3. A 95% confidence interval has a 95% chance of containing the true difference
@@ -647,7 +656,8 @@ than 4, the groups have equal variances.
 ```{r variance-ratio}
 heart_rate %>% 
   group_by(exercise_group) %>%
-  summarise(across(heart_rate, list(variance=var, standard_deviation = sd))) 
+  summarise(across(heart_rate,
+                   list(variance=var, standard_deviation = sd))) 
 ```
 
 A more formal approach uses an F test to compare variances between samples drawn
