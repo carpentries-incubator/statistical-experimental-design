@@ -1,1567 +1,1568 @@
-heart_rate,exercise_group,sex
-64.36932105212279,high intensity,M
-67.48657831622826,high intensity,F
-79.54316420442996,high intensity,M
-83.75698643349283,high intensity,F
-68.37494962948179,high intensity,M
-62.75393273019449,high intensity,F
-60.2087060454117,high intensity,M
-66.70397950379551,high intensity,F
-64.8218704624164,high intensity,M
-69.37752894905115,high intensity,F
-75.54407188665276,high intensity,M
-79.31189896006153,high intensity,F
-78.0967953129992,high intensity,M
-75.5660075536123,high intensity,F
-69.22644249309575,high intensity,M
-68.74958745360489,high intensity,F
-57.12260031220093,high intensity,M
-82.72265867325362,high intensity,F
-67.24775346364699,high intensity,M
-73.26170584411341,high intensity,F
-76.82879763572296,high intensity,M
-66.34578929615249,high intensity,F
-72.18625803517958,high intensity,M
-57.541283420398514,high intensity,F
-62.61553629322234,high intensity,M
-61.655421495894956,high intensity,F
-68.78045654248879,high intensity,M
-61.857338097919005,high intensity,F
-55.15108375640561,high intensity,M
-85.72156223232896,high intensity,F
-71.87361342155762,high intensity,M
-60.75353107852989,high intensity,F
-59.50097926517049,high intensity,M
-64.8223153159665,high intensity,F
-66.82808288853943,high intensity,M
-64.2065216182425,high intensity,F
-55.31829045670739,high intensity,M
-74.09925289631408,high intensity,F
-63.41649959121852,high intensity,M
-73.7639124118521,high intensity,F
-59.539431089611995,high intensity,M
-81.58705764657682,high intensity,F
-66.65699740583928,high intensity,M
-84.5736666505806,high intensity,F
-65.7763706501056,high intensity,M
-73.90417080360845,high intensity,F
-55.72738725544885,high intensity,M
-76.49154952213436,high intensity,F
-77.7042960203919,high intensity,M
-50.53702898577981,high intensity,F
-72.7689893765148,high intensity,M
-61.88698974151621,high intensity,F
-60.95135532547569,high intensity,M
-60.4451184966323,high intensity,F
-73.05866130012774,high intensity,M
-72.79213012964244,high intensity,F
-53.90378915857791,high intensity,M
-69.62720043149778,high intensity,F
-81.6980027297074,high intensity,M
-75.28478835186846,high intensity,F
-83.666709228436,high intensity,M
-74.29585655361383,high intensity,F
-68.21324028375327,high intensity,M
-65.08712409918819,high intensity,F
-66.72592582573617,high intensity,M
-79.16677529046666,high intensity,F
-68.72556742223841,high intensity,M
-57.98993213366917,high intensity,F
-68.25826547169082,high intensity,M
-73.53343905665764,high intensity,F
-82.15528001444956,high intensity,M
-57.37261396012028,high intensity,F
-43.67812598206413,high intensity,M
-68.35783639723353,high intensity,F
-65.65283027908616,high intensity,M
-78.66589580165467,high intensity,F
-54.124123527143844,high intensity,M
-76.86072784351663,high intensity,F
-48.367928451533004,high intensity,M
-62.12265606440312,high intensity,F
-52.999293191782215,high intensity,M
-66.62284185336344,high intensity,F
-53.88269482324549,high intensity,M
-51.484097751395375,high intensity,F
-66.25037570003505,high intensity,M
-76.15122399362434,high intensity,F
-91.56862165504488,high intensity,M
-66.36065492508943,high intensity,F
-69.4029603428982,high intensity,M
-77.08146437415037,high intensity,F
-78.90136529578923,high intensity,M
-53.07698774005296,high intensity,F
-77.65175511188137,high intensity,M
-60.706055324132265,high intensity,F
-69.93642388757426,high intensity,M
-77.97761786615668,high intensity,F
-56.804222884939705,high intensity,M
-65.69254821980704,high intensity,F
-87.60823478585387,high intensity,M
-65.35644469754192,high intensity,F
-66.35728520068245,high intensity,M
-59.301562576177915,high intensity,F
-70.34280164153968,high intensity,M
-56.0347289992077,high intensity,F
-69.31793253086119,high intensity,M
-57.05513291706963,high intensity,F
-79.27006022554733,high intensity,M
-57.8222131829909,high intensity,F
-52.99788831667095,high intensity,M
-61.472983319013444,high intensity,F
-69.12229365373392,high intensity,M
-68.59377006415068,high intensity,F
-71.39905792799108,high intensity,M
-57.16611516288674,high intensity,F
-62.441220587614986,high intensity,M
-69.56215650612569,high intensity,F
-81.22277227590547,high intensity,M
-80.50326815175183,high intensity,F
-77.85666764054692,high intensity,M
-67.43347482782977,high intensity,F
-86.79692811983827,high intensity,M
-78.06346517430389,high intensity,F
-67.20466686777257,high intensity,M
-64.56764424651772,high intensity,F
-79.28043899836473,high intensity,M
-61.54131620739684,high intensity,F
-62.74494815858567,high intensity,M
-79.03645834855982,high intensity,F
-82.67101554188372,high intensity,M
-56.62556280667799,high intensity,F
-82.02386420204513,high intensity,M
-73.81537302265306,high intensity,F
-86.2411038116587,high intensity,M
-70.08790685959742,high intensity,F
-58.32740862080506,high intensity,M
-74.53154410323378,high intensity,F
-76.29748752093946,high intensity,M
-80.34801543743731,high intensity,F
-57.10041803576117,high intensity,M
-83.85585584181499,high intensity,F
-89.5141778242419,high intensity,M
-79.51662179694382,high intensity,F
-66.50894398119347,high intensity,M
-61.60951189689381,high intensity,F
-82.24349135607022,high intensity,M
-81.6600361435265,high intensity,F
-65.76930253384066,high intensity,M
-61.074385450643206,high intensity,F
-76.49623156350944,high intensity,M
-73.58843213313568,high intensity,F
-69.76416429877204,high intensity,M
-71.18896771360852,high intensity,F
-65.77251741203341,high intensity,M
-60.25459798870699,high intensity,F
-49.13009077303924,high intensity,M
-68.25509071807514,high intensity,F
-74.6691492192033,high intensity,M
-77.77675900597475,high intensity,F
-83.53285728802462,high intensity,M
-69.43923023974375,high intensity,F
-64.91668281968187,high intensity,M
-84.71352141239248,high intensity,F
-58.075457318046674,high intensity,M
-84.55297223600363,high intensity,F
-72.62527531989726,high intensity,M
-62.59630058234665,high intensity,F
-67.9234727176246,high intensity,M
-82.92956606935992,high intensity,F
-75.61100780849408,high intensity,M
-67.40207912128704,high intensity,F
-83.72760798347446,high intensity,M
-60.78451148381107,high intensity,F
-69.9517798271271,high intensity,M
-68.2493992688434,high intensity,F
-72.44642708859628,high intensity,M
-85.5651962598647,high intensity,F
-69.32471727557856,high intensity,M
-87.40103156442312,high intensity,F
-79.68450322261128,high intensity,M
-53.86140342370446,high intensity,F
-75.6620878603014,high intensity,M
-64.05525293657935,high intensity,F
-70.54757392088214,high intensity,M
-81.67438162572921,high intensity,F
-55.23045659733838,high intensity,M
-56.73968335280517,high intensity,F
-82.2877790988691,high intensity,M
-66.18832945675604,high intensity,F
-52.422601844184086,high intensity,M
-75.84320374725911,high intensity,F
-75.55170953053835,high intensity,M
-78.513118357344,high intensity,F
-63.87385898259737,high intensity,M
-68.36421676636927,high intensity,F
-86.38296992232107,high intensity,M
-68.89933234188206,high intensity,F
-68.54133520634235,high intensity,M
-40.36322405263688,high intensity,F
-61.03147024466644,high intensity,M
-69.70802921901094,high intensity,F
-80.3167329872079,high intensity,M
-78.1105186583528,high intensity,F
-47.72841908866677,high intensity,M
-73.42116380618069,high intensity,F
-68.67841234901543,high intensity,M
-65.86248834047095,high intensity,F
-74.20723880097961,high intensity,M
-47.307530273265314,high intensity,F
-64.71843536935509,high intensity,M
-60.109524448560194,high intensity,F
-57.624441581874365,high intensity,M
-67.56032510967597,high intensity,F
-93.45087797098677,high intensity,M
-76.33389439896067,high intensity,F
-88.50651164808946,high intensity,M
-91.12194644890387,high intensity,F
-62.987773956176035,high intensity,M
-71.25702112309725,high intensity,F
-65.98479164085666,high intensity,M
-57.24111003967452,high intensity,F
-51.71180261685057,high intensity,M
-58.184269623803445,high intensity,F
-58.77633427751701,high intensity,M
-57.87885408966713,high intensity,F
-79.88793079089494,high intensity,M
-63.43684287273946,high intensity,F
-81.15750398388023,high intensity,M
-71.14239626248727,high intensity,F
-62.73405509187543,high intensity,M
-65.76831152794506,high intensity,F
-53.136458253668174,high intensity,M
-69.47428752453865,high intensity,F
-78.8924722872299,high intensity,M
-38.551552480670146,high intensity,F
-61.240892728368394,high intensity,M
-55.127182215101904,high intensity,F
-76.53032056371865,high intensity,M
-50.78506578704685,high intensity,F
-85.71885525094895,high intensity,M
-60.62977028178939,high intensity,F
-67.88984917231225,high intensity,M
-73.85630783136652,high intensity,F
-81.09461237197182,high intensity,M
-71.06095316168602,high intensity,F
-70.03140678263047,high intensity,M
-59.29855682472729,high intensity,F
-76.83356261737417,high intensity,M
-78.8946445073777,high intensity,F
-74.65275759604974,high intensity,M
-65.44815229190061,high intensity,F
-82.4429110708921,high intensity,M
-70.08039402545523,high intensity,F
-65.8288280218835,high intensity,M
-65.86063850678347,high intensity,F
-80.66645361553309,high intensity,M
-60.54733769612214,high intensity,F
-63.578362749253536,high intensity,M
-70.37615764066615,high intensity,F
-65.8798243985577,high intensity,M
-67.80511322111484,high intensity,F
-61.43712054221912,high intensity,M
-61.017587019268674,high intensity,F
-59.49616150452881,high intensity,M
-72.09353237383495,high intensity,F
-49.39055292081197,high intensity,M
-51.80201435865803,high intensity,F
-53.91065051376275,high intensity,M
-54.82780553843992,high intensity,F
-83.94495369161066,high intensity,M
-75.46571029975692,high intensity,F
-71.92421989324275,high intensity,M
-74.95345481204039,high intensity,F
-78.04930567875856,high intensity,M
-56.655213520244,high intensity,F
-58.27123396779669,high intensity,M
-59.29040259087854,high intensity,F
-73.75437930915231,high intensity,M
-53.86088640710589,high intensity,F
-68.94413870339258,high intensity,M
-71.45520845129666,high intensity,F
-62.92397911491858,high intensity,M
-68.20697124792895,high intensity,F
-68.19868776811693,high intensity,M
-58.77158495766729,high intensity,F
-62.31232985939284,high intensity,M
-51.950044798451884,high intensity,F
-84.29575716613076,high intensity,M
-75.5540761341061,high intensity,F
-63.43191190976067,high intensity,M
-75.17062394814992,high intensity,F
-59.82545608855516,high intensity,M
-64.3252790700641,high intensity,F
-71.85203160738405,high intensity,M
-64.05778793553498,high intensity,F
-62.412158198568875,high intensity,M
-47.93586507551277,high intensity,F
-67.40891997335024,high intensity,M
-85.97444369196701,high intensity,F
-66.02853142382767,high intensity,M
-63.538530791969876,high intensity,F
-85.42570344571615,high intensity,M
-78.18163728620445,high intensity,F
-56.909961938058,high intensity,M
-69.82189405306883,high intensity,F
-56.649765731370564,high intensity,M
-57.77774489566503,high intensity,F
-68.73717077339971,high intensity,M
-67.2210956332347,high intensity,F
-59.713577024586016,high intensity,M
-67.12575179964479,high intensity,F
-63.46121239817038,high intensity,M
-59.23840666205244,high intensity,F
-60.20102418087174,high intensity,M
-69.16445935509977,high intensity,F
-75.06400302989623,high intensity,M
-84.43151483348376,high intensity,F
-82.06514996097381,high intensity,M
-81.69938364174864,high intensity,F
-64.10544906652333,high intensity,M
-70.34781655945373,high intensity,F
-76.39701949795217,high intensity,M
-57.38426557468401,high intensity,F
-58.66337225438146,high intensity,M
-56.571451655387214,high intensity,F
-56.91227947517655,high intensity,M
-64.14415484427174,high intensity,F
-78.46873135467371,high intensity,M
-75.28097264114109,high intensity,F
-77.69618699567461,high intensity,M
-69.34306349395165,high intensity,F
-41.04577690718213,high intensity,M
-67.6103333280874,high intensity,F
-64.02805128855769,high intensity,M
-86.4685873435746,high intensity,F
-75.852061271375,high intensity,M
-69.59750718113789,high intensity,F
-70.77953538488461,high intensity,M
-70.48937218957902,high intensity,F
-58.74511958153065,high intensity,M
-73.04079343043338,high intensity,F
-78.60644885317035,high intensity,M
-82.20226549317022,high intensity,F
-68.12824573586656,high intensity,M
-61.542090640889185,high intensity,F
-79.16983965802856,high intensity,M
-61.065961510366854,high intensity,F
-53.351584021220425,high intensity,M
-54.814937650946874,high intensity,F
-71.96045144971013,high intensity,M
-41.94317699248108,high intensity,F
-89.21856354784177,high intensity,M
-67.25160034641225,high intensity,F
-72.47031685447236,high intensity,M
-47.52193862813621,high intensity,F
-70.29158514928048,high intensity,M
-62.54098223709827,high intensity,F
-79.25232813549617,high intensity,M
-68.61320233310146,high intensity,F
-65.52596954268635,high intensity,M
-80.85831245389608,high intensity,F
-54.03161907603857,high intensity,M
-73.95615858779247,high intensity,F
-54.723652264453605,high intensity,M
-75.65907621848721,high intensity,F
-70.9878037686443,high intensity,M
-78.29348531145591,high intensity,F
-64.48836814515279,high intensity,M
-62.72595855321769,high intensity,F
-62.31119393832511,high intensity,M
-71.24386166499222,high intensity,F
-58.268970857562564,high intensity,M
-72.06155321101299,high intensity,F
-79.21524841991615,high intensity,M
-53.34267484340269,high intensity,F
-73.67982653666724,high intensity,M
-86.54518203092131,high intensity,F
-59.07352929284618,high intensity,M
-57.85525968462592,high intensity,F
-59.42638815604295,high intensity,M
-48.435901244969465,high intensity,F
-60.57050805352466,high intensity,M
-65.287333211837307,high intensity,F
-72.80668096079847,high intensity,M
-80.15343078686986,high intensity,F
-64.47949747127062,high intensity,M
-73.27199658336826,high intensity,F
-90.10123575370551,high intensity,M
-75.81932292330012,high intensity,F
-68.52466099103847,high intensity,M
-68.35655547501865,high intensity,F
-79.91377212301242,high intensity,M
-63.320978610476374,high intensity,F
-90.40537457635978,high intensity,M
-44.91143507350205,high intensity,F
-58.95705134116366,high intensity,M
-64.17763959178899,high intensity,F
-61.53513501483865,high intensity,M
-61.85253178209186,high intensity,F
-61.61311571583553,high intensity,M
-67.07763702273932,high intensity,F
-67.82893350696874,high intensity,M
-64.87547115170825,high intensity,F
-77.02481685538288,high intensity,M
-70.04276471107626,high intensity,F
-64.05289073218552,high intensity,M
-63.75511156049742,high intensity,F
-70.93121533857995,high intensity,M
-58.16336216239376,high intensity,F
-47.764698844028025,high intensity,M
-63.2605210387736,high intensity,F
-55.88124846406261,high intensity,M
-84.83696429199074,high intensity,F
-66.40173341620445,high intensity,M
-68.49103914862378,high intensity,F
-72.33622323338466,high intensity,M
-65.94079152595334,high intensity,F
-47.961316584263336,high intensity,M
-49.81573393473997,high intensity,F
-74.61459461818426,high intensity,M
-54.802523392022124,high intensity,F
-78.18155768932968,high intensity,M
-79.93463384379552,high intensity,F
-69.96281526219167,high intensity,M
-65.52006808510346,high intensity,F
-69.77088205001729,high intensity,M
-65.19607544773599,high intensity,F
-66.2673951624629,high intensity,M
-63.76672205852981,high intensity,F
-93.60573711115812,high intensity,M
-62.11816672191361,high intensity,F
-52.81473453589233,high intensity,M
-45.019929385592306,high intensity,F
-67.52722199908636,high intensity,M
-72.88771937153663,high intensity,F
-84.14782068733092,high intensity,M
-77.72473292472306,high intensity,F
-68.90590372697635,high intensity,M
-81.26335603792627,high intensity,F
-61.52887516903167,high intensity,M
-65.39288155119549,high intensity,F
-67.32144750803053,high intensity,M
-69.73419698205572,high intensity,F
-65.38144188993054,high intensity,M
-52.38364528535873,high intensity,F
-63.22643137883819,high intensity,M
-57.698281737841945,high intensity,F
-55.298760937215974,high intensity,M
-71.702014487213,high intensity,F
-54.7726557642065,high intensity,M
-48.80727502182069,high intensity,F
-71.38868576479587,high intensity,M
-80.77058681917684,high intensity,F
-52.994119819231464,high intensity,M
-82.4490305181309,high intensity,F
-78.94896243912643,high intensity,M
-48.62646515864214,high intensity,F
-87.96265724588356,high intensity,M
-63.77296553733693,high intensity,F
-45.257082641148685,high intensity,M
-67.59742905424676,high intensity,F
-71.23952298528182,high intensity,M
-58.149986450571866,high intensity,F
-45.96792492475673,high intensity,M
-70.39914937501696,high intensity,F
-78.93368727693286,high intensity,M
-66.45786202422484,high intensity,F
-64.1497092005666,high intensity,M
-68.99950148673639,high intensity,F
-66.1265516625728,high intensity,M
-68.39060194591501,high intensity,F
-72.90433579185944,high intensity,M
-59.78593194137768,high intensity,F
-69.88770867944412,high intensity,M
-60.849818646009524,high intensity,F
-63.13720337495247,high intensity,M
-75.10554472858344,high intensity,F
-62.79994668546655,high intensity,M
-48.692762296959756,high intensity,F
-72.25958990417166,high intensity,M
-61.3147780418198,high intensity,F
-72.08447018333466,high intensity,M
-80.99333290737066,high intensity,F
-67.16489873912185,high intensity,M
-60.12078321771845,high intensity,F
-60.23516479246144,high intensity,M
-48.334943661714675,high intensity,F
-58.80549697148146,high intensity,M
-58.10116529481247,high intensity,F
-63.55009679737451,high intensity,M
-80.0199715135454,high intensity,F
-85.5396924377118,high intensity,M
-71.29590591065626,high intensity,F
-61.29655540027301,high intensity,M
-76.10732533691815,high intensity,F
-54.86977876007681,high intensity,M
-61.79352180819957,high intensity,F
-55.40507455130859,high intensity,M
-45.09767095979041,high intensity,F
-56.73818798909867,high intensity,M
-59.510261249566504,high intensity,F
-72.23402448676718,high intensity,M
-63.40621974319405,high intensity,F
-64.74543976557699,high intensity,M
-71.43180687853175,high intensity,F
-62.77898409914373,high intensity,M
-70.50358019379176,high intensity,F
-73.66982367210358,high intensity,M
-75.98793622334772,high intensity,F
-72.854346635396,high intensity,M
-64.90808614570068,high intensity,F
-94.84418938705342,high intensity,M
-60.02393242873703,high intensity,F
-83.52564983486592,high intensity,M
-70.26697720237706,high intensity,F
-70.49608314115925,high intensity,M
-78.60402025008375,high intensity,F
-73.21624762669995,high intensity,M
-83.29758874847802,high intensity,F
-70.09730263070936,high intensity,M
-72.27803329178936,high intensity,F
-63.46589609862957,high intensity,M
-57.864597452676215,high intensity,F
-82.56305801679422,moderate intensity,M
-69.7321262037662,moderate intensity,F
-61.738862925139955,moderate intensity,M
-66.9801517335573,moderate intensity,F
-65.58983231458512,moderate intensity,M
-63.96896950509393,moderate intensity,F
-63.64872956142769,moderate intensity,M
-93.2059524792645,moderate intensity,F
-76.0019000115297,moderate intensity,M
-64.2700185501644,moderate intensity,F
-76.34715947426612,moderate intensity,M
-77.01624994660459,moderate intensity,F
-63.421275022789665,moderate intensity,M
-74.65225272371563,moderate intensity,F
-61.206533702979414,moderate intensity,M
-60.596453678540406,moderate intensity,F
-75.75013498963533,moderate intensity,M
-72.81117479313787,moderate intensity,F
-83.30512855776489,moderate intensity,M
-76.63275709054884,moderate intensity,F
-83.73259597397924,moderate intensity,M
-69.75473617544361,moderate intensity,F
-80.84416427703933,moderate intensity,M
-64.72207202366518,moderate intensity,F
-60.43035801933581,moderate intensity,M
-65.77132866604214,moderate intensity,F
-78.0951053122183,moderate intensity,M
-61.47846641455175,moderate intensity,F
-82.02051513421254,moderate intensity,M
-81.81339740745798,moderate intensity,F
-72.21779866677659,moderate intensity,M
-53.776993910961195,moderate intensity,F
-65.69601401324533,moderate intensity,M
-77.80697081718641,moderate intensity,F
-71.38284872650662,moderate intensity,M
-75.01180783525687,moderate intensity,F
-71.26707911516463,moderate intensity,M
-63.43594429638288,moderate intensity,F
-73.79983963841887,moderate intensity,M
-77.84099099720957,moderate intensity,F
-78.79188987226742,moderate intensity,M
-71.64662666856947,moderate intensity,F
-45.61124074645266,moderate intensity,M
-82.02781618984253,moderate intensity,F
-58.25507643063054,moderate intensity,M
-64.18563161540936,moderate intensity,F
-81.19698875490084,moderate intensity,M
-65.34779067644054,moderate intensity,F
-85.26988284585967,moderate intensity,M
-62.83739149974885,moderate intensity,F
-69.74772777588429,moderate intensity,M
-50.885354801237426,moderate intensity,F
-77.23904129445305,moderate intensity,M
-65.64387548458544,moderate intensity,F
-63.64543022020978,moderate intensity,M
-84.01148682781975,moderate intensity,F
-90.71359294017569,moderate intensity,M
-82.23825909197298,moderate intensity,F
-76.54781435116968,moderate intensity,M
-63.9403836618917,moderate intensity,F
-87.11740723427279,moderate intensity,M
-75.60132502655017,moderate intensity,F
-55.78345992620995,moderate intensity,M
-60.009742718346715,moderate intensity,F
-85.9098132471402,moderate intensity,M
-81.57176265737598,moderate intensity,F
-77.13002407985924,moderate intensity,M
-72.50839718144827,moderate intensity,F
-70.63972260720024,moderate intensity,M
-67.61704446203764,moderate intensity,F
-60.54484205886471,moderate intensity,M
-53.908638086584965,moderate intensity,F
-66.51312063893693,moderate intensity,M
-70.81419189776427,moderate intensity,F
-61.42283790336228,moderate intensity,M
-86.70193951388812,moderate intensity,F
-66.05348719800124,moderate intensity,M
-58.7433808168658,moderate intensity,F
-86.89837313728005,moderate intensity,M
-64.26385709523001,moderate intensity,F
-55.41545065682665,moderate intensity,M
-60.096131294265405,moderate intensity,F
-75.49238345328622,moderate intensity,M
-60.25599326111019,moderate intensity,F
-58.49607957373637,moderate intensity,M
-69.29050670775396,moderate intensity,F
-83.60494152444167,moderate intensity,M
-72.12233430835325,moderate intensity,F
-72.7028406833426,moderate intensity,M
-74.72686640073756,moderate intensity,F
-78.79591406261909,moderate intensity,M
-78.52663725890486,moderate intensity,F
-68.34478857450101,moderate intensity,M
-57.49144765492912,moderate intensity,F
-94.43086822159779,moderate intensity,M
-50.85794207893281,moderate intensity,F
-70.5364423384757,moderate intensity,M
-57.48870906570231,moderate intensity,F
-76.97471342358888,moderate intensity,M
-66.01870457143093,moderate intensity,F
-74.73013650948175,moderate intensity,M
-85.59099895666263,moderate intensity,F
-82.12778913204723,moderate intensity,M
-81.1746097186374,moderate intensity,F
-76.82237652581456,moderate intensity,M
-53.64215862261752,moderate intensity,F
-93.22322328918446,moderate intensity,M
-78.6111592103302,moderate intensity,F
-64.36239854040504,moderate intensity,M
-71.22924711214803,moderate intensity,F
-62.042486179841106,moderate intensity,M
-70.57027749102035,moderate intensity,F
-80.848616512364,moderate intensity,M
-48.08633165983517,moderate intensity,F
-70.4253017877709,moderate intensity,M
-64.76095109499258,moderate intensity,F
-61.24593018438447,moderate intensity,M
-74.19913306377019,moderate intensity,F
-73.02016245387323,moderate intensity,M
-54.44778237480384,moderate intensity,F
-71.25348249614218,moderate intensity,M
-78.09120906415646,moderate intensity,F
-63.32935092607256,moderate intensity,M
-74.31194163028245,moderate intensity,F
-87.72456476294498,moderate intensity,M
-79.56587893442301,moderate intensity,F
-57.6233165790927,moderate intensity,M
-62.94387734957731,moderate intensity,F
-52.70969455967243,moderate intensity,M
-69.63514999632767,moderate intensity,F
-75.69068275374829,moderate intensity,M
-42.7009359491821,moderate intensity,F
-72.21604113346721,moderate intensity,M
-77.48820602827213,moderate intensity,F
-76.00965981538843,moderate intensity,M
-87.86460358381319,moderate intensity,F
-78.89478775223917,moderate intensity,M
-73.07220410800441,moderate intensity,F
-81.46157011339544,moderate intensity,M
-66.25238413401509,moderate intensity,F
-55.22751953103487,moderate intensity,M
-70.20642672311745,moderate intensity,F
-84.11652374950712,moderate intensity,M
-80.11667459836929,moderate intensity,F
-57.40971699319097,moderate intensity,M
-58.992611886563466,moderate intensity,F
-50.8075973669126,moderate intensity,M
-73.85239017683118,moderate intensity,F
-68.168870777354,moderate intensity,M
-64.4771284261877,moderate intensity,F
-80.32141151364436,moderate intensity,M
-59.70616429808658,moderate intensity,F
-81.13412004624655,moderate intensity,M
-53.87643530816097,moderate intensity,F
-63.599629935468,moderate intensity,M
-89.84328164584255,moderate intensity,F
-66.45916854862075,moderate intensity,M
-62.91846529098179,moderate intensity,F
-97.50907942485003,moderate intensity,M
-65.6002655322507,moderate intensity,F
-57.867998354769995,moderate intensity,M
-57.942904616837545,moderate intensity,F
-54.86843356383702,moderate intensity,M
-70.979319995544,moderate intensity,F
-60.41382127602224,moderate intensity,M
-66.54562186167522,moderate intensity,F
-68.2578854305221,moderate intensity,M
-58.52953967615125,moderate intensity,F
-56.55523972287748,moderate intensity,M
-82.01505449513427,moderate intensity,F
-60.14660414487911,moderate intensity,M
-62.04010336126525,moderate intensity,F
-74.8512159361189,moderate intensity,M
-70.77659486109582,moderate intensity,F
-58.934656835320084,moderate intensity,M
-81.80920539099667,moderate intensity,F
-72.0238767658771,moderate intensity,M
-91.53223913491388,moderate intensity,F
-67.08533371753053,moderate intensity,M
-67.55887365630508,moderate intensity,F
-65.11579012204565,moderate intensity,M
-75.02649797744222,moderate intensity,F
-65.43324821554296,moderate intensity,M
-62.95375931065829,moderate intensity,F
-63.73361953279667,moderate intensity,M
-79.87429659950686,moderate intensity,F
-74.14369421759443,moderate intensity,M
-69.34996536172633,moderate intensity,F
-63.22701524644569,moderate intensity,M
-62.48594167020484,moderate intensity,F
-73.73285346958056,moderate intensity,M
-79.10514664935732,moderate intensity,F
-56.02634870053302,moderate intensity,M
-80.94160889940868,moderate intensity,F
-62.949582327436985,moderate intensity,M
-91.71342633320296,moderate intensity,F
-81.31181026733555,moderate intensity,M
-73.09584725255371,moderate intensity,F
-90.41663742513447,moderate intensity,M
-70.20224378836241,moderate intensity,F
-65.43370746734956,moderate intensity,M
-62.276006250005196,moderate intensity,F
-97.84226808922287,moderate intensity,M
-79.91894228580387,moderate intensity,F
-67.60482614199694,moderate intensity,M
-81.49637894810016,moderate intensity,F
-64.45627294285804,moderate intensity,M
-90.70520904780605,moderate intensity,F
-67.83678942826715,moderate intensity,M
-61.19225925259086,moderate intensity,F
-87.7213375387063,moderate intensity,M
-76.48991833947869,moderate intensity,F
-78.99115514035063,moderate intensity,M
-70.14356707914983,moderate intensity,F
-71.42635905411267,moderate intensity,M
-64.6463472410258,moderate intensity,F
-80.70310249737022,moderate intensity,M
-77.9088546364683,moderate intensity,F
-72.99138280317797,moderate intensity,M
-66.65466102286487,moderate intensity,F
-71.57189763279825,moderate intensity,M
-80.27755835197203,moderate intensity,F
-70.55491609893767,moderate intensity,M
-75.73084625970165,moderate intensity,F
-42.38213978492248,moderate intensity,M
-80.65515473871805,moderate intensity,F
-74.26015096540198,moderate intensity,M
-74.52465911740371,moderate intensity,F
-76.38277856232173,moderate intensity,M
-81.45065694041195,moderate intensity,F
-71.03848465444275,moderate intensity,M
-86.12299297626954,moderate intensity,F
-80.24104029417549,moderate intensity,M
-73.55501227482564,moderate intensity,F
-51.54016264983279,moderate intensity,M
-84.2961560596447,moderate intensity,F
-76.53955302748209,moderate intensity,M
-70.98941399163887,moderate intensity,F
-61.67631098890994,moderate intensity,M
-78.73636240877715,moderate intensity,F
-73.1796990188902,moderate intensity,M
-76.9894516966772,moderate intensity,F
-74.9611194593044,moderate intensity,M
-72.92080070650707,moderate intensity,F
-69.0320398071616,moderate intensity,M
-65.96637331441056,moderate intensity,F
-66.16767429331404,moderate intensity,M
-58.0532180949727,moderate intensity,F
-71.5287104755225,moderate intensity,M
-76.95564679783615,moderate intensity,F
-65.97248891800974,moderate intensity,M
-66.39835782064779,moderate intensity,F
-70.31008456310971,moderate intensity,M
-59.35253767682842,moderate intensity,F
-79.26306687493104,moderate intensity,M
-75.17119725199598,moderate intensity,F
-63.04578649129358,moderate intensity,M
-72.12454210950872,moderate intensity,F
-65.49103195626644,moderate intensity,M
-66.71726400851108,moderate intensity,F
-65.31898594679168,moderate intensity,M
-56.8516755570649,moderate intensity,F
-80.34278711685951,moderate intensity,M
-55.736005865216285,moderate intensity,F
-61.754097959258814,moderate intensity,M
-63.70423452034669,moderate intensity,F
-71.02387848894575,moderate intensity,M
-77.58252725735971,moderate intensity,F
-80.84069042443053,moderate intensity,M
-66.35428364513197,moderate intensity,F
-63.05724203122623,moderate intensity,M
-74.49765445956356,moderate intensity,F
-80.46318038699026,moderate intensity,M
-56.614882264944406,moderate intensity,F
-71.98626687930953,moderate intensity,M
-76.93140725822101,moderate intensity,F
-79.36224331236183,moderate intensity,M
-60.381005122005575,moderate intensity,F
-61.303320354308845,moderate intensity,M
-58.00134593190752,moderate intensity,F
-73.2946313715294,moderate intensity,M
-60.66553256094772,moderate intensity,F
-67.17825690660185,moderate intensity,M
-80.7650676758739,moderate intensity,F
-66.81479042232294,moderate intensity,M
-45.78236421990489,moderate intensity,F
-85.96920283164289,moderate intensity,M
-60.233307656480704,moderate intensity,F
-64.36123329888346,moderate intensity,M
-81.59727823316892,moderate intensity,F
-63.64732354140857,moderate intensity,M
-73.63765333993275,moderate intensity,F
-53.86094340945874,moderate intensity,M
-65.76141645096075,moderate intensity,F
-90.31495244099564,moderate intensity,M
-67.74550316426453,moderate intensity,F
-60.23624627379431,moderate intensity,M
-89.12510212150104,moderate intensity,F
-82.44494594219029,moderate intensity,M
-53.69625954888135,moderate intensity,F
-72.72964633324636,moderate intensity,M
-61.16187289526859,moderate intensity,F
-91.20492594808718,moderate intensity,M
-60.84962855143261,moderate intensity,F
-71.37198364054258,moderate intensity,M
-75.92571873734559,moderate intensity,F
-89.6318843780962,moderate intensity,M
-74.99328392220386,moderate intensity,F
-76.3740667701104,moderate intensity,M
-71.31329773296933,moderate intensity,F
-56.48354203069482,moderate intensity,M
-94.43462811984658,moderate intensity,F
-78.68635357836044,moderate intensity,M
-56.86441319512312,moderate intensity,F
-71.69985694785751,moderate intensity,M
-64.03719963506983,moderate intensity,F
-62.71884677445004,moderate intensity,M
-76.13659041242684,moderate intensity,F
-62.741054691789834,moderate intensity,M
-55.02198035415988,moderate intensity,F
-67.65986037147835,moderate intensity,M
-71.24036659835552,moderate intensity,F
-71.32300439636278,moderate intensity,M
-82.64900877660904,moderate intensity,F
-68.85837001240444,moderate intensity,M
-92.01750486292129,moderate intensity,F
-78.25595731894532,moderate intensity,M
-81.34882299341561,moderate intensity,F
-75.75086096315232,moderate intensity,M
-73.86420028322462,moderate intensity,F
-75.63181863730227,moderate intensity,M
-66.97189480709034,moderate intensity,F
-66.08467307096947,moderate intensity,M
-56.87988102477519,moderate intensity,F
-62.595831514464656,moderate intensity,M
-63.19412256806879,moderate intensity,F
-56.55172938454125,moderate intensity,M
-73.25723833600372,moderate intensity,F
-67.91742755578974,moderate intensity,M
-74.21685876655297,moderate intensity,F
-63.37431971900624,moderate intensity,M
-50.23337075102091,moderate intensity,F
-80.32929921805905,moderate intensity,M
-61.95165100241627,moderate intensity,F
-87.30940027999644,moderate intensity,M
-74.80913281490483,moderate intensity,F
-66.24602722838253,moderate intensity,M
-72.58873118027704,moderate intensity,F
-76.69131728587313,moderate intensity,M
-63.409594434022125,moderate intensity,F
-91.09450148619096,moderate intensity,M
-74.93309194210832,moderate intensity,F
-81.42719966483607,moderate intensity,M
-80.96333632347354,moderate intensity,F
-63.89716574992674,moderate intensity,M
-77.1592243064307,moderate intensity,F
-72.10163059214085,moderate intensity,M
-59.49260687994954,moderate intensity,F
-52.82769341333999,moderate intensity,M
-47.35759736482556,moderate intensity,F
-63.13289534762583,moderate intensity,M
-105.73681676073251,moderate intensity,F
-82.715915250792,moderate intensity,M
-65.84375935339118,moderate intensity,F
-60.218442838967924,moderate intensity,M
-62.59563080358377,moderate intensity,F
-69.69148254656162,moderate intensity,M
-76.08563025681558,moderate intensity,F
-74.02865035737328,moderate intensity,M
-69.2508902892332,moderate intensity,F
-67.48199489729375,moderate intensity,M
-77.2143113180089,moderate intensity,F
-58.51593851144353,moderate intensity,M
-68.1852071792099,moderate intensity,F
-66.6235918138909,moderate intensity,M
-59.5745019454133,moderate intensity,F
-74.58845127839447,moderate intensity,M
-79.22149650108929,moderate intensity,F
-64.5708784013266,moderate intensity,M
-77.44750032442171,moderate intensity,F
-78.5460895643669,moderate intensity,M
-48.27097069249773,moderate intensity,F
-76.0823753892634,moderate intensity,M
-65.53775673934088,moderate intensity,F
-72.33520232221801,moderate intensity,M
-69.6166862672934,moderate intensity,F
-44.72450853523295,moderate intensity,M
-68.86068564468302,moderate intensity,F
-83.363930947566,moderate intensity,M
-66.89085388576031,moderate intensity,F
-64.1665049948523,moderate intensity,M
-67.56231437418386,moderate intensity,F
-52.94710259972682,moderate intensity,M
-68.81229774982852,moderate intensity,F
-66.11710462894546,moderate intensity,M
-80.4002266442,moderate intensity,F
-82.94702360040301,moderate intensity,M
-69.35966498835003,moderate intensity,F
-55.84678122621857,moderate intensity,M
-65.47263904090379,moderate intensity,F
-88.95019300210629,moderate intensity,M
-80.29822323829256,moderate intensity,F
-74.05508435967137,moderate intensity,M
-72.46447579434799,moderate intensity,F
-87.57267728681815,moderate intensity,M
-77.21224823844173,moderate intensity,F
-79.55356158063186,moderate intensity,M
-53.52435424319256,moderate intensity,F
-74.82062149832365,moderate intensity,M
-86.84232453617432,moderate intensity,F
-56.82520127024433,moderate intensity,M
-78.55051515939742,moderate intensity,F
-72.88975698461623,moderate intensity,M
-74.2447336777009,moderate intensity,F
-65.76435478749501,moderate intensity,M
-55.36908320918221,moderate intensity,F
-73.65557436458523,moderate intensity,M
-68.45115040963556,moderate intensity,F
-84.19936767512993,moderate intensity,M
-69.96246031378165,moderate intensity,F
-51.09846052264829,moderate intensity,M
-55.290665555214545,moderate intensity,F
-74.72092553030564,moderate intensity,M
-75.446560120014,moderate intensity,F
-70.50024777675894,moderate intensity,M
-76.51994685986168,moderate intensity,F
-61.00555820399006,moderate intensity,M
-74.8308393092316,moderate intensity,F
-77.90465976723345,moderate intensity,M
-76.05236235796146,moderate intensity,F
-62.64027668045071,moderate intensity,M
-83.67846552196356,moderate intensity,F
-81.0873870762832,moderate intensity,M
-67.58951436211905,moderate intensity,F
-77.29045981959364,moderate intensity,M
-71.84011460699325,moderate intensity,F
-63.82248530506597,moderate intensity,M
-68.2437101322054,moderate intensity,F
-61.44573683860409,moderate intensity,M
-84.03096075023082,moderate intensity,F
-74.53016630112924,moderate intensity,M
-88.71079116502548,moderate intensity,F
-64.72473923432635,moderate intensity,M
-74.52900813808117,moderate intensity,F
-73.11765741739926,moderate intensity,M
-72.04618515622249,moderate intensity,F
-85.03290577868577,moderate intensity,M
-66.2381503858759,moderate intensity,F
-98.83258931426509,moderate intensity,M
-66.9522110334745,moderate intensity,F
-69.09236791759488,moderate intensity,M
-66.14756886608308,moderate intensity,F
-92.32789840047013,moderate intensity,M
-70.7081747965177,moderate intensity,F
-69.84516882412774,moderate intensity,M
-75.6175455814249,moderate intensity,F
-62.83065009723817,moderate intensity,M
-61.74697375209815,moderate intensity,F
-77.38215912774922,moderate intensity,M
-51.39400607466962,moderate intensity,F
-89.09114749958246,moderate intensity,M
-64.47299963807409,moderate intensity,F
-66.7494236188605,moderate intensity,M
-52.87855384260196,moderate intensity,F
-68.02747416454291,moderate intensity,M
-69.43961273144707,moderate intensity,F
-72.09730950584847,moderate intensity,M
-70.87185364181386,moderate intensity,F
-59.85600809139534,moderate intensity,M
-64.48871468839573,moderate intensity,F
-62.815427743006666,moderate intensity,M
-82.82756168133719,moderate intensity,F
-56.67019416157664,moderate intensity,M
-82.23773833279569,moderate intensity,F
-68.36074275996087,moderate intensity,M
-70.5439229607219,moderate intensity,F
-57.97552063628819,moderate intensity,M
-65.0976706784523,moderate intensity,F
-75.51643576889589,moderate intensity,M
-78.05464655966615,moderate intensity,F
-71.15841630788528,moderate intensity,M
-57.784295615264796,moderate intensity,F
-57.940066562477114,moderate intensity,M
-81.4274383879445,moderate intensity,F
-75.25912535895479,moderate intensity,M
-54.92212844788365,moderate intensity,F
-84.93114386349716,moderate intensity,M
-63.42296602849696,moderate intensity,F
-57.00621666027081,moderate intensity,M
-66.77195421427312,moderate intensity,F
-58.36918683255799,moderate intensity,M
-57.38415622614346,moderate intensity,F
-67.8793021357331,moderate intensity,M
-66.61227061227036,moderate intensity,F
-67.85811681556575,moderate intensity,M
-79.85027349821146,moderate intensity,F
-69.56923934294757,moderate intensity,M
-63.62882812185093,moderate intensity,F
-51.90744987412766,moderate intensity,M
-59.60284094965995,moderate intensity,F
-77.83691950584189,moderate intensity,M
-68.46152206503359,moderate intensity,F
-66.12469690000297,moderate intensity,M
-68.23786719821848,moderate intensity,F
-67.6285444534165,moderate intensity,M
-59.243910328894174,moderate intensity,F
-67.31658613174471,moderate intensity,M
-67.36597481005003,moderate intensity,F
-63.14591612206325,moderate intensity,M
-64.50554471565336,moderate intensity,F
-65.01308802013081,moderate intensity,M
-54.933959362245716,moderate intensity,F
-83.40751207623629,moderate intensity,M
-70.86275159325253,moderate intensity,F
-65.13985759002558,moderate intensity,M
-72.71369848500855,moderate intensity,F
-77.09315115793565,moderate intensity,M
-76.54690961908707,moderate intensity,F
-69.36678023232803,moderate intensity,M
-75.81482223380782,moderate intensity,F
-75.61550279197922,moderate intensity,M
-72.59616628643347,moderate intensity,F
-72.10091120893037,control,M
-67.96920222912928,control,F
-63.58751712295655,control,M
-76.95313038361436,control,F
-73.87492076880595,control,M
-73.3859336449513,control,F
-75.90207064594748,control,M
-90.31654411759513,control,F
-67.03647546159709,control,M
-82.26174087303423,control,F
-71.66332094097946,control,M
-77.99091490319469,control,F
-82.26013648863454,control,M
-64.56932431005194,control,F
-72.32130139116619,control,M
-69.8825152167502,control,F
-71.0594489347539,control,M
-72.28174865560321,control,F
-63.5484200408859,control,M
-63.843964953738514,control,F
-72.19994090565858,control,M
-71.03780629998096,control,F
-76.97215174835154,control,M
-77.48552560539768,control,F
-71.843073539473,control,M
-73.2247191487725,control,F
-73.10136849483307,control,M
-65.98238558218193,control,F
-65.90544697744217,control,M
-83.09990826522991,control,F
-71.18716260517603,control,M
-87.87656730381495,control,F
-78.30350105315867,control,M
-57.31072100505081,control,F
-83.5621675488295,control,M
-72.40558173787214,control,F
-89.9422800721027,control,M
-99.09543761605268,control,F
-68.48554711276623,control,M
-68.43292864924422,control,F
-64.70155163223623,control,M
-77.61305533001082,control,F
-58.90224053476978,control,M
-68.44367921376633,control,F
-69.88521912929276,control,M
-66.70880442316817,control,F
-78.6768253586925,control,M
-82.24276030517626,control,F
-72.12642231030381,control,M
-62.40837335158591,control,F
-65.75914666200015,control,M
-69.80902322965707,control,F
-70.11054496324546,control,M
-80.20068087789379,control,F
-78.88611829187748,control,M
-67.43568419963422,control,F
-69.86027355105055,control,M
-64.63426728348992,control,F
-91.4454916520148,control,M
-71.93577514680673,control,F
-57.28132144610833,control,M
-52.258741184560094,control,F
-84.5856866596354,control,M
-85.66639817571799,control,F
-88.67006438332417,control,M
-75.512458234337,control,F
-74.96865418750444,control,M
-76.64754958446336,control,F
-72.79247595631504,control,M
-68.94916794505532,control,F
-81.86631174515114,control,M
-69.77458083455768,control,F
-75.75752375556154,control,M
-69.75407371888359,control,F
-78.55938162761744,control,M
-94.92086268119309,control,F
-74.78453443372096,control,M
-68.81071692530509,control,F
-68.65902048726929,control,M
-93.75110217894509,control,F
-65.45521625995431,control,M
-62.89455518993158,control,F
-74.64471171177574,control,M
-72.64469118728424,control,F
-71.34449108814046,control,M
-84.60656408962558,control,F
-67.16559215838609,control,M
-66.59833039386483,control,F
-76.0531861922503,control,M
-69.2694163553225,control,F
-78.414720554066207,control,M
-57.83169074805153,control,F
-67.88500098871168,control,M
-71.67464182785976,control,F
-62.29350788875481,control,M
-66.6104731964589,control,F
-70.6032480128798,control,M
-59.57487009531724,control,F
-43.724809663106655,control,M
-65.21690007708808,control,F
-76.5089086473169,control,M
-63.72029027294104,control,F
-81.93385601195061,control,M
-85.50135836823122,control,F
-64.01309158204249,control,M
-59.2388290780761,control,F
-72.85284286300812,control,M
-71.91999970149652,control,F
-73.08595428616151,control,M
-80.56916828865494,control,F
-61.67149555626984,control,M
-78.70243060215256,control,F
-74.83600518359913,control,M
-64.23730694876869,control,F
-88.01404683127363,control,M
-82.52906006590895,control,F
-73.73582104804184,control,M
-69.48739210190669,control,F
-80.89282290474631,control,M
-64.27181621104069,control,F
-56.81654723343863,control,M
-71.19982291321114,control,F
-64.41593637714314,control,M
-74.39476277805899,control,F
-82.15597166632192,control,M
-66.17295020378131,control,F
-79.33902250118723,control,M
-71.54510893186705,control,F
-76.6360621378142,control,M
-68.47372797259442,control,F
-78.48003087999892,control,M
-67.9950257671095,control,F
-67.29711722148295,control,M
-81.63817822576566,control,F
-80.26245504288343,control,M
-78.85565867829678,control,F
-55.4939166208694,control,M
-82.37639452251975,control,F
-52.995253032683166,control,M
-63.10623026725334,control,F
-70.77358869697538,control,M
-79.90111949006298,control,F
-70.69447427178642,control,M
-64.33601346224647,control,F
-70.99302700623002,control,M
-77.59301696515907,control,F
-78.54689966074713,control,M
-60.58308494900503,control,F
-98.52655703061706,control,M
-67.13702975558986,control,F
-62.06845020532815,control,M
-70.28989772688719,control,F
-68.27576806530689,control,M
-81.00417221814203,control,F
-60.925379807902985,control,M
-72.68280051982241,control,F
-68.8850700348884,control,M
-71.82028814782129,control,F
-72.47924927639698,control,M
-73.396943897166,control,F
-58.57517220535617,control,M
-61.26257693322234,control,F
-76.22884776227423,control,M
-71.73587610960918,control,F
-79.31117975390998,control,M
-64.59111213981124,control,F
-94.28642008230138,control,M
-48.61167508251074,control,F
-72.32349667982511,control,M
-80.00740213401008,control,F
-55.75255403139342,control,M
-76.79452182880613,control,F
-61.52445967936653,control,M
-83.79076148392065,control,F
-90.24378272471087,control,M
-55.54457535273634,control,F
-76.73127336440065,control,M
-61.752819483331216,control,F
-68.29392857410429,control,M
-75.50897280420483,control,F
-74.74948506421772,control,M
-54.060619464639785,control,F
-69.71642449198403,control,M
-61.758535489758174,control,F
-71.95008741259984,control,M
-72.26574244510826,control,F
-76.67932248671836,control,M
-65.4413933583576,control,F
-71.6299635404642,control,M
-89.30834730969224,control,F
-73.44357040196101,control,M
-69.21697851573452,control,F
-81.19496403004494,control,M
-64.93758792575045,control,F
-75.93012150073024,control,M
-82.309259270655,control,F
-65.92432374306772,control,M
-59.338103493851854,control,F
-67.51575981107187,control,M
-75.92823617240239,control,F
-65.38875373352732,control,M
-61.66430739591786,control,F
-86.54517761100837,control,M
-88.19792476655577,control,F
-75.0605206516614,control,M
-74.33014797676589,control,F
-71.37830554975082,control,M
-83.47348857083396,control,F
-73.76163270077755,control,M
-72.52619476332201,control,F
-69.58577671525053,control,M
-86.84626102473919,control,F
-71.17065232497795,control,M
-66.46057491991468,control,F
-71.15896013813284,control,M
-90.58313590377172,control,F
-73.86338771756425,control,M
-88.6969586073923,control,F
-75.01880631652483,control,M
-75.25091944819766,control,F
-64.26925915056171,control,M
-75.1712364340252,control,F
-76.63319836111808,control,M
-82.34852734174126,control,F
-61.76760672578726,control,M
-65.39594213485074,control,F
-78.49690366250665,control,M
-83.45488338930011,control,F
-90.77840388079287,control,M
-77.67531655844014,control,F
-50.62848359313826,control,M
-71.36819382212553,control,F
-60.64930870394492,control,M
-62.59409456376448,control,F
-60.077537877138695,control,M
-60.67961534538896,control,F
-84.16264516843498,control,M
-83.89030123932787,control,F
-76.0750297823059,control,M
-88.8750572840211,control,F
-69.95823189201678,control,M
-47.094322256477234,control,F
-90.66203434129753,control,M
-44.21113976985881,control,F
-53.19060115655619,control,M
-74.55222031620238,control,F
-83.77141294854465,control,M
-60.62581640486944,control,F
-76.948087120221615,control,M
-70.77136834611221,control,F
-79.03321547792119,control,M
-73.89612257109454,control,F
-63.44304969215556,control,M
-61.465115672211965,control,F
-81.71004368235913,control,M
-71.69258206831971,control,F
-66.32802662078316,control,M
-71.47360859552244,control,F
-75.18655820839949,control,M
-72.23874446183663,control,F
-73.27387709628393,control,M
-66.12749557589363,control,F
-76.12554535966552,control,M
-75.3964491798704,control,F
-85.10998688503767,control,M
-85.33884818938775,control,F
-86.0323957480138,control,M
-75.32701723794979,control,F
-63.38200110851603,control,M
-84.20284918645129,control,F
-75.37188194253953,control,M
-80.83501765191096,control,F
-80.35069857838113,control,M
-89.16915640802041,control,F
-92.91563174701261,control,M
-89.76394568504014,control,F
-81.60238484676931,control,M
-66.53500839133935,control,F
-73.1639708114214,control,M
-80.78160461159878,control,F
-80.95740014485236,control,M
-51.79763331305159,control,F
-69.02024410558218,control,M
-70.53113296388511,control,F
-70.08733277610689,control,M
-67.52591031037836,control,F
-60.82262451612211,control,M
-68.85022040808364,control,F
-86.79086393403361,control,M
-82.21379019756097,control,F
-68.55393865551375,control,M
-68.40479914836129,control,F
-52.97534464177332,control,M
-71.26640217177227,control,F
-71.7677619976547,control,M
-54.68077296787483,control,F
-70.38362114734697,control,M
-57.418670112198626,control,F
-69.92418320945038,control,M
-68.75685145291229,control,F
-77.81181083207096,control,M
-73.39929706129713,control,F
-78.71547646653276,control,M
-78.44522099298598,control,F
-65.4558432870804,control,M
-68.61954621009583,control,F
-86.16415939665093,control,M
-78.57060624010045,control,F
-75.7647361458097,control,M
-71.17889630019265,control,F
-76.58365913589127,control,M
-65.20297914910121,control,F
-62.70039850047659,control,M
-62.96674192447333,control,F
-43.60428891588725,control,M
-72.52194562874008,control,F
-82.36973935000759,control,M
-101.06629620740898,control,F
-51.691457086279456,control,M
-62.22049994322512,control,F
-54.095654811680376,control,M
-61.99398882893048,control,F
-72.46308805723451,control,M
-74.5480122481233,control,F
-83.75112976707476,control,M
-83.79202561080847,control,F
-71.87522839375306,control,M
-73.88706157845692,control,F
-88.90041356512188,control,M
-83.63065132323773,control,F
-55.71088614332037,control,M
-74.6148506551418,control,F
-64.45320027179352,control,M
-64.17403398615072,control,F
-75.53808523924037,control,M
-66.4601904974511,control,F
-61.124026246567674,control,M
-74.24818094238009,control,F
-65.8061786276625,control,M
-70.69512146108552,control,F
-66.35806835986182,control,M
-77.81998406961323,control,F
-76.11032448375678,control,M
-73.95559843796653,control,F
-72.92236814968575,control,M
-82.21065939655533,control,F
-71.60999547633116,control,M
-75.39921023631139,control,F
-77.18927578497396,control,M
-70.12320597304131,control,F
-77.18395260255215,control,M
-63.31051142085514,control,F
-73.99029065392511,control,M
-76.95318889865287,control,F
-82.76144692159399,control,M
-73.72551382134343,control,F
-90.09176916220295,control,M
-71.0255763437958,control,F
-55.9899366958021,control,M
-72.45781688101525,control,F
-69.13283700856377,control,M
-65.0969420440355,control,F
-62.15387799871601,control,M
-59.00204352435492,control,F
-83.8552708155106,control,M
-75.30761973282299,control,F
-75.4197867544503,control,M
-78.62175967047813,control,F
-73.04655222763597,control,M
-86.28442686168559,control,F
-53.71010791868554,control,M
-101.40807789110714,control,F
-81.56336406771155,control,M
-76.13017111028913,control,F
-78.47156468689475,control,M
-76.30987127733886,control,F
-80.80395366386261,control,M
-79.30273624542424,control,F
-63.91594604621433,control,M
-75.42805006659121,control,F
-86.27197248993909,control,M
-73.97650532244565,control,F
-79.8762556110048,control,M
-84.95192348214474,control,F
-63.82698604021248,control,M
-71.31482844405699,control,F
-68.94747015025084,control,M
-94.98396621261371,control,F
-80.5469327009618,control,M
-72.01161456260222,control,F
-80.8341316059304,control,M
-69.17533120898572,control,F
-55.995746747122524,control,M
-68.92015853060337,control,F
-81.53698951319197,control,M
-70.25572120722786,control,F
-91.40584482793986,control,M
-57.84947341202749,control,F
-75.35905322608983,control,M
-68.99903262916419,control,F
-76.054912399436,control,M
-69.92890289990007,control,F
-64.81466090437638,control,M
-72.42728540647778,control,F
-68.31607854588728,control,M
-77.18597895436203,control,F
-64.31499349836963,control,M
-66.6399422979087,control,F
-88.846418813344755,control,M
-76.74524797078966,control,F
-80.70838372949372,control,M
-86.07833178163702,control,F
-75.36017619134338,control,M
-62.96028602651502,control,F
-82.11551546026541,control,M
-62.808626595589345,control,F
-82.60317843888959,control,M
-69.90537924029655,control,F
-71.02176296600173,control,M
-80.51270755970621,control,F
-72.07388362219821,control,M
-78.19275414751017,control,F
-59.99427317273067,control,M
-72.75520175206353,control,F
-76.05695483031579,control,M
-61.67784691686169,control,F
-83.5827742124864,control,M
-88.08532623733318,control,F
-70.64579024986692,control,M
-60.92861185114212,control,F
-63.8304634660452,control,M
-54.05970786317478,control,F
-53.69046408215027,control,M
-61.17166657392226,control,F
-63.29222320388661,control,M
-73.49969465241452,control,F
-78.497293660075,control,M
-75.58533746924067,control,F
-77.23921392262156,control,M
-99.68293565244798,control,F
-72.08239275169119,control,M
-79.54128424058162,control,F
-80.07589988504122,control,M
-74.83687322548704,control,F
-69.97532246633577,control,M
-68.48166126220791,control,F
-77.3584247241291,control,M
-72.13323029673886,control,F
-59.72478844889573,control,M
-69.41401811620078,control,F
-80.6469183988918,control,M
-74.0258477656782,control,F
-62.04897012214506,control,M
-68.14756453091867,control,F
-67.33384245815961,control,M
-76.22596917626568,control,F
-59.916900859138124,control,M
-89.85737666999978,control,F
-54.30738751306784,control,M
-79.32502314900472,control,F
-76.4139948111259,control,M
-94.72678919919896,control,F
-82.08637980434878,control,M
-71.39625520531462,control,F
-66.25730279402198,control,M
-83.7573400329717,control,F
-78.18713159235814,control,M
-79.91176005209054,control,F
-59.75659816341842,control,M
-59.396612932410065,control,F
-64.84604788026078,control,M
-80.64673611240424,control,F
-47.95606245420332,control,M
-69.04257943969729,control,F
-59.05286602807867,control,M
-74.72338942093508,control,F
-67.98776259640826,control,M
-78.36094519810355,control,F
-70.34451644880116,control,M
-68.59457022020392,control,F
-72.55509826582842,control,M
-87.93174510378259,control,F
-69.09884581226602,control,M
-94.92220459433838,control,F
-66.62689589372636,control,M
-63.71259788380844,control,F
-73.87465439032349,control,M
-66.4387263940071,control,F
-83.0973286757079,control,M
-57.396005648325705,control,F
-68.25470498250576,control,M
-54.11574592815853,control,F
-69.99883223126594,control,M
-64.33177617347856,control,F
-79.18182700460477,control,M
-75.70806420107236,control,F
-54.240017319689926,control,M
-74.79185908461007,control,F
-61.41950728112724,control,M
-96.15905444876684,control,F
-70.72068594757015,control,M
-67.43511074878273,control,F
-65.51073015469258,control,M
-73.6871500039452,control,F
-61.71921347450349,control,M
-66.65378343537155,control,F
-50.412396417345526,control,M
-76.92526952154864,control,F
-70.48068046663093,control,M
-69.0652461131629,control,F
-78.38378437175226,control,M
-71.23865260165249,control,F
-71.96007951397334,control,M
-77.69731856569543,control,F
-58.02496086537849,control,M
-62.86717994606897,control,F
-70.28732334462765,control,M
-55.59051487112476,control,F
-93.65089076913212,control,M
-71.17862173102193,control,F
-53.123277130513685,control,M
-71.13831117177291,control,F
+sex,exercise_group,age,heart_rate
+M,control,72.64055423740444,68.54501451983892
+M,control,72.52655180050876,70.96079340223162
+M,control,73.07601914500576,72.69294881193836
+M,control,72.51768617662609,68.74473201807413
+M,control,73.27529586073148,64.5732086819547
+M,control,71.29049208174139,68.67941635470316
+M,control,70.92243737268306,70.87324188775732
+M,control,73.48033126714122,78.6898092181181
+M,control,72.25748272834754,74.65137475862497
+M,control,71.04739883496129,72.22591917529131
+M,control,72.73633379944576,74.11441270330087
+M,control,72.238265111095,74.27718622254764
+M,control,73.36430539421268,68.78322684992489
+M,control,70.7463186603843,78.13433532690155
+M,control,72.12508699622977,67.1789676261678
+M,control,69.97758051712435,66.41525281461738
+M,control,71.4523879746005,69.16492770799718
+M,control,74.62905572825522,68.33447175953467
+M,control,73.30282510249305,71.60610361026457
+M,control,72.0195850470188,73.25708294278202
+M,control,72.69730181584207,69.54915414251151
+M,control,72.66416300015295,69.59023259535354
+M,control,73.87992268632901,68.92503371440006
+M,control,71.62842534348292,68.1223632211434
+M,control,72.70054483328073,66.21695571813166
+M,control,72.30996161012675,67.67863408455888
+M,control,73.90338054345538,73.34271719629258
+M,control,73.26117331951166,72.2413246212564
+M,control,72.82826207924451,68.4142194050796
+M,control,72.3217712002378,74.89358009283409
+M,control,73.88505532269954,67.28260800990621
+M,control,71.72773902016502,69.05833261174674
+M,control,72.49787754557983,73.06214761965595
+M,control,73.92503753890902,69.73796128667517
+M,control,71.71067884055228,63.954479413037944
+M,control,74.57334513740611,70.38991802008155
+M,control,72.05884082875342,69.7204536334789
+M,control,73.36890636359864,72.4929706806058
+M,control,72.63298533750614,67.46702057540351
+M,control,72.16425108177042,77.38580460185565
+M,control,70.62735472588517,62.79546501584702
+M,control,73.61525125227095,75.60746810296317
+M,control,74.3670629566248,61.66771256725731
+M,control,72.1062930411724,72.88696317787468
+M,control,75.49435466148586,61.50035019472733
+M,control,70.93369212519207,74.68369926049111
+M,control,73.82475120511282,63.33677401274337
+M,control,74.35986164339306,68.4563156038532
+M,control,73.12162099869776,74.71275972021519
+M,control,71.00193344646546,71.07460174110388
+M,control,72.12276126631315,72.55173554287994
+M,control,74.47035988669326,75.71270730708126
+M,control,71.58986914711491,69.48782306469884
+M,control,71.59439203726552,83.07067578050311
+M,control,72.71219615342353,70.20229869353061
+M,control,73.0946342053814,74.97393536454098
+M,control,72.1923529877547,63.404273565596434
+M,control,72.05107815964871,74.23875222587205
+M,control,72.08475396679863,63.203229404782675
+M,control,70.72047286585091,69.06617957409476
+M,control,73.17035604782777,75.90736964092955
+M,control,73.64281668869054,65.31606334525252
+M,control,72.42363650258655,71.85228079484664
+M,control,73.69805136727825,65.09820329939646
+M,control,73.11094078182771,59.67939196869723
+M,control,73.73103900720118,60.30970032581766
+M,control,71.77548546291757,67.74285964078952
+M,control,70.93988753739481,69.91753879409711
+M,control,72.98381427760584,68.20661723000231
+M,control,72.67639048583266,71.52723465204585
+M,control,72.37113954960745,69.69890007117804
+M,control,73.74139830878822,70.03079291892637
+M,control,72.71025993896158,71.42698803064168
+M,control,71.82828192692898,64.46152337977134
+M,control,75.27126593005397,69.36499121966152
+M,control,73.15667664320976,68.0934494679039
+M,control,72.26614426869962,73.68310962062816
+M,control,73.44665313339482,74.81498750784718
+M,control,71.6014353192579,64.5510269026064
+M,control,73.61478520733219,62.74855917852996
+M,control,73.02522819409084,69.42486435547372
+M,control,71.38621071943201,69.24019648053266
+M,control,73.98227369223387,70.90069255719823
+M,control,72.50869151204991,71.39348281195073
+M,control,72.83836470451158,77.96694099671248
+M,control,75.61617784285379,69.95061909538703
+M,control,72.25899553810692,79.99612849240246
+M,control,73.57707659412684,65.85801247494645
+M,control,71.7375461921363,85.22423981783535
+M,control,73.56161743244013,74.05535422725691
+M,control,73.06066163351856,82.0266488719488
+M,control,73.35403530113788,77.57840869498243
+M,control,72.57925858600875,61.94528855577548
+M,control,73.91073078898754,72.45076318404853
+M,control,72.91061886218158,67.95053670624218
+M,control,73.24552647221512,75.77146391170002
+M,control,72.96993548682306,61.2729609193301
+M,control,73.27705971017632,75.23754933588539
+M,control,74.33467738766856,69.33321116681299
+M,control,72.6659837484458,64.16254764197186
+M,control,71.50100953964142,60.38292132420784
+M,control,71.96492721087121,67.97285984400291
+M,control,72.67315752393942,67.9633658281734
+M,control,72.88008475867524,74.32708904470293
+M,control,72.84908109888563,73.25456089462747
+M,control,72.99860443950293,72.21424509480265
+M,control,72.80665379810397,79.98806840325925
+M,control,71.71278859367109,69.29325531737325
+M,control,72.15340427107851,66.32361979627939
+M,control,72.34496977772652,75.11381669141656
+M,control,73.81328608279614,80.08046766322659
+M,control,73.58877492581725,73.913025253193
+M,control,73.03932624539965,66.83184111742001
+M,control,72.11505388094129,72.65629823064594
+M,control,71.94153451563791,73.88402504437829
+M,control,72.21181282335489,60.74930290538475
+M,control,71.61619903416887,56.175850607005636
+M,control,73.19902123261626,68.40979693370883
+M,control,71.70298725605937,72.89225517378162
+M,control,74.39603668597749,73.19541228419865
+M,control,72.13228538542441,69.13830696467349
+M,control,73.37191438460597,72.09630470166802
+M,control,71.85713541254985,69.50380713497654
+M,control,71.72889562835891,73.40508043923244
+M,control,72.69738801871021,71.06754259385879
+M,control,72.77164005500559,78.21913928565289
+M,control,73.3822315314436,70.99400907639317
+M,control,72.58797728342506,72.23753386305928
+M,control,72.40826320531144,75.89879855642724
+M,control,74.21239675536981,75.44614821003844
+M,control,73.0612476618133,67.45855364937562
+M,control,71.93651593562267,74.17495740717035
+M,control,72.15247541479027,70.26188070722016
+M,control,73.49306581655338,72.9405789081507
+M,control,73.4168555577214,78.79362136154289
+M,control,73.24027647417448,66.84567949925632
+M,control,72.08570721806811,73.26584872300076
+M,control,73.5651275944126,73.61295314520476
+M,control,73.653706556957,68.93582290438545
+M,control,71.47748714311795,71.63312333256414
+M,control,73.83350883641303,77.63096141587909
+M,control,73.59385175909422,63.19559269944265
+M,control,70.5581555249579,67.92569612942964
+M,control,73.06404783104415,62.74674584072707
+M,control,73.93715778322755,78.12125502275725
+M,control,73.4363281416889,73.33527861664648
+M,control,72.37480270827304,67.85217179926494
+M,control,73.96490646706941,71.18308131633455
+M,control,72.45289977095581,62.84003028855864
+M,control,73.7633775519161,71.70340336094536
+M,control,74.5391240247281,61.689851988852176
+M,control,72.78961642703389,77.1024826995764
+M,control,74.04953621605554,65.79098974857172
+M,control,72.06053920620003,69.06253108586593
+M,control,74.42211280117816,65.50592727443434
+M,control,73.27022615115106,68.91250376422123
+M,control,71.2606489135582,70.24765438909441
+M,control,71.82971694504455,84.11016802891248
+M,control,71.14214757444668,77.84701838156857
+M,control,72.50524473004774,68.82487618622994
+M,control,74.51869781137252,68.58326988289144
+M,control,73.90055705226065,62.23495368481434
+M,control,71.4749944351322,69.84624113250716
+M,control,72.30021593323926,74.70008377110902
+M,control,73.39267434535688,68.30474047645944
+M,control,72.92400725344284,69.69586929637227
+M,control,72.38407700431615,60.7000805179121
+M,control,73.54889005260894,60.04722034432038
+M,control,72.59686330113823,60.77990149320072
+M,control,73.79445989726126,67.26540482594031
+M,control,73.22576107327374,54.13880311053603
+M,control,73.24695917501313,68.53611951037362
+M,control,73.84675527019795,65.93570009031455
+M,control,74.90418125587586,72.8460622617214
+M,control,73.35149597836352,68.14305232980227
+M,control,74.48751042991032,67.00344736596969
+M,control,72.48840316260178,73.38973120874998
+M,control,72.67931221348472,72.13050977152164
+M,control,71.08187829342508,64.56323839828127
+M,control,70.70565638328573,69.64973909015801
+M,control,72.87018915485383,72.95750947587442
+M,control,71.19066825875653,75.51330672172685
+M,control,71.1080506017492,74.22910937762263
+M,control,71.93932370003475,67.77094507217588
+M,control,71.2545499745185,71.8668381872752
+M,control,72.23370166139469,68.69759840096978
+M,control,73.16013402902173,70.36043216787417
+M,control,73.72586486221527,65.7066358341885
+M,control,72.09385800899557,74.85118604618425
+M,control,74.42076880524219,74.89139585919683
+M,control,72.82203775157159,68.7216360565034
+M,control,70.97208962965976,71.85092893093443
+M,control,73.14704877552936,72.28074479136889
+M,control,72.41050978482589,67.2885857776583
+M,control,73.20983432467006,76.47468700470966
+M,control,72.51876404362602,65.74846630526307
+M,control,73.325948860676,66.58414763506761
+M,control,73.26053751945264,69.00243391333157
+M,control,72.86957454392595,70.95134263604193
+M,control,71.4877429749597,69.30577378993196
+M,control,70.70131171564742,75.70359510311006
+M,control,72.43170637253151,72.32959780303236
+M,control,72.56402483395274,67.3963640670335
+M,control,74.15887146678149,59.78297533677233
+M,control,70.9731199536394,68.1018648559452
+M,control,71.2219686562302,67.20063487031604
+M,control,73.46904911446498,65.95489011614016
+M,control,72.67023949241583,75.04651457597974
+M,control,72.07579140488373,78.64433877865939
+M,control,70.1510032484434,70.15465046859187
+M,control,71.55871022705293,65.0471679617977
+M,control,72.44668334677954,72.98857895924553
+M,control,72.78820776819082,74.89385561576387
+M,control,72.84702264825258,62.52297622936161
+M,control,73.03022156392302,72.18110261661445
+M,control,74.27652716259462,71.41664300039626
+M,control,74.98673870508706,71.23301620946178
+M,control,74.10338074543934,76.22743942943089
+M,control,73.58268134158376,74.43281669913732
+M,control,74.43132026725131,75.06765326099283
+M,control,73.8311024432168,68.66727172668627
+M,control,72.3132203289799,75.74243265050575
+M,control,71.96280214612497,69.83860272489655
+M,control,72.75243406045715,70.1474996560015
+M,control,75.75967631279285,65.61943334584353
+M,control,73.53099254772113,74.03626433108391
+M,control,71.23665962664145,74.91757000684889
+M,control,74.34539044862144,72.01048105353489
+M,control,71.64450008766823,75.20370490398525
+M,control,72.01355393083733,69.93352412436852
+M,control,73.62141454082679,74.5747346434077
+M,control,73.19185021964026,61.456746714452564
+M,control,74.02864753531601,66.59751618339719
+M,control,73.08951062378134,68.68232633972893
+M,control,73.40500226901212,70.40223455418179
+M,control,73.81920141600449,72.41330994359589
+M,control,75.05427559301219,77.01147784597936
+M,control,74.60436736957205,67.71568702081903
+M,control,71.57003703797132,77.92981490056022
+M,control,73.54844581629335,76.0914707939188
+M,control,73.00127509830976,73.55412838638624
+M,control,73.47251634685554,68.79541985593114
+M,control,72.84106425309888,71.48301070347911
+M,control,74.03605910102054,67.77871926212339
+M,control,72.5457894470357,68.27100152932758
+M,control,71.65491124875248,69.86230846390004
+M,control,72.49389154311984,69.09653822376876
+M,control,72.46648657640188,62.9628155347796
+M,control,72.42428656221253,74.83408641810857
+M,control,71.53665260387312,73.63788249446876
+M,control,72.9271326163874,74.29984642933947
+M,control,73.21352565619014,78.56305452384862
+M,control,73.06043595992519,70.91811440978809
+M,control,73.08881200182242,63.93721019393091
+M,control,72.64625817637645,71.70994925564395
+M,control,72.81534910505675,67.9892257969654
+M,control,74.65877286160492,75.99576917617304
+M,control,74.41457697057436,64.8778001255382
+M,control,71.80179385419761,70.52442419992119
+M,control,71.92708422581777,66.18448651139737
+M,control,74.67033281777,67.62328654287253
+M,control,72.05854648491234,66.7797310082603
+M,control,73.03150170690256,68.8038532717934
+M,control,73.86555497419302,61.30898648406445
+M,control,72.19222445073575,73.17948260628597
+M,control,72.33518166039399,66.92021092485396
+M,control,72.2939561235363,64.53980916689511
+M,control,73.22245740737532,61.61361163468276
+M,control,73.27229300449766,71.86516748500408
+M,control,73.38427555785667,63.49778672692792
+M,control,69.94859165489137,78.8195152605284
+M,control,72.62516029430992,66.20676543857724
+M,control,71.90590224657721,71.21597488881707
+M,control,70.65300897742961,68.15626072380088
+M,control,72.92876118758377,68.83955153165441
+M,control,73.68456553227132,63.13545460930411
+M,control,72.66374725153425,63.62524766865233
+M,control,73.11200815588347,65.07267913021354
+M,control,74.21971466743392,59.154110600317
+M,control,71.09335335382372,69.91818663101152
+M,control,73.13075642891344,71.76775968329463
+M,control,73.21200815420896,81.58183935119266
+M,control,72.08448236072817,66.77397915678492
+M,control,73.47935315090481,75.54376296484376
+M,control,72.60300596991314,69.7550523189627
+M,control,73.8242766801509,71.61707929907197
+M,control,72.05645427831121,70.1345820289651
+M,control,73.13550732222335,64.00120729101222
+M,control,73.24522325864397,70.40874205303594
+M,control,72.44498613915624,70.73674352305925
+M,control,72.55829420043136,75.72604248417316
+M,control,70.74106810930384,66.91574634115835
+M,control,74.31169072162025,68.75705779225454
+M,control,72.01755494367384,69.36548556975553
+M,control,71.8590166186861,61.17031234212041
+M,control,71.96586728024741,62.20335896399522
+M,control,74.6083644570056,72.72151863805952
+M,control,73.29470570589513,66.28007140976432
+M,control,72.56970363584428,74.05103518031056
+M,control,74.26092901013438,67.82036632699895
+M,control,72.90984272670981,70.86329836289053
+M,control,72.5452284737272,77.08066505426225
+M,control,73.17328654351226,69.36828328362701
+M,control,73.34844640821551,69.63944211992879
+M,control,73.61018327169278,61.305288439924404
+M,control,73.3889891785184,75.49382494599641
+M,control,72.90592559050108,80.97407099733316
+M,control,73.30217762039739,74.95125168721324
+M,control,74.62976906349012,66.27230940246588
+M,control,73.71224358783596,72.62575669877306
+M,control,71.9801542255891,73.17213242246149
+M,control,71.91299308221951,74.37001679221301
+M,control,72.71627610220781,73.55439737821732
+M,control,72.57207279942173,63.08863693330507
+M,control,73.14646343925364,71.19058195521677
+M,control,75.06047412884534,62.86843186764791
+M,control,73.12098117098752,67.71758678727214
+M,control,72.96179221242727,67.82436543397112
+M,control,72.48297973988325,75.13112284873745
+M,control,72.74895001445302,83.92014442214077
+M,control,71.22842596184753,62.5515625801122
+M,control,74.39163639351189,76.44509413071343
+M,control,72.6047960913097,66.48298082045838
+M,control,72.04253021797278,72.92287079705733
+M,control,71.92454724489419,73.28256332011921
+M,control,74.83164472489723,71.94286716094172
+M,control,72.94451106098255,70.52146075012163
+M,control,72.85204864654531,73.52731350007778
+M,control,71.79315562099524,59.27590702134226
+M,control,73.71725673231974,78.5886023941406
+M,control,74.25389273263647,76.9612379324423
+M,control,71.35925528318,67.88538287375982
+M,control,72.76182457183882,67.09586695758807
+M,control,74.15505716276871,68.88989193954745
+M,control,75.01860093930338,69.3329956501165
+M,control,72.52717637540628,71.5211649877294
+M,control,72.09326765497396,57.97139030295683
+M,control,73.2772682872535,77.98430047224569
+M,control,72.22068467735029,75.1759313867826
+M,control,73.2048653433573,67.68528544875777
+M,control,72.32475345808014,72.82234311697495
+M,control,72.06174860114498,65.9830313478342
+M,control,74.37036526471688,81.0791121960702
+M,control,73.58595963281832,62.97201718912159
+M,control,72.40888352558063,78.11739688695795
+M,control,71.98150866325707,63.81796204897961
+M,control,74.5153687350793,68.25769539180602
+M,control,73.70010134490194,69.97282962676111
+M,control,72.79720130033836,75.50792061955569
+M,control,73.75286914360485,67.68664673401997
+M,control,72.34758930845778,66.53171031329603
+M,control,72.64792832873725,74.04135711568954
+M,control,72.81668775510728,72.11404139288817
+M,control,72.36218556932263,80.30907804603066
+M,control,75.08765440978159,77.33840444116497
+M,control,73.23509792992536,73.1351734960376
+M,control,72.93669940383111,65.86041058933299
+M,control,72.0654682218999,79.95023651839578
+M,control,71.28172012741311,66.02691043186437
+M,control,73.43737374538277,63.26722396426472
+M,control,73.22010564005689,71.85161098635272
+M,control,74.44366998658181,67.03439730975968
+M,control,73.18846902638026,69.75147297160511
+M,control,73.87550539420967,66.31356303060592
+M,control,72.14130068236692,71.48297490181635
+M,control,73.47251477127055,74.36829962338525
+M,control,71.02033611507576,66.5429463537796
+M,control,73.2196998260743,54.9245690341627
+M,control,72.0470185358144,71.63721228317924
+M,control,74.07142076180517,73.41714651122699
+M,control,70.70230848917171,65.42340738548708
+M,control,72.19697687213564,65.06307992110806
+M,control,72.41072109368717,72.8191509335242
+M,control,73.9072384905853,72.12703997507839
+M,control,71.90166785900847,68.45312657487025
+M,control,71.71299663403978,66.8076634140614
+M,control,72.85780177515883,65.39234146954269
+M,control,73.54423690440774,72.26591423186407
+M,control,72.99389609266602,69.91353924303775
+M,control,71.9572277190781,71.84290955194137
+M,control,72.9795178668201,71.15462827750622
+M,control,72.70515049355777,71.01983660737812
+M,control,72.77013720593095,62.92181059771405
+M,control,72.04621187335087,72.72083861457118
+M,control,73.87256766885588,69.23891174177837
+M,control,71.84793268457553,81.10425770115893
+M,control,73.46183270302602,67.19816984349247
+M,control,72.10731844704465,73.38545523212943
+M,control,71.00718241559584,62.82481774232109
+M,control,70.83043654699532,68.19894925135615
+M,control,71.5028407424026,80.77352108144464
+M,control,73.29870256891587,69.57321969064503
+M,control,71.54904799045177,76.1757884711139
+M,control,72.9683810969521,74.47052103070598
+M,control,72.7221506606441,73.59789553008646
+M,control,73.31882699793364,74.46860436540368
+M,control,72.80537114453327,59.042969455851264
+M,control,73.48780206627795,61.8310741179793
+M,control,71.19408777648596,70.6825112170524
+M,control,72.65630843163026,64.27327295979478
+M,control,71.32869251314219,73.13481882508042
+M,control,72.47809163718641,74.89061898401896
+M,control,73.71864789799153,67.81080148361636
+M,control,72.88029520015448,72.505078450714
+M,control,72.89016229568541,73.19071528319567
+M,control,70.57203767236722,80.74402151986382
+M,control,72.07689105795801,64.42224535111993
+M,control,72.83297472533467,76.81967232520773
+M,control,71.69005139276761,70.78683446431711
+M,control,72.89844237820466,75.3333990421039
+M,control,72.36013844279704,71.3626720299865
+M,control,74.86774577912374,69.44520788096862
+M,control,72.75787222216401,61.97239187792814
+M,control,73.50730835190379,66.70095596742516
+M,control,73.3670945444029,69.21715169516192
+M,control,71.33705392406702,63.047302801080114
+M,control,72.01997897713196,75.82831388057446
+M,control,74.50486670365095,71.01337920256185
+M,control,73.79256064822424,70.38156323122789
+M,control,71.12998584195338,53.51266600365258
+M,control,72.57377835152344,71.3727870267758
+M,control,71.03840668261529,81.90671746279104
+M,control,73.01236069154628,76.9797841396351
+M,control,74.89091300834909,73.77470345041691
+M,control,71.63161100365804,71.25609959173296
+M,control,72.61863951281224,71.11823537793668
+M,control,72.46048815419694,68.03443871503111
+M,control,72.33213869981948,61.950270838484464
+M,control,75.26848468385569,66.84367230585713
+M,control,71.03397474364897,66.4211546419501
+M,control,71.97544564690907,68.05892797870742
+M,control,71.59705337621328,72.85230926099862
+M,control,73.53688990533645,63.72719467585408
+M,control,72.59741713512464,70.61322384393758
+M,control,74.09324503389745,71.1683881917498
+M,control,73.92706421009756,73.91380646875587
+M,control,72.99644660098483,65.87948115685239
+M,control,71.89345179623895,75.51718185534425
+M,control,73.72303698584047,67.05016205536819
+M,control,74.1005050686826,69.36987965673298
+M,control,73.29920448733485,66.79521626972195
+M,control,72.24398454070621,71.45707916379884
+M,control,72.87125965969624,63.66840381668686
+M,control,73.32456599364909,69.80579178416835
+M,control,72.11565132474415,75.05212636428881
+M,control,73.16952602752622,70.23887130898956
+M,control,73.17371137651836,71.60727271361536
+M,control,70.894811328521115,67.25163310420629
+M,control,72.23454487144434,70.72549953442392
+M,control,71.9779424469313,70.5822220329801
+M,control,74.76466507103581,74.54588753581345
+M,control,71.63302473273693,81.52451355207315
+M,control,70.94605186239197,65.58094124690948
+M,control,71.13219524979831,70.20920706991122
+M,control,73.77643878154309,60.99977005723254
+M,control,71.85036472341724,69.96754983681629
+M,control,73.52035164864743,61.66217249657856
+M,control,71.50726389002423,75.8587910841094
+M,control,74.34972394411248,68.30648584152026
+M,control,71.8080993106969,72.08725361907928
+M,control,72.34915795873367,77.22808254463459
+M,control,71.2033093719019,64.57729026140125
+M,control,71.5031337022004,71.24040017094832
+M,control,72.75010809055387,62.43612643090337
+M,control,74.93441453303602,70.1268320534427
+M,control,71.48156555886237,69.54746108092675
+M,control,73.82055888105933,81.39748492286692
+M,control,73.37962036885877,61.1867459320249
+M,control,73.24642242468965,73.02912634402252
+M,control,70.41458863843243,70.55355344330216
+M,control,71.89166666125662,69.02525190478296
+M,control,72.51646435183957,67.08309669435653
+M,control,73.88045847865429,76.82029211124622
+M,control,72.32642698543312,76.81664545978208
+M,control,71.66956340099426,73.73263231447882
+M,control,71.06909997219508,60.18761591668731
+M,control,73.85395575724992,67.32530582130335
+M,control,72.82649678870489,66.2138112201633
+M,control,72.40308958389654,58.45078228490926
+M,control,72.5048739206395,72.03802857113982
+M,control,73.82008474542526,67.41657585027106
+M,control,71.64332198101468,56.693892961336324
+M,control,73.1565429782766,71.5753910823531
+M,control,72.31141524831025,77.90778309832683
+M,control,71.69063969658795,72.83726893659514
+M,control,73.05289972135937,70.9360622481893
+M,control,74.00330880794186,73.08372282595394
+M,control,72.35764773140477,69.01636651881391
+M,control,74.62093803581575,70.29781609157853
+M,control,72.27183743396415,69.21075875434931
+M,control,73.74046332230773,73.77187381025611
+M,control,71.70761827170836,69.71823031803962
+M,control,72.17494432123445,61.204189275073205
+M,control,72.36823613061352,60.01697033460344
+M,control,72.35237884782428,73.90570819945464
+M,control,72.48575401847965,64.51868756819192
+M,control,74.26154461492968,68.75484735668228
+M,control,72.49478615592191,76.10011135844027
+M,control,72.82917544601091,66.82552666864379
+M,control,72.87234970244036,66.76839194879071
+M,control,72.87695442692598,74.21654051838992
+M,control,73.41995971493112,65.2836950553417
+M,control,71.77409842115372,66.60709224280676
+M,control,72.81799935915541,61.72307225592063
+M,control,71.99577812690933,68.8141399479593
+M,control,74.17599046959724,67.85443937178333
+M,control,72.71006554526873,65.52157814064037
+M,control,73.02518955553366,66.81430710406731
+M,control,70.98044252663556,72.1503926683761
+M,control,73.0731886254275,67.67197000415693
+M,control,73.86988229334631,74.98399499645309
+M,control,69.60647854293026,71.20606703631606
+M,control,73.35248645907305,65.67476630147732
+M,control,71.95320718726711,81.64206567534082
+M,control,74.27424819489924,76.76947002764697
+M,control,71.75406638471084,76.85477992308405
+M,control,72.91708348790466,74.75901082185808
+M,control,72.24733450915433,67.1583846223707
+M,control,73.26867226643107,62.46022662137935
+M,control,74.1060022677595,82.01089491246466
+M,control,73.87477224638373,72.99122893154606
+M,control,72.6743997786618,66.00720973664431
+M,control,73.3033215363803,77.82193445060578
+M,control,73.771821724969,77.06731671823027
+M,control,72.73336890479408,72.0920468717688
+M,control,73.14874165851678,60.968191763131856
+M,control,72.94914732184839,75.94043115883996
+M,control,73.23958447079895,70.65339130598515
+M,control,71.04435975306319,66.75044435458963
+M,control,70.53100611784998,74.91094757159863
+M,control,73.28415665152853,75.18037506410985
+M,control,72.54494454674757,72.49339019864088
+M,control,72.51367354216444,65.60024427777547
+M,control,73.35039215883091,68.29068003106804
+M,control,72.4310534531878,68.46279419851997
+M,control,72.48387294615722,62.25088751133199
+M,control,73.73942264884181,75.39919899692327
+M,control,73.46359409419463,74.52298366230578
+M,control,73.46278933248739,69.74020672356255
+M,control,72.50677236217135,62.262514407554924
+M,control,73.27254872498611,73.91460501554708
+M,control,74.39775733463145,60.24898422856627
+M,control,71.55461154724662,68.40492644625675
+M,control,73.02047964871534,65.17857333687581
+M,control,73.52139925320361,70.7087009201162
+M,control,71.79653500834046,74.16532225404369
+M,control,71.38917371664148,67.57734555107443
+M,control,73.47859183418451,60.17162854111583
+M,control,72.37499402190008,66.27228353880379
+M,control,71.17121518842491,70.72951947967397
+M,control,72.93134283880526,75.8935569453711
+M,control,74.14647986804405,70.86097251355308
+M,control,72.2410397763611,58.02430531108806
+M,control,72.58377925510113,63.72561127844311
+M,control,72.48138042349116,66.4332768295943
+M,control,71.53839033704514,72.81822240497623
+M,control,71.41737170634391,71.41288598100704
+M,control,72.38088773897823,70.0372601409025
+M,control,72.83280929470607,65.8403729870082
+M,control,73.77693963795504,78.30493244012794
+M,control,71.81953094846065,71.63274290694493
+M,control,74.22771920839963,67.15250482307722
+M,control,72.97627984358624,64.22966603069811
+M,control,71.7710018366948,61.032451364862254
+M,control,73.04560039092897,73.70619968545513
+M,control,73.28631350482152,75.14641651231862
+M,control,71.0376168138967,70.73108601778408
+M,control,72.9742733217185,67.19742509509315
+M,control,74.24735945750525,72.42783025066737
+M,control,72.42674565538567,67.00492804378288
+M,control,73.27258581954366,63.03919363137354
+M,control,74.16228903085484,61.64191439912913
+M,control,72.05740089588545,79.29768239751259
+M,control,72.04359932328947,58.628483277931736
+M,control,72.60917343532202,68.87050327473571
+M,control,72.89206478195703,70.04476412062169
+M,control,73.00080273008041,72.51315453002987
+M,control,72.00603947845761,63.38869692487008
+M,control,71.5112345529916,64.58164244858536
+M,control,73.4204424347256,72.98855357895707
+M,control,73.24542113268392,77.24306344393752
+M,control,72.23720373516174,70.08024136393142
+M,control,71.64912937095254,64.37596314280829
+M,control,72.722039880796,66.15106708316091
+M,control,73.33776318082421,65.08412255881976
+M,control,72.50006462878207,66.71140496626276
+M,control,73.67341305129389,66.06302191709547
+M,control,71.99462332245423,65.81526099667688
+M,control,71.0845153081283,77.19850364842426
+M,control,72.51537357843571,67.11446686436076
+M,control,73.31213443521528,78.03119370219684
+M,control,72.84682623629796,70.43095163905019
+M,control,72.07944913106776,70.78345447293708
+M,control,72.10642704841398,74.39921078693992
+M,control,74.13948347709652,71.23644032765232
+M,control,71.8211774499734,69.68545697036676
+M,control,73.91060974837845,64.56362347988589
+M,control,72.83486723144901,69.89941570868434
+M,control,72.02515803348376,66.91919582716855
+M,control,71.98450987212517,67.42387622713677
+M,control,73.79505924380997,52.613905213841285
+M,control,72.64550160344015,74.57703003751878
+M,control,71.71847669764219,62.96665474005969
+M,control,71.97615144501032,67.04126945647158
+M,control,71.8804680556932,73.98416939327389
+M,control,73.2964435801096,70.09753951697732
+M,control,73.53158141952926,71.71387240065208
+M,control,72.33440683117865,66.47942810775828
+M,control,73.43524814177681,64.50147350067647
+M,control,72.83652746707983,57.086043633584936
+M,control,71.53553285766112,72.72863739093117
+M,control,72.03663219879944,76.57077214499161
+M,control,72.78891832748205,69.63925519066163
+M,control,73.88443574873627,70.37753945893654
+M,control,71.9523520906253,80.91310059116049
+M,control,73.03180711325824,68.21128461636044
+M,control,71.75280856010748,77.32526798018236
+M,control,72.25354253729337,72.86099665994044
+M,control,69.70994525697849,75.32016919073165
+M,control,74.6013308114265,70.16584599620103
+M,control,72.59879616438117,68.29322990176824
+M,control,72.40231737596828,71.5972381775094
+M,control,73.44329989350409,72.01067087862246
+M,control,73.32769982698399,74.24200392331275
+M,control,72.64315345873361,79.21596302908655
+M,control,74.64488235042826,75.1303225760608
+M,control,73.25763445011017,71.26861452517538
+M,control,72.85198838750814,71.12078772961397
+M,control,70.73212032676902,67.03878663074815
+M,control,73.03521070602736,63.0625686752677
+M,control,73.6475114657969,72.272431970956
+M,control,73.10266112344256,69.06475087712543
+M,control,73.0308018409166,68.96541694005424
+M,control,72.70064893273518,57.7817240059446
+M,control,73.20286562508834,64.53164798199957
+M,control,72.47628830206563,77.11145522744494
+M,control,72.04491959587085,75.5398096799625
+M,control,72.13053549108136,77.64311123914408
+M,control,73.36001808857132,79.33753551115018
+M,control,74.56886917358929,80.96851748916487
+M,control,73.25739767596771,63.0827600434189
+M,control,74.9927426366548,75.62059818821375
+M,control,73.59575109414563,70.82771387460924
+M,control,72.27994920137847,78.6300817158945
+M,control,72.05780581798088,64.09554020339614
+M,control,73.23539903356235,61.466845778638614
+M,control,73.29422800446537,60.7691808495084
+M,control,73.16253911181796,62.08344767697263
+M,control,73.17950912932993,69.06512280062768
+M,control,71.53458168818808,73.16625285100515
+M,control,73.00524089050538,67.23304402736576
+M,control,71.17687268298647,74.7550613469689
+M,control,73.2274937392005,71.16097610110695
+M,control,73.12252613423182,70.51333828456649
+M,control,73.37715518424017,67.71103495036287
+M,control,73.11920556928807,62.05219766040908
+M,control,75.12208941323229,73.09516436065161
+M,control,72.62181034846847,68.70737073598366
+M,control,75.09691739585472,74.9946044104931
+M,control,73.03025176085045,56.21948301842083
+M,control,71.9554460374002,69.65744437819431
+M,control,72.73904222677652,74.68830542215977
+M,control,73.80167949182815,71.91558774323255
+M,control,71.65730945696443,69.76401057860335
+M,control,73.73149979007417,75.20516179117327
+M,control,70.23362234184494,74.69152370262101
+M,control,72.92734813369304,74.5357807451237
+M,control,73.71153182302314,67.43556479043774
+M,control,73.66751427059285,74.08278542366924
+M,control,73.3988465630326,66.84546584422472
+M,control,71.82771952388042,64.12532142899744
+M,control,72.76219408039468,67.46953287787419
+M,control,73.26902264416367,72.30539928636924
+M,control,71.70660827861059,68.85308046872319
+M,control,74.53628269020751,73.40348169849906
+M,control,72.41684997418763,70.24654888533505
+M,control,72.13914865270145,67.32005996223124
+M,control,72.99869973911201,71.2401076834864
+M,control,72.22056382217528,64.32922106072246
+M,control,72.53075336336791,69.00452985710214
+M,control,73.03667138068221,68.3201835883358
+M,control,70.48276901332727,72.8698519231914
+M,control,74.35176738390572,64.9082702227851
+M,control,73.5400876392732,69.42234698784252
+M,control,70.833721774366,62.72873933023191
+M,control,73.83910098211057,69.363499364638
+M,control,72.39974289480821,73.64921781768716
+M,control,72.90479662478306,76.29373566157685
+M,control,71.1021927353163,67.73938057510819
+M,control,72.43677005004531,68.64606513798152
+M,control,73.2877732628243,73.89090247149316
+M,control,73.27247562768525,59.50989573331689
+M,control,73.29159612233296,71.45782844626802
+M,control,71.69267229429278,63.07269047213527
+M,control,72.92318254915911,69.62550996601219
+M,control,73.04523624606021,69.5928873840819
+M,control,72.30492244122306,72.42048481552574
+M,control,72.81357902876506,67.92621186002889
+M,control,72.85248040753916,62.158810856442074
+M,control,74.80883023133916,70.68186138685837
+M,control,72.86679633749448,74.37645639932029
+M,control,74.21073629833292,68.51630730289051
+M,control,72.87659688340905,68.935657433002
+M,control,73.23631696274208,70.62755263606421
+M,control,71.7902836802728,81.20502421369662
+M,control,71.97890792863487,77.36202335483438
+M,control,73.19022579473948,62.340215761988006
+M,control,73.72624118840754,79.57216404390579
+M,control,71.54236112870183,69.51852037918817
+M,control,74.21049570202618,65.34966373007457
+M,control,72.9011754239269,65.86682482668066
+M,control,71.68513588229825,79.56417980966309
+M,control,74.5158219523341,69.71821647733942
+M,control,71.85779224576201,69.73750810222565
+M,control,70.13599073420029,64.31102293482446
+M,control,73.44806611500515,69.65844823900215
+M,control,72.96274446988707,64.36048536693879
+M,control,72.58932331714978,70.39001862124466
+M,control,73.5598697277731,68.16695288825768
+M,control,72.60465053462087,70.0416449076769
+M,control,73.41568862627095,67.73384343853454
+M,control,72.59836023096064,69.90290584437923
+M,control,71.32629632903395,67.48857785048247
+M,control,72.53156937571214,76.09403895739385
+M,control,73.38373111993872,67.73542011317038
+M,control,74.79467973102273,70.27642019449644
+M,control,72.25606498768964,74.8850964667435
+M,control,71.23915396899896,77.29223434157123
+M,control,70.64752315052547,74.34739299181385
+M,control,71.70138227589874,70.66626482885334
+M,control,72.20834277963165,63.663850672268886
+M,control,71.8680367681323,79.71200202601786
+M,control,73.5098596083374,72.6441934316437
+M,control,73.32909869242316,80.1054620758296
+M,control,74.02314442489765,75.84642796456623
+M,control,73.73658341043165,68.61468237861017
+M,control,72.68239619633236,77.65018659496202
+M,control,72.52133090274418,72.35843120106738
+M,control,73.07714295457811,73.6761327811109
+M,control,73.46176775742103,75.1737822889088
+M,control,73.59066355053238,69.38007843222347
+M,control,71.44649039086755,67.74756814015085
+M,control,71.23586677773729,68.84659824576326
+M,control,73.05747088447002,75.7914649521929
+M,control,73.70413831522835,66.65184144768294
+M,control,72.07539127682742,64.47946995285665
+M,control,73.27772635417993,62.52126121881179
+M,control,74.06074734199947,72.30850998527725
+M,control,71.89805411205367,69.47327433998558
+M,control,73.32279459263674,72.66146358170607
+M,control,71.95273528221145,68.48990438670779
+M,control,73.75701056630062,64.93430148307006
+M,control,73.39393959537713,69.53466308306143
+M,control,72.51591042981886,68.68675795474324
+M,control,72.95252799323906,69.50803009213222
+M,control,73.15868243164238,73.257224394053
+M,control,73.03171885912593,74.9268578886727
+M,control,72.63928946825983,73.98287882608648
+M,control,73.04563877923496,65.92762518520895
+M,control,73.38095303693476,75.46429070816907
+M,control,73.09086861575801,70.52803173016738
+M,control,72.92572395936803,65.00958155445993
+M,control,73.25775674524074,71.63244593681804
+M,control,72.08593422865225,63.72960769350894
+M,control,72.75669055376262,61.016844497932844
+M,control,74.47431186082007,76.34202318999873
+M,control,73.16090197387574,72.00769043080508
+M,control,73.34609631569774,69.72689937170946
+M,control,71.07465250595195,66.18727212725977
+M,control,74.16987124170404,66.95131914104951
+M,control,73.22604429331086,73.57826293612347
+M,control,74.08461507759426,69.06718126703541
+M,control,73.42351012070027,67.58396285239607
+M,control,73.13787707865932,77.12072927738524
+M,control,72.18347117341364,63.72811741081135
+M,control,73.41537692758837,65.29688534297406
+M,control,72.03238015277974,63.269337262849604
+F,control,71.62948022495134,75.99208937132674
+F,control,73.7196036218809,79.4693185354527
+F,control,70.74661476351878,68.8248470587049
+F,moderate intensity,72.87873604029656,74.80307301931444
+F,moderate intensity,71.89977152808376,72.47740426778785
+F,moderate intensity,74.40615843236274,64.53316295985718
+F,moderate intensity,72.46398351746058,72.10726508186333
+F,moderate intensity,70.78566855349574,69.1347610752134
+F,moderate intensity,71.06847475008331,69.32310601555172
+F,moderate intensity,70.162717021821,70.25989010872132
+F,moderate intensity,73.4897887140012,66.93334186350617
+F,moderate intensity,72.2021432945678,64.3387981352041
+F,moderate intensity,72.61239634502756,70.039648567389
+F,moderate intensity,74.24582587060873,63.233697974745645
+F,moderate intensity,72.3627010264841,69.65710754176675
+F,moderate intensity,72.07445056711626,68.92298128673602
+F,moderate intensity,72.22030601900646,68.29083256836724
+F,moderate intensity,70.58232368282025,68.3624411137145
+F,moderate intensity,72.94858847658082,70.80290864618186
+F,moderate intensity,73.76201143090205,67.73999212988184
+F,moderate intensity,72.27611721441222,73.19513937422546
+F,moderate intensity,73.37941953259963,59.587009870279054
+F,moderate intensity,71.71045440235244,73.5294100533922
+F,moderate intensity,73.05820903819182,70.4820500965596
+F,moderate intensity,72.93907582468158,71.0760451748542
+F,moderate intensity,72.60824450041744,68.88420358774543
+F,moderate intensity,73.44752147431576,75.814073786485
+F,moderate intensity,71.642371747754,73.7964093087904
+F,moderate intensity,71.22944537765339,70.71128219580851
+F,moderate intensity,74.11273542259323,70.5785939812667
+F,moderate intensity,71.49123566930813,74.69901505396028
+F,moderate intensity,72.51807185037639,64.2098031484688
+F,moderate intensity,72.48215138434746,76.76458707986431
+F,moderate intensity,73.58034175757908,78.0220397820148
+F,moderate intensity,74.069540906174,70.45586031572257
+F,moderate intensity,74.03813666148636,59.00463298416016
+F,moderate intensity,71.13413717592249,72.27008188182549
+F,moderate intensity,71.42395011232159,72.15166662623439
+F,moderate intensity,73.32820069404471,62.70304879010398
+F,moderate intensity,71.73318355747556,66.41045962415497
+F,moderate intensity,73.04066488037476,69.1554689395878
+F,moderate intensity,72.62658955624374,60.83728965849748
+F,moderate intensity,73.29042319556441,65.75438387162532
+F,moderate intensity,72.97332637764973,61.397719350156365
+F,moderate intensity,71.2432791644053,71.45469626415242
+F,moderate intensity,72.80641216638251,71.28110968401806
+F,moderate intensity,72.04944267249984,74.27390682065709
+F,moderate intensity,71.51798988363461,66.3353409845216
+F,moderate intensity,74.19297195296431,70.11804046331211
+F,moderate intensity,72.97225036055035,69.69264045684415
+F,moderate intensity,72.29927587754806,85.07180371300932
+F,moderate intensity,71.36905016069664,70.70343282006652
+F,moderate intensity,72.23857342212779,62.48446422564895
+F,moderate intensity,72.95686518949228,61.07390240682166
+F,moderate intensity,73.25390088402062,56.42926440759598
+F,moderate intensity,71.6744660628614,76.62012216116383
+F,moderate intensity,73.74139141062224,67.58238386679214
+F,moderate intensity,73.36276190956792,64.51820186223975
+F,moderate intensity,72.48399580510278,73.48576198753426
+F,moderate intensity,72.59217881489019,69.05241405127151
+F,moderate intensity,73.98305670119228,67.43294894921762
+F,moderate intensity,72.0051376675154,70.83907283898965
+F,moderate intensity,72.58436940470152,71.35857103623565
+F,moderate intensity,72.12886109484985,69.62321217642298
+F,moderate intensity,71.74672622853899,71.9619742175749
+F,moderate intensity,72.57999452500233,63.69946162836972
+F,moderate intensity,72.1531692173693,66.73708167095627
+F,moderate intensity,73.05196406754025,71.63793220067922
+F,moderate intensity,72.84613666085731,73.31485855376795
+F,moderate intensity,71.39567706014064,62.57651078510109
+F,moderate intensity,73.47193135239844,71.36559380223348
+F,moderate intensity,72.43731851098433,69.06324662717132
+F,moderate intensity,71.47895124793895,78.6055527535701
+F,moderate intensity,71.88484981283403,71.27047097981351
+F,moderate intensity,72.14840804382388,68.12245570394649
+F,moderate intensity,72.14160677360624,68.36752498720078
+F,moderate intensity,72.5497273370632,68.43009450465752
+F,moderate intensity,71.36484452908792,70.94334177742692
+F,moderate intensity,74.2344381993625,69.05402807625612
+F,moderate intensity,71.62520244889727,63.49604680735949
+F,moderate intensity,74.85576942518917,75.15294382813812
+F,moderate intensity,73.59056628595012,74.66273752057143
+F,moderate intensity,74.05999595109142,71.41527639682288
+F,moderate intensity,74.13200867616122,74.54196000733876
+F,moderate intensity,73.529083465539685,59.85229764552856
+F,moderate intensity,73.2860589873538,60.3326712623847
+F,moderate intensity,70.87704652443462,74.5955644991471
+F,moderate intensity,73.16739515392942,75.756342235085
+F,moderate intensity,72.15689474515322,72.54525801798778
+F,moderate intensity,72.44903242925953,72.7029243885012
+F,moderate intensity,73.25315901370882,61.622699476025545
+F,moderate intensity,73.36745778878141,62.96787781793252
+F,moderate intensity,72.1403687336807,63.991843452984966
+F,moderate intensity,72.4355951775011,72.09933813746564
+F,moderate intensity,71.810050058305265,67.54803568360381
+F,moderate intensity,73.53298848153368,81.79030055422467
+F,moderate intensity,73.76180716767168,62.92082708307795
+F,moderate intensity,74.01017874565362,69.60613643649943
+F,moderate intensity,73.33166237067994,65.69292973567833
+F,moderate intensity,72.55835362139067,70.09649573758594
+F,moderate intensity,72.49558326338894,68.58903048017629
+F,moderate intensity,72.41268854177666,74.99288892317998
+F,moderate intensity,72.10108528111887,63.617864137197905
+F,moderate intensity,74.52757287522114,68.56537444179037
+F,moderate intensity,71.31697910241085,64.86735091624101
+F,moderate intensity,73.53552177517473,68.98629890943458
+F,moderate intensity,72.70111964573968,76.43523531433111
+F,moderate intensity,71.9385324435529,66.33525959338081
+F,moderate intensity,72.75085803117881,55.87728862590641
+F,moderate intensity,73.61441855568785,64.02737103836907
+F,moderate intensity,72.78543212354597,76.30800910170305
+F,moderate intensity,73.57646290368577,64.58202591960075
+F,moderate intensity,73.67833154982783,72.90165619914961
+F,moderate intensity,72.50276932568978,69.38909168203003
+F,moderate intensity,72.79844499010218,70.22005450820686
+F,moderate intensity,72.85407903820862,69.65812163659767
+F,moderate intensity,73.71881471251946,65.5070671641969
+F,moderate intensity,72.49014863433439,73.45567333830174
+F,moderate intensity,71.43777164101763,70.33952677981432
+F,moderate intensity,72.69233569091186,66.27062152305558
+F,moderate intensity,73.35529931021301,58.563053560489394
+F,moderate intensity,72.21934189627369,63.23963884932086
+F,moderate intensity,73.8603858888827,75.74886631930406
+F,moderate intensity,71.58120658561604,67.87850193512217
+F,moderate intensity,73.20455843487454,64.79701021510753
+F,moderate intensity,72.41802803649277,75.66926183724111
+F,moderate intensity,71.7764231274539,75.34687707297647
+F,moderate intensity,72.04376948657656,68.05493936960951
+F,moderate intensity,72.34815682870769,60.87095158067982
+F,moderate intensity,72.44665374239996,62.37149411470221
+F,moderate intensity,71.1233356385644,61.17295152887845
+F,moderate intensity,70.91582805180377,63.91070633192456
+F,moderate intensity,71.52465531294324,71.44973402056308
+F,moderate intensity,72.72524197633645,68.08368049016092
+F,moderate intensity,72.72325932153267,66.30664158388258
+F,moderate intensity,73.80581102472817,71.88916831496789
+F,moderate intensity,72.03218146383179,67.6672906335298
+F,moderate intensity,71.75039456209673,73.09838272923984
+F,moderate intensity,73.53688050593598,70.28393414228839
+F,moderate intensity,74.5549595531295,76.06687620525403
+F,moderate intensity,73.34344548416443,66.25402214424997
+F,moderate intensity,72.38104885533343,67.08434116212258
+F,moderate intensity,73.98867035990463,71.87575484884741
+F,moderate intensity,72.84050279148595,64.25429762310861
+F,moderate intensity,73.44332920947423,73.92638646320236
+F,moderate intensity,72.64393328851537,76.39275364948716
+F,moderate intensity,72.70560822004427,65.95429653120279
+F,moderate intensity,73.15342811415815,67.64385307520126
+F,moderate intensity,73.645673315851,76.30835883156068
+F,moderate intensity,71.76954461683955,74.86276716717556
+F,moderate intensity,73.0490431613395,69.38135146481531
+F,moderate intensity,71.45991831253319,64.94486585293683
+F,moderate intensity,73.98299791491235,72.6414678217563
+F,moderate intensity,73.19994295250005,64.09307005520097
+F,moderate intensity,72.68149213362034,68.16876921135774
+F,moderate intensity,72.10477193339578,78.27208835850311
+F,moderate intensity,72.63512102544793,62.402485703268795
+F,moderate intensity,73.21737290132482,67.17713662479878
+F,moderate intensity,73.11929509326947,74.52289038267762
+F,moderate intensity,73.61053535822425,62.6150196563183
+F,moderate intensity,73.63111568240267,68.23637938312359
+F,moderate intensity,74.14924768550881,68.32976464884793
+F,moderate intensity,72.3795445827934,74.67745669282814
+F,moderate intensity,73.2574033100293,61.5130886543552
+F,moderate intensity,70.97039003413099,71.6930084919272
+F,moderate intensity,75.27460546992965,76.02752675452741
+F,moderate intensity,71.43697502553057,68.06808628096138
+F,moderate intensity,72.8238196239004,72.03639524955716
+F,moderate intensity,73.02609834723559,67.38144379242168
+F,moderate intensity,73.49360359366115,62.13963925291381
+F,moderate intensity,71.1859245836998,68.61636088872199
+F,moderate intensity,70.81276185569192,55.93955188357217
+F,moderate intensity,73.60363657060954,69.35071889162013
+F,moderate intensity,72.19967911205852,69.03973621742254
+F,moderate intensity,71.73616711358825,72.27506770016171
+F,moderate intensity,73.84515484479088,73.07355103852369
+F,moderate intensity,72.74875537267856,77.87714113050643
+F,moderate intensity,74.56533443760584,76.81343427901783
+F,moderate intensity,73.41870264924563,62.08043255457879
+F,moderate intensity,72.06808831661546,69.10997596092406
+F,moderate intensity,74.48573790314637,65.05958953215308
+F,moderate intensity,74.212018468705793,66.1173503659832
+F,moderate intensity,72.66395927684788,79.59593424096782
+F,moderate intensity,72.50597088328888,65.65531736366769
+F,moderate intensity,74.49224369820186,67.42230178312643
+F,moderate intensity,73.04217366001308,68.89693976765389
+F,moderate intensity,72.15610317672298,72.55867246628192
+F,moderate intensity,71.68216567469781,72.12664735798847
+F,moderate intensity,72.40588605261138,65.49990597087881
+F,moderate intensity,73.15404835216556,69.628809816796
+F,moderate intensity,70.6988908074236,74.35010313044388
+F,moderate intensity,72.54209671218905,71.02270268044589
+F,moderate intensity,72.48212459532468,67.65260432678852
+F,moderate intensity,73.60494967371541,63.095743644744026
+F,moderate intensity,72.5732851256405,67.71715333321515
+F,moderate intensity,72.82832521134732,72.1388576183815
+F,moderate intensity,73.74911398151181,69.53757999645711
+F,moderate intensity,73.26107100231681,69.67531949406575
+F,moderate intensity,72.15953912797775,66.85241918273745
+F,moderate intensity,75.24089994948855,70.66917131170501
+F,moderate intensity,72.91807703120605,68.24357852573473
+F,moderate intensity,71.3985841153871,63.94377267462156
+F,moderate intensity,71.930190376839,71.96092440320845
+F,moderate intensity,72.57605148896539,62.23238112494642
+F,moderate intensity,74.19622548703569,65.91792151833275
+F,moderate intensity,72.82991476133859,68.17888662605979
+F,moderate intensity,73.57733963550928,73.3919832991318
+F,moderate intensity,74.34406820906693,70.44515691268751
+F,moderate intensity,72.32619592315318,62.3348919853984
+F,moderate intensity,72.82409925617262,75.03188521648237
+F,moderate intensity,72.56305892374354,72.75769618254357
+F,moderate intensity,73.80010682273786,69.91671680082365
+F,moderate intensity,72.38678745862802,63.1350821314761
+F,moderate intensity,74.77164546873443,63.75526294216251
+F,moderate intensity,71.3034633583436,69.09610683869957
+F,moderate intensity,73.4497883901912,65.4687698796654
+F,moderate intensity,71.887933010909,65.43641433706996
+F,moderate intensity,71.99264003736769,59.257672014350696
+F,moderate intensity,73.36264184394821,78.14882375806988
+F,moderate intensity,72.28814508545663,66.69096982029855
+F,moderate intensity,72.28383884601577,69.61667663476256
+F,moderate intensity,72.60080524787651,73.3583693713655
+F,moderate intensity,73.59550361905575,68.2250253387269
+F,moderate intensity,71.34019114461456,66.12387443101835
+F,moderate intensity,72.60127055986753,71.0370702482146
+F,moderate intensity,74.24651415437692,78.32455958041092
+F,moderate intensity,73.61067974813825,67.21605117675729
+F,moderate intensity,72.25736842483424,69.80216280933743
+F,moderate intensity,74.03039612530961,70.35819911241677
+F,moderate intensity,73.45705418110225,65.05699800422573
+F,moderate intensity,72.8424481731847,76.12687151058002
+F,moderate intensity,72.22818703265492,71.05913513555151
+F,moderate intensity,72.36562034388592,71.68126169761204
+F,moderate intensity,74.6652977301733,65.99578953242225
+F,moderate intensity,73.61995996120335,69.21730381563417
+F,moderate intensity,72.99545714431669,63.725487036677634
+F,moderate intensity,72.53470817720137,66.76308108769851
+F,moderate intensity,72.65543623019677,60.63833093499086
+F,moderate intensity,73.75685434918256,67.74594519841807
+F,moderate intensity,73.70549244483443,68.32479954097637
+F,moderate intensity,71.94915767450925,67.22400846861048
+F,moderate intensity,70.7207527930751,63.85233155063272
+F,moderate intensity,71.18720079975898,67.58089854425468
+F,moderate intensity,73.56619019634013,72.54572273245107
+F,moderate intensity,74.52260946765308,70.23452354588866
+F,moderate intensity,73.00789684371819,73.36539691071575
+F,moderate intensity,73.06796763069158,73.80553626898391
+F,moderate intensity,73.49951809730689,74.49736834779112
+F,moderate intensity,72.06806906096583,63.017678133935966
+F,moderate intensity,73.52233081058995,72.49741524460289
+F,moderate intensity,70.75767026176581,72.34048666868233
+F,moderate intensity,72.46521686948924,72.03640483038075
+F,moderate intensity,70.91232051194042,69.09203638345099
+F,moderate intensity,73.22767893314011,68.96034465237146
+F,moderate intensity,74.43076821877968,76.8261772302277
+F,moderate intensity,73.74994351882081,66.05324195328694
+F,moderate intensity,72.80177694163265,64.00563220980834
+F,moderate intensity,72.18021031466054,64.80492272340709
+F,moderate intensity,74.25167621567937,69.04179667880577
+F,moderate intensity,73.51179141730277,64.45807026796572
+F,moderate intensity,72.07840063108294,67.91175368335162
+F,moderate intensity,72.0996749039779,76.00775909041798
+F,moderate intensity,71.63880956201102,68.66254523914893
+F,moderate intensity,73.11419698964475,72.17236827881624
+F,moderate intensity,73.170472513858,69.25529451188571
+F,moderate intensity,72.86914555719716,61.718173210719414
+F,moderate intensity,72.9013704008882,66.5871080508053
+F,moderate intensity,75.17352716271641,76.32575058200773
+F,moderate intensity,73.20683877579312,64.83924782862803
+F,moderate intensity,72.2457219872791,68.84725171858359
+F,moderate intensity,71.5915498694885,69.54980083879379
+F,moderate intensity,73.24906097846916,68.28002708379532
+F,moderate intensity,72.94572166185982,68.17265458281283
+F,moderate intensity,74.85219469675607,67.61899620108727
+F,moderate intensity,72.9703906228248,78.34549568604871
+F,moderate intensity,73.42626367738205,64.90913285380923
+F,moderate intensity,71.5111932068191,68.29230987562515
+F,moderate intensity,74.75662210197906,61.999874878288274
+F,moderate intensity,72.47749193210369,70.41341805996544
+F,moderate intensity,72.62234358710533,69.74274690437589
+F,moderate intensity,72.29508159259144,64.2888296270324
+F,moderate intensity,72.33346463800193,76.18972882580753
+F,moderate intensity,73.19028283386547,64.33674067068813
+F,moderate intensity,72.84767957856428,66.43594212156404
+F,moderate intensity,73.17578046435061,68.59532742611611
+F,moderate intensity,73.87781363381009,78.43959240954125
+F,moderate intensity,72.02049934816885,71.34156696333913
+F,moderate intensity,71.78703167929294,61.4913746681336
+F,moderate intensity,72.9072956842983,71.95497103742568
+F,moderate intensity,73.8383058703929,69.64769862602826
+F,moderate intensity,74.03481441628038,66.32311908533967
+F,moderate intensity,74.28610792570484,74.37573015859057
+F,moderate intensity,72.71867686995267,65.19010858917383
+F,moderate intensity,73.83893334335791,62.14460364930412
+F,moderate intensity,72.18041712476823,68.60665281823158
+F,moderate intensity,74.2954340718462,64.89056858475098
+F,moderate intensity,73.01546086855542,70.35135084339527
+F,moderate intensity,72.65574242888755,68.7478027894999
+F,moderate intensity,72.40747501273067,69.96492272369252
+F,moderate intensity,73.38062493155464,75.00528854535276
+F,moderate intensity,72.46682676172375,58.85908588159165
+F,moderate intensity,72.02577921301697,68.79278348136748
+F,moderate intensity,73.31086425564365,60.335849698321226
+F,moderate intensity,72.37611642406625,65.86930179935992
+F,moderate intensity,71.91871840638636,63.24277165283567
+F,moderate intensity,72.7783931023349,68.94708990191708
+F,moderate intensity,73.60634324169646,59.56749409828759
+F,moderate intensity,71.51079610587402,68.53892573664174
+F,moderate intensity,71.74287911350908,76.46231530841297
+F,moderate intensity,74.09719703068775,80.35439623893515
+F,moderate intensity,73.56782211697015,69.96798835554111
+F,moderate intensity,73.618899172897315,69.12072512015101
+F,moderate intensity,73.5117521045025,65.47794054677543
+F,moderate intensity,73.24218989427563,72.45312247050873
+F,moderate intensity,73.26213232211887,71.11408709467811
+F,moderate intensity,71.80431010269555,66.31828754705086
+F,moderate intensity,72.55037223332779,73.61598538638033
+F,moderate intensity,73.80564277565537,65.37706062810713
+F,moderate intensity,71.38486578199272,63.792936900583456
+F,moderate intensity,72.72780873640316,61.63607916838396
+F,moderate intensity,71.19926207828179,76.71660217251471
+F,moderate intensity,72.96118032943563,67.10377432318904
+F,moderate intensity,72.56391573810993,67.31837918602267
+F,moderate intensity,72.4429563150185,72.79619678598132
+F,moderate intensity,73.38318440206139,74.24878608143072
+F,moderate intensity,73.3126886018158,68.89662737255173
+F,moderate intensity,74.35119908091679,76.5145080252066
+F,moderate intensity,72.3337749453525,69.13621887845483
+F,moderate intensity,73.3875422319625,68.94367510766372
+F,moderate intensity,72.63548303722195,77.35318580611282
+F,moderate intensity,73.56494483625667,72.24500860598063
+F,moderate intensity,73.96267158441194,69.57668719586972
+F,moderate intensity,73.75658976540508,59.72853865999592
+F,moderate intensity,72.74570697065332,67.16789417362428
+F,moderate intensity,73.34828531708496,73.60058539656062
+F,moderate intensity,73.98979285490252,63.231198014860794
+F,moderate intensity,71.99523622378426,62.41087639774427
+F,moderate intensity,71.69899848561796,66.79970856618401
+F,moderate intensity,71.43340342022668,65.01199397556942
+F,moderate intensity,74.26441110166212,68.22062342973119
+F,moderate intensity,72.37076939234211,70.62718353134619
+F,moderate intensity,70.35887224642671,68.2340114508478
+F,moderate intensity,72.57790402326451,69.14033290986323
+F,moderate intensity,72.70309115459644,76.80153974225537
+F,moderate intensity,73.93241114209695,67.80020992409209
+F,moderate intensity,73.91671753203659,73.64880660233992
+F,moderate intensity,73.30830913518902,67.8939098705219
+F,moderate intensity,72.30488578494399,72.40478773002346
+F,moderate intensity,70.43172048994235,71.76664266101788
+F,moderate intensity,72.88142284927412,75.3575190994095
+F,moderate intensity,73.78849231949621,74.74339090707102
+F,moderate intensity,72.66066941206135,68.78609520410596
+F,moderate intensity,73.35681341241933,73.04415591756826
+F,moderate intensity,71.14313635615221,61.477624904286564
+F,moderate intensity,73.17439645391025,75.20096367188681
+F,moderate intensity,74.71340400811816,64.93294208973525
+F,moderate intensity,73.12846908308394,69.70567774833403
+F,moderate intensity,74.19645285207352,69.64895434352741
+F,moderate intensity,72.05405166367512,61.20560012212988
+F,moderate intensity,73.82555925631891,66.69489149607915
+F,moderate intensity,73.11936704067409,63.64661449553817
+F,moderate intensity,70.88237771103793,66.44216361503969
+F,moderate intensity,72.69175366619959,59.916570600030965
+F,moderate intensity,72.04379687105487,69.13083880142133
+F,moderate intensity,72.67492120544607,73.01546893025989
+F,moderate intensity,74.85979693792439,68.17832724804737
+F,moderate intensity,73.15723968385502,62.66823045535892
+F,moderate intensity,73.99610438526507,68.6664412413866
+F,moderate intensity,72.88961346082952,69.54124690904779
+F,moderate intensity,75.25239384614254,61.021402441067664
+F,moderate intensity,73.82468100749891,68.62184226714784
+F,moderate intensity,72.02537279682417,64.01598637891307
+F,moderate intensity,72.41961970308427,73.72050260691339
+F,moderate intensity,71.85245946705497,72.66317747826874
+F,moderate intensity,72.01963540564594,70.27091189628378
+F,moderate intensity,72.16393024939457,80.50581339394927
+F,moderate intensity,71.23411955246253,64.97066562480359
+F,moderate intensity,72.82750747166435,73.61749891097384
+F,moderate intensity,72.92723163992014,60.03680322839343
+F,moderate intensity,74.74995430158877,59.28711516691208
+F,moderate intensity,73.76279237376276,70.21371813159405
+F,moderate intensity,73.08944386329058,71.27199768563227
+F,moderate intensity,73.74498008338053,70.58548840283802
+F,moderate intensity,73.41157824406129,64.28806570617587
+F,moderate intensity,72.37779035917058,77.04449274294684
+F,moderate intensity,73.45421048131915,65.12802892554409
+F,moderate intensity,72.25519978109149,69.89338677450972
+F,moderate intensity,74.70466211621476,70.0166428727978
+F,moderate intensity,72.06666079584055,65.99518878583265
+F,moderate intensity,72.05611091870587,63.74614628500956
+F,high intensity,72.79904916556332,61.55061577835015
+F,high intensity,71.88788336301577,56.26121195159903
+F,high intensity,72.47117823082522,68.31023911854074
+F,high intensity,72.25945638456784,70.20673046095935
+F,high intensity,72.09595620631126,68.65594223093365
+F,high intensity,73.4874069885884,54.14484985563371
+F,high intensity,73.2743862090582,61.6772192837756
+F,high intensity,74.2241837973754,62.93444556560943
+F,high intensity,71.83910227258767,67.768789309487
+F,high intensity,72.35363677164325,58.83505261572554
+F,high intensity,72.73637737113462,69.51440325059926
+F,high intensity,72.77623909525875,56.8686296057263
+F,high intensity,73.0185216528632,60.603743988681636
+F,high intensity,72.85573937037576,70.3364253549635
+F,high intensity,72.20763800547765,72.25594816580475
+F,high intensity,73.2848780133483,51.35946745137572
+F,high intensity,72.53430274077586,68.91649836844392
+F,high intensity,72.50727381600711,65.0873558524133
+F,high intensity,72.58790501759287,69.19779083105345
+F,high intensity,72.02332765383858,61.787561034989416
+F,high intensity,71.13645267236416,60.265284331614865
+F,high intensity,71.70424160097647,61.35202035401429
+F,high intensity,75.02044959638603,56.04032596728968
+F,high intensity,72.59906503020113,62.10592483998515
+F,high intensity,73.53795910341132,63.56627356156345
+F,high intensity,73.74775059553448,60.75337465986888
+F,high intensity,71.9063042334464,66.09637318067307
+F,high intensity,74.16363660363812,63.775251126957734
+F,high intensity,71.03800690849711,62.58957825385503
+F,high intensity,72.40153838570278,54.868218616051976
+F,high intensity,73.4214199805345,63.733192917185484
+F,high intensity,71.5860581538212,72.04191444701993
+F,high intensity,73.55897412282503,69.57607488209825
+F,high intensity,73.7856839557121,66.51434015560545
+F,high intensity,74.23731260631779,60.20067833660491
+F,high intensity,71.55254611379472,65.24887746147908
+F,high intensity,73.03157107382862,61.55559888956226
+F,high intensity,73.05288283828783,61.89910355314108
+F,high intensity,73.11792631250661,60.53519843315103
+F,high intensity,70.74119954679814,64.2643047526468
+F,high intensity,73.52227795070539,66.6082842643128
+F,high intensity,72.01227407242455,56.50353287793442
+F,high intensity,72.91022689040844,70.1401078515724
+F,high intensity,73.34734040441471,67.6856585176501
+F,high intensity,73.34196484812664,70.59421758333482
+F,high intensity,71.7721430305269,61.063289462169564
+F,high intensity,73.83006131119707,66.86823849893048
+F,high intensity,71.30390340639515,65.60562828239729
+F,high intensity,73.78913690949771,64.78369980393745
+F,high intensity,71.33848815004298,62.4925832169692
+F,high intensity,74.36309166825286,68.20321171400158
+F,high intensity,72.8319214555229,64.67228168059232
+F,high intensity,73.49465780202061,67.12093690956007
+F,high intensity,70.95979709528018,57.547674480877625
+F,high intensity,73.97739986392871,58.65061240936822
+F,high intensity,73.4166633262244,56.28892586178742
+F,high intensity,72.2639484780533,65.13884584280618
+F,high intensity,71.41908929695306,65.03681225387614
+F,high intensity,71.52115840925329,68.65162689481448
+F,high intensity,72.65057882848664,70.22225138049669
+F,high intensity,72.21232885991954,62.104975688642384
+F,high intensity,72.16735086616842,52.38764033817154
+F,high intensity,73.58551255227727,63.55528330000818
+F,high intensity,74.42165129544459,68.6016722415067
+F,high intensity,71.87704584667895,56.94180794149089
+F,high intensity,72.14242649008523,67.44349490147705
+F,high intensity,73.27198616202378,49.610610489644074
+F,high intensity,73.49530874943028,67.5484625787727
+F,high intensity,72.26621190113839,59.769859117790396
+F,high intensity,70.74515153282113,65.0580894002332
+F,high intensity,72.34424806469895,58.007508631027264
+F,high intensity,74.17869979209742,63.72654415080108
+F,high intensity,72.54649881777677,60.40309833553162
+F,high intensity,74.35377289891083,63.09797374987739
+F,high intensity,72.03990701787637,59.73150116983966
+F,high intensity,73.02331789772707,71.1152062924623
+F,high intensity,73.08823476055944,58.88351549816145
+F,high intensity,72.75931708939915,62.783961308274236
+F,high intensity,70.87770689457285,53.95450521735452
+F,high intensity,70.53872966770881,64.79405815150562
+F,high intensity,73.23504447186538,69.0693466784032
+F,high intensity,73.47711488700426,57.14404278101165
+F,high intensity,71.25197870352305,65.56791459164604
+F,high intensity,72.54133196425694,66.70587860153
+F,high intensity,73.71177611846102,63.676882062181164
+F,high intensity,72.41770429712662,63.35041707525691
+F,high intensity,71.02254405395907,58.100785154354526
+F,high intensity,72.17701596660478,62.52410801650978
+F,high intensity,73.1492822393438,59.0078088309819
+F,high intensity,73.51018151602663,59.61150261103237
+F,high intensity,74.94927653952489,63.86225994017422
+F,high intensity,72.4229837523869,58.37595603357585
+F,high intensity,72.38088883404257,70.76173473545052
+F,high intensity,70.79746320440474,69.80090888178592
+F,high intensity,73.91594734065914,59.50286838411894
+F,high intensity,74.08284816926839,57.615241769135594
+F,high intensity,72.23463422967176,71.01551546886958
+F,high intensity,73.12723880171941,64.73670005612405
+F,high intensity,73.6380738120824,70.27001937435575
+F,high intensity,72.35058078273404,56.33591989674933
+F,high intensity,72.7499624875871,63.70318541685299
+F,high intensity,73.26918453975364,53.18418323087271
+F,high intensity,73.32593490507325,67.3668087939535
+F,high intensity,72.6230116298811,60.10647327350179
+F,high intensity,72.28228020344642,62.142727716670095
+F,high intensity,72.57547536443047,60.68511732667851
+F,high intensity,73.88208647544079,65.35000506813856
+F,high intensity,74.47500878279041,59.80954310410295
+F,high intensity,72.88634391725154,64.02514934553074
+F,high intensity,73.51464395510675,61.41906815880909
+F,high intensity,72.30484234246768,67.52787653566888
+F,high intensity,72.13083397998965,67.70835286395472
+F,high intensity,70.33599539445751,60.56278494050596
+F,high intensity,72.35543050493241,56.82904672172804
+F,high intensity,72.75311540260168,65.51184876508937
+F,high intensity,72.02061039297972,59.686527907692614
+F,high intensity,73.08937018328297,60.17414875678777
+F,high intensity,71.90863619734732,61.67779609699454
+F,high intensity,74.13181586145639,66.34534918554166
+F,high intensity,72.9587649279043,66.3466925639363
+F,high intensity,73.4173057368126,56.56608062156805
+F,high intensity,72.65705742087448,63.148535940276254
+F,high intensity,72.990286284109,69.45386443711843
+F,high intensity,73.74555302927021,61.47557689338739
+F,high intensity,71.61616542752428,64.37126066509904
+F,high intensity,74.36430299943449,65.74156386044145
+F,high intensity,73.50059952886774,71.40619907710816
+F,high intensity,70.8884783478531,59.32305802896898
+F,high intensity,74.32825736382301,62.79584350594176
+F,high intensity,73.3988291655085,61.48674962236173
+F,high intensity,72.07622848770262,56.132591044915515
+F,high intensity,74.02550852159358,67.45211074748138
+F,high intensity,73.02351638888187,66.75075327861396
+F,high intensity,73.44180750169849,57.155128861032274
+F,high intensity,72.6634322619299,58.29876251376256
+F,high intensity,73.61097278366722,64.80419976607516
+F,high intensity,74.35256091973795,61.75910354687358
+F,high intensity,72.49700495197006,67.0169925801545
+F,high intensity,73.89003123864113,56.695019942530806
+F,high intensity,72.23589002489501,73.2343641768868
+F,high intensity,73.66204809741545,65.929829151828
+F,high intensity,71.5397472745954,67.76745240329947
+F,high intensity,71.48259417305212,62.316532378786114
+F,high intensity,72.35149804315765,68.21094244427077
+F,high intensity,73.23882072598228,71.13204481384174
+F,high intensity,72.19530009464802,65.72293593529312
+F,high intensity,73.04582404026401,58.76155097075585
+F,high intensity,72.48576221538478,57.02024113437698
+F,high intensity,73.71515841421399,56.26016664822613
+F,high intensity,72.03817782260256,66.00665062323333
+F,high intensity,72.37136833795633,54.34629946271416
+F,high intensity,72.91258213157643,72.18057923229581
+F,high intensity,73.77907073928787,58.80935849738335
+F,high intensity,71.1890260143916,63.243123030861355
+F,high intensity,72.65956073938308,61.51216021981292
+F,high intensity,71.99192296580392,54.07388072613064
+F,high intensity,73.67492920170409,58.246080880438626
+F,high intensity,72.23477223570737,68.261877269085
+F,high intensity,73.77211528414011,59.865927236289444
+F,high intensity,72.94042759221055,59.43678168899022
+F,high intensity,73.48889685416808,63.01645016026313
+F,high intensity,73.47341933727039,66.390396219633
+F,high intensity,74.6932472883593,64.74527324515948
+F,high intensity,72.78400294267769,62.859685966238516
+F,high intensity,72.71795908223594,60.89541787347857
+F,high intensity,73.79557648257406,65.4988791988612
+F,high intensity,74.0041730860533,67.93965993987834
+F,high intensity,71.89362963110882,68.21933099424568
+F,high intensity,72.24575215397007,70.1602098101768
+F,high intensity,72.23695233968476,61.74101674614939
+F,high intensity,72.60124837456257,55.55261297897935
+F,high intensity,72.66773020992886,62.08702461720929
+F,high intensity,71.01198712518064,62.81855749831296
+F,high intensity,72.02440459346082,64.43310307353119
+F,high intensity,72.40411860002871,66.7681410893114
+F,high intensity,73.12910503838094,59.286583661855794
+F,high intensity,72.85431675968947,57.72125140620373
+F,high intensity,72.95223329617316,56.576956351827704
+F,high intensity,72.95019366728955,65.29850682033435
+F,high intensity,73.25424024793611,61.00018560925656
+F,high intensity,73.4209224990873,61.342170358470796
+F,high intensity,73.13452040338818,59.585141537210525
+F,high intensity,73.46187901263961,64.37129880749897
+F,high intensity,73.45290561680227,64.77072036089865
+F,high intensity,72.78934236061322,64.40490251040067
+F,high intensity,70.44130954390788,58.071926245669616
+F,high intensity,73.24559886739134,63.77824512986743
+F,high intensity,71.20539087890792,63.03021084992555
+F,high intensity,73.23448536560632,69.64729231348993
+F,high intensity,71.2720358805325,61.68085232735749
+F,high intensity,73.4492778506577,55.12508297617079
+F,high intensity,73.74240799016087,63.49407420514754
+F,high intensity,73.6345497779488,52.57479768680106
+F,high intensity,72.60770670685415,64.17559000990299
+F,high intensity,73.14194308668715,66.08883817035294
+F,high intensity,73.41592320353162,60.843636576452916
+F,high intensity,71.68246499071762,65.15619293764293
+F,high intensity,73.15070638585506,64.0450660735273
+F,high intensity,73.09644918511,56.72052424611866
+F,high intensity,71.5754667113488,53.41162166051194
+F,high intensity,74.0976086699198,67.20198000834647
+F,high intensity,71.93595073077717,58.52245222236099
+F,high intensity,73.93402743848377,63.61131604074244
+F,high intensity,71.85481569653398,57.63731671547533
+F,high intensity,72.96478433414791,60.72497704930079
+F,high intensity,72.33507319650612,65.5409418678913
+F,high intensity,73.06339900550327,60.162958604778325
+F,high intensity,72.78086632069835,58.095943627374034
+F,high intensity,73.20839116003621,56.50120955189898
+F,high intensity,73.64271145406069,61.5745589751712
+F,high intensity,74.14956006042176,76.08865238048418
+F,high intensity,74.04653895619488,59.82206437398132
+F,high intensity,73.7862753243562,61.66522905831118
+F,high intensity,73.49963058862554,59.610762340285866
+F,high intensity,71.69613623902326,58.13186799119289
+F,high intensity,72.50303210077504,59.565778096348005
+F,high intensity,73.22612000851996,66.37738373907197
+F,high intensity,74.12638363672254,65.64354708213966
+F,high intensity,72.55310827601183,67.26175302960598
+F,high intensity,71.87257291584443,68.43231295381534
+F,high intensity,70.75119403835464,66.47309125583256
+F,high intensity,73.4445975023097,67.87449929457206
+F,high intensity,73.14660999056245,60.52612092192781
+F,high intensity,73.72206774554384,60.9361846031382
+F,high intensity,72.27878463431907,59.214686455363136
+F,high intensity,73.60117077562704,64.29650102910541
+F,high intensity,72.45434498846205,77.88621227571431
+F,high intensity,71.15643218095578,64.40013479428468
+F,high intensity,70.81276799694835,63.214698534157826
+F,high intensity,72.88898762498353,55.571960269173616
+F,high intensity,71.55368902281505,71.2184017199237
+F,high intensity,70.40377139219639,54.905046124151845
+F,high intensity,71.83056645705018,62.24246145865395
+F,high intensity,73.94478259165238,63.93401657557627
+F,high intensity,72.02229788784001,64.70063032117613
+F,high intensity,71.89927447798652,63.51397389127682
+F,high intensity,72.46794620774686,68.60645263327554
+F,high intensity,71.27061495780745,53.8078720551187
+F,high intensity,72.13282826474342,68.57834594871376
+F,high intensity,72.46415729674547,60.819659055841825
+F,high intensity,73.18888773681435,61.68108565491302
+F,high intensity,72.91332630254503,61.12952331665417
+F,high intensity,73.8889853111513,54.16417607281182
+F,high intensity,70.50492022487997,57.929502174741124
+F,high intensity,71.56958084766953,62.71168874523812
+F,high intensity,73.4558218245128,64.39026306552337
+F,high intensity,72.37021477513952,61.178981612541165
+F,high intensity,71.86571062260474,62.521352851830436
+F,high intensity,73.63873348423178,62.72025383973869
+F,high intensity,73.36188947320036,74.60228163555296
+F,high intensity,71.27126309368637,67.9762510515479
+F,high intensity,72.00096997211467,67.40762780142738
+F,high intensity,70.41619068061414,56.01478860591016
+F,high intensity,73.80763822275188,60.32761963371268
+F,high intensity,73.52326421762581,71.9905469754505
+F,high intensity,72.2821131492865,63.22682999840782
+F,high intensity,73.8261349587003,66.79429872604254
+F,high intensity,72.5099747182143,59.03446821286758
+F,high intensity,72.4398002632804,60.12225234385066
+F,high intensity,71.0574992982171,57.84068648065795
+F,high intensity,71.15839759087213,63.88769051371628
+F,high intensity,71.77435008859767,68.81549363139777
+F,high intensity,72.61647842006968,64.04688069977557
+F,high intensity,73.97425021735945,57.72385318694835
+F,high intensity,71.93491162806517,60.35476787304868
+F,high intensity,72.19047882415519,61.91207007091884
+F,high intensity,71.3794261610526,65.71389299320563
+F,high intensity,73.73239973325262,66.56184075720442
+F,high intensity,73.77172902785016,63.832669476363776
+F,high intensity,73.71899098286441,63.69690239300585
+F,high intensity,73.49769274151632,68.65624339567616
+F,high intensity,72.08544900676256,67.06624770739217
+F,high intensity,72.15222560055116,64.27437666735908
+F,high intensity,74.12675086721147,58.27435522874305
+F,high intensity,71.2452626649148,67.23746708678955
+F,high intensity,73.23965163127608,60.767748161151715
+F,high intensity,71.83302392590771,71.11922237995827
+F,high intensity,70.90292786155068,61.07227543596072
+F,high intensity,71.79760425627137,52.23734216392494
+F,high intensity,72.40857282448958,64.6162062547047
+F,high intensity,70.78431694834059,61.36947301176676
+F,high intensity,73.16735293060914,67.95515501480233
+F,high intensity,74.53453104243941,68.66613155981815
+F,high intensity,72.5280617371327,60.63642570418133
+F,high intensity,74.34778405683191,62.59738582891149
+F,high intensity,73.17336039335538,64.6941047771713
+F,high intensity,72.865162345049,71.09000911309833
+F,high intensity,73.04769939183085,65.27520081569745
+F,high intensity,72.71928118346462,68.31124870122353
+F,high intensity,73.98120270854604,68.52506681164371
+F,high intensity,73.41409318153713,73.56711572663245
+F,high intensity,72.91681423105535,70.18632915516021
+F,high intensity,72.3425002943691,54.69503970798714
+F,high intensity,73.84541060357084,61.981458664740444
+F,high intensity,72.54703469533663,67.49083176803059
+F,high intensity,73.4625055002811,65.46367528975588
+F,high intensity,73.53724053409378,57.748101322505825
+F,high intensity,74.03183695063359,59.963026120258526
+F,high intensity,73.96445145230848,75.79872755017513
+F,high intensity,72.27620949793985,73.8151651382112
+F,high intensity,72.6569358029629,59.40859090856152
+F,high intensity,72.61139382899735,55.84914137046853
+F,high intensity,72.41418274825173,62.27364423937506
+F,high intensity,71.77363618972258,63.30741888555572
+F,high intensity,72.73965076117406,71.38748167853959
+F,high intensity,73.01324389948999,70.05986679495852
+F,high intensity,72.86953685510743,62.461688250863574
+F,high intensity,73.65630281285058,62.92915411937978
+F,high intensity,71.19042299898877,64.22385679793297
+F,high intensity,72.81429816291578,65.40015716780783
+F,high intensity,73.52690354347344,65.23798539744341
+F,high intensity,71.03416842038348,60.246056575776144
+F,high intensity,72.64036441185017,62.17284235889182
+F,high intensity,72.96121554133545,69.04247489178637
+F,high intensity,72.23317563406766,66.55287071849355
+F,high intensity,73.70417883412364,64.1946968740847
+F,high intensity,72.1288175959434,76.72274172234273
+F,high intensity,72.36621768336197,55.998619404444256
+F,high intensity,73.75340622449845,62.43060991202893
+F,high intensity,72.09266313472939,55.388240471331414
+F,high intensity,72.06603342609435,69.58997664559223
+F,high intensity,72.43526910916621,73.29315943931492
+F,high intensity,73.74260823306507,60.99003111432805
+F,high intensity,72.3204478935909,66.34541581558368
+F,high intensity,70.65206460580274,63.37575301676208
+F,high intensity,73.74628108293483,58.914603836447014
+F,high intensity,72.28065908451636,72.61848770152261
+F,high intensity,72.8088480618619,70.31174902950592
+F,high intensity,74.05696396288171,67.34777649732774
+F,high intensity,72.74415221336537,61.083203962164625
+F,high intensity,73.62297064884936,64.53414579291335
+F,high intensity,73.17363974807141,63.485714371375416
+F,high intensity,71.75706426361005,56.37710136732915
+F,high intensity,73.35649145984635,56.59459574292279
+F,high intensity,72.25812414794069,60.98121354049572
+F,high intensity,72.59610856993791,72.79159657303043
+F,high intensity,73.55839203652701,60.097535438359884
+F,high intensity,72.72428754881985,67.08419520345203
+F,high intensity,72.52418187927846,66.61329806551748
+F,high intensity,74.16123321756749,60.061378093326525
+F,high intensity,73.84205681794639,69.76607157880926
+F,high intensity,72.02855978983062,64.58938355784959
+F,high intensity,73.86361649263323,63.91583281968326
+F,high intensity,73.15425169087,61.146397976101255
+F,high intensity,72.30803504151802,66.34188866452477
+F,high intensity,70.67436662783965,58.81827204963308
+F,high intensity,71.42003300818206,68.17275472581152
+F,high intensity,72.77043164405558,65.97643985885419
+F,high intensity,73.62423912068037,69.22349736748285
+F,high intensity,72.4074338533639,59.45076295210344
+F,high intensity,73.23748923004591,60.16246356578942
+F,high intensity,74.8148776097504,62.99367429376155
+F,high intensity,72.1543147536809,64.22631629016821
+F,high intensity,71.30524946391547,66.92992442187467
+F,high intensity,72.47180447515879,62.01173433101837
+F,high intensity,71.47710854610797,63.70447852608694
+F,high intensity,73.34920836204716,57.52229508195835
+F,high intensity,71.43480009014048,70.53308703143314
+F,high intensity,73.72658890718336,61.77729965731528
+F,high intensity,72.0130098267138,60.2437911914262
+F,high intensity,71.26989404374568,56.643575582697586
+F,high intensity,73.49750300293556,63.967175428046424
+F,high intensity,72.58875837700421,55.475776821448385
+F,high intensity,74.74047780806542,60.06223197203697
+F,high intensity,74.21319101787616,63.22901913730996
+F,high intensity,72.74477419236847,61.20717458421313
+F,high intensity,71.53780579208026,55.58500728003301
+F,high intensity,73.55897183087811,65.84392408203907
+F,high intensity,73.93136316804197,58.45200484194632
+F,high intensity,72.24941609095815,60.75354804784775
+F,high intensity,71.33217675122638,69.84677284849884
+F,high intensity,71.78992729905274,62.88193406876752
+F,high intensity,73.67339735437243,62.43084216311195
+F,high intensity,72.79081698487794,70.98830153762462
+F,high intensity,70.83192856878186,62.07549430284386
+F,high intensity,71.869232594115,59.50112869911989
+F,high intensity,74.3751221632298,61.706363005412456
+F,high intensity,73.15478387247029,62.70669079580825
+F,high intensity,72.53568052764699,62.29185800260317
+F,high intensity,74.10090280288105,63.0432346663293
+F,high intensity,72.67458782766772,57.371315503170116
+F,high intensity,72.0341459903144,71.66181219355103
+F,high intensity,71.79461969910477,64.63008470496766
+F,high intensity,72.27711162382728,65.15798181711651
+F,high intensity,73.87668690636752,60.19971809188915
+F,high intensity,73.56310080528095,64.62538286848672
+F,high intensity,73.4155019256977,57.798387382216966
+F,high intensity,72.2511167959812,62.597275811888764
+F,high intensity,71.79975752187197,60.02795801684642
+F,high intensity,73.60580913737246,66.90061044835106
+F,high intensity,72.68567351724903,65.34953609928489
+F,high intensity,71.99949991568579,61.431576986199325
+F,high intensity,74.69451760974033,64.3097193879773
+F,high intensity,71.16747718653112,59.525234529274144
+F,high intensity,73.93512971285011,52.83898952218319
+F,high intensity,72.72188422132395,58.886400629938464
+F,high intensity,72.56630385635155,59.42055409644663
+F,high intensity,72.153048638041,66.2671640934764
+F,high intensity,73.33858784497241,65.963462723139
+F,high intensity,71.48351496322881,63.94700322062346
