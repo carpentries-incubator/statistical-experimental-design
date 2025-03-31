@@ -42,4 +42,3 @@ served as observed controls. The results showed evidence that the vaccine was
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-

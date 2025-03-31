@@ -100,7 +100,7 @@ sample100 <- sample(heart_rate$heart_rate, 100)
 hist(sample100, xlab = "resting heart rate for 100 participants")
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-load_data-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-load_data-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -128,7 +128,7 @@ Now create a boxplot of the same sample data.
 boxplot(sample100)
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -167,7 +167,7 @@ heart_rate %>%
   geom_boxplot()
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-boxplot-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-boxplot-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -366,7 +366,7 @@ hist(null)
 abline(v=meanDiff, col="red", lwd=2)
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
 `null` contains the differences in means between the two groups sampled 10,000
 times each. The value of the observed difference in means between the two 
@@ -462,7 +462,7 @@ older.
 population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-population_hist-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-population_hist-1.png" style="display: block; margin: auto;" />
 
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
@@ -477,7 +477,7 @@ with a resting heart rate below 50.
 The histogram above approximates one that is very common in nature: the bell
 curve, also known as the **normal distribution** or Gaussian distribution.
 
-<img src="fig/04-statistical-data-analysis-rendered-standard_normal_dist-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-standard_normal_dist-1.png" style="display: block; margin: auto;" />
 
 The curve shown above is an example of a **probability density function** that
 defines a normal distribution. The y-axis is the **probability density**, and
@@ -521,7 +521,7 @@ sample100 <- sample(heart_rate$heart_rate, 100)
 hist(sample100, xlab = "resting heart rate for 100 participants")
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-sample-of-100-participants-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-sample-of-100-participants-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -555,7 +555,7 @@ qqnorm(sample100)
 qqline(sample100)
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-qq-plot-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-qq-plot-1.png" style="display: block; margin: auto;" />
 
 We can use qq-plots to confirm that a distribution is relatively close to 
 normally distributed. A qq-plot compares data on the y-axis against a 
@@ -662,7 +662,7 @@ true value falls within the interval. The graphic below helps to explain a 95%
 confidence interval for mean heart rates of samples of size 30 taken from the
 overall population.
 
-<img src="fig/04-statistical-data-analysis-rendered-confidence-interval-95-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-confidence-interval-95-1.png" style="display: block; margin: auto;" />
 
 If we generate 200 confidence intervals for the sample mean heart rate, those 
 confidence intervals will include the true population mean (vertical gray dotted 
@@ -703,14 +703,14 @@ can help us with this assumption. If we know from previous data or from our own
 expertise that adjusting a treatment will affect the mean response but not its
 variability, then we can assume equal variances between treatment groups. 
 
-<img src="fig/04-statistical-data-analysis-rendered-compare-standard-deviation-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-compare-standard-deviation-1.png" style="display: block; margin: auto;" />
 
 However, if we suspect that changing a treatment will affect not only mean 
 response but also its variability, we will be as interested in comparing 
 standard deviations (the square root of the variance) as we are in comparing 
 means.
 
-<img src="fig/04-statistical-data-analysis-rendered-compare-means-standard-deviation-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-compare-means-standard-deviation-1.png" style="display: block; margin: auto;" />
 
 As a rule of thumb, if the ratio of the larger to the smaller variance is less
 than 4, the groups have equal variances. 
@@ -893,14 +893,14 @@ size, sample size, and power. What is the relationship between effect size and
 sample size? Between sample size and power? What do you notice about effect size 
 and power as you increase the sample size?
 
-<img src="fig/04-statistical-data-analysis-rendered-power-curve-1-1.png" style="display: block; margin: auto;" /><img src="fig/04-statistical-data-analysis-rendered-power-curve-1-2.png" style="display: block; margin: auto;" /><img src="fig/04-statistical-data-analysis-rendered-power-curve-1-3.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-power-curve-1-1.png" style="display: block; margin: auto;" /><img src="fig/statistical-data-analysis-rendered-power-curve-1-2.png" style="display: block; margin: auto;" /><img src="fig/statistical-data-analysis-rendered-power-curve-1-3.png" style="display: block; margin: auto;" />
 Code adapted from [Power Curve in R](https://cinnipatel.medium.com/power-curve-in-r-8a1e67fb2600) by Cinni Patel.
 
 Review the following figure to explore the relationships between effect size, 
 sample size, and power. What is the relationship between effect size and sample 
 size? Between sample size and power?
 
-<img src="fig/04-statistical-data-analysis-rendered-power-curve-2-1.png" style="display: block; margin: auto;" />
+<img src="fig/statistical-data-analysis-rendered-power-curve-2-1.png" style="display: block; margin: auto;" />
 Code adapted from [How to Create Power Curves in ggplot](https://levibaguley.github.io/2020/06/22/how-to-create-power-curves-in-ggplot/) by Levi Baguley
 
 Notice that to detect a standardized effect size of 0.5 at 80% power, you would 

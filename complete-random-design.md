@@ -118,13 +118,13 @@ heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group,
   geom_boxplot()
 ```
 
-<img src="fig/05-complete-random-design-rendered-boxplots-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-rendered-boxplots-1.png" style="display: block; margin: auto;" />
 By eye it appears that there is a difference in mean heart rate between exercise
 groups, and that increasing exercise intensity decreases mean heart rate. We 
 want to know if there is any statistically significant difference between mean 
 heart rates in the three exercise groups. The R function `anova()` performs
 analysis of variance (ANOVA) to answer this question. We provide `anova()` with
-a linear model (`lm()`) stating that heart rate depends on exercise group.
+a linear model (`lm()`) stating that `heart_rate` depends on `exercise_group`.
 
 
 ``` r
@@ -144,7 +144,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 The output tells us that there are two terms in the model we provided: exercise 
 group plus some experimental error (residuals). The Sum of Squares (`Sum Sq`) 
-for the treatment (exercise group) subtracts the overall mean for all groups
+for the treatment (`exercise_group`) subtracts the overall mean for all groups
 (68) from each individual observation,
 squares the difference so that only positive numbers result, then sums all of 
 the squared differences together and multiplies the result by the number of
@@ -159,9 +159,9 @@ other two groups, then multiply the total by
 391.75. This used to be a manual process.
 Fortunately R does all of this labor for us.
 
-<img src="fig/05-complete-random-design-rendered-boxplot-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-rendered-boxplot-1.png" style="display: block; margin: auto;" />
 
-Exercise group has 2 degrees of freedom, one less than the number of exercise 
+`exercise_group` has 2 degrees of freedom, one less than the number of exercise 
 groups. Think of degrees of freedom as the number of values that are free to 
 vary. Or, if you know two of the exercise groups, the identity of the third is 
 revealed. The mean squares values for the treatment (`Mean Sq`) divides the
@@ -202,9 +202,104 @@ the within-group variance. Among-group variance would change, but not
 within-group variance. 
 
 
-<img src="fig/05-complete-random-design-rendered-boxplot_lm-1.png" style="display: block; margin: auto;" />
+
 
 ## Equal variances and normality
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge 2: Checking for equal variances and normality
+
+A one-way ANOVA assumes that:
+1. variances of the populations that the samples come from are equal,  
+2. samples were drawn from a normally distributed population, and  
+3. observations in each group are independent of each other, and observations 
+within groups were obtained by random sampling.
+
+Discuss the following questions with your partner, then share your answers
+to each question in the collaborative document.
+
+1. How can you check whether variances are equal?  
+2. How can you check whether data are normally distributed?  
+3. How can you check whether each observation is independent of the other and
+groups randomly assigned?   
+
+:::::::::::::::  solution
+
+## Solution
+
+1. How can you check whether variances are equal?  
+A visual like a boxplot can be used to check whether variances are equal. 
+
+```
+heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
+                                                   heart_rate, 
+                                                   .fun='mean', 
+                                                   .desc = TRUE))  %>% 
+  ggplot(aes(exercise_group, heart_rate)) + 
+  geom_boxplot()
+```
+If the length of the boxes are more or less equal, then equal variances can be 
+assumed. 
+
+
+
+2. How can you check whether data are normally distributed?  
+3. How can you check whether each observation is independent of the other and
+groups randomly assigned? 
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::: spoiler
+
+### More formal tests of normality and equal variances
+
+More formal tests include the Bartlett test, Shapiro-Wilk test and the 
+Kruskal-Wallis test.
+
+The Bartlett test of homogeneity of variances tests the null hypothesis that the 
+samples have equal variances against the alternative that they do not. 
+
+```r
+bartlett.test(heart_rate ~ exercise_group, data = heart_rate)
+```
+In this case the p-value is greater than the alpha level of 0.05. This suggests 
+that the null should not be rejected, or that samples do have equal variances.
+One-way ANOVA is robust against violations of the equal variances assumption as 
+long as each group has the same sample size. If variances are very different and 
+sample sizes unequal, the Kruskal-Wallis test (`kruskal.test()`) determines 
+whether there is a statistically significant difference between the medians of 
+three or more independent groups.
+
+The Shapiro-Wilk Normality Test tests the null hypothesis that the samples come 
+from a normal distribution against the alternative hypothesis that samples don't 
+come from a normal distribution. 
+
+```r
+shapiro.test(heart_rate$heart_rate)
+```
+
+In this case the p-value of the test is greater than the alpha level of 0.05,
+so it fails to reject the null hypothesis. This suggests that the samples come 
+from a normal distribution.
+
+One-way ANOVA is robust against violations of the normality assumption as long 
+as sample sizes are quite large. With very large sample sizes statistical tests 
+like the Shapiro-Wilk test will almost always report that your data are not 
+normally distributed. Visuals like histograms and Q-Q plots should clarify this. 
+
+If the normality assumption is severely violated or if you just want to be extra 
+conservative, you can:
+
+1. Transform the response values of your data so that they are more normally 
+distributed.
+
+2. Use a non-parametric test like a Kruskal-Wallis Test that doesn’t require 
+assumption of normality.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Confidence intervals
 
