@@ -83,7 +83,7 @@ profiles:
 # sandpaper and varnish versions) should live
 
 
-url: 'https://smcclatchy.github.io/statistical-experimental-design'
+url: 'https://carpentries-incubator.github.io/statistical-experimental-design'
 analytics: |
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Z3DVB9Q3W"></script>
