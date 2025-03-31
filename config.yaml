@@ -84,5 +84,14 @@ profiles:
 
 
 url: 'https://smcclatchy.github.io/statistical-experimental-design'
-analytics: carpentries
+analytics: |
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src='https://www.googletagmanager.com/gtag/js?id={YOUR TRACKING ID}#' ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{YOUR TRACKING ID}');
+  </script>
 lang: en

@@ -778,15 +778,13 @@ for(i in 1:n_sims){
   p_vals[i] <- t.test(group1, group2, var.equal = TRUE)$p.value 
 }
 
-mean(p_vals < .05) # check power (i.e. proportion of p-values that are smaller 
+# check power (i.e. proportion of p-values that are smaller 
+# than alpha-level of .05)
+mean(p_vals < .05) 
 ```
 
 ``` output
 [1] 0.478
-```
-
-``` r
-                   # than alpha-level of .05)
 ```
 
 Let's calculate the statistical power of our experiment so far, and then 
