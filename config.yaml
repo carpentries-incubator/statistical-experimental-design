@@ -59,14 +59,14 @@ contact: 'team@carpentries.org'
 
 # Order of episodes in your lesson
 episodes:
-- 01-introduction.md
-- 02-experimental-structure.Rmd
-- 03-design-principles.Rmd
-- 04-statistical-data-analysis.Rmd
-- 05-complete-random-design.Rmd
-- 06-complete-random-design-multitreatment-factors.Rmd
-- 07-complete-random-block.Rmd
-- 08-repeated-measures-design.Rmd
+- introduction.Rmd
+- experimental-structure.Rmd
+- design-principles.Rmd
+- statistical-data-analysis.Rmd
+- complete-random-design.Rmd
+- complete-random-design-multitreatment-factors.Rmd
+- complete-random-block.Rmd
+- repeated-measures-design.Rmd
 
 # Information for Learners
 learners:
