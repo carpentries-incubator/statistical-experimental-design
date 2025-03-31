@@ -354,7 +354,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Statistics in Data Analysis</h1>
-        <p>Last updated on 2025-03-24 |
+        <p>Last updated on 2025-03-31 |
 
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/04-statistical-data-analysis.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -428,7 +428,7 @@ outliers if an equal number of men were added to the histogram?</p>
   Solution to Exercise 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>1). Mean and median are two measures of the center of the data. The
 median is the 50th% of the data with half the women above this value and
@@ -504,7 +504,7 @@ do the data deliver in this histogram?</p>
   Solution to Exercise 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 
 </div>
@@ -539,7 +539,7 @@ boxplot?</p>
   Solution to Exercise 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 
 </div>
@@ -587,7 +587,7 @@ say with certainty that a person belongs to one group or the other?</li>
   Solution to Exercise 4
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>There appears to be a trend of lower heart rate in the
 moderate-intensity exercise group, however, we can’t say whether or not
@@ -823,7 +823,7 @@ the significance of the difference in mean values?</p>
   Solution to Exercise 5
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 
 </div>
@@ -969,7 +969,7 @@ it was drawn?</li>
   Solution to Exercise 6
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 
 </div>
@@ -1129,7 +1129,7 @@ p-value.</li>
   Solution to Exercise 7
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 
 </div>
@@ -1217,23 +1217,19 @@ different means and equal variances.</p>
 <span>  <span class="va">p_vals</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">t.test</span><span class="op">(</span><span class="va">group1</span>, <span class="va">group2</span>, var.equal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> </span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="fu">mean</span><span class="op">(</span><span class="va">p_vals</span> <span class="op">&lt;</span> <span class="fl">.05</span><span class="op">)</span> <span class="co"># check power (i.e. proportion of p-values that are smaller </span></span></code></pre>
+<span><span class="co"># check power (i.e. proportion of p-values that are smaller </span></span>
+<span><span class="co"># than alpha-level of .05)</span></span>
+<span><span class="fu">mean</span><span class="op">(</span><span class="va">p_vals</span> <span class="op">&lt;</span> <span class="fl">.05</span><span class="op">)</span> </span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>[1] 0.478</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb38">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span>                   <span class="co"># than alpha-level of .05)</span></span></code></pre>
-</div>
 <p>Let’s calculate the statistical power of our experiment so far, and
 then determine the sample size we would need to run a similar experiment
 on a different population.</p>
-<div class="codewrapper sourceCode" id="cb39">
+<div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1267,7 +1263,7 @@ NOTE: n is number in *each* group</code></pre>
 standard. If we were to repeat the experiment with a different
 population of elders (e.g.  Icelandic elders), what is the minimum
 sample size we would need for each exercise group?</p>
-<div class="codewrapper sourceCode" id="cb41">
+<div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1299,7 +1295,7 @@ size assuming equal variances and sample sizes drawn from a normal
 distribution. The effect size is standardized by dividing the difference
 in group means by the standard deviation. <em>Cohen’s d</em> describes
 standardized effect sizes from 0.01 (very small) to 2.0 (huge).</p>
-<div class="codewrapper sourceCode" id="cb43">
+<div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1318,7 +1314,7 @@ standardized effect sizes from 0.01 (very small) to 2.0 (huge).</p>
 <p>Often budget constraints determine sample size. Lehr’s equation can
 be rearranged to determine the effect size that can be detected for a
 given sample size.</p>
-<div class="codewrapper sourceCode" id="cb45">
+<div class="codewrapper sourceCode" id="cb44">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1427,27 +1423,17 @@ quantify effects against random variation.</li>
   "url": "https://smcclatchy.github.io/statistical-experimental-design/instructor/04-statistical-data-analysis.html",
   "identifier": "https://smcclatchy.github.io/statistical-experimental-design/instructor/04-statistical-data-analysis.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-03-24",
-  "datePublished": "2025-03-25"
+  "dateModified": "2025-03-31",
+  "datePublished": "2025-03-31"
 }
 
   </script><script>
 		feather.replace();
-	</script><!-- Matomo --><script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-          _paq.push(["setDomains", ["*.lessons.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
-          _paq.push(["setDoNotTrack", true]);
-          _paq.push(["disableCookies"]);
-          _paq.push(["trackPageView"]);
-          _paq.push(["enableLinkTracking"]);
-          (function() {
-              var u="https://matomo.carpentries.org/";
-              _paq.push(["setTrackerUrl", u+"matomo.php"]);
-              _paq.push(["setSiteId", "1"]);
-              var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
-              g.async=true; g.src="https://matomo.carpentries.org/matomo.js"; s.parentNode.insertBefore(g,s);
-          })();
-        </script><!-- End Matomo Code --></body></html><!-- END:   inst/pkgdown/templates/layout.html-->
+	</script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=%7BYOUR%20TRACKING%20ID%7D#"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{YOUR TRACKING ID}');
+</script></body></html><!-- END:   inst/pkgdown/templates/layout.html-->
 
