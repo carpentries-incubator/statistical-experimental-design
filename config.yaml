@@ -8,7 +8,7 @@
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor training for instance)
 # incubator: The Carpentries Incubator
-carpentry: 'cp'
+carpentry: 'incubator'
 
 # Overall title for pages.
 title: 'Statistical Experimental Design'
@@ -27,7 +27,7 @@ life_cycle: 'pre-alpha'
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/smcclatchy/statistical-experimental-design'
+source: 'https://github.com/carpentries-incubator/statistical-experimental-design'
 
 # Default branch of your lesson
 branch: 'main'
