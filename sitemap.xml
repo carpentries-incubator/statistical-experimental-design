@@ -37,7 +37,22 @@
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/aio.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-block.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design-multitreatment-factors.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/design-principles.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/discuss.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/experimental-structure.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/images.html</loc>
@@ -82,7 +97,22 @@
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/aio.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-block.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design-multitreatment-factors.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/design-principles.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/discuss.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/experimental-structure.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/images.html</loc>
@@ -94,6 +124,9 @@
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/instructor-notes.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/introduction.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/key-points.html</loc>
   </url>
   <url>
@@ -103,7 +136,16 @@
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/reference.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/repeated-measures-design.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor/statistical-data-analysis.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/introduction.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/key-points.html</loc>
@@ -113,5 +155,11 @@
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/statistical-experimental-design/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/repeated-measures-design.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/statistical-experimental-design/statistical-data-analysis.html</loc>
   </url>
 </urlset>
