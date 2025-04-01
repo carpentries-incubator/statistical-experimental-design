@@ -217,10 +217,10 @@ heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group,
 
 ## Challenge 2: Checking for equal variances and normality
 
-A one-way ANOVA assumes that:
+A one-way ANOVA assumes that:  
 1. variances of the populations that the samples come from are equal,  
 2. samples were drawn from a normally distributed population, and  
-3. observations in each group are independent of each other, and observations 
+3. observations are independent of each other and observations 
 within groups were obtained by random sampling.
 
 Discuss the following questions with your partner, then share your answers
@@ -239,19 +239,35 @@ groups randomly assigned?
 A visual like a boxplot can be used to check whether variances are equal. 
 
 ```
-heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
-                                                   heart_rate, 
-                                                   .fun='mean', 
-                                                   .desc = TRUE))  %>% 
+heart_rate %>% 
+  mutate(exercise_group = fct_reorder(exercise_group, 
+                                      heart_rate, 
+                                      .fun='mean', 
+                                      .desc = TRUE))  %>% 
   ggplot(aes(exercise_group, heart_rate)) + 
   geom_boxplot()
 ```
+
 If the length of the boxes are more or less equal, then equal variances can be 
-assumed. 
-
-
-
+assumed.  
 2. How can you check whether data are normally distributed?  
+You can visually check this assumption with histograms or Q-Q plots. Normally
+distributed data will form a more or less bell-shaped histogram.
+
+```
+heart_rate %>% 
+  ggplot(aes(heart_rate)) + 
+  geom_histogram()
+```
+
+Normally distributed data will mostly fall upon the diagonal line in a Q-Q 
+plot.
+
+```
+qqnorm(heart_rate$heart_rate)
+qqline(heart_rate$heart_rate)
+```
+
 3. How can you check whether each observation is independent of the other and
 groups randomly assigned? 
 
@@ -263,8 +279,8 @@ groups randomly assigned?
 
 ### More formal tests of normality and equal variances
 
-More formal tests include the Bartlett test, Shapiro-Wilk test and the 
-Kruskal-Wallis test.
+More formal tests of normality and equal variance include the Bartlett test, 
+Shapiro-Wilk test and the Kruskal-Wallis test.
 
 The Bartlett test of homogeneity of variances tests the null hypothesis that the 
 samples have equal variances against the alternative that they do not. 
@@ -273,12 +289,12 @@ samples have equal variances against the alternative that they do not.
 bartlett.test(heart_rate ~ exercise_group, data = heart_rate)
 ```
 In this case the p-value is greater than the alpha level of 0.05. This suggests 
-that the null should not be rejected, or that samples do have equal variances.
-One-way ANOVA is robust against violations of the equal variances assumption as 
-long as each group has the same sample size. If variances are very different and 
-sample sizes unequal, the Kruskal-Wallis test (`kruskal.test()`) determines 
-whether there is a statistically significant difference between the medians of 
-three or more independent groups.
+that the null should not be rejected, or in other words that samples have equal 
+variances. One-way ANOVA is robust against violations of the equal variances 
+assumption as long as each group has the same sample size. If variances are very 
+different and sample sizes unequal, the Kruskal-Wallis test (`kruskal.test()`) 
+determines whether there is a statistically significant difference between the 
+medians of three or more independent groups.
 
 The Shapiro-Wilk Normality Test tests the null hypothesis that the samples come 
 from a normal distribution against the alternative hypothesis that samples don't 
@@ -292,16 +308,18 @@ In this case the p-value of the test is greater than the alpha level of 0.05,
 so it fails to reject the null hypothesis. This suggests that the samples come 
 from a normal distribution.
 
-One-way ANOVA is robust against violations of the normality assumption as long 
-as sample sizes are quite large. With very large sample sizes statistical tests 
-like the Shapiro-Wilk test will almost always report that your data are not 
-normally distributed. Visuals like histograms and Q-Q plots should clarify this. 
+One-way ANOVA is also robust against violations of the normality assumption as 
+long as sample sizes are quite large. With very large sample sizes statistical 
+tests like the Shapiro-Wilk test will almost always report that your data are 
+not normally distributed. Visuals like histograms and Q-Q plots should clarify 
+this. 
 
-If the normality assumption is severely violated or if you just want to be extra 
-conservative, you can:
+If data are not normally distributed, or if you just want to be cautious, you 
+can:
 
-1. Transform the response values of your data so that they are more normally 
-distributed.
+1. Transform the response values in your data so that they are more normally 
+distributed. A log transformation (`log10(x)`) is one method for transforming
+response values to a more normal distribution.
 
 2. Use a non-parametric test like a Kruskal-Wallis Test that doesn’t require 
 assumption of normality.
@@ -310,6 +328,46 @@ assumption of normality.
 
 
 ## Confidence intervals
+The boxplots show that high-intensity exercise results in lower average heart
+rate. 
+
+```{r group_means}
+heart_rate %>% 
+  group_by(exercise_group) %>% 
+  summarise(mean = mean(heart_rate))
+```
+
+To generalize these results to the entire population of Norwegian elders, we can 
+examine the imprecision in this estimate using a confidence interval for mean
+heart rate. We could use only the high-intensity group data to create a 
+confidence interval, however, we can do better by "borrowing strength" from
+all groups. We know that the underlying variation in the groups is the same for
+all three groups, so we can estimate the common standard deviation. ANOVA has
+already done this for us by supplying error mean square 
+(`r round(ceiling(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[2]][2]) / anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[1]][2], 1)`)
+as the pooled estimate of the variance. The standard deviation is the square 
+root of this value 
+(`r round(sqrt(ceiling(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[2]][2]) / anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[1]][2]), 2)`).
+The fact that we "borrowed strength" by including all groups is reflected in the
+degrees of freedom, which is 
+`r anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[1]][2]` for the 
+sample standard deviation instead of `n - 1` for the sample variance of only one 
+group. This makes the test more powerful because it borrows information from all 
+groups.
+We use the sample standard deviation to calculate a 95% confidence interval for
+mean heart rate in the high-intensity group.
+
+```{r confidence_interval}
+confint(lm(heart_rate ~ exercise_group, data = heart_rate))
+```
+
+The results provide us with the confidence interval for the mean in the control
+group (Intercept). Confidence intervals for the high- and moderate-intensity
+groups are given as values to be added to the intercept values. The 95%
+confidence interval for the high-intensity group is from 
+`r confint(lm(heart_rate ~ exercise_group, data = heart_rate))[1] + confint(lm(heart_rate ~ exercise_group, data = heart_rate))[2]`
+to 
+`r confint(lm(heart_rate ~ exercise_group, data = heart_rate))[1,2] + confint(lm(heart_rate ~ exercise_group, data = heart_rate))[2,2]`.
 
 ## Inference
 
