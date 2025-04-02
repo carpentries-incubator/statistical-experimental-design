@@ -136,8 +136,8 @@ Analysis of Variance Table
 
 Response: heart_rate
                  Df Sum Sq Mean Sq F value    Pr(>F)    
-exercise_group    2  12673  6336.7  250.84 < 2.2e-16 ***
-Residuals      1564  39510    25.3                      
+exercise_group    2  26993 13496.6  478.69 < 2.2e-16 ***
+Residuals      1564  44097    28.2                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -145,12 +145,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 The output tells us that there are two terms in the model we provided: exercise 
 group plus some experimental error (residuals). The Sum of Squares (`Sum Sq`) 
 for the treatment (`exercise_group`) subtracts the overall mean for all groups
-(68) from each individual observation,
+(66.7) from each individual observation,
 squares the difference so that only positive numbers result, then sums all of 
 the squared differences together and multiplies the result by the number of
 observations in each group (391.75). 
 In the boxplots below, imagine drawing a vertical line from the overall mean
-(68) to an individual data point in the
+(66.7) to an individual data point in the
 control group. Square this line by adding sides of the same length to create a
 box. Calculate the area of the box (the length of the line squared). Repeat this
 for all data points in the group, then sum up the areas of all 
@@ -166,9 +166,9 @@ groups. Think of degrees of freedom as the number of values that are free to
 vary. Or, if you know two of the exercise groups, the identity of the third is 
 revealed. The mean squares values for the treatment (`Mean Sq`) divides the
 sum of squares by the degrees of freedom
-(1.2673\times 10^{4} / 
+(2.6993\times 10^{4} / 
 2 = 
-6336.72). 
+1.349664\times 10^{4}). 
 The treatment mean square is a measure of the variance among the treatment 
 groups, which is shown horizontally in the boxplots as upward or downward shift 
 of the treatment groups relative to one another.
@@ -181,7 +181,7 @@ The sum of squares for the residuals subtracts the group mean, not the overall
 mean, from each data point in that group, squares the difference, sums all of
 the squares for that group, then sums all of the squares for all groups. The
 total sum of squares for the errors 
-(3.951\times 10^{4})
+(4.4097\times 10^{4})
 is divided by the residual degrees of freedom
 (1564) to
 produce the error mean square. Error mean square is an estimate of variance
@@ -190,9 +190,9 @@ its whiskers.
 
 The `F value`, or F statistic, equals the treatment mean square divided by the
 error mean square, or among-group variation divided by within-group variation
-(6337 /
-25 = 
-250.84).
+(1.3497\times 10^{4} /
+28 = 
+478.692).
 
 `F value` = among-group variance / within-group variance
 
@@ -334,9 +334,9 @@ heart_rate %>%
 # A tibble: 3 × 2
   exercise_group      mean
   <chr>              <dbl>
-1 control             70.0
-2 high intensity      63.2
-3 moderate intensity  68.9
+1 control             71.3
+2 high intensity      61.3
+3 moderate intensity  67.6
 ```
 
 To generalize these results to the entire population of Norwegian elders, we can 
@@ -346,10 +346,10 @@ confidence interval, however, we can do better by "borrowing strength" from
 all groups. We know that the underlying variation in the groups is the same for
 all three groups, so we can estimate the common standard deviation. ANOVA has
 already done this for us by supplying error mean square 
-(25.3)
+(28.2)
 as the pooled estimate of the variance. The standard deviation is the square 
 root of this value 
-(5.03).
+(5.31).
 The fact that we "borrowed strength" by including all groups is reflected in the
 degrees of freedom, which is 
 1564 for the 
@@ -365,19 +365,19 @@ confint(lm(heart_rate ~ exercise_group, data = heart_rate))
 ```
 
 ``` output
-                                     2.5 %     97.5 %
-(Intercept)                      69.673728 70.3797218
-exercise_grouphigh intensity     -7.416531 -6.2039463
-exercise_groupmoderate intensity -1.734794 -0.5088206
+                                      2.5 %    97.5 %
+(Intercept)                       70.864364 71.764944
+exercise_grouphigh intensity     -10.611944 -9.335332
+exercise_groupmoderate intensity  -4.389109 -3.094736
 ```
 
 The results provide us with the confidence interval for the mean in the control
 group (Intercept). Confidence intervals for the high- and moderate-intensity
 groups are given as values to be added to the intercept values. The 95%
 confidence interval for the high-intensity group is from 
-62.2571966
+60.2524208
 to 
-64.1757755.
+62.429612.
 
 ## Inference
 
