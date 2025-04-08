@@ -53,22 +53,22 @@ plan
 
 ``` output
     cellLine DishNumber treatment
-1  cellLine1          1       low
-2  cellLine1          2    medium
-3  cellLine1          3      high
-4  cellLine1          4   control
-5  cellLine2          1   control
-6  cellLine2          2      high
-7  cellLine2          3    medium
-8  cellLine2          4       low
-9  cellLine3          1      high
-10 cellLine3          2       low
-11 cellLine3          3   control
-12 cellLine3          4    medium
+1  cellLine1          1      high
+2  cellLine1          2       low
+3  cellLine1          3   control
+4  cellLine1          4    medium
+5  cellLine2          1       low
+6  cellLine2          2    medium
+7  cellLine2          3      high
+8  cellLine2          4   control
+9  cellLine3          1   control
+10 cellLine3          2    medium
+11 cellLine3          3      high
+12 cellLine3          4       low
 13 cellLine4          1      high
 14 cellLine4          2    medium
-15 cellLine4          3       low
-16 cellLine4          4   control
+15 cellLine4          3   control
+16 cellLine4          4       low
 ```
 
 When analyzing a random complete block design, the effect of the block is
