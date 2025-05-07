@@ -36,7 +36,7 @@
       <div class="large-logo">
         <img id="incubator-logo" alt="Carpentries Incubator" src="../assets/images/incubator-logo.svg"><span class="badge text-bg-danger">
           <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
-            <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link">
+            <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="external-link alert-link">
               <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
               Pre-Alpha
             </a>
@@ -396,7 +396,7 @@
         
 <section id="aio-introduction"><p>Content from <a href="introduction.html">Introduction</a></p>
 <hr>
-<p>Last updated on 2025-04-22 |
+<p>Last updated on 2025-05-07 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/introduction.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -465,7 +465,7 @@ clear message.</li>
 </div>
 </div></section><section id="aio-experimental-structure"><p>Content from <a href="experimental-structure.html">Essential Features of a Comparative Experiment</a></p>
 <hr>
-<p>Last updated on 2025-04-22 |
+<p>Last updated on 2025-05-07 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/experimental-structure.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -718,7 +718,7 @@ units, treatments and responses.</li>
 </div>
 </div></section><section id="aio-design-principles"><p>Content from <a href="design-principles.html">Experimental Design Principles</a></p>
 <hr>
-<p>Last updated on 2025-04-22 |
+<p>Last updated on 2025-05-07 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/design-principles.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -999,32 +999,32 @@ the treatment, in this case, regular chow).</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         A             5  high fat
-2         B            53  high fat
-3         C            14      chow
-4         D            75  high fat
-5         E            19  high fat
-6         F            28      chow
-7         G            15  high fat
-8         H            46      chow
-9         I            35  high fat
-10        J             7  high fat
-11        K            97  high fat
-12        L            89  high fat
-13        M            76      chow
-14        N            58      chow
-15        O            92      chow
-16        P            61  high fat
-17        Q            11  high fat
-18        R            24      chow
-19        S            93  high fat
-20        T            98      chow
-21        U            56      chow
-22        V            48      chow
-23        W            99  high fat
-24        X            21  high fat
-25        Y            36      chow
-26        Z            18      chow</code></pre>
+1         A            77  high fat
+2         B            97  high fat
+3         C            90      chow
+4         D             6      chow
+5         E            61  high fat
+6         F            92      chow
+7         G            74      chow
+8         H             3  high fat
+9         I            36      chow
+10        J            23  high fat
+11        K            29  high fat
+12        L            49  high fat
+13        M            70      chow
+14        N            84      chow
+15        O            31  high fat
+16        P            57  high fat
+17        Q            16      chow
+18        R            40      chow
+19        S            72      chow
+20        T            71  high fat
+21        U            44      chow
+22        V            46      chow
+23        W            20      chow
+24        X            30      chow
+25        Y            52      chow
+26        Z            58      chow</code></pre>
 </div>
 <p>This might produce unequal numbers between treatment and control
 groups. It isn’t necessary to have equal numbers, however,
@@ -1042,7 +1042,7 @@ when sample numbers are equal.</p>
 </h3>
 <pre class="output" tabindex="0"><code>
     chow high fat
-      12       14 </code></pre>
+      16       10 </code></pre>
 </div>
 <p>To randomly assign samples to groups with equal numbers, you can do
 the following.</p>
@@ -1066,32 +1066,32 @@ the following.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         A             5      chow
-2         J             7      chow
-3         Q            11      chow
-4         C            14      chow
-5         G            15      chow
-6         Z            18      chow
-7         E            19      chow
-8         X            21      chow
-9         R            24      chow
-10        F            28      chow
-11        I            35      chow
-12        Y            36      chow
-13        H            46      chow
-14        V            48  high fat
-15        B            53  high fat
-16        U            56  high fat
-17        N            58  high fat
-18        P            61  high fat
-19        D            75  high fat
-20        M            76  high fat
-21        L            89  high fat
-22        O            92  high fat
-23        S            93  high fat
-24        K            97  high fat
-25        T            98  high fat
-26        W            99  high fat</code></pre>
+1         H             3      chow
+2         D             6      chow
+3         Q            16      chow
+4         W            20      chow
+5         J            23      chow
+6         K            29      chow
+7         X            30      chow
+8         O            31      chow
+9         I            36      chow
+10        R            40      chow
+11        U            44      chow
+12        V            46      chow
+13        L            49      chow
+14        Y            52  high fat
+15        P            57  high fat
+16        Z            58  high fat
+17        E            61  high fat
+18        M            70  high fat
+19        T            71  high fat
+20        S            72  high fat
+21        G            74  high fat
+22        A            77  high fat
+23        N            84  high fat
+24        C            90  high fat
+25        F            92  high fat
+26        B            97  high fat</code></pre>
 </div>
 <p>You can write out this treatment plan to a comma-separated values
 (csv) file, then open it in Excel and use it to record your data
@@ -1265,7 +1265,7 @@ usefulness of an experiment.</li>
 </div>
 </section></section><section id="aio-statistical-data-analysis"><p>Content from <a href="statistical-data-analysis.html">Statistics in Data Analysis</a></p>
 <hr>
-<p>Last updated on 2025-04-22 |
+<p>Last updated on 2025-05-07 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/statistical-data-analysis.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -2313,7 +2313,7 @@ quantify effects against random variation.</li>
 </div>
 </section></section><section id="aio-complete-random-design"><p>Content from <a href="complete-random-design.html">Completely Randomized Designs</a></p>
 <hr>
-<p>Last updated on 2025-04-22 |
+<p>Last updated on 2025-05-07 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -2749,7 +2749,7 @@ homogeneous.</li>
 </div>
 </section></section><section id="aio-complete-random-design-multitreatment-factors"><p>Content from <a href="complete-random-design-multitreatment-factors.html">Completely Randomized Design with More than One Treatment Factor</a></p>
 <hr>
-<p>Last updated on 2025-04-22 |
+<p>Last updated on 2025-05-07 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design-multitreatment-factors.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -2797,7 +2797,7 @@ analyzed?</li>
 </div>
 </div></section><section id="aio-complete-random-block"><p>Content from <a href="complete-random-block.html">Randomized Complete Block Designs</a></p>
 <hr>
-<p>Last updated on 2025-04-22 |
+<p>Last updated on 2025-05-07 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-block.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -2866,22 +2866,22 @@ dose (100 μM)</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>    cellLine DishNumber treatment
-1  cellLine1          1       low
-2  cellLine1          2    medium
-3  cellLine1          3      high
+1  cellLine1          1      high
+2  cellLine1          2       low
+3  cellLine1          3    medium
 4  cellLine1          4   control
-5  cellLine2          1       low
-6  cellLine2          2   control
-7  cellLine2          3    medium
-8  cellLine2          4      high
-9  cellLine3          1   control
+5  cellLine2          1      high
+6  cellLine2          2    medium
+7  cellLine2          3       low
+8  cellLine2          4   control
+9  cellLine3          1      high
 10 cellLine3          2       low
-11 cellLine3          3      high
-12 cellLine3          4    medium
-13 cellLine4          1       low
-14 cellLine4          2   control
-15 cellLine4          3    medium
-16 cellLine4          4      high</code></pre>
+11 cellLine3          3    medium
+12 cellLine3          4   control
+13 cellLine4          1      high
+14 cellLine4          2    medium
+15 cellLine4          3       low
+16 cellLine4          4   control</code></pre>
 </div>
 <p>When analyzing a random complete block design, the effect of the
 block is included in the equation along with the effect of the
@@ -2911,7 +2911,7 @@ usefulness of an experiment.</li>
 </div>
 </section></section><section id="aio-repeated-measures-design"><p>Content from <a href="repeated-measures-design.html">Repeated Measures Designs</a></p>
 <hr>
-<p>Last updated on 2025-04-22 |
+<p>Last updated on 2025-05-07 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/repeated-measures-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -2991,7 +2991,7 @@ units repeatedly during the study.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.11" class="external-link">sandpaper (0.16.11)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.5" class="external-link">varnish (1.0.5)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.12" class="external-link">sandpaper (0.16.12)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.6" class="external-link">varnish (1.0.6)</a></p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -3003,10 +3003,10 @@ units repeatedly during the study.</li>
   <script type="application/ld+json">
     {
   "@context": "https://schema.org",
-  "@type": "TrainingMaterial",
+  "@type": "LearningResource",
   "@id": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/aio.html",
   "inLanguage": "en",
-  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
+  "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
   "name": "All in One View",
@@ -3014,8 +3014,8 @@ units repeatedly during the study.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/aio.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/aio.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-05-06",
-  "datePublished": "2025-05-06"
+  "dateModified": "2025-05-07",
+  "datePublished": "2025-05-07"
 }
 
   </script><script>
