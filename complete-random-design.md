@@ -110,10 +110,11 @@ and compares these two sources of variation.
 
 
 ``` r
-heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
-                                                   heart_rate, 
-                                                   .fun='mean', 
-                                                   .desc = TRUE))  %>% 
+heart_rate %>% 
+  mutate(exercise_group = fct_reorder(exercise_group,
+                                      heart_rate,
+                                      .fun='mean',
+                                      .desc = TRUE))  %>% 
   ggplot(aes(exercise_group, heart_rate)) + 
   geom_boxplot()
 ```

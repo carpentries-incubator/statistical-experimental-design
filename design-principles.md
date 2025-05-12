@@ -84,10 +84,9 @@ error, not experimental error.
 
 ## Exercise 1: Which kind of error?
 
-A study used to determine the effect of a drug on weight loss
-could have the following sources of experimental error.
-Classify the following sources as either biological,
-systematic, or random error.  
+A study used to determine the effect of a drug on weight loss could have the 
+following sources of experimental error. Classify the following sources as 
+either biological, systematic, or random error.  
 1\). A scale is broken and provides inconsistent readings.  
 2\). A scale is calibrated wrongly and consistently measures mice 1 gram heavier.  
 3\). A mouse has an unusually high weight compared to its experimental group 
@@ -233,32 +232,32 @@ random_allocation
 
 ``` output
    mouse_ID random_number treatment
-1         A            77  high fat
-2         B            97  high fat
-3         C            90      chow
-4         D             6      chow
-5         E            61  high fat
-6         F            92      chow
-7         G            74      chow
-8         H             3  high fat
-9         I            36      chow
-10        J            23  high fat
-11        K            29  high fat
-12        L            49  high fat
-13        M            70      chow
-14        N            84      chow
-15        O            31  high fat
-16        P            57  high fat
-17        Q            16      chow
-18        R            40      chow
-19        S            72      chow
-20        T            71  high fat
-21        U            44      chow
-22        V            46      chow
-23        W            20      chow
-24        X            30      chow
-25        Y            52      chow
-26        Z            58      chow
+1         A            30      chow
+2         B            85  high fat
+3         C            97  high fat
+4         D           100      chow
+5         E             4      chow
+6         F             7  high fat
+7         G            64      chow
+8         H            22      chow
+9         I            87  high fat
+10        J            46      chow
+11        K            17  high fat
+12        L            60      chow
+13        M            62      chow
+14        N            44      chow
+15        O            79  high fat
+16        P            75  high fat
+17        Q            76      chow
+18        R            59  high fat
+19        S            31  high fat
+20        T            58      chow
+21        U            38      chow
+22        V            39  high fat
+23        W             5  high fat
+24        X            74      chow
+25        Y            88      chow
+26        Z            36      chow
 ```
 
 This might produce unequal numbers between treatment and control groups. It
@@ -274,7 +273,7 @@ table(random_allocation$treatment)
 ``` output
 
     chow high fat 
-      16       10 
+      15       11 
 ```
 
 To randomly assign samples to groups with equal numbers, you can do the
@@ -297,32 +296,32 @@ equal_allocation
 
 ``` output
    mouse_ID random_number treatment
-1         H             3      chow
-2         D             6      chow
-3         Q            16      chow
-4         W            20      chow
-5         J            23      chow
-6         K            29      chow
-7         X            30      chow
-8         O            31      chow
-9         I            36      chow
-10        R            40      chow
-11        U            44      chow
-12        V            46      chow
-13        L            49      chow
-14        Y            52  high fat
-15        P            57  high fat
-16        Z            58  high fat
-17        E            61  high fat
-18        M            70  high fat
-19        T            71  high fat
-20        S            72  high fat
-21        G            74  high fat
-22        A            77  high fat
-23        N            84  high fat
-24        C            90  high fat
-25        F            92  high fat
-26        B            97  high fat
+1         E             4      chow
+2         W             5      chow
+3         F             7      chow
+4         K            17      chow
+5         H            22      chow
+6         A            30      chow
+7         S            31      chow
+8         Z            36      chow
+9         U            38      chow
+10        V            39      chow
+11        N            44      chow
+12        J            46      chow
+13        T            58      chow
+14        R            59  high fat
+15        L            60  high fat
+16        M            62  high fat
+17        G            64  high fat
+18        X            74  high fat
+19        P            75  high fat
+20        Q            76  high fat
+21        O            79  high fat
+22        B            85  high fat
+23        I            87  high fat
+24        Y            88  high fat
+25        C            97  high fat
+26        D           100  high fat
 ```
 
 You can write out this treatment plan to a comma-separated values (csv) file,
