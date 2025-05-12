@@ -112,10 +112,11 @@ downward shift of the treatment groups relative to one another. ANOVA quantifies
 and compares these two sources of variation.
 
 ```{r boxplots, message=FALSE}
-heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
-                                                   heart_rate, 
-                                                   .fun='mean', 
-                                                   .desc = TRUE))  %>% 
+heart_rate %>% 
+  mutate(exercise_group = fct_reorder(exercise_group,
+                                      heart_rate,
+                                      .fun='mean',
+                                      .desc = TRUE))  %>% 
   ggplot(aes(exercise_group, heart_rate)) + 
   geom_boxplot()
 ```

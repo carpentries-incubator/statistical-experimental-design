@@ -85,10 +85,9 @@ error, not experimental error.
 
 ## Exercise 1: Which kind of error?
 
-A study used to determine the effect of a drug on weight loss
-could have the following sources of experimental error.
-Classify the following sources as either biological,
-systematic, or random error.  
+A study used to determine the effect of a drug on weight loss could have the 
+following sources of experimental error. Classify the following sources as 
+either biological, systematic, or random error.  
 1\). A scale is broken and provides inconsistent readings.  
 2\). A scale is calibrated wrongly and consistently measures mice 1 gram heavier.  
 3\). A mouse has an unusually high weight compared to its experimental group 
