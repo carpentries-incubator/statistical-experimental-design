@@ -362,19 +362,51 @@ mean heart rate in the high-intensity group.
 confint(lm(heart_rate ~ exercise_group, data = heart_rate))
 ```
 
-The results provide us with the confidence interval for the mean in the control
-group (Intercept). Confidence intervals for the high- and moderate-intensity
-groups are given as values to be added to the intercept values. The 95%
-confidence interval for the high-intensity group is from 
-`r confint(lm(heart_rate ~ exercise_group, data = heart_rate))[1] + confint(lm(heart_rate ~ exercise_group, data = heart_rate))[2]`
+The results provide us with the 95% confidence interval for the mean in the 
+control group (`Intercept`), meaning that 95% of confidence intervals generated 
+will contain the true mean value. Confidence intervals for the high- and
+moderate-intensity groups are given as values to be added to the intercept 
+values. The 95% confidence interval for the high-intensity group is from 
+`r round(confint(lm(heart_rate ~ exercise_group, data = heart_rate))[1] + confint(lm(heart_rate ~ exercise_group, data = heart_rate))[2], 1)`
 to 
-`r confint(lm(heart_rate ~ exercise_group, data = heart_rate))[1,2] + confint(lm(heart_rate ~ exercise_group, data = heart_rate))[2,2]`.
+`r round(confint(lm(heart_rate ~ exercise_group, data = heart_rate))[1,2] + confint(lm(heart_rate ~ exercise_group, data = heart_rate))[2,2], 1)`.
+The 95% confidence interval for the moderate-intensity group is from 
+`r round(confint(lm(heart_rate ~ exercise_group, data = heart_rate))[1] + confint(lm(heart_rate ~ exercise_group, data = heart_rate))[3], 1)`
+to 
+`r round(confint(lm(heart_rate ~ exercise_group, data = heart_rate))[1,2] + confint(lm(heart_rate ~ exercise_group, data = heart_rate))[3,2], 1)`.
 
 ## Inference
+Inference about the underlying difference in means between exercise groups 
+is a statement about the difference between normal distribution means that 
+could have resulted in the data from this experiment with 
+`r dim(heart_rate)[1]` Norwegian elders. Broader inference relies on how this
+sample of Norwegian elders relates to all Norwegian elders. If this sample of 
+Norwegian elders were selected at random nationally, then the inference could be 
+broadened to the larger population of Norwegian elders. Otherwise broader 
+inference requires subject matter knowledge about how this sample relates to all 
+Norwegian elders and to all elders worldwide.
 
-## Prediction intervals
+## Statistical Prediction Interval
+To create a confidence interval for the group means we used a linear model that
+states that heart rate is dependent on exercise group.
+
+```{r linear_model}
+lm(heart_rate ~ exercise_group, data = heart_rate)
+```
+This effectively states that mean heart rate is 
+`r round(lm(heart_rate ~ exercise_group, data = heart_rate)$coef[[1]], 1)`
+less 
+`r `round(lm(heart_rate ~ exercise_group, data = heart_rate)$coef[[3]], 2)` if
+in the moderate-intensity group or
+`r round(lm(heart_rate ~ exercise_group, data = heart_rate)$coef[[2]], 2)`
+if in the high-intensity group.
+## Sizing a CRD 
 
 ## Design issues
+
+factor levels? two levels and connect a line? nature can throw you a curve so 
+choose intermediate levels between two levels known from previous studies
+replicates per level?
 
 
 
