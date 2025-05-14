@@ -372,19 +372,64 @@ exercise_grouphigh intensity     -10.611944 -9.335332
 exercise_groupmoderate intensity  -4.389109 -3.094736
 ```
 
-The results provide us with the confidence interval for the mean in the control
-group (Intercept). Confidence intervals for the high- and moderate-intensity
-groups are given as values to be added to the intercept values. The 95%
-confidence interval for the high-intensity group is from 
-60.2524208
+The results provide us with the 95% confidence interval for the mean in the 
+control group (`Intercept`), meaning that 95% of confidence intervals generated 
+will contain the true mean value. Confidence intervals for the high- and
+moderate-intensity groups are given as values to be added to the intercept 
+values. The 95% confidence interval for the high-intensity group is from 
+60.3
 to 
-62.429612.
+62.4.
+The 95% confidence interval for the moderate-intensity group is from 
+66.5
+to 
+68.7.
 
 ## Inference
+Inference about the underlying difference in means between exercise groups 
+is a statement about the difference between normal distribution means that 
+could have resulted in the data from this experiment with 
+1567 Norwegian elders. Broader inference relies on how this
+sample of Norwegian elders relates to all Norwegian elders. If this sample of 
+Norwegian elders were selected at random nationally, then the inference could be 
+broadened to the larger population of Norwegian elders. Otherwise broader 
+inference requires subject matter knowledge about how this sample relates to all 
+Norwegian elders and to all elders worldwide.
 
-## Prediction intervals
+## Statistical Prediction Interval
+To create a confidence interval for the group means we used a linear model that
+states that heart rate is dependent on exercise group.
+
+
+``` r
+lm(heart_rate ~ exercise_group, data = heart_rate)
+```
+
+``` output
+
+Call:
+lm(formula = heart_rate ~ exercise_group, data = heart_rate)
+
+Coefficients:
+                     (Intercept)      exercise_grouphigh intensity  
+                          71.315                            -9.974  
+exercise_groupmoderate intensity  
+                          -3.742  
+```
+This effectively states that mean heart rate is 
+71.3
+less 
+`r `round(lm(heart_rate ~ exercise_group, data = heart_rate)$coef[[3]], 2)` if
+in the moderate-intensity group or
+-9.97
+if in the high-intensity group.
+## Sizing a CRD 
 
 ## Design issues
+
+factor levels? two levels and connect a line? nature can throw you a curve so 
+choose intermediate levels between two levels known from previous studies
+replicates per level?
 
 
 
