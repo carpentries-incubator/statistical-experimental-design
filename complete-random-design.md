@@ -419,10 +419,36 @@ exercise_groupmoderate intensity
 This effectively states that mean heart rate is 
 71.3
 less 
-`r `round(lm(heart_rate ~ exercise_group, data = heart_rate)$coef[[3]], 2)` if
-in the moderate-intensity group or
+-3.74 for 
+the moderate-intensity group or
 -9.97
-if in the high-intensity group.
+for the high-intensity group. We can use this same linear model to predict 
+mean heart rate for a new group of participants.
+
+
+``` r
+### save the linear model as an object
+model <- lm(heart_rate ~ exercise_group, data = heart_rate)
+### predict heart rates for a new group of controls
+predict(model, 
+        data.frame(exercise_group = "control"), 
+        interval = "prediction", 
+        level = 0.95)
+```
+
+``` output
+       fit      lwr      upr
+1 71.31465 60.88969 81.73961
+```
+
+Notice that in both the confidence interval and prediction interval, the predicted value for mean heart rate in controls is the same - 
+71.3.
+However, the prediction interval is much wider than the confidence interval. The confidence interval is the range of values expected to contain the average heart
+rate for the control group. The prediction interval is the expected range of 
+heart rate values for a future individual participant in the control group and
+is broader since there can be considerably more variation in individuals. The
+confidence interval, however, captures the average heart rate value. 
+
 ## Sizing a CRD 
 
 ## Design issues
