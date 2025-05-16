@@ -418,10 +418,12 @@ However, the prediction interval is much wider than the confidence interval. The
 rate for the control group. The prediction interval is the expected range of 
 heart rate values for a future individual participant in the control group and
 is broader since there can be considerably more variation in individuals. The
-confidence interval, however, captures the average heart rate value. 
+confidence interval, however, defines a range of values likely to contain the
+true average heart rate. 
 
-## Sizing a CRD 
-
+## Sizing a Complete Random Design 
+The same principles apply for sample sizes and power calculations as were 
+presented earlier. 
 ## Design issues
 
 factor levels? two levels and connect a line? nature can throw you a curve so 
