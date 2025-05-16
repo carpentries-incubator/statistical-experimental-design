@@ -258,8 +258,7 @@
 <li><a href="#confidence-intervals">Confidence intervals</a></li>
 <li><a href="#inference">Inference</a></li>
 <li><a href="#statistical-prediction-interval">Statistical Prediction Interval</a></li>
-<li><a href="#sizing-a-crd">Sizing a CRD</a></li>
-<li><a href="#design-issues">Design issues</a></li>
+<li><a href="#sizing-a-complete-random-design">Sizing a Complete Random Design</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -351,7 +350,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Designs</h1>
-        <p>Last updated on 2025-05-15 |
+        <p>Last updated on 2025-05-16 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -433,7 +432,7 @@ treatment assignments?<br></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>How would you randomize the 1,500+ individuals in the study to one
 of the treatment levels?<br>
@@ -600,7 +599,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>How can you check whether variances are equal?<br>
 A visual like a boxplot can be used to check whether variances are
@@ -636,7 +635,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> More formal tests of normality and equal variances </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>More formal tests of normality and equal variance include the
 Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
@@ -808,10 +807,12 @@ contain the average heart rate for the control group. The prediction
 interval is the expected range of heart rate values for a future
 individual participant in the control group and is broader since there
 can be considerably more variation in individuals. The confidence
-interval, however, captures the average heart rate value.</p>
-</section><section><h2 class="section-heading" id="sizing-a-crd">Sizing a CRD<a class="anchor" aria-label="anchor" href="#sizing-a-crd"></a></h2>
-<hr class="half-width"></section><section><h2 class="section-heading" id="design-issues">Design issues<a class="anchor" aria-label="anchor" href="#design-issues"></a></h2>
-<hr class="half-width"><p>factor levels? two levels and connect a line? nature can throw you a
+interval, however, defines a range of values likely to contain the true
+average heart rate.</p>
+</section><section><h2 class="section-heading" id="sizing-a-complete-random-design">Sizing a Complete Random Design<a class="anchor" aria-label="anchor" href="#sizing-a-complete-random-design"></a></h2>
+<hr class="half-width"><p>The same principles apply for sample sizes and power calculations as
+were presented earlier. ## Design issues</p>
+<p>factor levels? two levels and connect a line? nature can throw you a
 curve so choose intermediate levels between two levels known from
 previous studies replicates per level?</p>
 <div id="keypoints1" class="callout keypoints">
@@ -884,8 +885,8 @@ homogeneous.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-05-15",
-  "datePublished": "2025-05-15"
+  "dateModified": "2025-05-16",
+  "datePublished": "2025-05-16"
 }
 
   </script><script>
