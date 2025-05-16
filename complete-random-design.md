@@ -443,12 +443,122 @@ predict(model,
 
 Notice that in both the confidence interval and prediction interval, the predicted value for mean heart rate in controls is the same - 
 71.3.
-However, the prediction interval is much wider than the confidence interval. The confidence interval is the range of values expected to contain the average heart
-rate for the control group. The prediction interval is the expected range of 
-heart rate values for a future individual participant in the control group and
-is broader since there can be considerably more variation in individuals. The
-confidence interval, however, defines a range of values likely to contain the
-true average heart rate. 
+However, the prediction interval is much wider than the confidence interval. The 
+confidence interval defines a range of values likely to contain the true average 
+heart rate for the control group. The prediction interval defines the expected 
+range of heart rate values for a future individual participant in the control 
+group and is broader since there can be considerably more variation in 
+individuals. The difference between these two kinds of intervals is the question
+that they answer.
+
+1. What interval is likely to contain the true average heart rate for controls?
+OR
+1. What interval predicts the average heart rate of a future participant in the 
+control group?
+
+Notice that for both kinds of intervals we used the same linear model that 
+states that heart rate depends on exercise group. 
+
+
+``` r
+lm(heart_rate ~ exercise_group, data = heart_rate)
+```
+
+``` output
+
+Call:
+lm(formula = heart_rate ~ exercise_group, data = heart_rate)
+
+Coefficients:
+                     (Intercept)      exercise_grouphigh intensity  
+                          71.315                            -9.974  
+exercise_groupmoderate intensity  
+                          -3.742  
+```
+
+We know that the study
+contains both sexes between the ages of 70 and 77. Completely randomized designs
+assume that experimental units are relatively similar, and the designs don't 
+remove or account for systematic differences. We should add sex into the linear 
+model because heart rate is likely influenced by sex. We can get more 
+information about the linear model with a `summary()`.
+
+
+``` r
+summary(lm(heart_rate ~ exercise_group + sex, data = heart_rate))
+```
+
+``` output
+
+Call:
+lm(formula = heart_rate ~ exercise_group + sex, data = heart_rate)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-17.2957  -3.3482  -0.0052   3.4017  15.2333 
+
+Coefficients:
+                                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                       72.7498     0.2544  286.01   <2e-16 ***
+exercise_grouphigh intensity      -9.8772     0.3130  -31.56   <2e-16 ***
+exercise_groupmoderate intensity  -3.7877     0.3173  -11.94   <2e-16 ***
+sexM                              -2.9305     0.2582  -11.35   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 5.105 on 1563 degrees of freedom
+Multiple R-squared:  0.4269,	Adjusted R-squared:  0.4258 
+F-statistic: 388.2 on 3 and 1563 DF,  p-value: < 2.2e-16
+```
+The linear model including sex states that average heart rate for the control
+group is 
+72.7
+less 
+-3.79 
+for the moderate-intensity group or
+-9.88
+for the high-intensity group. Males have heart rates that are
+-2.93
+from mean control heart rate. The p-values (`Pr(>|t|)`) are near zero for all
+of the estimates (model coefficients). Exercise group and sex clearly impact 
+heart rate. What about age?
+
+
+``` r
+summary(lm(heart_rate ~ exercise_group + sex + age, data = heart_rate))
+```
+
+``` output
+
+Call:
+lm(formula = heart_rate ~ exercise_group + sex + age, data = heart_rate)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-17.312  -3.346  -0.014   3.431  15.254 
+
+Coefficients:
+                                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      77.71948    9.28405   8.371   <2e-16 ***
+exercise_grouphigh intensity     -9.87664    0.31307 -31.548   <2e-16 ***
+exercise_groupmoderate intensity -3.78928    0.31735 -11.940   <2e-16 ***
+sexM                             -2.93497    0.25835 -11.360   <2e-16 ***
+age                              -0.06823    0.12742  -0.535    0.592    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 5.106 on 1562 degrees of freedom
+Multiple R-squared:  0.4271,	Adjusted R-squared:  0.4256 
+F-statistic: 291.1 on 4 and 1562 DF,  p-value: < 2.2e-16
+```
+We can add age into the linear model to determine whether or not it impacts
+heart rate. The estimated coefficient for age is relatively small 
+(-0.07)
+and has a high p-value 
+(0.59).
+Age is not significant, which is not surprising since all participants were 
+between the ages of 70 and 77. The linear model that best fits the data includes
+only exercise group and sex.
 
 ## Sizing a Complete Random Design 
 The same principles apply for sample sizes and power calculations as were 
