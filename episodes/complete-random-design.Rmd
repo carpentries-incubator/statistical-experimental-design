@@ -414,12 +414,60 @@ predict(model,
 
 Notice that in both the confidence interval and prediction interval, the predicted value for mean heart rate in controls is the same - 
 `r round(lm(heart_rate ~ exercise_group, data = heart_rate)$coef[[1]], 1)`.
-However, the prediction interval is much wider than the confidence interval. The confidence interval is the range of values expected to contain the average heart
-rate for the control group. The prediction interval is the expected range of 
-heart rate values for a future individual participant in the control group and
-is broader since there can be considerably more variation in individuals. The
-confidence interval, however, defines a range of values likely to contain the
-true average heart rate. 
+However, the prediction interval is much wider than the confidence interval. The 
+confidence interval defines a range of values likely to contain the true average 
+heart rate for the control group. The prediction interval defines the expected 
+range of heart rate values for a future individual participant in the control 
+group and is broader since there can be considerably more variation in 
+individuals. The difference between these two kinds of intervals is the question
+that they answer.
+
+1. What interval is likely to contain the true average heart rate for controls?
+OR
+1. What interval predicts the average heart rate of a future participant in the 
+control group?
+
+Notice that for both kinds of intervals we used the same linear model that 
+states that heart rate depends on exercise group. 
+
+```{r linear_model_simple}
+lm(heart_rate ~ exercise_group, data = heart_rate)
+```
+
+We know that the study
+contains both sexes between the ages of 70 and 77. Completely randomized designs
+assume that experimental units are relatively similar, and the designs don't 
+remove or account for systematic differences. We should add sex into the linear 
+model because heart rate is likely influenced by sex. We can get more 
+information about the linear model with a `summary()`.
+
+```{r linear_model_sex}
+summary(lm(heart_rate ~ exercise_group + sex, data = heart_rate))
+```
+The linear model including sex states that average heart rate for the control
+group is 
+`r round(lm(heart_rate ~ exercise_group + sex, data = heart_rate)$coef[[1]], 1)`
+less 
+`r round(lm(heart_rate ~ exercise_group + sex, data = heart_rate)$coef[[3]], 2)` 
+for the moderate-intensity group or
+`r round(lm(heart_rate ~ exercise_group + sex, data = heart_rate)$coef[[2]], 2)`
+for the high-intensity group. Males have heart rates that are
+`r round(lm(heart_rate ~ exercise_group + sex, data = heart_rate)$coef[[4]], 2)`
+from mean control heart rate. The p-values (`Pr(>|t|)`) are near zero for all
+of the estimates (model coefficients). Exercise group and sex clearly impact 
+heart rate. What about age?
+
+```{r linear_model_sex_age}
+summary(lm(heart_rate ~ exercise_group + sex + age, data = heart_rate))
+```
+We can add age into the linear model to determine whether or not it impacts
+heart rate. The estimated coefficient for age is relatively small 
+(`r round(lm(heart_rate ~ exercise_group + sex + age, data = heart_rate)$coef[[5]], 2)`)
+and has a high p-value 
+(`r round(summary(lm(heart_rate ~ exercise_group + sex + age, data = heart_rate))$coef[5, 4], 2)`).
+Age is not significant, which is not surprising since all participants were 
+between the ages of 70 and 77. The linear model that best fits the data includes
+only exercise group and sex.
 
 ## Sizing a Complete Random Design 
 The same principles apply for sample sizes and power calculations as were 
