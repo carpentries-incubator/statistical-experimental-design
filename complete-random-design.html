@@ -259,6 +259,7 @@
 <li><a href="#inference">Inference</a></li>
 <li><a href="#statistical-prediction-interval">Statistical Prediction Interval</a></li>
 <li><a href="#sizing-a-complete-random-design">Sizing a Complete Random Design</a></li>
+<li><a href="#design-issues">Design issues</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -350,7 +351,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Designs</h1>
-        <p>Last updated on 2025-05-16 |
+        <p>Last updated on 2025-05-19 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -914,10 +915,49 @@ which is not surprising since all participants were between the ages of
 exercise group and sex.</p>
 </section><section><h2 class="section-heading" id="sizing-a-complete-random-design">Sizing a Complete Random Design<a class="anchor" aria-label="anchor" href="#sizing-a-complete-random-design"></a></h2>
 <hr class="half-width"><p>The same principles apply for sample sizes and power calculations as
-were presented earlier. ## Design issues</p>
-<p>factor levels? two levels and connect a line? nature can throw you a
-curve so choose intermediate levels between two levels known from
-previous studies replicates per level?</p>
+were presented earlier. If you wanted to run a new experiment to test
+mean heart rate differences between control and moderate-intensity
+exercise, you can use the mean difference between those groups in this
+experiment to determine how many participants you would need in each
+group.</p>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># mean difference between the two groups from the linear model</span></span>
+<span><span class="va">meanDiff</span> <span class="op">&lt;-</span> <span class="fu">round</span><span class="op">(</span><span class="fu">lm</span><span class="op">(</span><span class="va">heart_rate</span> <span class="op">~</span> <span class="va">exercise_group</span>, </span>
+<span>                     data <span class="op">=</span> <span class="va">heart_rate</span><span class="op">)</span><span class="op">$</span><span class="va">coef</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">power.t.test</span><span class="op">(</span>delta <span class="op">=</span> <span class="va">meanDiff</span>, sd <span class="op">=</span> <span class="fu">sd</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span>, </span>
+<span>             sig.level <span class="op">=</span> <span class="fl">0.05</span>, type <span class="op">=</span> <span class="st">"two.sample"</span>, power <span class="op">=</span> <span class="fl">.8</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>
+     Two-sample t test power calculation
+
+              n = 51.92417
+          delta = 3.74
+             sd = 6.737647
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group</code></pre>
+</div>
+<p>You would need 52 participants per group to obtain 80% statistical
+power.</p>
+<p>What if instead you wanted to size a new experiment to test mean
+heart rate differences as large as those between control and
+high-intensity groups. How many participants would you need in this
+case?</p>
+</section><section><h2 class="section-heading" id="design-issues">Design issues<a class="anchor" aria-label="anchor" href="#design-issues"></a></h2>
+<hr class="half-width"><p>The primary design issues for a completely randomized experiment with
+a single factor include selection of appropriate factor levels and the
+number of experimental units to assign to each level. Subject matter
+knowledge helps in selecting factor levels, and statistical power
+analysis with choosing the number of experimental units per level.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -988,8 +1028,8 @@ homogeneous.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-05-16",
-  "datePublished": "2025-05-16"
+  "dateModified": "2025-05-19",
+  "datePublished": "2025-05-19"
 }
 
   </script><script>
