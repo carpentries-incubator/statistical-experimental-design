@@ -510,6 +510,7 @@ Residual standard error: 5.105 on 1563 degrees of freedom
 Multiple R-squared:  0.4269,	Adjusted R-squared:  0.4258 
 F-statistic: 388.2 on 3 and 1563 DF,  p-value: < 2.2e-16
 ```
+
 The linear model including sex states that average heart rate for the control
 group is 
 72.7
@@ -551,6 +552,7 @@ Residual standard error: 5.106 on 1562 degrees of freedom
 Multiple R-squared:  0.4271,	Adjusted R-squared:  0.4256 
 F-statistic: 291.1 on 4 and 1562 DF,  p-value: < 2.2e-16
 ```
+
 We can add age into the linear model to determine whether or not it impacts
 heart rate. The estimated coefficient for age is relatively small 
 (-0.07)
@@ -562,12 +564,49 @@ only exercise group and sex.
 
 ## Sizing a Complete Random Design 
 The same principles apply for sample sizes and power calculations as were 
-presented earlier. 
+presented earlier. If you wanted to run a new experiment to test mean heart
+rate differences between control and moderate-intensity exercise, you can use
+the mean difference between those groups in this experiment to determine how
+many participants you would need in each group.
+
+
+``` r
+# mean difference between the two groups from the linear model
+meanDiff <- round(lm(heart_rate ~ exercise_group, 
+                     data = heart_rate)$coef[3], 2)
+
+power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate), 
+             sig.level = 0.05, type = "two.sample", power = .8)
+```
+
+``` output
+
+     Two-sample t test power calculation 
+
+              n = 51.92417
+          delta = 3.74
+             sd = 6.737647
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group
+```
+
+You would need 
+52 participants per group to
+obtain 80% statistical power.
+
+What if instead you wanted to size a new experiment to test mean heart rate
+differences as large as those between control and high-intensity groups. How
+many participants would you need in this case?
+
 ## Design issues
 
-factor levels? two levels and connect a line? nature can throw you a curve so 
-choose intermediate levels between two levels known from previous studies
-replicates per level?
+The primary design issues for a completely randomized experiment with a single factor include selection of appropriate factor levels and the number of 
+experimental units to assign to each level. Subject matter knowledge helps in
+selecting factor levels, and statistical power analysis with choosing the number
+of experimental units per level.
 
 
 
