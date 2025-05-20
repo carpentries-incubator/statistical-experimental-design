@@ -18,14 +18,58 @@ source: Rmd
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+experiment structured by two or more factors that can be qualitative or quantitative. Same design issues - which factors to choose, which levels? A full factorial experiment includes all levels of all factors,
+which can become unwieldy when there are many levels for each factor. There are options to use only a fraction of the factor levels. Let's consider full factorial experiment here.
+
 ```{r, include=FALSE}
+
 ```
 
 
+```{r explore_data}
+drugExercise <- read.csv("data/drugExercise.csv")
+
+drugExercise %>% 
+  group_by(Exercise, DrugDose) %>% 
+  summarise(mean = mean(Glucose))
+
+drugExercise %>% 
+  group_by(DrugDose, Exercise) %>% 
+  summarise(mean = mean(Glucose))
+
+drugExercise %>% 
+  ggplot(aes(Exercise, Glucose)) + 
+  geom_point(aes(color = DrugDose))
+
+drugExercise %>% 
+  ggplot(aes(DrugDose, Glucose)) + 
+  geom_point(aes(color = Exercise))
+
+# Interaction plot
+interaction.plot(x.factor = data$DrugDose,
+                 trace.factor = data$Exercise,
+                 response = data$Glucose,
+                 fun = mean,
+                 col = hcl.colors(4),
+                 xlab = "Drug Dose (mg/kg)",
+                 ylab = "Mean Blood Glucose (mg/dL)",
+                 trace.label = "Exercise Duration (min)")
+```
+
+If lines were parallel we could assume no interaction. Since they are not 
+parallel we should assume interaction between exercise and drug dose.
+
+```{r anova}
+anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, 
+         data = drugExercise))
+```
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- .
+- Completely randomized designs can be structured with two or more factors.
+- Random assignment of treatments to experimental units in a single homogeneous group is the same.
+- Factorial structure of the experiment requires different analyses, primarily
+ANOVA.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
