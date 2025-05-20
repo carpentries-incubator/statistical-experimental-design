@@ -199,17 +199,17 @@ the within-group variance. Among-group variance would change, but not
 within-group variance. 
 
 | Source of variation | Df | Sum Sq | Mean Sq = Sum Sq/Df | F value | Pr(>F) |
-|:--------------------|----:|---:|----:|---:|
+|:----------|:----|:---|:-----------------|:---|:---|
 |Treatments           | k - 1 | $n\sum(\overline{y}_i - \overline{y})^2$ | TMS | TMS/EMS | Prob(>F) |
 |Error                | k(n - 1) | $\sum\sum(\overline{y}_{ij} - \overline{y}_i)^2$ | EMS |||
 |Total                | nk - 1 | $\sum\sum(\overline{y}_{ij} - \overline{y})^2$ | |||
-Df = degrees of freedom
-k = number of factor levels
-TMS = treatment mean square
-EMS = error mean square
-$\overline{y}_i$ = mean for treatment $i$
-$\overline{y}$ = overall mean
-$\sum\sum$ = sum is taken over both $i$ (treatments) and $j$ (levels)
+Df = degrees of freedom. 
+k = number of factor levels. 
+TMS = treatment mean square. 
+EMS = error mean square. 
+$\overline{y}_i$ = mean for treatment $i$. 
+$\overline{y}$ = overall mean. 
+$\sum\sum$ = sum is taken over both $i$ (treatments) and $j$ (levels). 
 
 ```{r boxplot_lm, message=FALSE, echo=FALSE, include=FALSE}
 heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
