@@ -351,7 +351,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Designs</h1>
-        <p>Last updated on 2025-05-19 |
+        <p>Last updated on 2025-05-20 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -572,6 +572,31 @@ variance</p>
 another, such that you could move any of the three boxplots up or down
 and this would not affect the within-group variance. Among-group
 variance would change, but not within-group variance.</p>
+<table style="width:100%;" class="table"><colgroup><col width="53%"><col width="12%"><col width="10%"><col width="12%"><col width="10%"></colgroup><thead><tr class="header"><th align="left">Source of variation</th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq = Sum Sq/Df</th>
+<th align="right">F value</th>
+</tr></thead><tbody><tr class="odd"><td align="left">Treatments</td>
+<td align="right">k - 1</td>
+<td align="right"><span class="math inline">\(n\sum(\overline{y}_i -
+\overline{y})^2\)</span></td>
+<td align="right">TMS</td>
+<td align="right">TMS/EMS</td>
+</tr><tr class="even"><td align="left">Error</td>
+<td align="right">k(n - 1)</td>
+<td align="right"><span class="math inline">\(\sum\sum(\overline{y}_{ij}
+- \overline{y}_i)^2\)</span></td>
+<td align="right">EMS</td>
+<td align="right"></td>
+</tr><tr class="odd"><td align="left">Total</td>
+<td align="right">nk - 1</td>
+<td align="right"><span class="math inline">\(\sum\sum(\overline{y}_{ij}
+- \overline{y})^2\)</span></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr></tbody></table><p>Df = degrees of freedom k = number of factor levels TMS = treatment
+mean square EMS = error mean square <span class="math inline">\(\overline{y}_i\)</span> = mean for treatment <span class="math inline">\(i\)</span> <span class="math inline">\(\overline{y}\)</span> = overall mean <span class="math inline">\(\sum\sum\)</span> = sum is taken over both <span class="math inline">\(i\)</span> (treatments) and <span class="math inline">\(j\)</span> (levels)</p>
 </section><section><h2 class="section-heading" id="equal-variances-and-normality">Equal variances and normality<a class="anchor" aria-label="anchor" href="#equal-variances-and-normality"></a></h2>
 <hr class="half-width"><div id="challenge-2-checking-for-equal-variances-and-normality" class="callout challenge">
 <div class="callout-square">
@@ -1030,7 +1055,7 @@ homogeneous.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-05-19",
+  "dateModified": "2025-05-20",
   "datePublished": "2025-05-20"
 }
 
