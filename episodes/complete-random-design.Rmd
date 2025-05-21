@@ -461,7 +461,7 @@ heart rate. What about age?
 summary(lm(heart_rate ~ exercise_group + sex + age, data = heart_rate))
 ```
 We can add age into the linear model to determine whether or not it impacts
-heart rate. The estimated coefficient for age is relatively small 
+heart rate. The estimated coefficient for age is small 
 (`r round(lm(heart_rate ~ exercise_group + sex + age, data = heart_rate)$coef[[5]], 2)`)
 and has a high p-value 
 (`r round(summary(lm(heart_rate ~ exercise_group + sex + age, data = heart_rate))$coef[5, 4], 2)`).
@@ -471,7 +471,41 @@ only exercise group and sex.
 
 ## Sizing a Complete Random Design 
 The same principles apply for sample sizes and power calculations as were 
-presented earlier. 
+presented earlier. Typically a completely randomized design is analyzed to 
+estimate precision of a treatment mean or the difference of two treatment means.
+Confidence intervals or power curves can be applied to sizing a future 
+experiment.
+If we want to size a future experiment comparing heart rate between control and
+moderate-intensity exercise, what is the minimum number of people we would need
+per group in order to detect an effect as large as the mean heart rate
+difference from this experiment?
+
+```{r power-analysis-3}
+# delta = the observed effect size between groups
+# sd = standard deviation
+# significance level (Type 1 error probability or false positive rate) = 0.05
+# type = two-sample t-test
+# What is the minimum sample size we would need at 80% power?
+
+controlMean <- heart_rate %>%
+  filter(exercise_group == "control") %>%
+  summarise(mean = mean(heart_rate)) 
+moderateMean <- heart_rate %>%
+  filter(exercise_group == "moderate intensity") %>%
+  summarise(mean = mean(heart_rate)) 
+delta <- controlMean - moderateMean
+power.t.test(delta = delta[[1]], sd = sd(heart_rate$heart_rate), 
+             sig.level = 0.05, type = "two.sample", power = 0.8)
+```
+To obtain an effect size as large as the observed effect size between control
+and moderate-intensity exercise groups, you would need 
+`r round(power.t.test(delta = delta[[1]], sd = sd(heart_rate$heart_rate), sig.level = 0.05, type = "two.sample", power = 0.8)[[1]])`
+participants per group to obtain 80% statistical power.
+
+Would you expect to need more or fewer participants per group to investigate
+the difference between control and high-intensity exercise on heart rate?
+Between moderate- and high-intensity?
+
 ## Design issues
 
 factor levels? two levels and connect a line? nature can throw you a curve so 
