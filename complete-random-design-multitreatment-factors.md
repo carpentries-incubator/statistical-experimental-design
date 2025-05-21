@@ -34,11 +34,6 @@ drugExercise %>%
 ```
 
 ``` output
-`summarise()` has grouped output by 'Exercise'. You can override using the
-`.groups` argument.
-```
-
-``` output
 # A tibble: 16 × 3
 # Groups:   Exercise [4]
    Exercise DrugDose  mean
@@ -65,11 +60,6 @@ drugExercise %>%
 drugExercise %>% 
   group_by(DrugDose, Exercise) %>% 
   summarise(mean = mean(Glucose))
-```
-
-``` output
-`summarise()` has grouped output by 'DrugDose'. You can override using the
-`.groups` argument.
 ```
 
 ``` output
@@ -133,9 +123,21 @@ combinations of drug dose and exercise duration. Mean glucose for each of the 16
 treatments is given in the table below.
 
 
-``` error
-Error: object 'means' not found
+``` output
+`summarise()` has grouped output by 'Exercise'. You can override using the
+`.groups` argument.
 ```
+
+
+
+Table: Drug Dose
+
+| Exercise|        0|        5|       10|       20|
+|--------:|--------:|--------:|--------:|--------:|
+|        0| 145.8128| 136.2784| 138.7135| 112.1456|
+|       15| 142.6130| 145.2936| 132.3528| 112.7274|
+|       30| 131.4189| 128.6983| 137.9099| 125.7940|
+|       60| 121.1295| 126.0156| 129.2298| 149.4863|
 
 
 ``` r
@@ -224,7 +226,7 @@ and
 76
 degrees of freedom for exercise and residuals respectively. The 
 p-value  is low at
-`r `round(anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 5], 3)`
+0.19
 and is significant. Finally, we move up to the row containing `DrugDose` to
 find an F value of 
 41.5
