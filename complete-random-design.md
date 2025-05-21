@@ -202,18 +202,6 @@ you could move any of the three boxplots up or down and this would not affect
 the within-group variance. Among-group variance would change, but not 
 within-group variance. 
 
-| Source of variation | Df | Sum Sq | Mean Sq = Sum Sq/Df | F value | Pr(>F) |
-|:----------|:----|:---|:-----------------|:---|:---|
-|Treatments           | k - 1 | $n\sum(\overline{y}_i - \overline{y})^2$ | TMS | TMS/EMS | Prob(>F) |
-|Error                | k(n - 1) | $\sum\sum(\overline{y}_{ij} - \overline{y}_i)^2$ | EMS |||
-|Total                | nk - 1 | $\sum\sum(\overline{y}_{ij} - \overline{y})^2$ | |||
-Df = degrees of freedom. 
-k = number of factor levels. 
-TMS = treatment mean square. 
-EMS = error mean square. 
-$\overline{y}_i$ = mean for treatment $i$. 
-$\overline{y}$ = overall mean. 
-$\sum\sum$ = sum is taken over both $i$ (treatments) and $j$ (levels). 
 
 
 
@@ -428,7 +416,6 @@ Coefficients:
 exercise_groupmoderate intensity  
                           -3.742  
 ```
-
 This effectively states that mean heart rate is 
 71.3
 less 
@@ -523,7 +510,6 @@ Residual standard error: 5.105 on 1563 degrees of freedom
 Multiple R-squared:  0.4269,	Adjusted R-squared:  0.4258 
 F-statistic: 388.2 on 3 and 1563 DF,  p-value: < 2.2e-16
 ```
-
 The linear model including sex states that average heart rate for the control
 group is 
 72.7
@@ -565,9 +551,8 @@ Residual standard error: 5.106 on 1562 degrees of freedom
 Multiple R-squared:  0.4271,	Adjusted R-squared:  0.4256 
 F-statistic: 291.1 on 4 and 1562 DF,  p-value: < 2.2e-16
 ```
-
 We can add age into the linear model to determine whether or not it impacts
-heart rate. The estimated coefficient for age is relatively small 
+heart rate. The estimated coefficient for age is small 
 (-0.07)
 and has a high p-value 
 (0.59).
@@ -577,27 +562,40 @@ only exercise group and sex.
 
 ## Sizing a Complete Random Design 
 The same principles apply for sample sizes and power calculations as were 
-presented earlier. If you wanted to run a new experiment to test mean heart
-rate differences between control and moderate-intensity exercise, you can use
-the mean difference between those groups in this experiment to determine how
-many participants you would need in each group.
+presented earlier. Typically a completely randomized design is analyzed to 
+estimate precision of a treatment mean or the difference of two treatment means.
+Confidence intervals or power curves can be applied to sizing a future 
+experiment.
+If we want to size a future experiment comparing heart rate between control and
+moderate-intensity exercise, what is the minimum number of people we would need
+per group in order to detect an effect as large as the mean heart rate
+difference from this experiment?
 
 
 ``` r
-# mean difference between the two groups from the linear model
-meanDiff <- round(lm(heart_rate ~ exercise_group, 
-                     data = heart_rate)$coef[3], 2)
+# delta = the observed effect size between groups
+# sd = standard deviation
+# significance level (Type 1 error probability or false positive rate) = 0.05
+# type = two-sample t-test
+# What is the minimum sample size we would need at 80% power?
 
-power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate), 
-             sig.level = 0.05, type = "two.sample", power = .8)
+controlMean <- heart_rate %>%
+  filter(exercise_group == "control") %>%
+  summarise(mean = mean(heart_rate)) 
+moderateMean <- heart_rate %>%
+  filter(exercise_group == "moderate intensity") %>%
+  summarise(mean = mean(heart_rate)) 
+delta <- controlMean - moderateMean
+power.t.test(delta = delta[[1]], sd = sd(heart_rate$heart_rate), 
+             sig.level = 0.05, type = "two.sample", power = 0.8)
 ```
 
 ``` output
 
      Two-sample t test power calculation 
 
-              n = 51.92417
-          delta = 3.74
+              n = 51.87186
+          delta = 3.741922
              sd = 6.737647
       sig.level = 0.05
           power = 0.8
@@ -605,21 +603,22 @@ power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate),
 
 NOTE: n is number in *each* group
 ```
+To obtain an effect size as large as the observed effect size between control
+and moderate-intensity exercise groups, you would need 
+52
+participants per group to obtain 80% statistical power.
 
-You would need 
-52 participants per group to
-obtain 80% statistical power.
+Would you expect to need more or fewer participants per group to investigate
+the difference between control and high-intensity exercise on heart rate?
+Between moderate- and high-intensity?
 
-What if instead you wanted to size a new experiment to test mean heart rate
-differences as large as those between control and high-intensity groups. How
-many participants would you need in this case?
+## A Single Quantitative Factor
 
 ## Design issues
 
-The primary design issues for a completely randomized experiment with a single factor include selection of appropriate factor levels and the number of 
-experimental units to assign to each level. Subject matter knowledge helps in
-selecting factor levels, and statistical power analysis with choosing the number
-of experimental units per level.
+factor levels? two levels and connect a line? nature can throw you a curve so 
+choose intermediate levels between two levels known from previous studies
+replicates per level?
 
 
 
