@@ -26,7 +26,7 @@ library(tidyverse)
 ```
 
 
-```{r explore_data}
+```{r explore_data, message=FALSE}
 drugExercise <- read.csv("data/drugExercise.csv")
 
 drugExercise %>% 
@@ -68,6 +68,10 @@ combinations of drug dose and exercise duration. Mean glucose for each of the 16
 treatments is given in the table below.
 
 ```{r means_table, echo=FALSE}
+means <- drugExercise %>%
+  group_by(Exercise, DrugDose) %>%
+  summarise(mean = mean(Glucose))
+
 knitr::kable(pivot_wider(means, 
                          names_from = DrugDose, 
                          values_from = mean), 
@@ -137,7 +141,7 @@ and
 `r anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[4, 1]`
 degrees of freedom for exercise and residuals respectively. The 
 p-value  is low at
-`r `round(anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 5], 3)`
+`r round(anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 5], 3)`
 and is significant. Finally, we move up to the row containing `DrugDose` to
 find an F value of 
 `r round(anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[1, 4], 1)`

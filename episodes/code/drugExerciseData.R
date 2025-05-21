@@ -23,8 +23,6 @@ design$Glucose <- 150 - 2 * design$DrugDose - 0.5 * design$Exercise +
 # Repeat each combination 5 times (replicates)
 data <- design[rep(1:nrow(design), each = 5), ]
 data$Glucose <- data$Glucose + rnorm(nrow(data), 0, 3)  # additional noise
-data$DrugDose <- as.factor(data$DrugDose)
-data$Exercise <- as.factor(data$Exercise)
 head(data)
 
-write.csv(data, file = "../data/drugExercise.csv", quote = FALSE)
+write_csv(data, file = "data/drugExercise.csv")
