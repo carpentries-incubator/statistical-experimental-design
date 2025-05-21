@@ -344,7 +344,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Design with More than One Treatment Factor</h1>
-        <p>Last updated on 2025-05-20 |
+        <p>Last updated on 2025-05-21 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design-multitreatment-factors.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -398,11 +398,36 @@ consider full factorial experiment here.</p>
 <span>  <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu">mean</span><span class="op">(</span><span class="va">Glucose</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in drugExercise %&gt;% group_by(Exercise, DrugDose) %&gt;% summarise(mean = mean(Glucose)): could not find function "%&gt;%"</code></pre>
+<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'Exercise'. You can override using the
+`.groups` argument.</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code># A tibble: 16 × 3
+# Groups:   Exercise [4]
+   Exercise DrugDose  mean
+      &lt;int&gt;    &lt;int&gt; &lt;dbl&gt;
+ 1        0        0  146.
+ 2        0        5  136.
+ 3        0       10  139.
+ 4        0       20  112.
+ 5       15        0  143.
+ 6       15        5  145.
+ 7       15       10  132.
+ 8       15       20  113.
+ 9       30        0  131.
+10       30        5  129.
+11       30       10  138.
+12       30       20  126.
+13       60        0  121.
+14       60        5  126.
+15       60       10  129.
+16       60       20  149.</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -411,11 +436,36 @@ consider full factorial experiment here.</p>
 <span>  <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu">mean</span><span class="op">(</span><span class="va">Glucose</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in drugExercise %&gt;% group_by(DrugDose, Exercise) %&gt;% summarise(mean = mean(Glucose)): could not find function "%&gt;%"</code></pre>
+<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'DrugDose'. You can override using the
+`.groups` argument.</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code># A tibble: 16 × 3
+# Groups:   DrugDose [4]
+   DrugDose Exercise  mean
+      &lt;int&gt;    &lt;int&gt; &lt;dbl&gt;
+ 1        0        0  146.
+ 2        0       15  143.
+ 3        0       30  131.
+ 4        0       60  121.
+ 5        5        0  136.
+ 6        5       15  145.
+ 7        5       30  129.
+ 8        5       60  126.
+ 9       10        0  139.
+10       10       15  132.
+11       10       30  138.
+12       10       60  129.
+13       20        0  112.
+14       20       15  113.
+15       20       30  126.
+16       20       60  149.</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -423,12 +473,7 @@ consider full factorial experiment here.</p>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">Exercise</span>, <span class="va">Glucose</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color <span class="op">=</span> <span class="va">DrugDose</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in drugExercise %&gt;% ggplot(aes(Exercise, Glucose)): could not find function "%&gt;%"</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb7">
+<figure><img src="../fig/complete-random-design-multitreatment-factors-rendered-explore_data-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -436,12 +481,7 @@ consider full factorial experiment here.</p>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">DrugDose</span>, <span class="va">Glucose</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color <span class="op">=</span> <span class="va">Exercise</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in drugExercise %&gt;% ggplot(aes(DrugDose, Glucose)): could not find function "%&gt;%"</code></pre>
-</div>
-<section><h2 class="section-heading" id="interaction-between-factors">Interaction between factors<a class="anchor" aria-label="anchor" href="#interaction-between-factors"></a></h2>
+<figure><img src="../fig/complete-random-design-multitreatment-factors-rendered-explore_data-2.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><section><h2 class="section-heading" id="interaction-between-factors">Interaction between factors<a class="anchor" aria-label="anchor" href="#interaction-between-factors"></a></h2>
 <hr class="half-width"><p>We could analyze these data as if it were simply a completely
 randomized design with 16 treatments (4 drug doses and 4 exercise
 durations). The ANOVA would have 15 degrees of freedom for treatments
@@ -450,21 +490,23 @@ levels for the 16 treatments was real or random. However, the factorial
 treatment structure lets us separate out the variability among drug
 doses averaged over exercise durations. The ANOVA table would provide a
 sum of squares based on 3 degrees of freedom for the difference between
-the 4 treatment means (<span class="math inline">\(\overline{y}_i\)</span>) and the grand mean (<span class="math inline">\(\overline{y}\)</span>).<br><span class="math inline">\(n\sum(\overline{y}_i -
-\overline{y})^2\)</span> The sum of squares would capture the
-variability among the drug dose levels. The variation among the 4
-exercise levels would be captured similarly, with 3 degrees of freedom.
-That leaves 15 - 6 = 9 degrees of freedom left over. What variability do
-these remaining 9 degrees of freedom capture? The answer is interaction
-- the interaction between drug doses and exercise durations. We can
-visualize this with an interaction plot.</p>
+the 4 treatment means (<span class="math inline">\(\bar{y}_i\)</span>)
+and the pooled (overall) mean (<span class="math inline">\(\bar{y}\)</span>).</p>
+<p>Sum of squares for 16 treatments: <span class="math inline">\(n\sum(\bar{y}_i - \bar{y})^2\)</span>.</p>
+<p>The sum of squares would capture the variability among the drug dose
+levels. The variation among the 4 exercise levels would be captured
+similarly, with 3 degrees of freedom. That leaves 15 - 6 = 9 degrees of
+freedom left over. What variability do these remaining 9 degrees of
+freedom contain? The answer is interaction - the interaction between
+drug doses and exercise durations. We can visualize this with an
+interaction plot that shows mean glucose levels for all combinations of
+drug dose and exercise duration. Mean glucose for each of the 16
+treatments is given in the table below.</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in pivot_wider(means, names_from = DrugDose, values_from = mean): could not find function "pivot_wider"</code></pre>
+<pre class="error" tabindex="0"><code>Error: object 'means' not found</code></pre>
 </div>
-<p>Mean glucose for each of the 16 treatments is given in the table
-below.</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -514,8 +556,8 @@ dramatically with increased exercise. If lines were parallel we could
 assume no interaction between drug and exercise. Since they are not
 parallel we should assume interaction between exercise and drug dose.
 The F-test from an ANOVA will tell us whether this apparent interaction
-is real or random, specifically more pronounced than would be expected
-due to random variation.</p>
+is real or random, specifically whether it is more pronounced than would
+be expected due to random variation.</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -540,25 +582,25 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>We can read the ANOVA table from the bottom up, starting with the
 interaction (<code>DrugDose:Exercise</code>). The <code>F value</code>
-for the interaction is 236.9 on 9 and 64 degrees of freedom for the
+for the interaction is 236.9 on 1 and 76 degrees of freedom for the
 interaction and error (<code>Residuals</code>) respectively. The p-value
 (<code>Pr(&gt;F)</code>) is near zero and as such the interaction
 between exercise and drug dose is significant, backing up what we see in
 the interaction plots. If we move up a row in the table to Exercise, the
 F test compares the exercise means across drug dose groups. The
-<code>F value</code> for exercise is 1.7 on 3 and 64 degrees of freedom
+<code>F value</code> for exercise is 1.7 on 1 and 76 degrees of freedom
 for exercise and residuals respectively. The p-value is low at
 <code>r</code>round(anova(lm(Glucose ~ DrugDose + Exercise +
 DrugDose*Exercise, data = drugExercise))[2, 5],
 3)<code>and is significant. Finally, we move up to the row containing</code>DrugDose`
 to find an F value of 41.5 and a p-value very near zero again. Drug dose
-averaged over exercise is significant. The partitioning of treatments
-sums of squares into main effect (average) and interaction sums of
-squares is a result of the crossed factorial structure of the two
-factors. The development of efficient and informative multifactor
-designs that provide clean partitioning between main effects and
-interactions is one of the most important contributions of statistical
-experimental design.</p>
+averaged over exercise is significant.<br>
+The partitioning of treatments sums of squares into main effect
+(average) and interaction sums of squares is a result of the crossed
+factorial structure of the two factors. The development of efficient and
+informative multifactor designs that provide clean partitioning between
+main effects and interactions is one of the most important contributions
+of statistical experimental design.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -633,8 +675,8 @@ primarily ANOVA.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design-multitreatment-factors.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design-multitreatment-factors.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-05-20",
-  "datePublished": "2025-05-20"
+  "dateModified": "2025-05-21",
+  "datePublished": "2025-05-21"
 }
 
   </script><script>
