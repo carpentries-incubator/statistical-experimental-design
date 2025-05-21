@@ -400,12 +400,6 @@ consider full factorial experiment here.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'Exercise'. You can override using the
-`.groups` argument.</code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
 <pre class="output" tabindex="0"><code># A tibble: 16 × 3
 # Groups:   Exercise [4]
    Exercise DrugDose  mean
@@ -427,19 +421,13 @@ consider full factorial experiment here.</p>
 15       60       10  129.
 16       60       20  149.</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">drugExercise</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">DrugDose</span>, <span class="va">Exercise</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu">mean</span><span class="op">(</span><span class="va">Glucose</span><span class="op">)</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'DrugDose'. You can override using the
-`.groups` argument.</code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -465,7 +453,7 @@ consider full factorial experiment here.</p>
 15       20       30  126.
 16       20       60  149.</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -473,7 +461,7 @@ consider full factorial experiment here.</p>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">Exercise</span>, <span class="va">Glucose</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color <span class="op">=</span> <span class="va">DrugDose</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/complete-random-design-multitreatment-factors-rendered-explore_data-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb8">
+<figure><img src="../fig/complete-random-design-multitreatment-factors-rendered-explore_data-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -503,11 +491,38 @@ interaction plot that shows mean glucose levels for all combinations of
 drug dose and exercise duration. Mean glucose for each of the 16
 treatments is given in the table below.</p>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error: object 'means' not found</code></pre>
+<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'Exercise'. You can override using the
+`.groups` argument.</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb10">
+<table class="table"><caption>Drug Dose</caption>
+<thead><tr class="header"><th align="right">Exercise</th>
+<th align="right">0</th>
+<th align="right">5</th>
+<th align="right">10</th>
+<th align="right">20</th>
+</tr></thead><tbody><tr class="odd"><td align="right">0</td>
+<td align="right">145.8128</td>
+<td align="right">136.2784</td>
+<td align="right">138.7135</td>
+<td align="right">112.1456</td>
+</tr><tr class="even"><td align="right">15</td>
+<td align="right">142.6130</td>
+<td align="right">145.2936</td>
+<td align="right">132.3528</td>
+<td align="right">112.7274</td>
+</tr><tr class="odd"><td align="right">30</td>
+<td align="right">131.4189</td>
+<td align="right">128.6983</td>
+<td align="right">137.9099</td>
+<td align="right">125.7940</td>
+</tr><tr class="even"><td align="right">60</td>
+<td align="right">121.1295</td>
+<td align="right">126.0156</td>
+<td align="right">129.2298</td>
+<td align="right">149.4863</td>
+</tr></tbody></table><div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -531,7 +546,7 @@ drug dose of zero. At 20 mg/kg dose, two of the exercise groups have
 very low blood glucose - the zero exercise group and the 15 minute
 exercise group. For the 60 minute exercise group, blood glucose
 increases with drug dose.</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -558,7 +573,7 @@ parallel we should assume interaction between exercise and drug dose.
 The F-test from an ANOVA will tell us whether this apparent interaction
 is real or random, specifically whether it is more pronounced than would
 be expected due to random variation.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -589,12 +604,10 @@ between exercise and drug dose is significant, backing up what we see in
 the interaction plots. If we move up a row in the table to Exercise, the
 F test compares the exercise means across drug dose groups. The
 <code>F value</code> for exercise is 1.7 on 1 and 76 degrees of freedom
-for exercise and residuals respectively. The p-value is low at
-<code>r</code>round(anova(lm(Glucose ~ DrugDose + Exercise +
-DrugDose*Exercise, data = drugExercise))[2, 5],
-3)<code>and is significant. Finally, we move up to the row containing</code>DrugDose`
-to find an F value of 41.5 and a p-value very near zero again. Drug dose
-averaged over exercise is significant.<br>
+for exercise and residuals respectively. The p-value is low at 0.19 and
+is significant. Finally, we move up to the row containing
+<code>DrugDose</code> to find an F value of 41.5 and a p-value very near
+zero again. Drug dose averaged over exercise is significant.<br>
 The partitioning of treatments sums of squares into main effect
 (average) and interaction sums of squares is a result of the crossed
 factorial structure of the two factors. The development of efficient and
