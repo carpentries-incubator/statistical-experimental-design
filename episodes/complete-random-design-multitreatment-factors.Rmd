@@ -22,11 +22,11 @@ experiment structured by two or more factors that can be qualitative or quantita
 which can become unwieldy when there are many levels for each factor. There are options to use only a fraction of the factor levels. Let's consider full factorial experiment here.
 
 ```{r, include=FALSE}
-
+library(tidyverse)
 ```
 
 
-```{r explore_data}
+```{r explore_data, message=FALSE}
 drugExercise <- read.csv("data/drugExercise.csv")
 
 drugExercise %>% 
@@ -49,26 +49,35 @@ drugExercise %>%
 ## Interaction between factors
 We could analyze these data as if it were simply a completely randomized design
 with 16 treatments (4 drug doses and 4 exercise durations). The ANOVA would have 
-15 degrees of freedom for treatments and the F-test would tell us whether the variation among average glucose levels for the 16 treatments was real or random.
+15 degrees of freedom for treatments and the F-test would tell us whether the 
+variation among average glucose levels for the 16 treatments was real or random.
 However, the factorial treatment structure lets us separate out the variability
 among drug doses averaged over exercise durations. The ANOVA table would provide 
-a sum of squares based on 3 degrees of freedom for the difference between the 4 treatment means ($\overline{y}_i$) and the grand mean ($\overline{y}$).  
-$n\sum(\overline{y}_i - \overline{y})^2$
+a sum of squares based on 3 degrees of freedom for the difference between the 4 
+treatment means ($\bar{y}_i$) and the pooled (overall) mean ($\bar{y}$).  
+
+Sum of squares for 16 treatments: $n\sum(\bar{y}_i - \bar{y})^2$. 
+
 The sum of squares would capture the variability among the drug dose levels.
 The variation among the 4 exercise levels would be captured similarly, with 3
 degrees of freedom. That leaves 15 - 6 = 9 degrees of freedom left over. What 
-variability do these remaining 9 degrees of freedom capture? The answer is
+variability do these remaining 9 degrees of freedom contain? The answer is
 interaction - the interaction between drug doses and exercise durations. We can
-visualize this with an interaction plot.
+visualize this with an interaction plot that shows mean glucose levels for all
+combinations of drug dose and exercise duration. Mean glucose for each of the 16 
+treatments is given in the table below.
 
 ```{r means_table, echo=FALSE}
+means <- drugExercise %>%
+  group_by(Exercise, DrugDose) %>%
+  summarise(mean = mean(Glucose))
+
 knitr::kable(pivot_wider(means, 
                          names_from = DrugDose, 
                          values_from = mean), 
              caption = "Drug Dose")
 ```
 
-Mean glucose for each of the 16 treatments is given in the table below.
 ```{r interaction1}
 # Interaction plot
 interaction.plot(x.factor = data$DrugDose,
@@ -83,7 +92,8 @@ interaction.plot(x.factor = data$DrugDose,
 
 The interaction plot shows wide variation in mean blood glucose at a drug dose 
 of zero. At 20 mg/kg dose, two of the exercise groups have very low blood 
-glucose - the zero exercise group and the 15 minute exercise group. For the 60 minute exercise group, blood glucose increases with drug dose.
+glucose - the zero exercise group and the 15 minute exercise group. For the 60 
+minute exercise group, blood glucose increases with drug dose.
 
 ```{r interaction2}
 interaction.plot(x.factor = data$Exercise,
@@ -99,9 +109,11 @@ interaction.plot(x.factor = data$Exercise,
 This second interaction plot shows generally declining mean blood glucose with
 increased exercise for the 0, 5, and 10 mg/kg drug dosage groups. For the 20 
 mg/kg group, mean glucose levels increase dramatically with increased exercise.
-If lines were parallel we could assume no interaction between drug and exercise. Since they are not  parallel we should assume interaction between exercise and drug dose. The F-test from an ANOVA will tell us whether this apparent 
-interaction is real or random, specifically more pronounced than would be
-expected due to random variation.
+If lines were parallel we could assume no interaction between drug and exercise. 
+Since they are not  parallel we should assume interaction between exercise and 
+drug dose. The F-test from an ANOVA will tell us whether this apparent 
+interaction is real or random, specifically whether it is more pronounced than 
+would be expected due to random variation.
 
 ```{r anova}
 # DrugDose*Exercise is the interaction
@@ -112,21 +124,29 @@ anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise,
 We can read the ANOVA table from the bottom up, starting with the interaction
 (`DrugDose:Exercise`). The `F value` for the interaction is 
 `r round(anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[3, 4], 1)`
-on 9 and 64 degrees of freedom for the interaction and error (`Residuals`)
+on 
+`r anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[3, 1]`
+and 
+`r anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[4, 1]`
+degrees of freedom for the interaction and error (`Residuals`)
 respectively. The p-value (`Pr(>F)`) is near zero and as such the interaction
 between exercise and drug dose is significant, backing up what we see in the 
 interaction plots. If we move up a row in the table to Exercise, the F test 
 compares the exercise means across drug dose groups. The `F value` for exercise
 is 
 `r round(anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 4], 1)`
-on 3 and 64 degrees of freedom for exercise and residuals respectively. The 
+on 
+`r anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 1]`
+and 
+`r anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[4, 1]`
+degrees of freedom for exercise and residuals respectively. The 
 p-value  is low at
-`r `round(anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 5], 3)`
+`r round(anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 5], 3)`
 and is significant. Finally, we move up to the row containing `DrugDose` to
 find an F value of 
 `r round(anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[1, 4], 1)`
 and a p-value very near zero again. Drug dose averaged over exercise is 
-significant.
+significant.  
 The partitioning of treatments sums of squares into main effect (average) and 
 interaction sums of squares is a result of the crossed factorial structure of 
 the two factors. The development of efficient and informative multifactor 
