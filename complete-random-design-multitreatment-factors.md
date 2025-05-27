@@ -26,7 +26,9 @@ which can become unwieldy when there are many levels for each factor. There are 
 
 
 ``` r
-drugExercise <- read.csv("data/drugExercise.csv")
+drugExercise <- read_csv("data/drugExercise.csv")
+drugExercise$DrugDose <- as_factor(drugExercise$DrugDose)
+drugExercise$Exercise <- as_factor(drugExercise$Exercise)
 
 drugExercise %>% 
   group_by(Exercise, DrugDose) %>% 
@@ -37,23 +39,23 @@ drugExercise %>%
 # A tibble: 16 × 3
 # Groups:   Exercise [4]
    Exercise DrugDose  mean
-      <int>    <int> <dbl>
- 1        0        0  146.
- 2        0        5  136.
- 3        0       10  139.
- 4        0       20  112.
- 5       15        0  143.
- 6       15        5  145.
- 7       15       10  132.
- 8       15       20  113.
- 9       30        0  131.
-10       30        5  129.
-11       30       10  138.
-12       30       20  126.
-13       60        0  121.
-14       60        5  126.
-15       60       10  129.
-16       60       20  149.
+   <fct>    <fct>    <dbl>
+ 1 0        0         146.
+ 2 0        5         136.
+ 3 0        10        139.
+ 4 0        20        112.
+ 5 15       0         143.
+ 6 15       5         145.
+ 7 15       10        132.
+ 8 15       20        113.
+ 9 30       0         131.
+10 30       5         129.
+11 30       10        138.
+12 30       20        126.
+13 60       0         121.
+14 60       5         126.
+15 60       10        129.
+16 60       20        149.
 ```
 
 ``` r
@@ -66,23 +68,23 @@ drugExercise %>%
 # A tibble: 16 × 3
 # Groups:   DrugDose [4]
    DrugDose Exercise  mean
-      <int>    <int> <dbl>
- 1        0        0  146.
- 2        0       15  143.
- 3        0       30  131.
- 4        0       60  121.
- 5        5        0  136.
- 6        5       15  145.
- 7        5       30  129.
- 8        5       60  126.
- 9       10        0  139.
-10       10       15  132.
-11       10       30  138.
-12       10       60  129.
-13       20        0  112.
-14       20       15  113.
-15       20       30  126.
-16       20       60  149.
+   <fct>    <fct>    <dbl>
+ 1 0        0         146.
+ 2 0        15        143.
+ 3 0        30        131.
+ 4 0        60        121.
+ 5 5        0         136.
+ 6 5        15        145.
+ 7 5        30        129.
+ 8 5        60        126.
+ 9 10       0         139.
+10 10       15        132.
+11 10       30        138.
+12 10       60        129.
+13 20       0         112.
+14 20       15        113.
+15 20       30        126.
+16 20       60        149.
 ```
 
 ``` r
@@ -106,45 +108,71 @@ We could analyze these data as if it were simply a completely randomized design
 with 16 treatments (4 drug doses and 4 exercise durations). The ANOVA would have 
 15 degrees of freedom for treatments and the F-test would tell us whether the 
 variation among average glucose levels for the 16 treatments was real or random.
-However, the factorial treatment structure lets us separate out the variability
-among drug doses averaged over exercise durations. The ANOVA table would provide 
-a sum of squares based on 3 degrees of freedom for the difference between the 4 
-treatment means ($\bar{y}_i$) and the pooled (overall) mean ($\bar{y}$).  
+However, the factorial treatment structure lets us separate out the variability 
+in glucose levels among drug doses averaged over exercise durations. The ANOVA table would provide a sum of squares based on 3 degrees of freedom for the difference between the 4 treatment means ($\bar{y}_i$) and the pooled (overall) mean ($\bar{y}$).  
 
-Sum of squares for 16 treatments: $n\sum(\bar{y}_i - \bar{y})^2$. 
+Sum of squares for 16 treatments $= n\sum(\bar{y}_i - \bar{y})^2$. 
 
-The sum of squares would capture the variability among the drug dose levels.
+The sum of squares would capture the variability among the 4 drug dose levels.
 The variation among the 4 exercise levels would be captured similarly, with 3
 degrees of freedom. That leaves 15 - 6 = 9 degrees of freedom left over. What 
 variability do these remaining 9 degrees of freedom contain? The answer is
-interaction - the interaction between drug doses and exercise durations. We can
-visualize this with an interaction plot that shows mean glucose levels for all
-combinations of drug dose and exercise duration. Mean glucose for each of the 16 
-treatments is given in the table below.
+interaction - the interaction between drug doses and exercise durations. Mean glucose for each of the 16 treatments is given in the table below.
 
+<table>
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Drug Dose</div></th>
+</tr>
+  <tr>
+   <th style="text-align:left;"> Exercise </th>
+   <th style="text-align:right;"> 0 </th>
+   <th style="text-align:right;"> 5 </th>
+   <th style="text-align:right;"> 10 </th>
+   <th style="text-align:right;"> 20 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 145.8 </td>
+   <td style="text-align:right;"> 136.3 </td>
+   <td style="text-align:right;"> 138.7 </td>
+   <td style="text-align:right;"> 112.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 15 </td>
+   <td style="text-align:right;"> 142.6 </td>
+   <td style="text-align:right;"> 145.3 </td>
+   <td style="text-align:right;"> 132.4 </td>
+   <td style="text-align:right;"> 112.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 30 </td>
+   <td style="text-align:right;"> 131.4 </td>
+   <td style="text-align:right;"> 128.7 </td>
+   <td style="text-align:right;"> 137.9 </td>
+   <td style="text-align:right;"> 125.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 60 </td>
+   <td style="text-align:right;"> 121.1 </td>
+   <td style="text-align:right;"> 126.0 </td>
+   <td style="text-align:right;"> 129.2 </td>
+   <td style="text-align:right;"> 149.5 </td>
+  </tr>
+</tbody>
+</table>
 
-``` output
-`summarise()` has grouped output by 'Exercise'. You can override using the
-`.groups` argument.
-```
-
-
-
-Table: Drug Dose
-
-| Exercise|        0|        5|       10|       20|
-|--------:|--------:|--------:|--------:|--------:|
-|        0| 145.8128| 136.2784| 138.7135| 112.1456|
-|       15| 142.6130| 145.2936| 132.3528| 112.7274|
-|       30| 131.4189| 128.6983| 137.9099| 125.7940|
-|       60| 121.1295| 126.0156| 129.2298| 149.4863|
+We can visualize interactions for all combinations of drug dose and exercise duration with an interaction plot that shows mean glucose levels.
 
 
 ``` r
 # Interaction plot
-interaction.plot(x.factor = data$DrugDose,
-                 trace.factor = data$Exercise,
-                 response = data$Glucose,
+interaction.plot(x.factor = drugExercise$DrugDose,
+                 trace.factor = drugExercise$Exercise,
+                 response = drugExercise$Glucose,
                  fun = mean,
                  col = hcl.colors(4),
                  xlab = "Drug Dose (mg/kg)",
@@ -152,9 +180,7 @@ interaction.plot(x.factor = data$DrugDose,
                  trace.label = "Exercise Duration (min)")
 ```
 
-``` error
-Error in data$DrugDose: object of type 'closure' is not subsettable
-```
+<img src="fig/complete-random-design-multitreatment-factors-rendered-interaction1-1.png" style="display: block; margin: auto;" />
 
 The interaction plot shows wide variation in mean blood glucose at a drug dose 
 of zero. At 20 mg/kg dose, two of the exercise groups have very low blood 
@@ -163,9 +189,9 @@ minute exercise group, blood glucose increases with drug dose.
 
 
 ``` r
-interaction.plot(x.factor = data$Exercise,
-                 trace.factor = data$DrugDose,
-                 response = data$Glucose,
+interaction.plot(x.factor = drugExercise$Exercise,
+                 trace.factor = drugExercise$DrugDose,
+                 response = drugExercise$Glucose,
                  fun = mean,
                  col = hcl.colors(4),
                  xlab = "Exercise (min)",
@@ -173,9 +199,7 @@ interaction.plot(x.factor = data$Exercise,
                  trace.label = "DrugDose (mg/kg)")
 ```
 
-``` error
-Error in data$Exercise: object of type 'closure' is not subsettable
-```
+<img src="fig/complete-random-design-multitreatment-factors-rendered-interaction2-1.png" style="display: block; margin: auto;" />
 
 This second interaction plot shows generally declining mean blood glucose with
 increased exercise for the 0, 5, and 10 mg/kg drug dosage groups. For the 20 
@@ -198,38 +222,38 @@ Analysis of Variance Table
 
 Response: Glucose
                   Df Sum Sq Mean Sq  F value    Pr(>F)    
-DrugDose           1 1132.1  1132.1  41.4888 9.717e-09 ***
-Exercise           1   47.6    47.6   1.7456    0.1904    
-DrugDose:Exercise  1 6465.2  6465.2 236.9247 < 2.2e-16 ***
-Residuals         76 2073.9    27.3                       
+DrugDose           3 1391.6  463.88  71.3651 < 2.2e-16 ***
+Exercise           3   85.2   28.39   4.3676  0.007344 ** 
+DrugDose:Exercise  9 7826.0  869.56 133.7770 < 2.2e-16 ***
+Residuals         64  416.0    6.50                       
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 We can read the ANOVA table from the bottom up, starting with the interaction
 (`DrugDose:Exercise`). The `F value` for the interaction is 
-236.9
+133.8
 on 
-1
+9
 and 
-76
+64
 degrees of freedom for the interaction and error (`Residuals`)
 respectively. The p-value (`Pr(>F)`) is near zero and as such the interaction
 between exercise and drug dose is significant, backing up what we see in the 
 interaction plots. If we move up a row in the table to Exercise, the F test 
 compares the exercise means across drug dose groups. The `F value` for exercise
 is 
-1.7
+4.4
 on 
-1
+3
 and 
-76
+64
 degrees of freedom for exercise and residuals respectively. The 
 p-value  is low at
-0.19
+0.007
 and is significant. Finally, we move up to the row containing `DrugDose` to
 find an F value of 
-41.5
+71.4
 and a p-value very near zero again. Drug dose averaged over exercise is 
 significant.  
 The partitioning of treatments sums of squares into main effect (average) and 
