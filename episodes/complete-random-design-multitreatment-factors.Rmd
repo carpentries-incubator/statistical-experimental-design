@@ -64,13 +64,24 @@ drugExercise <- read_csv("data/drugExercise.csv")
 drugExercise$DrugDose <- as_factor(drugExercise$DrugDose)
 drugExercise$Exercise <- as_factor(drugExercise$Exercise)
 
-drugExercise %>%
-  group_by(Exercise, DrugDose) %>%
-  summarise(ChangeGlucose = mean(Delta))
+# drugExercise %>%
+#   group_by(Exercise, DrugDose) %>%
+#   summarise(ChangeGlucose = mean(Delta))
 
 drugExercise %>%
    group_by(DrugDose, Exercise) %>%
   summarise(ChangeGlucose = mean(Delta))
+
+heat_data <- drugExercise %>%
+  group_by(DrugDose, Exercise) %>%
+  summarise(MeanChange = mean(Delta), .groups = "drop") %>%
+  spread(Exercise, MeanChange)
+heat_matrix <- as.matrix(heat_data[,-1])
+rownames(heat_matrix) <- heat_data$DrugDose
+heatmap(heat_matrix, Rowv = NA, Colv = NA,
+        col = heat.colors(10), scale = "none",
+        main = "Heatmap of Mean Δ Glucose",
+        xlab = "Exercise (minutes)", ylab = "Drug Dosage (mg/kg)")
 
 ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
   geom_boxplot() +
