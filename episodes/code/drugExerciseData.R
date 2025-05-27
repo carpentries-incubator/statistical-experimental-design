@@ -3,7 +3,7 @@ library(tidyverse)
 
 
 # Set seed for reproducibility
-set.seed(123)
+set.seed(12)
 
 # Define factor levels
 drug_dose <- c(0, 5, 10, 20)           # mg/kg
