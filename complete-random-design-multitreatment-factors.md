@@ -18,11 +18,37 @@ source: Rmd
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-experiment structured by two or more factors that can be qualitative or quantitative. Same design issues - which factors to choose, which levels? A full factorial experiment includes all levels of all factors,
-which can become unwieldy when there are many levels for each factor. There are options to use only a fraction of the factor levels. Let's consider full factorial experiment here.
+When experiments are structured with two or more factors, these factors can be
+qualitative or quantitative. With two or more factors we face the same design
+issues. Which factors to choose? Which levels for each factor? A full factorial
+experiment includes all levels of all factors, which can become unwieldy when
+there are multiple levels for each factor. One option to manage an unwieldy 
+design is to use only a fraction of the factor levels in a fractional factorial
+design. In this lesson we consider a full factorial design containing all levels
+of all factors.
 
 
 
+A study aims to determine how dosage of a hypoglycemic drug and duration of 
+daily exercise affect blood glucose levels in diabetic mice. The study has two 
+quantitative factors with four levels each.
+
+
+
+Drug dosage represents the amount of a new antidiabetic drug administered daily.
+The levels for this factor are in mg per kg body weight. Control mice receive no
+drug. The second factor, exercise duration, represents the number of minutes the 
+mice run on a running wheel each day. Control mice do not have a running wheel 
+to run on. A full factorial design is used, with each combination of drug dosage 
+and exercise duration applied to a group of mice. For example, one group 
+receives 5 mg/kg of the drug and exercises 15 minutes per day, another group
+receives 5 mg/kg and exercises 30 minutes per day, and so on.
+
+There are 4 levels for each factor, leading to 16 treatment combinations (4 drug 
+doses × 4 exercise durations). Each combination is replicated with a group of 5 
+mice, making the design balanced and allowing analysis of interactions. Fasting 
+blood glucose level (mg/dL) was measured at the start and after 4 weeks of
+treatment.
 
 
 ``` r
@@ -30,86 +56,119 @@ drugExercise <- read_csv("data/drugExercise.csv")
 drugExercise$DrugDose <- as_factor(drugExercise$DrugDose)
 drugExercise$Exercise <- as_factor(drugExercise$Exercise)
 
-drugExercise %>% 
-  group_by(Exercise, DrugDose) %>% 
-  summarise(mean = mean(Glucose))
+drugExercise %>%
+  group_by(Exercise, DrugDose) %>%
+  summarise(ChangeGlucose = mean(Delta))
 ```
 
 ``` output
 # A tibble: 16 × 3
 # Groups:   Exercise [4]
-   Exercise DrugDose  mean
-   <fct>    <fct>    <dbl>
- 1 0        0         146.
- 2 0        5         136.
- 3 0        10        139.
- 4 0        20        112.
- 5 15       0         143.
- 6 15       5         145.
- 7 15       10        132.
- 8 15       20        113.
- 9 30       0         131.
-10 30       5         129.
-11 30       10        138.
-12 30       20        126.
-13 60       0         121.
-14 60       5         126.
-15 60       10        129.
-16 60       20        149.
+   Exercise DrugDose ChangeGlucose
+   <fct>    <fct>            <dbl>
+ 1 0        0               -0.331
+ 2 0        5               -2.17 
+ 3 0        10              -3.55 
+ 4 0        20             -11.8  
+ 5 15       0                2.73 
+ 6 15       5               -1.07 
+ 7 15       10              -5.51 
+ 8 15       20              -7.80 
+ 9 30       0               -3.00 
+10 30       5               -0.827
+11 30       10              -1.98 
+12 30       20              -3.66 
+13 60       0               -0.445
+14 60       5               -7.21 
+15 60       10              -0.969
+16 60       20              -0.586
 ```
 
 ``` r
-drugExercise %>% 
-  group_by(DrugDose, Exercise) %>% 
-  summarise(mean = mean(Glucose))
+drugExercise %>%
+   group_by(DrugDose, Exercise) %>%
+  summarise(ChangeGlucose = mean(Delta))
 ```
 
 ``` output
 # A tibble: 16 × 3
 # Groups:   DrugDose [4]
-   DrugDose Exercise  mean
-   <fct>    <fct>    <dbl>
- 1 0        0         146.
- 2 0        15        143.
- 3 0        30        131.
- 4 0        60        121.
- 5 5        0         136.
- 6 5        15        145.
- 7 5        30        129.
- 8 5        60        126.
- 9 10       0         139.
-10 10       15        132.
-11 10       30        138.
-12 10       60        129.
-13 20       0         112.
-14 20       15        113.
-15 20       30        126.
-16 20       60        149.
+   DrugDose Exercise ChangeGlucose
+   <fct>    <fct>            <dbl>
+ 1 0        0               -0.331
+ 2 0        15               2.73 
+ 3 0        30              -3.00 
+ 4 0        60              -0.445
+ 5 5        0               -2.17 
+ 6 5        15              -1.07 
+ 7 5        30              -0.827
+ 8 5        60              -7.21 
+ 9 10       0               -3.55 
+10 10       15              -5.51 
+11 10       30              -1.98 
+12 10       60              -0.969
+13 20       0              -11.8  
+14 20       15              -7.80 
+15 20       30              -3.66 
+16 20       60              -0.586
 ```
 
 ``` r
-drugExercise %>% 
-  ggplot(aes(Exercise, Glucose)) + 
-  geom_point(aes(color = DrugDose))
+ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
+  geom_boxplot() +
+  labs(title = "Change in Glucose by Drug and Exercise",
+       y = "Δ Glucose (mg/dL)", x = "Drug Dosage (mg/kg)")
 ```
 
 <img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-1.png" style="display: block; margin: auto;" />
 
 ``` r
-drugExercise %>% 
-  ggplot(aes(DrugDose, Glucose)) + 
-  geom_point(aes(color = Exercise))
+ggplot(drugExercise, aes(x = Exercise, y = Delta, fill = DrugDose)) +
+  geom_boxplot() +
+  labs(title = "Change in Glucose by Drug and Exercise",
+       y = "Δ Glucose (mg/dL)", x = "Exercise duration (min/day)")
 ```
 
 <img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-2.png" style="display: block; margin: auto;" />
+
+``` r
+ggplot(drugExercise, aes(x = Baseline, y = Post, color = DrugDose)) +
+  geom_point(aes(shape = Exercise), size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Baseline vs Post-treatment Glucose",
+       x = "Baseline Glucose (mg/dL)",
+       y = "Post-treatment Glucose (mg/dL)") +
+  theme_minimal()
+```
+
+<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-3.png" style="display: block; margin: auto;" />
+
+``` r
+drugExercise %>% 
+  ggplot(aes(Exercise, Delta)) + 
+  geom_point(aes(color = DrugDose))
+```
+
+<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-4.png" style="display: block; margin: auto;" />
+
+``` r
+drugExercise %>% 
+  ggplot(aes(DrugDose, Delta)) + 
+  geom_point(aes(color = Exercise))
+```
+
+<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-5.png" style="display: block; margin: auto;" />
 
 ## Interaction between factors
 We could analyze these data as if it were simply a completely randomized design
 with 16 treatments (4 drug doses and 4 exercise durations). The ANOVA would have 
 15 degrees of freedom for treatments and the F-test would tell us whether the 
-variation among average glucose levels for the 16 treatments was real or random.
-However, the factorial treatment structure lets us separate out the variability 
-in glucose levels among drug doses averaged over exercise durations. The ANOVA table would provide a sum of squares based on 3 degrees of freedom for the difference between the 4 treatment means ($\bar{y}_i$) and the pooled (overall) mean ($\bar{y}$).  
+variation among average changes in glucose levels for the 16 treatments was real 
+or random. However, the factorial treatment structure lets us separate out the 
+variability in glucose level changess among drug doses averaged over exercise 
+durations. The ANOVA table would provide a sum of squares based on 3 degrees of 
+freedom for the difference between the 4 treatment means ($\bar{y}_i$) and the 
+pooled (overall) mean ($\bar{y}$).  
 
 Sum of squares for 16 treatments $= n\sum(\bar{y}_i - \bar{y})^2$. 
 
@@ -117,7 +176,8 @@ The sum of squares would capture the variability among the 4 drug dose levels.
 The variation among the 4 exercise levels would be captured similarly, with 3
 degrees of freedom. That leaves 15 - 6 = 9 degrees of freedom left over. What 
 variability do these remaining 9 degrees of freedom contain? The answer is
-interaction - the interaction between drug doses and exercise durations. Mean glucose for each of the 16 treatments is given in the table below.
+interaction - the interaction between drug doses and exercise durations. Mean 
+changes in glucose for each of the 16 treatments is given in the table below.
 
 <table>
  <thead>
@@ -136,74 +196,84 @@ interaction - the interaction between drug doses and exercise durations. Mean gl
 <tbody>
   <tr>
    <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 145.8 </td>
-   <td style="text-align:right;"> 136.3 </td>
-   <td style="text-align:right;"> 138.7 </td>
-   <td style="text-align:right;"> 112.1 </td>
+   <td style="text-align:right;"> -0.3 </td>
+   <td style="text-align:right;"> -2.2 </td>
+   <td style="text-align:right;"> -3.5 </td>
+   <td style="text-align:right;"> -11.8 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 15 </td>
-   <td style="text-align:right;"> 142.6 </td>
-   <td style="text-align:right;"> 145.3 </td>
-   <td style="text-align:right;"> 132.4 </td>
-   <td style="text-align:right;"> 112.7 </td>
+   <td style="text-align:right;"> 2.7 </td>
+   <td style="text-align:right;"> -1.1 </td>
+   <td style="text-align:right;"> -5.5 </td>
+   <td style="text-align:right;"> -7.8 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 30 </td>
-   <td style="text-align:right;"> 131.4 </td>
-   <td style="text-align:right;"> 128.7 </td>
-   <td style="text-align:right;"> 137.9 </td>
-   <td style="text-align:right;"> 125.8 </td>
+   <td style="text-align:right;"> -3.0 </td>
+   <td style="text-align:right;"> -0.8 </td>
+   <td style="text-align:right;"> -2.0 </td>
+   <td style="text-align:right;"> -3.7 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 60 </td>
-   <td style="text-align:right;"> 121.1 </td>
-   <td style="text-align:right;"> 126.0 </td>
-   <td style="text-align:right;"> 129.2 </td>
-   <td style="text-align:right;"> 149.5 </td>
+   <td style="text-align:right;"> -0.4 </td>
+   <td style="text-align:right;"> -7.2 </td>
+   <td style="text-align:right;"> -1.0 </td>
+   <td style="text-align:right;"> -0.6 </td>
   </tr>
 </tbody>
 </table>
 
-We can visualize interactions for all combinations of drug dose and exercise duration with an interaction plot that shows mean glucose levels.
+We can visualize interactions for all combinations of drug dose and exercise 
+duration with an interaction plot that shows mean change in glucose levels.
 
 
 ``` r
 # Interaction plot
-interaction.plot(x.factor = drugExercise$DrugDose,
-                 trace.factor = drugExercise$Exercise,
-                 response = drugExercise$Glucose,
-                 fun = mean,
-                 col = hcl.colors(4),
-                 xlab = "Drug Dose (mg/kg)",
-                 ylab = "Mean Blood Glucose (mg/dL)",
-                 trace.label = "Exercise Duration (min)")
+interaction_plot <- drugExercise %>%
+  group_by(DrugDose, Exercise) %>%
+  summarise(MeanChange = mean(Delta), .groups = "drop")
+
+ggplot(interaction_plot, aes(x = as.numeric(as.character(DrugDose)),
+                             y = MeanChange,
+                             color = Exercise, group = Exercise)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Interaction Plot",
+       x = "Drug Dosage (mg/kg)",
+       y = "Mean Δ Glucose (mg/dL)")
 ```
 
 <img src="fig/complete-random-design-multitreatment-factors-rendered-interaction1-1.png" style="display: block; margin: auto;" />
 
-The interaction plot shows wide variation in mean blood glucose at a drug dose 
-of zero. At 20 mg/kg dose, two of the exercise groups have very low blood 
-glucose - the zero exercise group and the 15 minute exercise group. For the 60 
-minute exercise group, blood glucose increases with drug dose.
+The interaction plot shows wide variation in mean glucose changes at a drug dose 
+of 20 mg/kg. For the 0 and 15 minute/day exercise groups, increasing drug dosage
+led to decreasing mean glucose levels. For the 30 and 60 minute/day exercise 
+groups, increasing drug dosage did not decrease mean glucose levels appreciably, 
+with one exception. At 5 mg/kg doseage, The 60 minute/day exercise group saw a 
+strong decrease in mean blood glucose.
 
 
 ``` r
-interaction.plot(x.factor = drugExercise$Exercise,
-                 trace.factor = drugExercise$DrugDose,
-                 response = drugExercise$Glucose,
-                 fun = mean,
-                 col = hcl.colors(4),
-                 xlab = "Exercise (min)",
-                 ylab = "Mean Blood Glucose (mg/dL)",
-                 trace.label = "DrugDose (mg/kg)")
+ggplot(interaction_plot, aes(x = as.numeric(as.character(Exercise)),
+                             y = MeanChange,
+                             color = DrugDose, group = DrugDose)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Interaction Plot",
+       x = "Exercise (min/day)",
+       y = "Mean Δ Glucose (mg/dL)")
 ```
 
 <img src="fig/complete-random-design-multitreatment-factors-rendered-interaction2-1.png" style="display: block; margin: auto;" />
 
-This second interaction plot shows generally declining mean blood glucose with
-increased exercise for the 0, 5, and 10 mg/kg drug dosage groups. For the 20 
-mg/kg group, mean glucose levels increase dramatically with increased exercise.
+If we plot exercise on the x-axis, the same patterns show up differently. This 
+second interaction plot shows wide variation in mean glucose changes at a drug 
+dose of 20 mg/kg. For the other drug dose groups (0, 5 and 10 mg/kg), mean 
+glucose changes are nearly the same for the 60 minute/day exercise group. At 5 
+mg/kg doseage, the 60 minute/day exercise group saw a strong decrease in mean 
+blood glucose.
 If lines were parallel we could assume no interaction between drug and exercise. 
 Since they are not  parallel we should assume interaction between exercise and 
 drug dose. The F-test from an ANOVA will tell us whether this apparent 
@@ -213,49 +283,47 @@ would be expected due to random variation.
 
 ``` r
 # DrugDose*Exercise is the interaction
-anova(lm(Glucose ~ DrugDose + Exercise + DrugDose*Exercise, 
+anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, 
          data = drugExercise))
 ```
 
 ``` output
 Analysis of Variance Table
 
-Response: Glucose
-                  Df Sum Sq Mean Sq  F value    Pr(>F)    
-DrugDose           3 1391.6  463.88  71.3651 < 2.2e-16 ***
-Exercise           3   85.2   28.39   4.3676  0.007344 ** 
-DrugDose:Exercise  9 7826.0  869.56 133.7770 < 2.2e-16 ***
-Residuals         64  416.0    6.50                       
+Response: Delta
+                  Df  Sum Sq Mean Sq F value   Pr(>F)   
+DrugDose           3  327.00 109.000  4.7193 0.004885 **
+Exercise           3   61.10  20.367  0.8818 0.455334   
+DrugDose:Exercise  9  573.94  63.771  2.7611 0.008576 **
+Residuals         64 1478.18  23.097                    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 We can read the ANOVA table from the bottom up, starting with the interaction
 (`DrugDose:Exercise`). The `F value` for the interaction is 
-133.8
+2.8
 on 
 9
 and 
 64
-degrees of freedom for the interaction and error (`Residuals`)
-respectively. The p-value (`Pr(>F)`) is near zero and as such the interaction
-between exercise and drug dose is significant, backing up what we see in the 
-interaction plots. If we move up a row in the table to Exercise, the F test 
-compares the exercise means across drug dose groups. The `F value` for exercise
-is 
-4.4
+degrees of freedom for the interaction and error (`Residuals`) respectively. The 
+p-value (`Pr(>F)`) is near very low and as such the interaction between exercise 
+and drug dose is significant, backing up what we see in the interaction plots. 
+If we move up a row in the table to `Exercise`, the F test compares the mean 
+changes across drug dose groups. The `F value` for exercise is 
+0.9
 on 
 3
 and 
 64
-degrees of freedom for exercise and residuals respectively. The 
-p-value  is low at
-0.007
+degrees of freedom for exercise and residuals respectively. The p-value  is high 
+at
+0.455
 and is significant. Finally, we move up to the row containing `DrugDose` to
 find an F value of 
-71.4
-and a p-value very near zero again. Drug dose averaged over exercise is 
-significant.  
+4.7
+and a very low p-value again. Drug dose averaged over exercise is significant.  
 The partitioning of treatments sums of squares into main effect (average) and 
 interaction sums of squares is a result of the crossed factorial structure of 
 the two factors. The development of efficient and informative multifactor 
