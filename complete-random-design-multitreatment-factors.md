@@ -56,35 +56,10 @@ drugExercise <- read_csv("data/drugExercise.csv")
 drugExercise$DrugDose <- as_factor(drugExercise$DrugDose)
 drugExercise$Exercise <- as_factor(drugExercise$Exercise)
 
-drugExercise %>%
-  group_by(Exercise, DrugDose) %>%
-  summarise(ChangeGlucose = mean(Delta))
-```
+# drugExercise %>%
+#   group_by(Exercise, DrugDose) %>%
+#   summarise(ChangeGlucose = mean(Delta))
 
-``` output
-# A tibble: 16 × 3
-# Groups:   Exercise [4]
-   Exercise DrugDose ChangeGlucose
-   <fct>    <fct>            <dbl>
- 1 0        0               -0.331
- 2 0        5               -2.17 
- 3 0        10              -3.55 
- 4 0        20             -11.8  
- 5 15       0                2.73 
- 6 15       5               -1.07 
- 7 15       10              -5.51 
- 8 15       20              -7.80 
- 9 30       0               -3.00 
-10 30       5               -0.827
-11 30       10              -1.98 
-12 30       20              -3.66 
-13 60       0               -0.445
-14 60       5               -7.21 
-15 60       10              -0.969
-16 60       20              -0.586
-```
-
-``` r
 drugExercise %>%
    group_by(DrugDose, Exercise) %>%
   summarise(ChangeGlucose = mean(Delta))
@@ -114,13 +89,28 @@ drugExercise %>%
 ```
 
 ``` r
+heat_data <- drugExercise %>%
+  group_by(DrugDose, Exercise) %>%
+  summarise(MeanChange = mean(Delta), .groups = "drop") %>%
+  spread(Exercise, MeanChange)
+heat_matrix <- as.matrix(heat_data[,-1])
+rownames(heat_matrix) <- heat_data$DrugDose
+heatmap(heat_matrix, Rowv = NA, Colv = NA,
+        col = heat.colors(10), scale = "none",
+        main = "Heatmap of Mean Δ Glucose",
+        xlab = "Exercise (minutes)", ylab = "Drug Dosage (mg/kg)")
+```
+
+<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-1.png" style="display: block; margin: auto;" />
+
+``` r
 ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
   geom_boxplot() +
   labs(title = "Change in Glucose by Drug and Exercise",
        y = "Δ Glucose (mg/dL)", x = "Drug Dosage (mg/kg)")
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-2.png" style="display: block; margin: auto;" />
 
 ``` r
 ggplot(drugExercise, aes(x = Exercise, y = Delta, fill = DrugDose)) +
@@ -129,7 +119,7 @@ ggplot(drugExercise, aes(x = Exercise, y = Delta, fill = DrugDose)) +
        y = "Δ Glucose (mg/dL)", x = "Exercise duration (min/day)")
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-2.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-3.png" style="display: block; margin: auto;" />
 
 ``` r
 ggplot(drugExercise, aes(x = Baseline, y = Post, color = DrugDose)) +
@@ -141,7 +131,7 @@ ggplot(drugExercise, aes(x = Baseline, y = Post, color = DrugDose)) +
   theme_minimal()
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-3.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-4.png" style="display: block; margin: auto;" />
 
 ``` r
 drugExercise %>% 
@@ -149,7 +139,7 @@ drugExercise %>%
   geom_point(aes(color = DrugDose))
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-4.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-5.png" style="display: block; margin: auto;" />
 
 ``` r
 drugExercise %>% 
@@ -157,7 +147,7 @@ drugExercise %>%
   geom_point(aes(color = Exercise))
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-5.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-6.png" style="display: block; margin: auto;" />
 
 ## Interaction between factors
 We could analyze these data as if it were simply a completely randomized design
