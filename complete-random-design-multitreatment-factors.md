@@ -49,16 +49,13 @@ doses × 4 exercise durations). Each combination is replicated with a group of 5
 mice, making the design balanced and allowing analysis of interactions. Fasting 
 blood glucose level (mg/dL) was measured at the start and after 4 weeks of
 treatment.
+Load the data and summarize by mean change in glucose levels (`Delta`).
 
 
 ``` r
 drugExercise <- read_csv("data/drugExercise.csv")
 drugExercise$DrugDose <- as_factor(drugExercise$DrugDose)
 drugExercise$Exercise <- as_factor(drugExercise$Exercise)
-
-# drugExercise %>%
-#   group_by(Exercise, DrugDose) %>%
-#   summarise(ChangeGlucose = mean(Delta))
 
 drugExercise %>%
    group_by(DrugDose, Exercise) %>%
@@ -88,20 +85,16 @@ drugExercise %>%
 16 20       60              -0.586
 ```
 
-``` r
-heat_data <- drugExercise %>%
-  group_by(DrugDose, Exercise) %>%
-  summarise(MeanChange = mean(Delta), .groups = "drop") %>%
-  spread(Exercise, MeanChange)
-heat_matrix <- as.matrix(heat_data[,-1])
-rownames(heat_matrix) <- heat_data$DrugDose
-heatmap(heat_matrix, Rowv = NA, Colv = NA,
-        col = heat.colors(10), scale = "none",
-        main = "Heatmap of Mean Δ Glucose",
-        xlab = "Exercise (minutes)", ylab = "Drug Dosage (mg/kg)")
-```
+A heatmap is a good way to visualize the table of mean glucose changes. It shows
+the greatest changes with a drug dose of 20 mg/kg for 3 of the 4 exercise 
+groups. The 5 mg/kg drug dosage group also shows a large change, but only when
+combined with 60 minutes of exercise per day.
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-heatmap-1.png" style="display: block; margin: auto;" />
+
+Boxplots show the same pattern for 5 mg/kg drug dosage group
+combined with 60 minutes of exercise per day. They also show an increase in mean glucose with increasing exercise for the 20 mg/kg drug dosage group.
+
 
 ``` r
 ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
@@ -110,44 +103,23 @@ ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
        y = "Δ Glucose (mg/dL)", x = "Drug Dosage (mg/kg)")
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-2.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_drugX-1.png" style="display: block; margin: auto;" />
+
+Boxplots with exercise on the x-axis are not as easy to interpret since patterns
+for combinations of exercise and drug dose aren't so apparent. Greater
+variability for some groups is apparent however. The length of the boxplots for the 0 mg/kg and 5 mg/kg drug dose groups indicates high within-group 
+variability. The 20 mg/kg boxplots are more compact, indicating lesser variability within this group.
+
 
 ``` r
 ggplot(drugExercise, aes(x = Exercise, y = Delta, fill = DrugDose)) +
   geom_boxplot() +
   labs(title = "Change in Glucose by Drug and Exercise",
-       y = "Δ Glucose (mg/dL)", x = "Exercise duration (min/day)")
+       y = "Δ Glucose (mg/dL)", x = "Exercise duration (min/day)") +
+  scale_fill_brewer(palette = "PuOr") # use a different color palette
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-3.png" style="display: block; margin: auto;" />
-
-``` r
-ggplot(drugExercise, aes(x = Baseline, y = Post, color = DrugDose)) +
-  geom_point(aes(shape = Exercise), size = 3) +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(title = "Baseline vs Post-treatment Glucose",
-       x = "Baseline Glucose (mg/dL)",
-       y = "Post-treatment Glucose (mg/dL)") +
-  theme_minimal()
-```
-
-<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-4.png" style="display: block; margin: auto;" />
-
-``` r
-drugExercise %>% 
-  ggplot(aes(Exercise, Delta)) + 
-  geom_point(aes(color = DrugDose))
-```
-
-<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-5.png" style="display: block; margin: auto;" />
-
-``` r
-drugExercise %>% 
-  ggplot(aes(DrugDose, Delta)) + 
-  geom_point(aes(color = Exercise))
-```
-
-<img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-6.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_exerciseX-1.png" style="display: block; margin: auto;" />
 
 ## Interaction between factors
 We could analyze these data as if it were simply a completely randomized design
