@@ -344,7 +344,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Design with More than One Treatment Factor</h1>
-        <p>Last updated on 2025-05-27 |
+        <p>Last updated on 2025-05-28 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design-multitreatment-factors.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -404,7 +404,8 @@ group receives 5 mg/kg and exercises 30 minutes per day, and so on.</p>
 combinations (4 drug doses × 4 exercise durations). Each combination is
 replicated with a group of 5 mice, making the design balanced and
 allowing analysis of interactions. Fasting blood glucose level (mg/dL)
-was measured at the start and after 4 weeks of treatment.</p>
+was measured at the start and after 4 weeks of treatment. Load the data
+and summarize by mean change in glucose levels (<code>Delta</code>).</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -412,10 +413,6 @@ was measured at the start and after 4 weeks of treatment.</p>
 <code class="sourceCode R"><span><span class="va">drugExercise</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"data/drugExercise.csv"</span><span class="op">)</span></span>
 <span><span class="va">drugExercise</span><span class="op">$</span><span class="va">DrugDose</span> <span class="op">&lt;-</span> <span class="fu">as_factor</span><span class="op">(</span><span class="va">drugExercise</span><span class="op">$</span><span class="va">DrugDose</span><span class="op">)</span></span>
 <span><span class="va">drugExercise</span><span class="op">$</span><span class="va">Exercise</span> <span class="op">&lt;-</span> <span class="fu">as_factor</span><span class="op">(</span><span class="va">drugExercise</span><span class="op">$</span><span class="va">Exercise</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># drugExercise %&gt;%</span></span>
-<span><span class="co">#   group_by(Exercise, DrugDose) %&gt;%</span></span>
-<span><span class="co">#   summarise(ChangeGlucose = mean(Delta))</span></span>
 <span></span>
 <span><span class="va">drugExercise</span> <span class="op">%&gt;%</span></span>
 <span>   <span class="fu">group_by</span><span class="op">(</span><span class="va">DrugDose</span>, <span class="va">Exercise</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
@@ -445,22 +442,15 @@ was measured at the start and after 4 weeks of treatment.</p>
 15 20       30              -3.66
 16 20       60              -0.586</code></pre>
 </div>
+<p>A heatmap is a good way to visualize the table of mean glucose
+changes. It shows the greatest changes with a drug dose of 20 mg/kg for
+3 of the 4 exercise groups. The 5 mg/kg drug dosage group also shows a
+large change, but only when combined with 60 minutes of exercise per
+day.</p>
+<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-heatmap-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Boxplots show the same pattern for 5 mg/kg drug dosage group combined
+with 60 minutes of exercise per day. They also show an increase in mean
+glucose with increasing exercise for the 20 mg/kg drug dosage group.</p>
 <div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">heat_data</span> <span class="op">&lt;-</span> <span class="va">drugExercise</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">DrugDose</span>, <span class="va">Exercise</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">summarise</span><span class="op">(</span>MeanChange <span class="op">=</span> <span class="fu">mean</span><span class="op">(</span><span class="va">Delta</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">spread</span><span class="op">(</span><span class="va">Exercise</span>, <span class="va">MeanChange</span><span class="op">)</span></span>
-<span><span class="va">heat_matrix</span> <span class="op">&lt;-</span> <span class="fu">as.matrix</span><span class="op">(</span><span class="va">heat_data</span><span class="op">[</span>,<span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="fu">rownames</span><span class="op">(</span><span class="va">heat_matrix</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">heat_data</span><span class="op">$</span><span class="va">DrugDose</span></span>
-<span><span class="fu">heatmap</span><span class="op">(</span><span class="va">heat_matrix</span>, Rowv <span class="op">=</span> <span class="cn">NA</span>, Colv <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>        col <span class="op">=</span> <span class="fu">heat.colors</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, scale <span class="op">=</span> <span class="st">"none"</span>,</span>
-<span>        main <span class="op">=</span> <span class="st">"Heatmap of Mean Δ Glucose"</span>,</span>
-<span>        xlab <span class="op">=</span> <span class="st">"Exercise (minutes)"</span>, ylab <span class="op">=</span> <span class="st">"Drug Dosage (mg/kg)"</span><span class="op">)</span></span></code></pre>
-</div>
-<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -469,44 +459,23 @@ was measured at the start and after 4 weeks of treatment.</p>
 <span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Change in Glucose by Drug and Exercise"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Δ Glucose (mg/dL)"</span>, x <span class="op">=</span> <span class="st">"Drug Dosage (mg/kg)"</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-2.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb5">
+<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_drugX-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Boxplots with exercise on the x-axis are not as easy to interpret
+since patterns for combinations of exercise and drug dose aren’t so
+apparent. Greater variability for some groups is apparent however. The
+length of the boxplots for the 0 mg/kg and 5 mg/kg drug dose groups
+indicates high within-group variability. The 20 mg/kg boxplots are more
+compact, indicating lesser variability within this group.</p>
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">drugExercise</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Exercise</span>, y <span class="op">=</span> <span class="va">Delta</span>, fill <span class="op">=</span> <span class="va">DrugDose</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Change in Glucose by Drug and Exercise"</span>,</span>
-<span>       y <span class="op">=</span> <span class="st">"Δ Glucose (mg/dL)"</span>, x <span class="op">=</span> <span class="st">"Exercise duration (min/day)"</span><span class="op">)</span></span></code></pre>
+<span>       y <span class="op">=</span> <span class="st">"Δ Glucose (mg/dL)"</span>, x <span class="op">=</span> <span class="st">"Exercise duration (min/day)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_fill_brewer</span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"PuOr"</span><span class="op">)</span> <span class="co"># use a different color palette</span></span></code></pre>
 </div>
-<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-3.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">drugExercise</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Baseline</span>, y <span class="op">=</span> <span class="va">Post</span>, color <span class="op">=</span> <span class="va">DrugDose</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>shape <span class="op">=</span> <span class="va">Exercise</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Baseline vs Post-treatment Glucose"</span>,</span>
-<span>       x <span class="op">=</span> <span class="st">"Baseline Glucose (mg/dL)"</span>,</span>
-<span>       y <span class="op">=</span> <span class="st">"Post-treatment Glucose (mg/dL)"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></span></code></pre>
-</div>
-<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-4.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">drugExercise</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">Exercise</span>, <span class="va">Delta</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color <span class="op">=</span> <span class="va">DrugDose</span><span class="op">)</span><span class="op">)</span></span></code></pre>
-</div>
-<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-5.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">drugExercise</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">DrugDose</span>, <span class="va">Delta</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color <span class="op">=</span> <span class="va">Exercise</span><span class="op">)</span><span class="op">)</span></span></code></pre>
-</div>
-<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-explore_data-6.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><section><h2 class="section-heading" id="interaction-between-factors">Interaction between factors<a class="anchor" aria-label="anchor" href="#interaction-between-factors"></a></h2>
+<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_exerciseX-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><section><h2 class="section-heading" id="interaction-between-factors">Interaction between factors<a class="anchor" aria-label="anchor" href="#interaction-between-factors"></a></h2>
 <hr class="half-width"><p>We could analyze these data as if it were simply a completely
 randomized design with 16 treatments (4 drug doses and 4 exercise
 durations). The ANOVA would have 15 degrees of freedom for treatments
@@ -612,7 +581,7 @@ Exercise
 </tr></tbody></table><p>We can visualize interactions for all combinations of drug dose and
 exercise duration with an interaction plot that shows mean change in
 glucose levels.</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -637,7 +606,7 @@ and 60 minute/day exercise groups, increasing drug dosage did not
 decrease mean glucose levels appreciably, with one exception. At 5 mg/kg
 doseage, The 60 minute/day exercise group saw a strong decrease in mean
 blood glucose.</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -661,7 +630,7 @@ Since they are not parallel we should assume interaction between
 exercise and drug dose. The F-test from an ANOVA will tell us whether
 this apparent interaction is real or random, specifically whether it is
 more pronounced than would be expected due to random variation.</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -777,8 +746,8 @@ primarily ANOVA.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design-multitreatment-factors.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design-multitreatment-factors.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-05-27",
-  "datePublished": "2025-05-27"
+  "dateModified": "2025-05-28",
+  "datePublished": "2025-05-28"
 }
 
   </script><script>
