@@ -114,7 +114,7 @@ variability. The 20 mg/kg boxplots are more compact, indicating lesser variabili
 ``` r
 ggplot(drugExercise, aes(x = Exercise, y = Delta, fill = DrugDose)) +
   geom_boxplot() +
-  labs(title = "Change in Glucose by Drug and Exercise",
+  labs(title = "Change in Glucose by Exercise and Drug",
        y = "Δ Glucose (mg/dL)", x = "Exercise duration (min/day)") +
   scale_fill_brewer(palette = "PuOr") # use a different color palette
 ```
@@ -127,7 +127,7 @@ with 16 treatments (4 drug doses and 4 exercise durations). The ANOVA would have
 15 degrees of freedom for treatments and the F-test would tell us whether the 
 variation among average changes in glucose levels for the 16 treatments was real 
 or random. However, the factorial treatment structure lets us separate out the 
-variability in glucose level changess among drug doses averaged over exercise 
+variability in glucose level changes among drug doses averaged over exercise 
 durations. The ANOVA table would provide a sum of squares based on 3 degrees of 
 freedom for the difference between the 4 treatment means ($\bar{y}_i$) and the 
 pooled (overall) mean ($\bar{y}$).  
@@ -209,12 +209,10 @@ ggplot(interaction_plot, aes(x = as.numeric(as.character(DrugDose)),
 
 <img src="fig/complete-random-design-multitreatment-factors-rendered-interaction1-1.png" style="display: block; margin: auto;" />
 
-The interaction plot shows wide variation in mean glucose changes at a drug dose 
-of 20 mg/kg. For the 0 and 15 minute/day exercise groups, increasing drug dosage
-led to decreasing mean glucose levels. For the 30 and 60 minute/day exercise 
-groups, increasing drug dosage did not decrease mean glucose levels appreciably, 
-with one exception. At 5 mg/kg doseage, The 60 minute/day exercise group saw a 
-strong decrease in mean blood glucose.
+The interaction plot shows wide variation in mean glucose changes among the 
+groups at a drug dose of 20 mg/kg. As we saw earlier with the boxplots, mean glucose increased with increasing exercise. For the 0 and 15 minute/day exercise groups, increasing drug dosage led to decreasing mean glucose levels. For the 30 and 60 minute/day exercise groups, increasing drug dosage did not decrease mean glucose levels appreciably, with one exception. At 5 mg/kg dosage, the 60 minute/day exercise group saw a strong decrease in mean blood glucose.  
+
+If we plot exercise on the x-axis, the same patterns show up differently.
 
 
 ``` r
@@ -225,17 +223,17 @@ ggplot(interaction_plot, aes(x = as.numeric(as.character(Exercise)),
   geom_point() +
   labs(title = "Interaction Plot",
        x = "Exercise (min/day)",
-       y = "Mean Δ Glucose (mg/dL)")
+       y = "Mean Δ Glucose (mg/dL)") +
+  scale_color_brewer(palette = "PuOr") # use a different color palette
 ```
 
 <img src="fig/complete-random-design-multitreatment-factors-rendered-interaction2-1.png" style="display: block; margin: auto;" />
 
-If we plot exercise on the x-axis, the same patterns show up differently. This 
-second interaction plot shows wide variation in mean glucose changes at a drug 
-dose of 20 mg/kg. For the other drug dose groups (0, 5 and 10 mg/kg), mean 
-glucose changes are nearly the same for the 60 minute/day exercise group. At 5 
-mg/kg doseage, the 60 minute/day exercise group saw a strong decrease in mean 
-blood glucose.
+This second interaction plot shows wide variation in mean glucose changes within the 0 min/day exercise group, showing that an increase in drug dosage decreased
+mean glucose. For the 60 min/day exercise group, mean glucose change was nearly
+equal with the exception of the 5 mg/kg drug dosage group. At 5 mg/kg dosage, 
+the 60 minute/day exercise group saw a strong decrease in mean blood glucose. At a drug dose of 20 mg/kg, increasing exercise led to increased mean glucose.   
+
 If lines were parallel we could assume no interaction between drug and exercise. 
 Since they are not  parallel we should assume interaction between exercise and 
 drug dose. The F-test from an ANOVA will tell us whether this apparent 
@@ -264,33 +262,88 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 We can read the ANOVA table from the bottom up, starting with the interaction
 (`DrugDose:Exercise`). The `F value` for the interaction is 
-2.8
+2.76
 on 
 9
 and 
 64
 degrees of freedom for the interaction and error (`Residuals`) respectively. The 
-p-value (`Pr(>F)`) is near very low and as such the interaction between exercise 
-and drug dose is significant, backing up what we see in the interaction plots. 
-If we move up a row in the table to `Exercise`, the F test compares the mean 
+p-value (`Pr(>F)`) is very low and as such the interaction between exercise and
+drug dose is significant, backing up what we see in the interaction plots.  
+
+If we move up a row in the table to `Exercise`, the F test compares the mean
 changes across drug dose groups. The `F value` for exercise is 
-0.9
+0.88
 on 
 3
 and 
 64
-degrees of freedom for exercise and residuals respectively. The p-value  is high 
+degrees of freedom for exercise and residuals respectively. The p-value is high 
 at
 0.455
-and is significant. Finally, we move up to the row containing `DrugDose` to
-find an F value of 
-4.7
+and so exercise is not significant. Finally, we move up to the row containing
+`DrugDose` to find an F value of 
+4.72
 and a very low p-value again. Drug dose averaged over exercise is significant.  
+
+A summary of the linear model reiterates the observations we see in the plots
+and ANOVA.
+
+
+``` r
+summary(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, 
+           data = drugExercise))
+```
+
+``` output
+
+Call:
+lm(formula = Delta ~ DrugDose + Exercise + DrugDose * Exercise, 
+    data = drugExercise)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-10.5399  -2.9481   0.4131   3.5483   9.2899 
+
+Coefficients:
+                      Estimate Std. Error t value Pr(>|t|)    
+(Intercept)            -0.3308     2.1493  -0.154 0.878153    
+DrugDose5              -1.8403     3.0395  -0.605 0.547011    
+DrugDose10             -3.2169     3.0395  -1.058 0.293873    
+DrugDose20            -11.5002     3.0395  -3.784 0.000343 ***
+Exercise15              3.0651     3.0395   1.008 0.317051    
+Exercise30             -2.6698     3.0395  -0.878 0.383040    
+Exercise60             -0.1145     3.0395  -0.038 0.970065    
+DrugDose5:Exercise15   -1.9659     4.2985  -0.457 0.648978    
+DrugDose10:Exercise15  -5.0321     4.2985  -1.171 0.246073    
+DrugDose20:Exercise15   0.9708     4.2985   0.226 0.822041    
+DrugDose5:Exercise30    4.0134     4.2985   0.934 0.353982    
+DrugDose10:Exercise30   4.2388     4.2985   0.986 0.327797    
+DrugDose20:Exercise30  10.8381     4.2985   2.521 0.014191 *  
+DrugDose5:Exercise60   -4.9237     4.2985  -1.145 0.256295    
+DrugDose10:Exercise60   2.6928     4.2985   0.626 0.533244    
+DrugDose20:Exercise60  11.3591     4.2985   2.643 0.010333 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.806 on 64 degrees of freedom
+Multiple R-squared:  0.3942,	Adjusted R-squared:  0.2523 
+F-statistic: 2.777 on 15 and 64 DF,  p-value: 0.00235
+```
+
+`DrugDose20` is significant, as are the interactions between 20 mg/kg dosage and
+30 and 60 min/day exercise groups.  
+
 The partitioning of treatments sums of squares into main effect (average) and 
-interaction sums of squares is a result of the crossed factorial structure of 
-the two factors. The development of efficient and informative multifactor 
-designs that provide clean partitioning between main effects and interactions
-is one of the most important contributions of statistical experimental design.
+interaction sums of squares is a result of the crossed factorial structure
+(orthogonality) of the two factors. The complete combinations of these two
+factors provides clean partitioning between main effects and interactions. This
+is not to say that designs that don't have full combinations of factors can't be
+analyzed to estimate main effects and interactions. They can be using 
+generalized linear models.  
+The development of efficient and informative multifactor designs that cleanly
+separate main effects from interactions is one of the most important
+contributions of statistical experimental design.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
