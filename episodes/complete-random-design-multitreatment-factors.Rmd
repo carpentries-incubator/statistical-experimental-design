@@ -105,7 +105,7 @@ variability. The 20 mg/kg boxplots are more compact, indicating lesser variabili
 ```{r boxplots_exerciseX}
 ggplot(drugExercise, aes(x = Exercise, y = Delta, fill = DrugDose)) +
   geom_boxplot() +
-  labs(title = "Change in Glucose by Drug and Exercise",
+  labs(title = "Change in Glucose by Exercise and Drug",
        y = "Δ Glucose (mg/dL)", x = "Exercise duration (min/day)") +
   scale_fill_brewer(palette = "PuOr") # use a different color palette
 ```
@@ -116,7 +116,7 @@ with 16 treatments (4 drug doses and 4 exercise durations). The ANOVA would have
 15 degrees of freedom for treatments and the F-test would tell us whether the 
 variation among average changes in glucose levels for the 16 treatments was real 
 or random. However, the factorial treatment structure lets us separate out the 
-variability in glucose level changess among drug doses averaged over exercise 
+variability in glucose level changes among drug doses averaged over exercise 
 durations. The ANOVA table would provide a sum of squares based on 3 degrees of 
 freedom for the difference between the 4 treatment means ($\bar{y}_i$) and the 
 pooled (overall) mean ($\bar{y}$).  
@@ -160,12 +160,10 @@ ggplot(interaction_plot, aes(x = as.numeric(as.character(DrugDose)),
        y = "Mean Δ Glucose (mg/dL)")
 ```
 
-The interaction plot shows wide variation in mean glucose changes at a drug dose 
-of 20 mg/kg. For the 0 and 15 minute/day exercise groups, increasing drug dosage
-led to decreasing mean glucose levels. For the 30 and 60 minute/day exercise 
-groups, increasing drug dosage did not decrease mean glucose levels appreciably, 
-with one exception. At 5 mg/kg doseage, The 60 minute/day exercise group saw a 
-strong decrease in mean blood glucose.
+The interaction plot shows wide variation in mean glucose changes among the 
+groups at a drug dose of 20 mg/kg. As we saw earlier with the boxplots, mean glucose increased with increasing exercise. For the 0 and 15 minute/day exercise groups, increasing drug dosage led to decreasing mean glucose levels. For the 30 and 60 minute/day exercise groups, increasing drug dosage did not decrease mean glucose levels appreciably, with one exception. At 5 mg/kg dosage, the 60 minute/day exercise group saw a strong decrease in mean blood glucose.  
+
+If we plot exercise on the x-axis, the same patterns show up differently.
 
 ```{r interaction2}
 ggplot(interaction_plot, aes(x = as.numeric(as.character(Exercise)),
@@ -175,15 +173,15 @@ ggplot(interaction_plot, aes(x = as.numeric(as.character(Exercise)),
   geom_point() +
   labs(title = "Interaction Plot",
        x = "Exercise (min/day)",
-       y = "Mean Δ Glucose (mg/dL)")
+       y = "Mean Δ Glucose (mg/dL)") +
+  scale_color_brewer(palette = "PuOr") # use a different color palette
 ```
 
-If we plot exercise on the x-axis, the same patterns show up differently. This 
-second interaction plot shows wide variation in mean glucose changes at a drug 
-dose of 20 mg/kg. For the other drug dose groups (0, 5 and 10 mg/kg), mean 
-glucose changes are nearly the same for the 60 minute/day exercise group. At 5 
-mg/kg doseage, the 60 minute/day exercise group saw a strong decrease in mean 
-blood glucose.
+This second interaction plot shows wide variation in mean glucose changes within the 0 min/day exercise group, showing that an increase in drug dosage decreased
+mean glucose. For the 60 min/day exercise group, mean glucose change was nearly
+equal with the exception of the 5 mg/kg drug dosage group. At 5 mg/kg dosage, 
+the 60 minute/day exercise group saw a strong decrease in mean blood glucose. At a drug dose of 20 mg/kg, increasing exercise led to increased mean glucose.   
+
 If lines were parallel we could assume no interaction between drug and exercise. 
 Since they are not  parallel we should assume interaction between exercise and 
 drug dose. The F-test from an ANOVA will tell us whether this apparent 
@@ -199,33 +197,51 @@ anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise,
 
 We can read the ANOVA table from the bottom up, starting with the interaction
 (`DrugDose:Exercise`). The `F value` for the interaction is 
-`r round(anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[3, 4], 1)`
+`r round(anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[3, 4], 2)`
 on 
 `r anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[3, 1]`
 and 
 `r anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[4, 1]`
 degrees of freedom for the interaction and error (`Residuals`) respectively. The 
-p-value (`Pr(>F)`) is near very low and as such the interaction between exercise 
-and drug dose is significant, backing up what we see in the interaction plots. 
-If we move up a row in the table to `Exercise`, the F test compares the mean 
+p-value (`Pr(>F)`) is very low and as such the interaction between exercise and
+drug dose is significant, backing up what we see in the interaction plots.  
+
+If we move up a row in the table to `Exercise`, the F test compares the mean
 changes across drug dose groups. The `F value` for exercise is 
-`r round(anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 4], 1)`
+`r round(anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 4], 2)`
 on 
 `r anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 1]`
 and 
 `r anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[4, 1]`
-degrees of freedom for exercise and residuals respectively. The p-value  is high 
+degrees of freedom for exercise and residuals respectively. The p-value is high 
 at
 `r round(anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 5], 3)`
-and is significant. Finally, we move up to the row containing `DrugDose` to
-find an F value of 
-`r round(anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[1, 4], 1)`
+and so exercise is not significant. Finally, we move up to the row containing
+`DrugDose` to find an F value of 
+`r round(anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[1, 4], 2)`
 and a very low p-value again. Drug dose averaged over exercise is significant.  
+
+A summary of the linear model reiterates the observations we see in the plots
+and ANOVA.
+
+```{r summary_lm}
+summary(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, 
+           data = drugExercise))
+```
+
+`DrugDose20` is significant, as are the interactions between 20 mg/kg dosage and
+30 and 60 min/day exercise groups.  
+
 The partitioning of treatments sums of squares into main effect (average) and 
-interaction sums of squares is a result of the crossed factorial structure of 
-the two factors. The development of efficient and informative multifactor 
-designs that provide clean partitioning between main effects and interactions
-is one of the most important contributions of statistical experimental design.
+interaction sums of squares is a result of the crossed factorial structure
+(orthogonality) of the two factors. The complete combinations of these two
+factors provides clean partitioning between main effects and interactions. This
+is not to say that designs that don't have full combinations of factors can't be
+analyzed to estimate main effects and interactions. They can be using 
+generalized linear models.  
+The development of efficient and informative multifactor designs that cleanly
+separate main effects from interactions is one of the most important
+contributions of statistical experimental design.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
