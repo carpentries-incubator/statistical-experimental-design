@@ -63,26 +63,19 @@ drugExercise %>%
 ```
 
 ``` output
-# A tibble: 16 × 3
-# Groups:   DrugDose [4]
-   DrugDose Exercise ChangeGlucose
-   <fct>    <fct>            <dbl>
- 1 0        0               -0.331
- 2 0        15               2.73 
- 3 0        30              -3.00 
- 4 0        60              -0.445
- 5 5        0               -2.17 
- 6 5        15              -1.07 
- 7 5        30              -0.827
- 8 5        60              -7.21 
- 9 10       0               -3.55 
-10 10       15              -5.51 
-11 10       30              -1.98 
-12 10       60              -0.969
-13 20       0              -11.8  
-14 20       15              -7.80 
-15 20       30              -3.66 
-16 20       60              -0.586
+# A tibble: 9 × 3
+# Groups:   DrugDose [3]
+  DrugDose Exercise ChangeGlucose
+  <fct>    <fct>            <dbl>
+1 0        0              -0.0197
+2 0        30             -0.542 
+3 0        60             -2.79  
+4 10       0              -4.75  
+5 10       30             -2.65  
+6 10       60             -1.47  
+7 20       0             -10.0   
+8 20       30             -5.40  
+9 20       60             -0.334 
 ```
 
 A heatmap is a good way to visualize the table of mean glucose changes. It shows
@@ -141,51 +134,18 @@ variability do these remaining 9 degrees of freedom contain? The answer is
 interaction - the interaction between drug doses and exercise durations. Mean 
 changes in glucose for each of the 16 treatments is given in the table below.
 
-<table>
- <thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Drug Dose</div></th>
-</tr>
-  <tr>
-   <th style="text-align:left;"> Exercise </th>
-   <th style="text-align:right;"> 0 </th>
-   <th style="text-align:right;"> 5 </th>
-   <th style="text-align:right;"> 10 </th>
-   <th style="text-align:right;"> 20 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> -0.3 </td>
-   <td style="text-align:right;"> -2.2 </td>
-   <td style="text-align:right;"> -3.5 </td>
-   <td style="text-align:right;"> -11.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 15 </td>
-   <td style="text-align:right;"> 2.7 </td>
-   <td style="text-align:right;"> -1.1 </td>
-   <td style="text-align:right;"> -5.5 </td>
-   <td style="text-align:right;"> -7.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 30 </td>
-   <td style="text-align:right;"> -3.0 </td>
-   <td style="text-align:right;"> -0.8 </td>
-   <td style="text-align:right;"> -2.0 </td>
-   <td style="text-align:right;"> -3.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 60 </td>
-   <td style="text-align:right;"> -0.4 </td>
-   <td style="text-align:right;"> -7.2 </td>
-   <td style="text-align:right;"> -1.0 </td>
-   <td style="text-align:right;"> -0.6 </td>
-  </tr>
-</tbody>
-</table>
+
+``` error
+Error in htmlTable_add_header_above(kable_input, header, bold, italic, : The new header row you provided has a total of 5 columns but the original kable_input has 4.
+```
+
+``` error
+Error in ddply(data, groupnames, .fun = summary_func, varname): could not find function "ddply"
+```
+
+``` error
+Error: object 'df2' not found
+```
 
 We can visualize interactions for all combinations of drug dose and exercise 
 duration with an interaction plot that shows mean change in glucose levels.
@@ -243,7 +203,8 @@ would be expected due to random variation.
 
 ``` r
 # DrugDose*Exercise is the interaction
-anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, 
+# main effects (DrugDose and Exercise separately) are included
+anova(lm(Delta ~ DrugDose*Exercise, 
          data = drugExercise))
 ```
 
@@ -251,39 +212,39 @@ anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise,
 Analysis of Variance Table
 
 Response: Delta
-                  Df  Sum Sq Mean Sq F value   Pr(>F)   
-DrugDose           3  327.00 109.000  4.7193 0.004885 **
-Exercise           3   61.10  20.367  0.8818 0.455334   
-DrugDose:Exercise  9  573.94  63.771  2.7611 0.008576 **
-Residuals         64 1478.18  23.097                    
+                  Df  Sum Sq Mean Sq F value    Pr(>F)    
+DrugDose           2 128.142  64.071  81.048 4.674e-14 ***
+Exercise           2  87.515  43.757  55.352 1.041e-11 ***
+DrugDose:Exercise  4 195.265  48.816  61.752 1.271e-15 ***
+Residuals         36  28.459   0.791                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 We can read the ANOVA table from the bottom up, starting with the interaction
 (`DrugDose:Exercise`). The `F value` for the interaction is 
-2.76
+61.75
 on 
-9
+4
 and 
-64
+36
 degrees of freedom for the interaction and error (`Residuals`) respectively. The 
 p-value (`Pr(>F)`) is very low and as such the interaction between exercise and
 drug dose is significant, backing up what we see in the interaction plots.  
 
 If we move up a row in the table to `Exercise`, the F test compares the mean
 changes across drug dose groups. The `F value` for exercise is 
-0.88
+55.35
 on 
-3
+2
 and 
-64
+36
 degrees of freedom for exercise and residuals respectively. The p-value is high 
 at
-0.455
+0
 and so exercise is not significant. Finally, we move up to the row containing
 `DrugDose` to find an F value of 
-4.72
+81.05
 and a very low p-value again. Drug dose averaged over exercise is significant.  
 
 A summary of the linear model reiterates the observations we see in the plots
@@ -291,44 +252,36 @@ and ANOVA.
 
 
 ``` r
-summary(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, 
+summary(lm(Delta ~ DrugDose*Exercise, 
            data = drugExercise))
 ```
 
 ``` output
 
 Call:
-lm(formula = Delta ~ DrugDose + Exercise + DrugDose * Exercise, 
-    data = drugExercise)
+lm(formula = Delta ~ DrugDose * Exercise, data = drugExercise)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--10.5399  -2.9481   0.4131   3.5483   9.2899 
+-2.70282 -0.32734  0.07042  0.44838  1.76615 
 
 Coefficients:
                       Estimate Std. Error t value Pr(>|t|)    
-(Intercept)            -0.3308     2.1493  -0.154 0.878153    
-DrugDose5              -1.8403     3.0395  -0.605 0.547011    
-DrugDose10             -3.2169     3.0395  -1.058 0.293873    
-DrugDose20            -11.5002     3.0395  -3.784 0.000343 ***
-Exercise15              3.0651     3.0395   1.008 0.317051    
-Exercise30             -2.6698     3.0395  -0.878 0.383040    
-Exercise60             -0.1145     3.0395  -0.038 0.970065    
-DrugDose5:Exercise15   -1.9659     4.2985  -0.457 0.648978    
-DrugDose10:Exercise15  -5.0321     4.2985  -1.171 0.246073    
-DrugDose20:Exercise15   0.9708     4.2985   0.226 0.822041    
-DrugDose5:Exercise30    4.0134     4.2985   0.934 0.353982    
-DrugDose10:Exercise30   4.2388     4.2985   0.986 0.327797    
-DrugDose20:Exercise30  10.8381     4.2985   2.521 0.014191 *  
-DrugDose5:Exercise60   -4.9237     4.2985  -1.145 0.256295    
-DrugDose10:Exercise60   2.6928     4.2985   0.626 0.533244    
-DrugDose20:Exercise60  11.3591     4.2985   2.643 0.010333 *  
+(Intercept)           -0.01975    0.39762  -0.050   0.9607    
+DrugDose10            -4.72607    0.56233  -8.405 5.20e-10 ***
+DrugDose20            -9.97549    0.56233 -17.740  < 2e-16 ***
+Exercise30            -0.52262    0.56233  -0.929   0.3589    
+Exercise60            -2.77026    0.56233  -4.926 1.88e-05 ***
+DrugDose10:Exercise30  2.62200    0.79525   3.297   0.0022 ** 
+DrugDose20:Exercise30  5.11979    0.79525   6.438 1.81e-07 ***
+DrugDose10:Exercise60  6.04992    0.79525   7.608 5.33e-09 ***
+DrugDose20:Exercise60 12.43128    0.79525  15.632  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 4.806 on 64 degrees of freedom
-Multiple R-squared:  0.3942,	Adjusted R-squared:  0.2523 
-F-statistic: 2.777 on 15 and 64 DF,  p-value: 0.00235
+Residual standard error: 0.8891 on 36 degrees of freedom
+Multiple R-squared:  0.9352,	Adjusted R-squared:  0.9208 
+F-statistic: 64.98 on 8 and 36 DF,  p-value: < 2.2e-16
 ```
 
 `DrugDose20` is significant, as are the interactions between 20 mg/kg dosage and
