@@ -6,8 +6,8 @@ library(tidyverse)
 set.seed(12)
 
 # Define factor levels
-drug_dose <- c(0, 5, 10, 20)           # mg/kg
-exercise_duration <- c(0, 15, 30, 60)  # minutes/day
+drug_dose <- c(0, 10, 20)           # mg/kg
+exercise_duration <- c(0, 30, 60)  # minutes/day
 n_per_group <- 5
 
 # Create a full factorial design
@@ -25,7 +25,7 @@ design$Baseline <- round(rnorm(nrow(design), mean = 250, sd = 15), 1)
 design$Delta <- with(design, 
                      -0.5 * DrugDose - 0.4 * Exercise/10 + 
                        0.01 * DrugDose * Exercise +
-                       rnorm(nrow(design), mean = 0, sd = 5))
+                       rnorm(nrow(design), mean = 0, sd = 1))
 
 # Compute post-treatment glucose
 design$Post <- design$Baseline + design$Delta

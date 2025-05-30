@@ -38,9 +38,9 @@ daily exercise affect blood glucose levels in diabetic mice. The study has two
 quantitative factors with four levels each.
 
 ```{r, study_design, include=FALSE}
-studyDesign <- tibble("Drug dosage (mg/kg)" = c("0 (control)", 5, 10, 20),
+studyDesign <- tibble("Drug dosage (mg/kg)" = c("0 (control)", 10, 20),
                       "Exercise duration (min/day)" = c("0 (sedentary control)",
-                                                        15, 30, 60))
+                                                        30, 60))
 knitr::kable(studyDesign)
 ```
 
@@ -139,6 +139,27 @@ knitr::kable(pivot_wider(means,
                          names_from = DrugDose, 
                          values_from = meanChange)) %>% 
   add_header_above(c(" " = 2, "Drug Dose" = 3))
+
+
+data_summary <- function(data, varname, groupnames){ 
+  require(dplyr)
+  summary_func <- function(x, col){
+    c(mean = mean(x[[col]], na.rm=TRUE),
+      sd = sd(x[[col]], na.rm=TRUE))
+    }
+  data_sum<-ddply(data, groupnames, .fun=summary_func, varname)
+  data_sum <- rename(data_sum, c("mean" = varname))
+  return(data_sum)
+  }
+
+df2 <- data_summary(drugExercise, varname="Delta", 
+                    groupnames=c("DrugDose", "Exercise"))
+
+ggplot(df2, aes(x=DrugDose, y=Delta, group=Exercise, color=Exercise)) + 
+    geom_line() +
+    geom_point()+
+    geom_errorbar(aes(ymin=Delta-sd, ymax=Delta+sd), width=.2,
+                  position=position_dodge(0.05), alpha=.5)
 ```
 
 We can visualize interactions for all combinations of drug dose and exercise 
@@ -190,42 +211,42 @@ would be expected due to random variation.
 
 ```{r anova}
 # DrugDose*Exercise is the interaction
-anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, 
+# main effects (DrugDose and Exercise separately) are included
+anova(lm(Delta ~ DrugDose*Exercise, 
          data = drugExercise))
-
 ```
 
 We can read the ANOVA table from the bottom up, starting with the interaction
 (`DrugDose:Exercise`). The `F value` for the interaction is 
-`r round(anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[3, 4], 2)`
+`r round(anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[3, 4], 2)`
 on 
-`r anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[3, 1]`
+`r anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[3, 1]`
 and 
-`r anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[4, 1]`
+`r anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[4, 1]`
 degrees of freedom for the interaction and error (`Residuals`) respectively. The 
 p-value (`Pr(>F)`) is very low and as such the interaction between exercise and
 drug dose is significant, backing up what we see in the interaction plots.  
 
 If we move up a row in the table to `Exercise`, the F test compares the mean
 changes across drug dose groups. The `F value` for exercise is 
-`r round(anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 4], 2)`
+`r round(anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[2, 4], 2)`
 on 
-`r anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 1]`
+`r anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[2, 1]`
 and 
-`r anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[4, 1]`
+`r anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[4, 1]`
 degrees of freedom for exercise and residuals respectively. The p-value is high 
 at
-`r round(anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[2, 5], 3)`
+`r round(anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[2, 5], 3)`
 and so exercise is not significant. Finally, we move up to the row containing
 `DrugDose` to find an F value of 
-`r round(anova(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, data = drugExercise))[1, 4], 2)`
+`r round(anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[1, 4], 2)`
 and a very low p-value again. Drug dose averaged over exercise is significant.  
 
 A summary of the linear model reiterates the observations we see in the plots
 and ANOVA.
 
 ```{r summary_lm}
-summary(lm(Delta ~ DrugDose + Exercise + DrugDose*Exercise, 
+summary(lm(Delta ~ DrugDose*Exercise, 
            data = drugExercise))
 ```
 
