@@ -29,13 +29,13 @@ of all factors.
 
 
 
-A study aims to determine how dosage of a hypoglycemic drug and duration of 
+A study aims to determine how dosage of a new antidiabetic drug and duration of 
 daily exercise affect blood glucose levels in diabetic mice. The study has two 
 quantitative factors with four levels each.
 
 
 
-Drug dosage represents the amount of a new antidiabetic drug administered daily.
+Drug dosage represents the amount of the antidiabetic drug administered daily.
 The levels for this factor are in mg per kg body weight. Control mice receive no
 drug. The second factor, exercise duration, represents the number of minutes the 
 mice run on a running wheel each day. Control mice do not have a running wheel 
@@ -134,17 +134,46 @@ variability do these remaining 9 degrees of freedom contain? The answer is
 interaction - the interaction between drug doses and exercise durations. Mean 
 changes in glucose for each of the 16 treatments is given in the table below.
 
+<table>
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Drug Dose</div></th>
+</tr>
+  <tr>
+   <th style="text-align:left;"> Exercise </th>
+   <th style="text-align:right;"> 0 </th>
+   <th style="text-align:right;"> 10 </th>
+   <th style="text-align:right;"> 20 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> -4.7 </td>
+   <td style="text-align:right;"> -10.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 30 </td>
+   <td style="text-align:right;"> -0.5 </td>
+   <td style="text-align:right;"> -2.6 </td>
+   <td style="text-align:right;"> -5.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 60 </td>
+   <td style="text-align:right;"> -2.8 </td>
+   <td style="text-align:right;"> -1.5 </td>
+   <td style="text-align:right;"> -0.3 </td>
+  </tr>
+</tbody>
+</table>
 
-``` error
-Error in htmlTable_add_header_above(kable_input, header, bold, italic, : The new header row you provided has a total of 5 columns but the original kable_input has 4.
-```
+<img src="fig/complete-random-design-multitreatment-factors-rendered-means_table-1.png" style="display: block; margin: auto;" />
 
-``` error
-Error in ddply(data, groupnames, .fun = summary_func, varname): could not find function "ddply"
-```
-
-``` error
-Error: object 'df2' not found
+``` output
+- Removing package(s) from project library ...
+Removing package 'plyr' ... Done!
 ```
 
 We can visualize interactions for all combinations of drug dose and exercise 
@@ -167,7 +196,13 @@ ggplot(interaction_plot, aes(x = as.numeric(as.character(DrugDose)),
        y = "Mean Δ Glucose (mg/dL)")
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-interaction1-1.png" style="display: block; margin: auto;" />
+``` error
+Error in `geom_line()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! object 'DrugDose' not found
+```
 
 The interaction plot shows wide variation in mean glucose changes among the 
 groups at a drug dose of 20 mg/kg. As we saw earlier with the boxplots, mean glucose increased with increasing exercise. For the 0 and 15 minute/day exercise groups, increasing drug dosage led to decreasing mean glucose levels. For the 30 and 60 minute/day exercise groups, increasing drug dosage did not decrease mean glucose levels appreciably, with one exception. At 5 mg/kg dosage, the 60 minute/day exercise group saw a strong decrease in mean blood glucose.  
@@ -187,7 +222,13 @@ ggplot(interaction_plot, aes(x = as.numeric(as.character(Exercise)),
   scale_color_brewer(palette = "PuOr") # use a different color palette
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-interaction2-1.png" style="display: block; margin: auto;" />
+``` error
+Error in `geom_line()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! object 'Exercise' not found
+```
 
 This second interaction plot shows wide variation in mean glucose changes within the 0 min/day exercise group, showing that an increase in drug dosage decreased
 mean glucose. For the 60 min/day exercise group, mean glucose change was nearly

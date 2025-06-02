@@ -232,32 +232,32 @@ random_allocation
 
 ``` output
    mouse_ID random_number treatment
-1         A            69  high fat
-2         B            24      chow
-3         C             4      chow
-4         D            12      chow
-5         E            77  high fat
-6         F            25  high fat
-7         G            47  high fat
-8         H            73  high fat
-9         I            23  high fat
-10        J            72      chow
-11        K            13  high fat
-12        L            66      chow
-13        M             3  high fat
-14        N            67  high fat
-15        O            59  high fat
-16        P            54      chow
-17        Q            68      chow
-18        R             8      chow
-19        S            41  high fat
-20        T            80      chow
-21        U            42      chow
-22        V            55  high fat
-23        W             7  high fat
-24        X            22      chow
-25        Y            34      chow
-26        Z            86      chow
+1         A            75  high fat
+2         B            62      chow
+3         C            11  high fat
+4         D            93  high fat
+5         E            97  high fat
+6         F             2      chow
+7         G            39  high fat
+8         H            63  high fat
+9         I             9  high fat
+10        J            82      chow
+11        K            19  high fat
+12        L            29  high fat
+13        M            86      chow
+14        N            44      chow
+15        O            23  high fat
+16        P            89  high fat
+17        Q            22      chow
+18        R             4      chow
+19        S            21  high fat
+20        T            66      chow
+21        U            48      chow
+22        V             1  high fat
+23        W            18      chow
+24        X            99  high fat
+25        Y            49  high fat
+26        Z            36      chow
 ```
 
 This might produce unequal numbers between treatment and control groups. It
@@ -273,7 +273,7 @@ table(random_allocation$treatment)
 ``` output
 
     chow high fat 
-      13       13 
+      11       15 
 ```
 
 To randomly assign samples to groups with equal numbers, you can do the
@@ -296,32 +296,32 @@ equal_allocation
 
 ``` output
    mouse_ID random_number treatment
-1         M             3      chow
-2         C             4      chow
-3         W             7      chow
-4         R             8      chow
-5         D            12      chow
-6         K            13      chow
-7         X            22      chow
-8         I            23      chow
-9         B            24      chow
-10        F            25      chow
-11        Y            34      chow
-12        S            41      chow
-13        U            42      chow
-14        G            47  high fat
-15        P            54  high fat
-16        V            55  high fat
-17        O            59  high fat
-18        L            66  high fat
-19        N            67  high fat
-20        Q            68  high fat
-21        A            69  high fat
-22        J            72  high fat
-23        H            73  high fat
-24        E            77  high fat
-25        T            80  high fat
-26        Z            86  high fat
+1         V             1      chow
+2         F             2      chow
+3         R             4      chow
+4         I             9      chow
+5         C            11      chow
+6         W            18      chow
+7         K            19      chow
+8         S            21      chow
+9         Q            22      chow
+10        O            23      chow
+11        L            29      chow
+12        Z            36      chow
+13        G            39      chow
+14        N            44  high fat
+15        U            48  high fat
+16        Y            49  high fat
+17        B            62  high fat
+18        H            63  high fat
+19        T            66  high fat
+20        A            75  high fat
+21        J            82  high fat
+22        M            86  high fat
+23        P            89  high fat
+24        D            93  high fat
+25        E            97  high fat
+26        X            99  high fat
 ```
 
 You can write out this treatment plan to a comma-separated values (csv) file,
