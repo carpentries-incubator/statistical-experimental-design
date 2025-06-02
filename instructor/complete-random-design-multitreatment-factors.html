@@ -344,7 +344,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Design with More than One Treatment Factor</h1>
-        <p>Last updated on 2025-05-30 |
+        <p>Last updated on 2025-06-02 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design-multitreatment-factors.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -390,10 +390,10 @@ each factor. One option to manage an unwieldy design is to use only a
 fraction of the factor levels in a fractional factorial design. In this
 lesson we consider a full factorial design containing all levels of all
 factors.</p>
-<p>A study aims to determine how dosage of a hypoglycemic drug and
+<p>A study aims to determine how dosage of a new antidiabetic drug and
 duration of daily exercise affect blood glucose levels in diabetic mice.
 The study has two quantitative factors with four levels each.</p>
-<p>Drug dosage represents the amount of a new antidiabetic drug
+<p>Drug dosage represents the amount of the antidiabetic drug
 administered daily. The levels for this factor are in mg per kg body
 weight. Control mice receive no drug. The second factor, exercise
 duration, represents the number of minutes the mice run on a running
@@ -490,25 +490,71 @@ freedom left over. What variability do these remaining 9 degrees of
 freedom contain? The answer is interaction - the interaction between
 drug doses and exercise durations. Mean changes in glucose for each of
 the 16 treatments is given in the table below.</p>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in htmlTable_add_header_above(kable_input, header, bold, italic, : The new header row you provided has a total of 5 columns but the original kable_input has 4.</code></pre>
+<table class="table"><thead><tr><th style="empty-cells: hide;border-bottom:hidden;" colspan="2">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Drug Dose
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</th>
+</tr><tr><th style="text-align:left;">
+Exercise
+</th>
+<th style="text-align:right;">
+0
+</th>
+<th style="text-align:right;">
+10
+</th>
+<th style="text-align:right;">
+20
+</th>
+</tr></thead><tbody><tr><td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+-4.7
+</td>
+<td style="text-align:right;">
+-10.0
+</td>
+</tr><tr><td style="text-align:left;">
+30
+</td>
+<td style="text-align:right;">
+-0.5
+</td>
+<td style="text-align:right;">
+-2.6
+</td>
+<td style="text-align:right;">
+-5.4
+</td>
+</tr><tr><td style="text-align:left;">
+60
+</td>
+<td style="text-align:right;">
+-2.8
+</td>
+<td style="text-align:right;">
+-1.5
+</td>
+<td style="text-align:right;">
+-0.3
+</td>
+</tr></tbody></table><figure><img src="../fig/complete-random-design-multitreatment-factors-rendered-means_table-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in ddply(data, groupnames, .fun = summary_func, varname): could not find function "ddply"</code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'df2' not found</code></pre>
+<pre class="output" tabindex="0"><code>- Removing package(s) from project library ...
+Removing package 'plyr' ... Done!</code></pre>
 </div>
 <p>We can visualize interactions for all combinations of drug dose and
 exercise duration with an interaction plot that shows mean change in
 glucose levels.</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -526,7 +572,16 @@ glucose levels.</p>
 <span>       x <span class="op">=</span> <span class="st">"Drug Dosage (mg/kg)"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Mean Δ Glucose (mg/dL)"</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/complete-random-design-multitreatment-factors-rendered-interaction1-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The interaction plot shows wide variation in mean glucose changes
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in `geom_line()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! object 'DrugDose' not found</code></pre>
+</div>
+<p>The interaction plot shows wide variation in mean glucose changes
 among the groups at a drug dose of 20 mg/kg. As we saw earlier with the
 boxplots, mean glucose increased with increasing exercise. For the 0 and
 15 minute/day exercise groups, increasing drug dosage led to decreasing
@@ -536,7 +591,7 @@ with one exception. At 5 mg/kg dosage, the 60 minute/day exercise group
 saw a strong decrease in mean blood glucose.</p>
 <p>If we plot exercise on the x-axis, the same patterns show up
 differently.</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -550,7 +605,16 @@ differently.</p>
 <span>       y <span class="op">=</span> <span class="st">"Mean Δ Glucose (mg/dL)"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">scale_color_brewer</span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"PuOr"</span><span class="op">)</span> <span class="co"># use a different color palette</span></span></code></pre>
 </div>
-<figure><img src="../fig/complete-random-design-multitreatment-factors-rendered-interaction2-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>This second interaction plot shows wide variation in mean glucose
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in `geom_line()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! object 'Exercise' not found</code></pre>
+</div>
+<p>This second interaction plot shows wide variation in mean glucose
 changes within the 0 min/day exercise group, showing that an increase in
 drug dosage decreased mean glucose. For the 60 min/day exercise group,
 mean glucose change was nearly equal with the exception of the 5 mg/kg
@@ -725,8 +789,8 @@ primarily ANOVA.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design-multitreatment-factors.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design-multitreatment-factors.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-05-30",
-  "datePublished": "2025-05-30"
+  "dateModified": "2025-06-02",
+  "datePublished": "2025-06-02"
 }
 
   </script><script>
