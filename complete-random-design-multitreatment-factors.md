@@ -59,23 +59,23 @@ drugExercise$Exercise <- as_factor(drugExercise$Exercise)
 
 drugExercise %>%
    group_by(DrugDose, Exercise) %>%
-  summarise(ChangeGlucose = mean(Delta))
+  summarise(MeanChange = mean(Delta))
 ```
 
 ``` output
 # A tibble: 9 × 3
 # Groups:   DrugDose [3]
-  DrugDose Exercise ChangeGlucose
-  <fct>    <fct>            <dbl>
-1 0        0              -0.0197
-2 0        30             -0.542 
-3 0        60             -2.79  
-4 10       0              -4.75  
-5 10       30             -2.65  
-6 10       60             -1.47  
-7 20       0             -10.0   
-8 20       30             -5.40  
-9 20       60             -0.334 
+  DrugDose Exercise MeanChange
+  <fct>    <fct>         <dbl>
+1 0        0           -0.0197
+2 0        30          -0.542 
+3 0        60          -2.79  
+4 10       0           -4.75  
+5 10       30          -2.65  
+6 10       60          -1.47  
+7 20       0          -10.0   
+8 20       30          -5.40  
+9 20       60          -0.334 
 ```
 
 A heatmap is a good way to visualize the table of mean glucose changes. It shows
@@ -134,43 +134,22 @@ variability do these remaining 9 degrees of freedom contain? The answer is
 interaction - the interaction between drug doses and exercise durations. Mean 
 changes in glucose for each of the 16 treatments is given in the table below.
 
-<table>
- <thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Drug Dose</div></th>
-</tr>
-  <tr>
-   <th style="text-align:left;"> Exercise </th>
-   <th style="text-align:right;"> 0 </th>
-   <th style="text-align:right;"> 10 </th>
-   <th style="text-align:right;"> 20 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 0.0 </td>
-   <td style="text-align:right;"> -4.7 </td>
-   <td style="text-align:right;"> -10.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 30 </td>
-   <td style="text-align:right;"> -0.5 </td>
-   <td style="text-align:right;"> -2.6 </td>
-   <td style="text-align:right;"> -5.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 60 </td>
-   <td style="text-align:right;"> -2.8 </td>
-   <td style="text-align:right;"> -1.5 </td>
-   <td style="text-align:right;"> -0.3 </td>
-  </tr>
-</tbody>
-</table>
+
+``` error
+Error in htmlTable_add_header_above(kable_input, header, bold, italic, : The new header row you provided has a total of 4 columns but the original kable_input has 5.
+```
+
+``` error
+Error in htmlTable_add_header_above(kable_input, header, bold, italic, : The new header row you provided has a total of 4 columns but the original kable_input has 5.
+```
 
 We can visualize interactions for all combinations of drug dose and exercise 
-duration with an interaction plot that shows mean change in glucose levels.
+duration with an interaction plot that shows mean change in glucose levels on 
+the y-axis.  
+
+The interaction plots shows wide variation in mean glucose changes at a drug 
+dose of 20 mg/kg, and also at 0 exercise. The vertical bars extending above and
+below each mean value are the standard deviations for that group.
 
 <img src="fig/complete-random-design-multitreatment-factors-rendered-interaction_plots-1.png" style="display: block; margin: auto;" /><img src="fig/complete-random-design-multitreatment-factors-rendered-interaction_plots-2.png" style="display: block; margin: auto;" />
 
@@ -179,8 +158,6 @@ duration with an interaction plot that shows mean change in glucose levels.
 Removing package 'plyr' ... Done!
 ```
 
-The interaction plots shows wide variation in mean glucose changes at a drug 
-dose of 20 mg/kg, and also at 0 level exercise. 
 
 If we plot exercise on the x-axis, the same patterns show up differently.
 
