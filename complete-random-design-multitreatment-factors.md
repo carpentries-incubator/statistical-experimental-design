@@ -80,14 +80,8 @@ meansSD
 9 60       20             -0.3 0.905
 ```
 
-A heatmap is a good way to visualize the table of mean glucose changes. It shows
-the greatest changes with a drug dose of 20 mg/kg for 2 of the 3 exercise 
-groups.
-
-<img src="fig/complete-random-design-multitreatment-factors-rendered-heatmap-1.png" style="display: block; margin: auto;" />
-
-Boxplots show the same pattern for the 20 mg/kg drug dosage group combined with
-0 and 30 minutes of exercise per day.
+Boxplots show the greatest changes with a drug dose of 20 mg/kg for 2 of the 3
+exercise groups at 0 and 30 minutes of exercise per day.
 
 
 ``` r
