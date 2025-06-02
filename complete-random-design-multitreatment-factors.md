@@ -41,11 +41,11 @@ drug. The second factor, exercise duration, represents the number of minutes the
 mice run on a running wheel each day. Control mice do not have a running wheel 
 to run on. A full factorial design is used, with each combination of drug dosage 
 and exercise duration applied to a group of mice. For example, one group 
-receives 5 mg/kg of the drug and exercises 15 minutes per day, another group
-receives 5 mg/kg and exercises 30 minutes per day, and so on.
+receives 10 mg/kg of the drug and exercises 30 minutes per day, another group
+receives 10 mg/kg and exercises 60 minutes per day, and so on.
 
-There are 4 levels for each factor, leading to 16 treatment combinations (4 drug 
-doses × 4 exercise durations). Each combination is replicated with a group of 5 
+There are 3 levels for each factor, leading to 9 treatment combinations (3 drug 
+doses × 3 exercise durations). Each combination is replicated with a group of 5 
 mice, making the design balanced and allowing analysis of interactions. Fasting 
 blood glucose level (mg/dL) was measured at the start and after 4 weeks of
 treatment.
@@ -57,36 +57,37 @@ drugExercise <- read_csv("data/drugExercise.csv")
 drugExercise$DrugDose <- as_factor(drugExercise$DrugDose)
 drugExercise$Exercise <- as_factor(drugExercise$Exercise)
 
-drugExercise %>%
-   group_by(DrugDose, Exercise) %>%
-  summarise(MeanChange = mean(Delta))
+meansSD <- drugExercise %>%
+  group_by(Exercise, DrugDose) %>%
+  summarise(meanChange = round(mean(Delta), 1),
+            stDev = sd(Delta))
+meansSD
 ```
 
 ``` output
-# A tibble: 9 × 3
-# Groups:   DrugDose [3]
-  DrugDose Exercise MeanChange
-  <fct>    <fct>         <dbl>
-1 0        0           -0.0197
-2 0        30          -0.542 
-3 0        60          -2.79  
-4 10       0           -4.75  
-5 10       30          -2.65  
-6 10       60          -1.47  
-7 20       0          -10.0   
-8 20       30          -5.40  
-9 20       60          -0.334 
+# A tibble: 9 × 4
+# Groups:   Exercise [3]
+  Exercise DrugDose meanChange stDev
+  <fct>    <fct>         <dbl> <dbl>
+1 0        0               0   0.702
+2 0        10             -4.7 1.13 
+3 0        20            -10   0.824
+4 30       0              -0.5 0.339
+5 30       10             -2.6 1.57 
+6 30       20             -5.4 0.305
+7 60       0              -2.8 0.652
+8 60       10             -1.5 0.866
+9 60       20             -0.3 0.905
 ```
 
 A heatmap is a good way to visualize the table of mean glucose changes. It shows
-the greatest changes with a drug dose of 20 mg/kg for 3 of the 4 exercise 
-groups. The 5 mg/kg drug dosage group also shows a large change, but only when
-combined with 60 minutes of exercise per day.
+the greatest changes with a drug dose of 20 mg/kg for 2 of the 3 exercise 
+groups.
 
 <img src="fig/complete-random-design-multitreatment-factors-rendered-heatmap-1.png" style="display: block; margin: auto;" />
 
-Boxplots show the same pattern for 5 mg/kg drug dosage group
-combined with 60 minutes of exercise per day. They also show an increase in mean glucose with increasing exercise for the 20 mg/kg drug dosage group.
+Boxplots show the same pattern for the 20 mg/kg drug dosage group combined with
+0 and 30 minutes of exercise per day.
 
 
 ``` r
@@ -100,8 +101,7 @@ ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
 
 Boxplots with exercise on the x-axis are not as easy to interpret since patterns
 for combinations of exercise and drug dose aren't so apparent. Greater
-variability for some groups is apparent however. The length of the boxplots for the 0 mg/kg and 5 mg/kg drug dose groups indicates high within-group 
-variability. The 20 mg/kg boxplots are more compact, indicating lesser variability within this group.
+variability for some groups is apparent however.
 
 
 ``` r
@@ -116,32 +116,187 @@ ggplot(drugExercise, aes(x = Exercise, y = Delta, fill = DrugDose)) +
 
 ## Interaction between factors
 We could analyze these data as if it were simply a completely randomized design
-with 16 treatments (4 drug doses and 4 exercise durations). The ANOVA would have 
-15 degrees of freedom for treatments and the F-test would tell us whether the 
-variation among average changes in glucose levels for the 16 treatments was real 
+with 9 treatments (3 drug doses and 3 exercise durations). The ANOVA would have 
+8 degrees of freedom for treatments and the F-test would tell us whether the 
+variation among average changes in glucose levels for the 9 treatments was real 
 or random. However, the factorial treatment structure lets us separate out the 
 variability in glucose level changes among drug doses averaged over exercise 
-durations. The ANOVA table would provide a sum of squares based on 3 degrees of 
-freedom for the difference between the 4 treatment means ($\bar{y}_i$) and the 
+durations. The ANOVA table would provide a sum of squares based on 2 degrees of 
+freedom for the difference between the 3 treatment means ($\bar{y}_i$) and the 
 pooled (overall) mean ($\bar{y}$).  
 
-Sum of squares for 16 treatments $= n\sum(\bar{y}_i - \bar{y})^2$. 
+Sum of squares for 9 treatments $= n\sum(\bar{y}_i - \bar{y})^2$. 
 
-The sum of squares would capture the variability among the 4 drug dose levels.
-The variation among the 4 exercise levels would be captured similarly, with 3
-degrees of freedom. That leaves 15 - 6 = 9 degrees of freedom left over. What 
-variability do these remaining 9 degrees of freedom contain? The answer is
+The sum of squares would capture the variability among the 3 drug dose levels.
+The variation among the 3 exercise levels would be captured similarly, with 2
+degrees of freedom. That leaves 8 - 4 = 4 degrees of freedom left over. What 
+variability do these remaining 4 degrees of freedom contain? The answer is
 interaction - the interaction between drug doses and exercise durations. Mean 
-changes in glucose for each of the 16 treatments is given in the table below.
+changes in glucose for each of the 9 treatments is given in the table below.
 
+<table>
+<caption>Mean change in glucose by group</caption>
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Drug Dose</div></th>
+</tr>
+  <tr>
+   <th style="text-align:left;"> Exercise </th>
+   <th style="text-align:right;"> stDev </th>
+   <th style="text-align:right;"> 0 </th>
+   <th style="text-align:right;"> 10 </th>
+   <th style="text-align:right;"> 20 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 0.7015127 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 1.1276397 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> -4.7 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 0.8244616 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> -10.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 30 </td>
+   <td style="text-align:right;"> 0.3387521 </td>
+   <td style="text-align:right;"> -0.5 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 30 </td>
+   <td style="text-align:right;"> 1.5713830 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> -2.6 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 30 </td>
+   <td style="text-align:right;"> 0.3045229 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> -5.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 60 </td>
+   <td style="text-align:right;"> 0.6524785 </td>
+   <td style="text-align:right;"> -2.8 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 60 </td>
+   <td style="text-align:right;"> 0.8658425 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> -1.5 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 60 </td>
+   <td style="text-align:right;"> 0.9050719 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> -0.3 </td>
+  </tr>
+</tbody>
+</table>
 
-``` error
-Error in htmlTable_add_header_above(kable_input, header, bold, italic, : The new header row you provided has a total of 4 columns but the original kable_input has 5.
-```
-
-``` error
-Error in htmlTable_add_header_above(kable_input, header, bold, italic, : The new header row you provided has a total of 4 columns but the original kable_input has 5.
-```
+<table>
+<caption>Standard deviation in glucose by group</caption>
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Drug Dose</div></th>
+</tr>
+  <tr>
+   <th style="text-align:left;"> Exercise </th>
+   <th style="text-align:right;"> meanChange </th>
+   <th style="text-align:right;"> 0 </th>
+   <th style="text-align:right;"> 10 </th>
+   <th style="text-align:right;"> 20 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0.7015127 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> -4.7 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1.1276397 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> -10.0 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.8244616 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 30 </td>
+   <td style="text-align:right;"> -0.5 </td>
+   <td style="text-align:right;"> 0.3387521 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 30 </td>
+   <td style="text-align:right;"> -2.6 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1.5713830 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 30 </td>
+   <td style="text-align:right;"> -5.4 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.3045229 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 60 </td>
+   <td style="text-align:right;"> -2.8 </td>
+   <td style="text-align:right;"> 0.6524785 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 60 </td>
+   <td style="text-align:right;"> -1.5 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.8658425 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 60 </td>
+   <td style="text-align:right;"> -0.3 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.9050719 </td>
+  </tr>
+</tbody>
+</table>
 
 We can visualize interactions for all combinations of drug dose and exercise 
 duration with an interaction plot that shows mean change in glucose levels on 
