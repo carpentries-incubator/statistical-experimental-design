@@ -842,7 +842,7 @@ instrument readings, animal behavior, and indoor relative humidity.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Solution to Exercise 1 </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>1). random, because the scale is broken and provides any kind of
 random reading it comes up with (inconsistent reading)<br>
@@ -897,7 +897,7 @@ experimental units there are?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution to Exercise 2 </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>1). One biological sample (not replicated) with five technical
 replicates. The only conclusion to be drawn from the measurements would
@@ -955,7 +955,7 @@ Can you foresee any problems with the experimental results?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Solution to Exercise 3 </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Since each treatment is run on only one day, the day effectively
 becomes the experimental unit (explain this). Each experimental unit
@@ -1122,7 +1122,7 @@ groups?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>1). Scenario: One technician processed samples A through M, and a
 different technician processed samples N through Z. Might the first
@@ -1206,7 +1206,7 @@ experiment.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Solution to Exercise 3 </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1241,7 +1241,7 @@ humidity increased.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Solution to Exercise 4 </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 
 </div>
@@ -3075,11 +3075,8 @@ and summarize by mean change in glucose levels (<code>Delta</code>).</p>
 8 60       10             -1.5 0.866
 9 60       20             -0.3 0.905</code></pre>
 </div>
-<p>A heatmap is a good way to visualize the table of mean glucose
-changes. It shows the greatest changes with a drug dose of 20 mg/kg for
-2 of the 3 exercise groups.</p>
-<figure><img src="../fig/complete-random-design-multitreatment-factors-rendered-heatmap-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Boxplots show the same pattern for the 20 mg/kg drug dosage group
-combined with 0 and 30 minutes of exercise per day.</p>
+<p>Boxplots show the greatest changes with a drug dose of 20 mg/kg for 2
+of the 3 exercise groups at 0 and 30 minutes of exercise per day.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
