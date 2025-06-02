@@ -33,7 +33,7 @@ library(knitr)
 library(kableExtra)
 ```
 
-A study aims to determine how dosage of a hypoglycemic drug and duration of 
+A study aims to determine how dosage of a new antidiabetic drug and duration of 
 daily exercise affect blood glucose levels in diabetic mice. The study has two 
 quantitative factors with four levels each.
 
@@ -44,7 +44,7 @@ studyDesign <- tibble("Drug dosage (mg/kg)" = c("0 (control)", 10, 20),
 knitr::kable(studyDesign)
 ```
 
-Drug dosage represents the amount of a new antidiabetic drug administered daily.
+Drug dosage represents the amount of the antidiabetic drug administered daily.
 The levels for this factor are in mg per kg body weight. Control mice receive no
 drug. The second factor, exercise duration, represents the number of minutes the 
 mice run on a running wheel each day. Control mice do not have a running wheel 
@@ -138,11 +138,11 @@ means <- drugExercise %>%
 knitr::kable(pivot_wider(means, 
                          names_from = DrugDose, 
                          values_from = meanChange)) %>% 
-  add_header_above(c(" " = 2, "Drug Dose" = 3))
+  add_header_above(c(" " = 2, "Drug Dose" = 2))
 
 
 data_summary <- function(data, varname, groupnames){ 
-  require(dplyr)
+  require(plyr)
   summary_func <- function(x, col){
     c(mean = mean(x[[col]], na.rm=TRUE),
       sd = sd(x[[col]], na.rm=TRUE))
@@ -160,6 +160,8 @@ ggplot(df2, aes(x=DrugDose, y=Delta, group=Exercise, color=Exercise)) +
     geom_point()+
     geom_errorbar(aes(ymin=Delta-sd, ymax=Delta+sd), width=.2,
                   position=position_dodge(0.05), alpha=.5)
+
+remove.packages('plyr')
 ```
 
 We can visualize interactions for all combinations of drug dose and exercise 
