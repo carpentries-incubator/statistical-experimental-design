@@ -50,11 +50,11 @@ drug. The second factor, exercise duration, represents the number of minutes the
 mice run on a running wheel each day. Control mice do not have a running wheel 
 to run on. A full factorial design is used, with each combination of drug dosage 
 and exercise duration applied to a group of mice. For example, one group 
-receives 5 mg/kg of the drug and exercises 15 minutes per day, another group
-receives 5 mg/kg and exercises 30 minutes per day, and so on.
+receives 10 mg/kg of the drug and exercises 30 minutes per day, another group
+receives 10 mg/kg and exercises 60 minutes per day, and so on.
 
-There are 4 levels for each factor, leading to 16 treatment combinations (4 drug 
-doses × 4 exercise durations). Each combination is replicated with a group of 5 
+There are 3 levels for each factor, leading to 9 treatment combinations (3 drug 
+doses × 3 exercise durations). Each combination is replicated with a group of 5 
 mice, making the design balanced and allowing analysis of interactions. Fasting 
 blood glucose level (mg/dL) was measured at the start and after 4 weeks of
 treatment.
@@ -65,21 +65,22 @@ drugExercise <- read_csv("data/drugExercise.csv")
 drugExercise$DrugDose <- as_factor(drugExercise$DrugDose)
 drugExercise$Exercise <- as_factor(drugExercise$Exercise)
 
-drugExercise %>%
-   group_by(DrugDose, Exercise) %>%
-  summarise(MeanChange = mean(Delta))
+meansSD <- drugExercise %>%
+  group_by(Exercise, DrugDose) %>%
+  summarise(meanChange = round(mean(Delta), 1),
+            stDev = sd(Delta))
+meansSD
 ```
 
 A heatmap is a good way to visualize the table of mean glucose changes. It shows
-the greatest changes with a drug dose of 20 mg/kg for 3 of the 4 exercise 
-groups. The 5 mg/kg drug dosage group also shows a large change, but only when
-combined with 60 minutes of exercise per day.
+the greatest changes with a drug dose of 20 mg/kg for 2 of the 3 exercise 
+groups.
 
 ```{r heatmap, echo=FALSE}
 heat_data <- drugExercise %>%
   group_by(Exercise, DrugDose) %>%
-  summarise(MeanChange = mean(Delta), .groups = "drop") %>%
-  spread(DrugDose, MeanChange)
+  summarise(meanChange = mean(Delta), .groups = "drop") %>%
+  spread(DrugDose, meanChange)
 heat_matrix <- as.matrix(heat_data[,-1])
 rownames(heat_matrix) <- heat_data$Exercise
 heatmap(heat_matrix, Rowv = NA, Colv = NA, col = heat.colors(10),
@@ -87,8 +88,8 @@ heatmap(heat_matrix, Rowv = NA, Colv = NA, col = heat.colors(10),
         xlab = "Drug Dosage (mg/kg)", ylab = "Exercise (min/day)")
 ```
 
-Boxplots show the same pattern for 5 mg/kg drug dosage group
-combined with 60 minutes of exercise per day. They also show an increase in mean glucose with increasing exercise for the 20 mg/kg drug dosage group.
+Boxplots show the same pattern for the 20 mg/kg drug dosage group combined with
+0 and 30 minutes of exercise per day.
 
 ```{r boxplots_drugX}
 ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
@@ -99,8 +100,7 @@ ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
 
 Boxplots with exercise on the x-axis are not as easy to interpret since patterns
 for combinations of exercise and drug dose aren't so apparent. Greater
-variability for some groups is apparent however. The length of the boxplots for the 0 mg/kg and 5 mg/kg drug dose groups indicates high within-group 
-variability. The 20 mg/kg boxplots are more compact, indicating lesser variability within this group.
+variability for some groups is apparent however.
 
 ```{r boxplots_exerciseX}
 ggplot(drugExercise, aes(x = Exercise, y = Delta, fill = DrugDose)) +
@@ -112,41 +112,36 @@ ggplot(drugExercise, aes(x = Exercise, y = Delta, fill = DrugDose)) +
 
 ## Interaction between factors
 We could analyze these data as if it were simply a completely randomized design
-with 16 treatments (4 drug doses and 4 exercise durations). The ANOVA would have 
-15 degrees of freedom for treatments and the F-test would tell us whether the 
-variation among average changes in glucose levels for the 16 treatments was real 
+with 9 treatments (3 drug doses and 3 exercise durations). The ANOVA would have 
+8 degrees of freedom for treatments and the F-test would tell us whether the 
+variation among average changes in glucose levels for the 9 treatments was real 
 or random. However, the factorial treatment structure lets us separate out the 
 variability in glucose level changes among drug doses averaged over exercise 
-durations. The ANOVA table would provide a sum of squares based on 3 degrees of 
-freedom for the difference between the 4 treatment means ($\bar{y}_i$) and the 
+durations. The ANOVA table would provide a sum of squares based on 2 degrees of 
+freedom for the difference between the 3 treatment means ($\bar{y}_i$) and the 
 pooled (overall) mean ($\bar{y}$).  
 
-Sum of squares for 16 treatments $= n\sum(\bar{y}_i - \bar{y})^2$. 
+Sum of squares for 9 treatments $= n\sum(\bar{y}_i - \bar{y})^2$. 
 
-The sum of squares would capture the variability among the 4 drug dose levels.
-The variation among the 4 exercise levels would be captured similarly, with 3
-degrees of freedom. That leaves 15 - 6 = 9 degrees of freedom left over. What 
-variability do these remaining 9 degrees of freedom contain? The answer is
+The sum of squares would capture the variability among the 3 drug dose levels.
+The variation among the 3 exercise levels would be captured similarly, with 2
+degrees of freedom. That leaves 8 - 4 = 4 degrees of freedom left over. What 
+variability do these remaining 4 degrees of freedom contain? The answer is
 interaction - the interaction between drug doses and exercise durations. Mean 
-changes in glucose for each of the 16 treatments is given in the table below.
+changes in glucose for each of the 9 treatments is given in the table below.
 
 ```{r means_table, echo=FALSE, message=FALSE}
-means <- drugExercise %>%
-  group_by(Exercise, DrugDose) %>%
-  summarise(meanChange = round(mean(Delta), 1),
-            stDev = sd(Delta))
-
-knitr::kable(pivot_wider(means, 
+knitr::kable(pivot_wider(meansSD, 
                          names_from = DrugDose, 
                          values_from = meanChange),
              caption = "Mean change in glucose by group") %>% 
-  add_header_above(c(" " = 2, "Drug Dose" = 2))
+  add_header_above(c(" " = 2, "Drug Dose" = 3))
 
-knitr::kable(pivot_wider(means, 
+knitr::kable(pivot_wider(meansSD, 
                          names_from = DrugDose, 
                          values_from = stDev),
              caption = "Standard deviation in glucose by group") %>% 
-  add_header_above(c(" " = 2, "Drug Dose" = 2))
+  add_header_above(c(" " = 2, "Drug Dose" = 3))
 ```
 
 We can visualize interactions for all combinations of drug dose and exercise 
