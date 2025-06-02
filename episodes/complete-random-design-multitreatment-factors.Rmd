@@ -67,7 +67,7 @@ drugExercise$Exercise <- as_factor(drugExercise$Exercise)
 
 drugExercise %>%
    group_by(DrugDose, Exercise) %>%
-  summarise(ChangeGlucose = mean(Delta))
+  summarise(MeanChange = mean(Delta))
 ```
 
 A heatmap is a good way to visualize the table of mean glucose changes. It shows
@@ -133,16 +133,29 @@ changes in glucose for each of the 16 treatments is given in the table below.
 ```{r means_table, echo=FALSE, message=FALSE}
 means <- drugExercise %>%
   group_by(Exercise, DrugDose) %>%
-  summarise(meanChange = round(mean(Delta), 1))
+  summarise(meanChange = round(mean(Delta), 1),
+            stDev = sd(Delta))
 
 knitr::kable(pivot_wider(means, 
                          names_from = DrugDose, 
-                         values_from = meanChange)) %>% 
+                         values_from = meanChange),
+             caption = "Mean change in glucose by group") %>% 
+  add_header_above(c(" " = 2, "Drug Dose" = 2))
+
+knitr::kable(pivot_wider(means, 
+                         names_from = DrugDose, 
+                         values_from = stDev),
+             caption = "Standard deviation in glucose by group") %>% 
   add_header_above(c(" " = 2, "Drug Dose" = 2))
 ```
 
 We can visualize interactions for all combinations of drug dose and exercise 
-duration with an interaction plot that shows mean change in glucose levels.
+duration with an interaction plot that shows mean change in glucose levels on 
+the y-axis.  
+
+The interaction plots shows wide variation in mean glucose changes at a drug 
+dose of 20 mg/kg, and also at 0 exercise. The vertical bars extending above and
+below each mean value are the standard deviations for that group.
 
 ```{r interaction_plots, echo=FALSE, message=FALSE, warning=FALSE}
 data_summary <- function(data, varname, groupnames){ 
@@ -161,9 +174,11 @@ df2 <- data_summary(drugExercise, varname="Delta",
 
 ggplot(df2, aes(x=DrugDose, y=Delta, group=Exercise, color=Exercise)) + 
     geom_line() +
-    geom_point()+
+    geom_point() +
     geom_errorbar(aes(ymin=Delta-sd, ymax=Delta+sd), width=.2,
-                  position=position_dodge(0.05), alpha=.5)
+                  position=position_dodge(0.05), alpha=.5) +
+  labs(y = "Δ Glucose (mg/dL)",
+       title = "Mean change in glucose by drug doseage") 
 
 
 
@@ -172,13 +187,13 @@ ggplot(df2, aes(x=Exercise, y=Delta, group=DrugDose, color=DrugDose)) +
     geom_point()+
     geom_errorbar(aes(ymin=Delta-sd, ymax=Delta+sd), width=.2,
                   position=position_dodge(0.05), alpha=.5) +
+  labs(y = "Δ Glucose (mg/dL)",
+       title = "Mean change in glucose by exercise group") +
   scale_color_brewer(palette = "Dark2") # use a different color palette
 
 remove.packages('plyr')
 ```
 
-The interaction plots shows wide variation in mean glucose changes at a drug 
-dose of 20 mg/kg, and also at 0 level exercise. 
 
 If we plot exercise on the x-axis, the same patterns show up differently.
 
