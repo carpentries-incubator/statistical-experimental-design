@@ -169,66 +169,22 @@ changes in glucose for each of the 16 treatments is given in the table below.
 </tbody>
 </table>
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-means_table-1.png" style="display: block; margin: auto;" />
+We can visualize interactions for all combinations of drug dose and exercise 
+duration with an interaction plot that shows mean change in glucose levels.
+
+<img src="fig/complete-random-design-multitreatment-factors-rendered-interaction_plots-1.png" style="display: block; margin: auto;" /><img src="fig/complete-random-design-multitreatment-factors-rendered-interaction_plots-2.png" style="display: block; margin: auto;" />
 
 ``` output
 - Removing package(s) from project library ...
 Removing package 'plyr' ... Done!
 ```
 
-We can visualize interactions for all combinations of drug dose and exercise 
-duration with an interaction plot that shows mean change in glucose levels.
-
-
-``` r
-# Interaction plot
-interaction_plot <- drugExercise %>%
-  group_by(DrugDose, Exercise) %>%
-  summarise(MeanChange = mean(Delta), .groups = "drop")
-
-ggplot(interaction_plot, aes(x = as.numeric(as.character(DrugDose)),
-                             y = MeanChange,
-                             color = Exercise, group = Exercise)) +
-  geom_line() +
-  geom_point() +
-  labs(title = "Interaction Plot",
-       x = "Drug Dosage (mg/kg)",
-       y = "Mean Δ Glucose (mg/dL)")
-```
-
-``` error
-Error in `geom_line()`:
-! Problem while computing aesthetics.
-ℹ Error occurred in the 1st layer.
-Caused by error:
-! object 'DrugDose' not found
-```
-
-The interaction plot shows wide variation in mean glucose changes among the 
-groups at a drug dose of 20 mg/kg. As we saw earlier with the boxplots, mean glucose increased with increasing exercise. For the 0 and 15 minute/day exercise groups, increasing drug dosage led to decreasing mean glucose levels. For the 30 and 60 minute/day exercise groups, increasing drug dosage did not decrease mean glucose levels appreciably, with one exception. At 5 mg/kg dosage, the 60 minute/day exercise group saw a strong decrease in mean blood glucose.  
+The interaction plots shows wide variation in mean glucose changes at a drug 
+dose of 20 mg/kg, and also at 0 level exercise. 
 
 If we plot exercise on the x-axis, the same patterns show up differently.
 
-
-``` r
-ggplot(interaction_plot, aes(x = as.numeric(as.character(Exercise)),
-                             y = MeanChange,
-                             color = DrugDose, group = DrugDose)) +
-  geom_line() +
-  geom_point() +
-  labs(title = "Interaction Plot",
-       x = "Exercise (min/day)",
-       y = "Mean Δ Glucose (mg/dL)") +
-  scale_color_brewer(palette = "PuOr") # use a different color palette
-```
-
-``` error
-Error in `geom_line()`:
-! Problem while computing aesthetics.
-ℹ Error occurred in the 1st layer.
-Caused by error:
-! object 'Exercise' not found
-```
+As we saw earlier with the boxplots, mean glucose increased with increasing exercise. For the 0 and 15 minute/day exercise groups, increasing drug dosage led to decreasing mean glucose levels. For the 30 and 60 minute/day exercise groups, increasing drug dosage did not decrease mean glucose levels appreciably, with one exception. At 5 mg/kg dosage, the 60 minute/day exercise group saw a strong decrease in mean blood glucose.  
 
 This second interaction plot shows wide variation in mean glucose changes within the 0 min/day exercise group, showing that an increase in drug dosage decreased
 mean glucose. For the 60 min/day exercise group, mean glucose change was nearly
