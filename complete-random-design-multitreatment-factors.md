@@ -36,7 +36,7 @@ quantitative factors with four levels each.
 
 
 Drug dosage represents the amount of the antidiabetic drug administered daily.
-The levels for this factor are in mg per kg body weight. Control mice receive no
+The levels for this factor are in mcg per g body weight. Control mice receive no
 drug. The second factor, exercise duration, represents the number of minutes the 
 mice run on a running wheel each day. Control mice do not have a running wheel 
 to run on. A full factorial design is used, with each combination of drug dosage 
@@ -80,8 +80,19 @@ meansSD
 9 60       20             -0.3 0.905
 ```
 
-Boxplots show the greatest changes with a drug dose of 20 mg/kg for 2 of the 3
-exercise groups at 0 and 30 minutes of exercise per day.
+Exercise alone appears to lower glucose in the mice that were not given the 
+drug. At 10 mg/kg drug dose, it appears that higher exercise levels don't 
+lower glucose as much, however, each boxplot shows outliers. The dots 
+representing these outliers make it difficult to determine if there really is a
+difference in glucose since there is so much overlap between the boxplots and
+their outliers. In fact, the spread of the data (standard deviation) at 10 mg/kg
+drug dose are among the largest values in the entire data set. With only 5 mice
+per group, it is difficult to obtain enough precision to capture the true value
+of mean glucose change.  
+Boxplots show the greatest glucose changes with a drug dose of 20 mg/kg for 2 of 
+the 3 exercise groups at 0 and 30 minutes of exercise per day. At 60 minutes of 
+exercise a day combined with 20 mg/kg drug dose, glucose levels are near the
+starting point for the experiment and so don't seem to have much effect. 
 
 
 ``` r
@@ -95,7 +106,9 @@ ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
 
 Boxplots with exercise on the x-axis are not as easy to interpret since patterns
 for combinations of exercise and drug dose aren't so apparent. Greater
-variability for some groups is apparent however.
+variability for some groups is apparent however. The 0 exercise group has the
+greatest within-group variability across all drug doses. The 60 min/day 
+exercise group has the least within-group variability across all drug doses.
 
 
 ``` r
