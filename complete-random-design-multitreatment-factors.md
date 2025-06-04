@@ -143,10 +143,10 @@ per group, it is difficult to obtain enough precision to capture the true value
 of mean glucose change.  
 
 Boxplots with exercise on the x-axis show similar patterns for combinations of 
-exercise. Greater variability for some exercise groups is apparent. The 0 
-min/day exercise group has the greatest within-group variability across all drug 
-doses. The 60 min/day exercise group has the least within-group variability
-across all drug doses.
+exercise and drug dose. Greater variability for some exercise groups is 
+apparent. The 0 min/day exercise group has the greatest within-group variability 
+across all drug doses. The 60 min/day exercise group has the least within-group 
+variability across all drug doses.
 
 
 ``` r
@@ -176,21 +176,74 @@ The sum of squares would capture the variability among the 3 drug dose levels.
 The variation among the 3 exercise levels would be captured similarly, with 2
 degrees of freedom. That leaves 8 - 4 = 4 degrees of freedom left over. What 
 variability do these remaining 4 degrees of freedom contain? The answer is
-interaction - the interaction between drug doses and exercise durations. Mean 
-changes in glucose for each of the 9 treatments is given in the table below.
+interaction - the interaction between drug doses and exercise durations. 
 
-
-``` error
-Error in htmlTable_add_header_above(kable_input, header, bold, italic, : The new header row you provided has a total of 5 columns but the original kable_input has 18.
-```
+<table>
+<caption>Mean change in glucose by group</caption>
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="9"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="9"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Drug Dose</div></th>
+</tr>
+  <tr>
+   <th style="text-align:right;"> meanChange_0_0 </th>
+   <th style="text-align:right;"> meanChange_0_10 </th>
+   <th style="text-align:right;"> meanChange_0_20 </th>
+   <th style="text-align:right;"> meanChange_30_0 </th>
+   <th style="text-align:right;"> meanChange_30_10 </th>
+   <th style="text-align:right;"> meanChange_30_20 </th>
+   <th style="text-align:right;"> meanChange_60_0 </th>
+   <th style="text-align:right;"> meanChange_60_10 </th>
+   <th style="text-align:right;"> meanChange_60_20 </th>
+   <th style="text-align:right;"> stDev_0_0 </th>
+   <th style="text-align:right;"> stDev_0_10 </th>
+   <th style="text-align:right;"> stDev_0_20 </th>
+   <th style="text-align:right;"> stDev_30_0 </th>
+   <th style="text-align:right;"> stDev_30_10 </th>
+   <th style="text-align:right;"> stDev_30_20 </th>
+   <th style="text-align:right;"> stDev_60_0 </th>
+   <th style="text-align:right;"> stDev_60_10 </th>
+   <th style="text-align:right;"> stDev_60_20 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> -4.7 </td>
+   <td style="text-align:right;"> -10 </td>
+   <td style="text-align:right;"> -0.5 </td>
+   <td style="text-align:right;"> -2.6 </td>
+   <td style="text-align:right;"> -5.4 </td>
+   <td style="text-align:right;"> -2.8 </td>
+   <td style="text-align:right;"> -1.5 </td>
+   <td style="text-align:right;"> -0.3 </td>
+   <td style="text-align:right;"> 0.7015127 </td>
+   <td style="text-align:right;"> 1.12764 </td>
+   <td style="text-align:right;"> 0.8244616 </td>
+   <td style="text-align:right;"> 0.3387521 </td>
+   <td style="text-align:right;"> 1.571383 </td>
+   <td style="text-align:right;"> 0.3045229 </td>
+   <td style="text-align:right;"> 0.6524785 </td>
+   <td style="text-align:right;"> 0.8658425 </td>
+   <td style="text-align:right;"> 0.9050719 </td>
+  </tr>
+</tbody>
+</table>
 
 We can visualize interactions for all combinations of drug dose and exercise 
 duration with an interaction plot that shows mean change in glucose levels on 
 the y-axis.  
 
 The interaction plots shows wide variation in mean glucose changes at a drug 
-dose of 20 mg/kg, and also at 0 exercise. The vertical bars extending above and
-below each mean value are the standard deviations for that group.
+dose of 20 mg/kg, and also at 0 min/day exercise. The vertical bars extending 
+above and below each mean value are the standard deviations for that group.
+Notice that the bars for the 10 mg/kg drug dose group are the longest, 
+indicating higher variability that we also saw in the boxplots. If we plot 
+exercise on the x-axis, the same patterns show up differently. At 60 min/day
+exercise, there is considerable overlap between the standard deviation bars in 
+the three drug dosage groups. There is not a clear distinction indicating that 
+the drug has an effect, although the 0 drug dosage group does appear to benefit
+from more exercise.
 
 <img src="fig/complete-random-design-multitreatment-factors-rendered-interaction_plots-1.png" style="display: block; margin: auto;" /><img src="fig/complete-random-design-multitreatment-factors-rendered-interaction_plots-2.png" style="display: block; margin: auto;" />
 
@@ -198,16 +251,6 @@ below each mean value are the standard deviations for that group.
 - Removing package(s) from project library ...
 Removing package 'plyr' ... Done!
 ```
-
-
-If we plot exercise on the x-axis, the same patterns show up differently.
-
-As we saw earlier with the boxplots, mean glucose increased with increasing exercise. For the 0 and 15 minute/day exercise groups, increasing drug dosage led to decreasing mean glucose levels. For the 30 and 60 minute/day exercise groups, increasing drug dosage did not decrease mean glucose levels appreciably, with one exception. At 5 mg/kg dosage, the 60 minute/day exercise group saw a strong decrease in mean blood glucose.  
-
-This second interaction plot shows wide variation in mean glucose changes within the 0 min/day exercise group, showing that an increase in drug dosage decreased
-mean glucose. For the 60 min/day exercise group, mean glucose change was nearly
-equal with the exception of the 5 mg/kg drug dosage group. At 5 mg/kg dosage, 
-the 60 minute/day exercise group saw a strong decrease in mean blood glucose. At a drug dose of 20 mg/kg, increasing exercise led to increased mean glucose.   
 
 If lines were parallel we could assume no interaction between drug and exercise. 
 Since they are not  parallel we should assume interaction between exercise and 
@@ -254,62 +297,21 @@ on
 2
 and 
 36
-degrees of freedom for exercise and residuals respectively. The p-value is high 
-at
-0
-and so exercise is not significant. Finally, we move up to the row containing
+degrees of freedom for exercise and residuals respectively. The p-value is very
+low and so exercise is significant. Finally, we move up to the row containing
 `DrugDose` to find an F value of 
 81.05
 and a very low p-value again. Drug dose averaged over exercise is significant.  
-
-A summary of the linear model reiterates the observations we see in the plots
-and ANOVA.
-
-
-``` r
-summary(lm(Delta ~ DrugDose*Exercise, 
-           data = drugExercise))
-```
-
-``` output
-
-Call:
-lm(formula = Delta ~ DrugDose * Exercise, data = drugExercise)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--2.70282 -0.32734  0.07042  0.44838  1.76615 
-
-Coefficients:
-                      Estimate Std. Error t value Pr(>|t|)    
-(Intercept)           -0.01975    0.39762  -0.050   0.9607    
-DrugDose10            -4.72607    0.56233  -8.405 5.20e-10 ***
-DrugDose20            -9.97549    0.56233 -17.740  < 2e-16 ***
-Exercise30            -0.52262    0.56233  -0.929   0.3589    
-Exercise60            -2.77026    0.56233  -4.926 1.88e-05 ***
-DrugDose10:Exercise30  2.62200    0.79525   3.297   0.0022 ** 
-DrugDose20:Exercise30  5.11979    0.79525   6.438 1.81e-07 ***
-DrugDose10:Exercise60  6.04992    0.79525   7.608 5.33e-09 ***
-DrugDose20:Exercise60 12.43128    0.79525  15.632  < 2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.8891 on 36 degrees of freedom
-Multiple R-squared:  0.9352,	Adjusted R-squared:  0.9208 
-F-statistic: 64.98 on 8 and 36 DF,  p-value: < 2.2e-16
-```
-
-`DrugDose20` is significant, as are the interactions between 20 mg/kg dosage and
-30 and 60 min/day exercise groups.  
 
 The partitioning of treatments sums of squares into main effect (average) and 
 interaction sums of squares is a result of the crossed factorial structure
 (orthogonality) of the two factors. The complete combinations of these two
 factors provides clean partitioning between main effects and interactions. This
 is not to say that designs that don't have full combinations of factors can't be
-analyzed to estimate main effects and interactions. They can be using 
+analyzed to estimate main effects and interactions. They can be analyzed with 
 generalized linear models.  
-The development of efficient and informative multifactor designs that cleanly
+
+The development of efficient and informative multifactorial designs that cleanly
 separate main effects from interactions is one of the most important
 contributions of statistical experimental design.
 
