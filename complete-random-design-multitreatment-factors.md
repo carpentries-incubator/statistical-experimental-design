@@ -31,12 +31,12 @@ of all factors.
 
 A study aims to determine how dosage of a new antidiabetic drug and duration of 
 daily exercise affect blood glucose levels in diabetic mice. The study has two 
-quantitative factors with four levels each.
+quantitative factors with three levels each.
 
 
 
 Drug dosage represents the amount of the antidiabetic drug administered daily.
-The levels for this factor are in mcg per g body weight. Control mice receive no
+The levels for this factor are in mg per kg body weight. Control mice receive no
 drug. The second factor, exercise duration, represents the number of minutes the 
 mice run on a running wheel each day. Control mice do not have a running wheel 
 to run on. A full factorial design is used, with each combination of drug dosage 
@@ -49,14 +49,45 @@ doses × 3 exercise durations). Each combination is replicated with a group of 5
 mice, making the design balanced and allowing analysis of interactions. Fasting 
 blood glucose level (mg/dL) was measured at the start and after 4 weeks of
 treatment.
-Load the data and summarize by mean change in glucose levels (`Delta`).
+Load the data. 
 
 
 ``` r
 drugExercise <- read_csv("data/drugExercise.csv")
+```
+
+``` output
+Rows: 45 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (5): DrugDose, Exercise, Baseline, Delta, Post
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+``` r
 drugExercise$DrugDose <- as_factor(drugExercise$DrugDose)
 drugExercise$Exercise <- as_factor(drugExercise$Exercise)
+head(drugExercise)
+```
 
+``` output
+# A tibble: 6 × 5
+  DrugDose Exercise Baseline  Delta  Post
+  <fct>    <fct>       <dbl>  <dbl> <dbl>
+1 0        0            228.  0.449  228.
+2 0        0            274. -0.977  273.
+3 0        0            236.  0.190  236.
+4 0        0            236.  0.731  237.
+5 0        0            220  -0.493  220.
+6 10       0            246. -5.04   241.
+```
+
+Summarize by mean change in glucose levels (`Delta`) and standard deviation.
+
+
+``` r
 meansSD <- drugExercise %>%
   group_by(Exercise, DrugDose) %>%
   summarise(meanChange = round(mean(Delta), 1),
@@ -80,19 +111,16 @@ meansSD
 9 60       20             -0.3 0.905
 ```
 
-Exercise alone appears to lower glucose in the mice that were not given the 
-drug. At 10 mg/kg drug dose, it appears that higher exercise levels don't 
-lower glucose as much, however, each boxplot shows outliers. The dots 
-representing these outliers make it difficult to determine if there really is a
-difference in glucose since there is so much overlap between the boxplots and
-their outliers. In fact, the spread of the data (standard deviation) at 10 mg/kg
-drug dose are among the largest values in the entire data set. With only 5 mice
-per group, it is difficult to obtain enough precision to capture the true value
-of mean glucose change.  
-Boxplots show the greatest glucose changes with a drug dose of 20 mg/kg for 2 of 
-the 3 exercise groups at 0 and 30 minutes of exercise per day. At 60 minutes of 
-exercise a day combined with 20 mg/kg drug dose, glucose levels are near the
-starting point for the experiment and so don't seem to have much effect. 
+The table shows that the drug alone lowered glucose in the mice in the 0 min/day
+exercise group. Increasing drug dose also lowered glucose in the 30 min/day
+exercise group. The 60 min/day exercise group showed the opposite effect. As
+drug dose increased, average change in glucose diminished.
+
+Boxplots show that exercise alone appears to lower glucose in the mice that were 
+not given the drug. The greatest glucose changes are with a drug dose of 20 
+mg/kg for 2 of the 3 exercise groups - 0 and 30 minutes of exercise per day. At 
+60 minutes of exercise a day combined with 20 mg/kg drug dose, change in glucose 
+levels are zero and don't seem to have much effect. 
 
 
 ``` r
@@ -104,11 +132,21 @@ ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
 
 <img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_drugX-1.png" style="display: block; margin: auto;" />
 
-Boxplots with exercise on the x-axis are not as easy to interpret since patterns
-for combinations of exercise and drug dose aren't so apparent. Greater
-variability for some groups is apparent however. The 0 exercise group has the
-greatest within-group variability across all drug doses. The 60 min/day 
-exercise group has the least within-group variability across all drug doses.
+This pattern is repeated for the 10 mg/kg drug dose, where less exercise leads
+to greater change in glucose levels and more exercise leads to smaller changes.
+However, each boxplot shows outliers as dots extending above and below the 
+boxes. This makes it difficult to determine if there really is a difference in 
+glucose levels since there is so much overlap between the boxplots and their 
+outliers. In fact, the spread of the data (standard deviation) at 10 mg/kg
+drug dose are among the largest values in the entire data set. With only 5 mice
+per group, it is difficult to obtain enough precision to capture the true value
+of mean glucose change.  
+
+Boxplots with exercise on the x-axis show similar patterns for combinations of 
+exercise. Greater variability for some exercise groups is apparent. The 0 
+min/day exercise group has the greatest within-group variability across all drug 
+doses. The 60 min/day exercise group has the least within-group variability
+across all drug doses.
 
 
 ``` r
@@ -141,169 +179,10 @@ variability do these remaining 4 degrees of freedom contain? The answer is
 interaction - the interaction between drug doses and exercise durations. Mean 
 changes in glucose for each of the 9 treatments is given in the table below.
 
-<table>
-<caption>Mean change in glucose by group</caption>
- <thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Drug Dose</div></th>
-</tr>
-  <tr>
-   <th style="text-align:left;"> Exercise </th>
-   <th style="text-align:right;"> stDev </th>
-   <th style="text-align:right;"> 0 </th>
-   <th style="text-align:right;"> 10 </th>
-   <th style="text-align:right;"> 20 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 0.7015127 </td>
-   <td style="text-align:right;"> 0.0 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 1.1276397 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> -4.7 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 0.8244616 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> -10.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 30 </td>
-   <td style="text-align:right;"> 0.3387521 </td>
-   <td style="text-align:right;"> -0.5 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 30 </td>
-   <td style="text-align:right;"> 1.5713830 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> -2.6 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 30 </td>
-   <td style="text-align:right;"> 0.3045229 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> -5.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 60 </td>
-   <td style="text-align:right;"> 0.6524785 </td>
-   <td style="text-align:right;"> -2.8 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 60 </td>
-   <td style="text-align:right;"> 0.8658425 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> -1.5 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 60 </td>
-   <td style="text-align:right;"> 0.9050719 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> -0.3 </td>
-  </tr>
-</tbody>
-</table>
 
-<table>
-<caption>Standard deviation in glucose by group</caption>
- <thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Drug Dose</div></th>
-</tr>
-  <tr>
-   <th style="text-align:left;"> Exercise </th>
-   <th style="text-align:right;"> meanChange </th>
-   <th style="text-align:right;"> 0 </th>
-   <th style="text-align:right;"> 10 </th>
-   <th style="text-align:right;"> 20 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 0.0 </td>
-   <td style="text-align:right;"> 0.7015127 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> -4.7 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 1.1276397 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> -10.0 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 0.8244616 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 30 </td>
-   <td style="text-align:right;"> -0.5 </td>
-   <td style="text-align:right;"> 0.3387521 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 30 </td>
-   <td style="text-align:right;"> -2.6 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 1.5713830 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 30 </td>
-   <td style="text-align:right;"> -5.4 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 0.3045229 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 60 </td>
-   <td style="text-align:right;"> -2.8 </td>
-   <td style="text-align:right;"> 0.6524785 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 60 </td>
-   <td style="text-align:right;"> -1.5 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 0.8658425 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 60 </td>
-   <td style="text-align:right;"> -0.3 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 0.9050719 </td>
-  </tr>
-</tbody>
-</table>
+``` error
+Error in htmlTable_add_header_above(kable_input, header, bold, italic, : The new header row you provided has a total of 5 columns but the original kable_input has 18.
+```
 
 We can visualize interactions for all combinations of drug dose and exercise 
 duration with an interaction plot that shows mean change in glucose levels on 
