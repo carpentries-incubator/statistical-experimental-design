@@ -106,10 +106,10 @@ per group, it is difficult to obtain enough precision to capture the true value
 of mean glucose change.  
 
 Boxplots with exercise on the x-axis show similar patterns for combinations of 
-exercise. Greater variability for some exercise groups is apparent. The 0 
-min/day exercise group has the greatest within-group variability across all drug 
-doses. The 60 min/day exercise group has the least within-group variability
-across all drug doses.
+exercise and drug dose. Greater variability for some exercise groups is 
+apparent. The 0 min/day exercise group has the greatest within-group variability 
+across all drug doses. The 60 min/day exercise group has the least within-group 
+variability across all drug doses.
 
 ```{r boxplots_exerciseX}
 ggplot(drugExercise, aes(x = Exercise, y = Delta, fill = DrugDose)) +
@@ -136,15 +136,14 @@ The sum of squares would capture the variability among the 3 drug dose levels.
 The variation among the 3 exercise levels would be captured similarly, with 2
 degrees of freedom. That leaves 8 - 4 = 4 degrees of freedom left over. What 
 variability do these remaining 4 degrees of freedom contain? The answer is
-interaction - the interaction between drug doses and exercise durations. Mean 
-changes in glucose for each of the 9 treatments is given in the table below.
+interaction - the interaction between drug doses and exercise durations. 
 
 ```{r means_table, echo=FALSE, message=FALSE}
 knitr::kable(pivot_wider(meansSD, 
                          names_from = c(Exercise, DrugDose), 
                          values_from = c(meanChange, stDev)),
              caption = "Mean change in glucose by group") %>% 
-  add_header_above(c(" " = 2, "Drug Dose" = 3))
+  add_header_above(c(" " = 9, "Drug Dose" = 9))
 ```
 
 We can visualize interactions for all combinations of drug dose and exercise 
@@ -152,8 +151,15 @@ duration with an interaction plot that shows mean change in glucose levels on
 the y-axis.  
 
 The interaction plots shows wide variation in mean glucose changes at a drug 
-dose of 20 mg/kg, and also at 0 exercise. The vertical bars extending above and
-below each mean value are the standard deviations for that group.
+dose of 20 mg/kg, and also at 0 min/day exercise. The vertical bars extending 
+above and below each mean value are the standard deviations for that group.
+Notice that the bars for the 10 mg/kg drug dose group are the longest, 
+indicating higher variability that we also saw in the boxplots. If we plot 
+exercise on the x-axis, the same patterns show up differently. At 60 min/day
+exercise, there is considerable overlap between the standard deviation bars in 
+the three drug dosage groups. There is not a clear distinction indicating that 
+the drug has an effect, although the 0 drug dosage group does appear to benefit
+from more exercise.
 
 ```{r interaction_plots, echo=FALSE, message=FALSE, warning=FALSE}
 data_summary <- function(data, varname, groupnames){ 
@@ -178,8 +184,6 @@ ggplot(df2, aes(x=DrugDose, y=Delta, group=Exercise, color=Exercise)) +
   labs(y = "Δ Glucose (mg/dL)",
        title = "Mean change in glucose by drug doseage") 
 
-
-
 ggplot(df2, aes(x=Exercise, y=Delta, group=DrugDose, color=DrugDose)) + 
     geom_line() +
     geom_point()+
@@ -191,16 +195,6 @@ ggplot(df2, aes(x=Exercise, y=Delta, group=DrugDose, color=DrugDose)) +
 
 remove.packages('plyr')
 ```
-
-
-If we plot exercise on the x-axis, the same patterns show up differently.
-
-As we saw earlier with the boxplots, mean glucose increased with increasing exercise. For the 0 and 15 minute/day exercise groups, increasing drug dosage led to decreasing mean glucose levels. For the 30 and 60 minute/day exercise groups, increasing drug dosage did not decrease mean glucose levels appreciably, with one exception. At 5 mg/kg dosage, the 60 minute/day exercise group saw a strong decrease in mean blood glucose.  
-
-This second interaction plot shows wide variation in mean glucose changes within the 0 min/day exercise group, showing that an increase in drug dosage decreased
-mean glucose. For the 60 min/day exercise group, mean glucose change was nearly
-equal with the exception of the 5 mg/kg drug dosage group. At 5 mg/kg dosage, 
-the 60 minute/day exercise group saw a strong decrease in mean blood glucose. At a drug dose of 20 mg/kg, increasing exercise led to increased mean glucose.   
 
 If lines were parallel we could assume no interaction between drug and exercise. 
 Since they are not  parallel we should assume interaction between exercise and 
@@ -233,33 +227,21 @@ on
 `r anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[2, 1]`
 and 
 `r anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[4, 1]`
-degrees of freedom for exercise and residuals respectively. The p-value is high 
-at
-`r round(anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[2, 5], 3)`
-and so exercise is not significant. Finally, we move up to the row containing
+degrees of freedom for exercise and residuals respectively. The p-value is very
+low and so exercise is significant. Finally, we move up to the row containing
 `DrugDose` to find an F value of 
 `r round(anova(lm(Delta ~ DrugDose*Exercise, data = drugExercise))[1, 4], 2)`
 and a very low p-value again. Drug dose averaged over exercise is significant.  
-
-A summary of the linear model reiterates the observations we see in the plots
-and ANOVA.
-
-```{r summary_lm}
-summary(lm(Delta ~ DrugDose*Exercise, 
-           data = drugExercise))
-```
-
-`DrugDose20` is significant, as are the interactions between 20 mg/kg dosage and
-30 and 60 min/day exercise groups.  
 
 The partitioning of treatments sums of squares into main effect (average) and 
 interaction sums of squares is a result of the crossed factorial structure
 (orthogonality) of the two factors. The complete combinations of these two
 factors provides clean partitioning between main effects and interactions. This
 is not to say that designs that don't have full combinations of factors can't be
-analyzed to estimate main effects and interactions. They can be using 
+analyzed to estimate main effects and interactions. They can be analyzed with 
 generalized linear models.  
-The development of efficient and informative multifactor designs that cleanly
+
+The development of efficient and informative multifactorial designs that cleanly
 separate main effects from interactions is one of the most important
 contributions of statistical experimental design.
 
