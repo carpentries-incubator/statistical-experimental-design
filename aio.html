@@ -544,7 +544,7 @@ participant’s characteristics? Why or why not?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The research question asked whether exercise, specifically
 high-intensity exercise, would affect healthspan and lifespan of elderly
@@ -608,7 +608,7 @@ room are fed regular chow.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>The individual animal is the experimental unit.</p></li>
@@ -689,7 +689,7 @@ patients.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>1 and 2 describe nonblind data collection reporting increased
 treatment effects. Inflated effect sizes are a common problem with
@@ -1332,7 +1332,7 @@ outliers if an equal number of men were added to the histogram?</p>
   Solution to Exercise 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>1). Mean and median are two measures of the center of the data. The
 median is the 50th% of the data with half the women above this value and
@@ -1410,7 +1410,7 @@ do the data deliver in this histogram?</p>
   Solution to Exercise 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 
 </div>
@@ -1445,7 +1445,7 @@ boxplot?</p>
   Solution to Exercise 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 
 </div>
@@ -1497,7 +1497,7 @@ say with certainty that a person belongs to one group or the other?</li>
   Solution to Exercise 4
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>There appears to be a trend of lower heart rate in the
@@ -1737,7 +1737,7 @@ the significance of the difference in mean values?</p>
   Solution to Exercise 5
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1895,7 +1895,7 @@ it was drawn?</li>
   Solution to Exercise 6
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 
 </div>
@@ -2063,7 +2063,7 @@ p-value.</li>
   Solution to Exercise 7
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 
 </div>
@@ -3134,10 +3134,11 @@ the largest values in the entire data set. With only 5 mice per group,
 it is difficult to obtain enough precision to capture the true value of
 mean glucose change.</p>
 <p>Boxplots with exercise on the x-axis show similar patterns for
-combinations of exercise. Greater variability for some exercise groups
-is apparent. The 0 min/day exercise group has the greatest within-group
-variability across all drug doses. The 60 min/day exercise group has the
-least within-group variability across all drug doses.</p>
+combinations of exercise and drug dose. Greater variability for some
+exercise groups is apparent. The 0 min/day exercise group has the
+greatest within-group variability across all drug doses. The 60 min/day
+exercise group has the least within-group variability across all drug
+doses.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3168,20 +3169,149 @@ dose levels. The variation among the 3 exercise levels would be captured
 similarly, with 2 degrees of freedom. That leaves 8 - 4 = 4 degrees of
 freedom left over. What variability do these remaining 4 degrees of
 freedom contain? The answer is interaction - the interaction between
-drug doses and exercise durations. Mean changes in glucose for each of
-the 9 treatments is given in the table below.</p>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in htmlTable_add_header_above(kable_input, header, bold, italic, : The new header row you provided has a total of 5 columns but the original kable_input has 18.</code></pre>
+drug doses and exercise durations.</p>
+<table class="table">
+<caption>
+Mean change in glucose by group
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="9">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="9">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Drug Dose
 </div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+meanChange_0_0
+</th>
+<th style="text-align:right;">
+meanChange_0_10
+</th>
+<th style="text-align:right;">
+meanChange_0_20
+</th>
+<th style="text-align:right;">
+meanChange_30_0
+</th>
+<th style="text-align:right;">
+meanChange_30_10
+</th>
+<th style="text-align:right;">
+meanChange_30_20
+</th>
+<th style="text-align:right;">
+meanChange_60_0
+</th>
+<th style="text-align:right;">
+meanChange_60_10
+</th>
+<th style="text-align:right;">
+meanChange_60_20
+</th>
+<th style="text-align:right;">
+stDev_0_0
+</th>
+<th style="text-align:right;">
+stDev_0_10
+</th>
+<th style="text-align:right;">
+stDev_0_20
+</th>
+<th style="text-align:right;">
+stDev_30_0
+</th>
+<th style="text-align:right;">
+stDev_30_10
+</th>
+<th style="text-align:right;">
+stDev_30_20
+</th>
+<th style="text-align:right;">
+stDev_60_0
+</th>
+<th style="text-align:right;">
+stDev_60_10
+</th>
+<th style="text-align:right;">
+stDev_60_20
+</th>
+</tr>
+</thead>
+<tbody><tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+-4.7
+</td>
+<td style="text-align:right;">
+-10
+</td>
+<td style="text-align:right;">
+-0.5
+</td>
+<td style="text-align:right;">
+-2.6
+</td>
+<td style="text-align:right;">
+-5.4
+</td>
+<td style="text-align:right;">
+-2.8
+</td>
+<td style="text-align:right;">
+-1.5
+</td>
+<td style="text-align:right;">
+-0.3
+</td>
+<td style="text-align:right;">
+0.7015127
+</td>
+<td style="text-align:right;">
+1.12764
+</td>
+<td style="text-align:right;">
+0.8244616
+</td>
+<td style="text-align:right;">
+0.3387521
+</td>
+<td style="text-align:right;">
+1.571383
+</td>
+<td style="text-align:right;">
+0.3045229
+</td>
+<td style="text-align:right;">
+0.6524785
+</td>
+<td style="text-align:right;">
+0.8658425
+</td>
+<td style="text-align:right;">
+0.9050719
+</td>
+</tr></tbody>
+</table>
 <p>We can visualize interactions for all combinations of drug dose and
 exercise duration with an interaction plot that shows mean change in
 glucose levels on the y-axis.</p>
 <p>The interaction plots shows wide variation in mean glucose changes at
-a drug dose of 20 mg/kg, and also at 0 exercise. The vertical bars
-extending above and below each mean value are the standard deviations
-for that group.</p>
+a drug dose of 20 mg/kg, and also at 0 min/day exercise. The vertical
+bars extending above and below each mean value are the standard
+deviations for that group. Notice that the bars for the 10 mg/kg drug
+dose group are the longest, indicating higher variability that we also
+saw in the boxplots. If we plot exercise on the x-axis, the same
+patterns show up differently. At 60 min/day exercise, there is
+considerable overlap between the standard deviation bars in the three
+drug dosage groups. There is not a clear distinction indicating that the
+drug has an effect, although the 0 drug dosage group does appear to
+benefit from more exercise.</p>
 <p><img src="fig/complete-random-design-multitreatment-factors-rendered-interaction_plots-1.png" style="display: block; margin: auto;" class="figure"><img src="fig/complete-random-design-multitreatment-factors-rendered-interaction_plots-2.png" style="display: block; margin: auto;" class="figure"></p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3189,29 +3319,13 @@ for that group.</p>
 <pre class="output" tabindex="0"><code>- Removing package(s) from project library ...
 Removing package 'plyr' ... Done!</code></pre>
 </div>
-<p>If we plot exercise on the x-axis, the same patterns show up
-differently.</p>
-<p>As we saw earlier with the boxplots, mean glucose increased with
-increasing exercise. For the 0 and 15 minute/day exercise groups,
-increasing drug dosage led to decreasing mean glucose levels. For the 30
-and 60 minute/day exercise groups, increasing drug dosage did not
-decrease mean glucose levels appreciably, with one exception. At 5 mg/kg
-dosage, the 60 minute/day exercise group saw a strong decrease in mean
-blood glucose.</p>
-<p>This second interaction plot shows wide variation in mean glucose
-changes within the 0 min/day exercise group, showing that an increase in
-drug dosage decreased mean glucose. For the 60 min/day exercise group,
-mean glucose change was nearly equal with the exception of the 5 mg/kg
-drug dosage group. At 5 mg/kg dosage, the 60 minute/day exercise group
-saw a strong decrease in mean blood glucose. At a drug dose of 20 mg/kg,
-increasing exercise led to increased mean glucose.</p>
 <p>If lines were parallel we could assume no interaction between drug
 and exercise. Since they are not parallel we should assume interaction
 between exercise and drug dose. The F-test from an ANOVA will tell us
 whether this apparent interaction is real or random, specifically
 whether it is more pronounced than would be expected due to random
 variation.</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -3244,60 +3358,20 @@ interaction plots.</p>
 <p>If we move up a row in the table to <code>Exercise</code>, the F test
 compares the mean changes across drug dose groups. The
 <code>F value</code> for exercise is 55.35 on 2 and 36 degrees of
-freedom for exercise and residuals respectively. The p-value is high at
-0 and so exercise is not significant. Finally, we move up to the row
+freedom for exercise and residuals respectively. The p-value is very low
+and so exercise is significant. Finally, we move up to the row
 containing <code>DrugDose</code> to find an F value of 81.05 and a very
 low p-value again. Drug dose averaged over exercise is significant.</p>
-<p>A summary of the linear model reiterates the observations we see in
-the plots and ANOVA.</p>
-<div class="codewrapper sourceCode" id="cb13">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">summary</span><span class="op">(</span><span class="fu">lm</span><span class="op">(</span><span class="va">Delta</span> <span class="op">~</span> <span class="va">DrugDose</span><span class="op">*</span><span class="va">Exercise</span>, </span>
-<span>           data <span class="op">=</span> <span class="va">drugExercise</span><span class="op">)</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>
-Call:
-lm(formula = Delta ~ DrugDose * Exercise, data = drugExercise)
-
-Residuals:
-     Min       1Q   Median       3Q      Max
--2.70282 -0.32734  0.07042  0.44838  1.76615
-
-Coefficients:
-                      Estimate Std. Error t value Pr(&gt;|t|)
-(Intercept)           -0.01975    0.39762  -0.050   0.9607
-DrugDose10            -4.72607    0.56233  -8.405 5.20e-10 ***
-DrugDose20            -9.97549    0.56233 -17.740  &lt; 2e-16 ***
-Exercise30            -0.52262    0.56233  -0.929   0.3589
-Exercise60            -2.77026    0.56233  -4.926 1.88e-05 ***
-DrugDose10:Exercise30  2.62200    0.79525   3.297   0.0022 **
-DrugDose20:Exercise30  5.11979    0.79525   6.438 1.81e-07 ***
-DrugDose10:Exercise60  6.04992    0.79525   7.608 5.33e-09 ***
-DrugDose20:Exercise60 12.43128    0.79525  15.632  &lt; 2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.8891 on 36 degrees of freedom
-Multiple R-squared:  0.9352,	Adjusted R-squared:  0.9208
-F-statistic: 64.98 on 8 and 36 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-<p><code>DrugDose20</code> is significant, as are the interactions
-between 20 mg/kg dosage and 30 and 60 min/day exercise groups.</p>
 <p>The partitioning of treatments sums of squares into main effect
 (average) and interaction sums of squares is a result of the crossed
 factorial structure (orthogonality) of the two factors. The complete
 combinations of these two factors provides clean partitioning between
 main effects and interactions. This is not to say that designs that
 don’t have full combinations of factors can’t be analyzed to estimate
-main effects and interactions. They can be using generalized linear
-models.<br>
-The development of efficient and informative multifactor designs that
-cleanly separate main effects from interactions is one of the most
+main effects and interactions. They can be analyzed with generalized
+linear models.</p>
+<p>The development of efficient and informative multifactorial designs
+that cleanly separate main effects from interactions is one of the most
 important contributions of statistical experimental design.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
