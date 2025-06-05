@@ -72,7 +72,7 @@ Summarize by mean change in glucose levels (`Delta`) and standard deviation.
 ```{r summary_table, message=FALSE}
 meansSD <- drugExercise %>%
   group_by(Exercise, DrugDose) %>%
-  summarise(meanChange = round(mean(Delta), 1),
+  summarise(meanChange = round(mean(Delta), 2),
             stDev = sd(Delta))
 meansSD
 ```
@@ -137,14 +137,6 @@ The variation among the 3 exercise levels would be captured similarly, with 2
 degrees of freedom. That leaves 8 - 4 = 4 degrees of freedom left over. What 
 variability do these remaining 4 degrees of freedom contain? The answer is
 interaction - the interaction between drug doses and exercise durations. 
-
-```{r means_table, echo=FALSE, message=FALSE}
-knitr::kable(pivot_wider(meansSD, 
-                         names_from = c(Exercise, DrugDose), 
-                         values_from = c(meanChange, stDev)),
-             caption = "Mean change in glucose by group") %>% 
-  add_header_above(c(" " = 9, "Drug Dose" = 9))
-```
 
 We can visualize interactions for all combinations of drug dose and exercise 
 duration with an interaction plot that shows mean change in glucose levels on 
