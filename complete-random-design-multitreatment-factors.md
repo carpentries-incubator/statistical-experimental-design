@@ -90,7 +90,7 @@ Summarize by mean change in glucose levels (`Delta`) and standard deviation.
 ``` r
 meansSD <- drugExercise %>%
   group_by(Exercise, DrugDose) %>%
-  summarise(meanChange = round(mean(Delta), 1),
+  summarise(meanChange = round(mean(Delta), 2),
             stDev = sd(Delta))
 meansSD
 ```
@@ -100,15 +100,15 @@ meansSD
 # Groups:   Exercise [3]
   Exercise DrugDose meanChange stDev
   <fct>    <fct>         <dbl> <dbl>
-1 0        0               0   0.702
-2 0        10             -4.7 1.13 
-3 0        20            -10   0.824
-4 30       0              -0.5 0.339
-5 30       10             -2.6 1.57 
-6 30       20             -5.4 0.305
-7 60       0              -2.8 0.652
-8 60       10             -1.5 0.866
-9 60       20             -0.3 0.905
+1 0        0             -0.02 0.702
+2 0        10            -4.75 1.13 
+3 0        20           -10    0.824
+4 30       0             -0.54 0.339
+5 30       10            -2.65 1.57 
+6 30       20            -5.4  0.305
+7 60       0             -2.79 0.652
+8 60       10            -1.47 0.866
+9 60       20            -0.33 0.905
 ```
 
 The table shows that the drug alone lowered glucose in the mice in the 0 min/day
@@ -177,58 +177,6 @@ The variation among the 3 exercise levels would be captured similarly, with 2
 degrees of freedom. That leaves 8 - 4 = 4 degrees of freedom left over. What 
 variability do these remaining 4 degrees of freedom contain? The answer is
 interaction - the interaction between drug doses and exercise durations. 
-
-<table>
-<caption>Mean change in glucose by group</caption>
- <thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="9"></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="9"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Drug Dose</div></th>
-</tr>
-  <tr>
-   <th style="text-align:right;"> meanChange_0_0 </th>
-   <th style="text-align:right;"> meanChange_0_10 </th>
-   <th style="text-align:right;"> meanChange_0_20 </th>
-   <th style="text-align:right;"> meanChange_30_0 </th>
-   <th style="text-align:right;"> meanChange_30_10 </th>
-   <th style="text-align:right;"> meanChange_30_20 </th>
-   <th style="text-align:right;"> meanChange_60_0 </th>
-   <th style="text-align:right;"> meanChange_60_10 </th>
-   <th style="text-align:right;"> meanChange_60_20 </th>
-   <th style="text-align:right;"> stDev_0_0 </th>
-   <th style="text-align:right;"> stDev_0_10 </th>
-   <th style="text-align:right;"> stDev_0_20 </th>
-   <th style="text-align:right;"> stDev_30_0 </th>
-   <th style="text-align:right;"> stDev_30_10 </th>
-   <th style="text-align:right;"> stDev_30_20 </th>
-   <th style="text-align:right;"> stDev_60_0 </th>
-   <th style="text-align:right;"> stDev_60_10 </th>
-   <th style="text-align:right;"> stDev_60_20 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> -4.7 </td>
-   <td style="text-align:right;"> -10 </td>
-   <td style="text-align:right;"> -0.5 </td>
-   <td style="text-align:right;"> -2.6 </td>
-   <td style="text-align:right;"> -5.4 </td>
-   <td style="text-align:right;"> -2.8 </td>
-   <td style="text-align:right;"> -1.5 </td>
-   <td style="text-align:right;"> -0.3 </td>
-   <td style="text-align:right;"> 0.7015127 </td>
-   <td style="text-align:right;"> 1.12764 </td>
-   <td style="text-align:right;"> 0.8244616 </td>
-   <td style="text-align:right;"> 0.3387521 </td>
-   <td style="text-align:right;"> 1.571383 </td>
-   <td style="text-align:right;"> 0.3045229 </td>
-   <td style="text-align:right;"> 0.6524785 </td>
-   <td style="text-align:right;"> 0.8658425 </td>
-   <td style="text-align:right;"> 0.9050719 </td>
-  </tr>
-</tbody>
-</table>
 
 We can visualize interactions for all combinations of drug dose and exercise 
 duration with an interaction plot that shows mean change in glucose levels on 
