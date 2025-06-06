@@ -60,7 +60,7 @@ blood glucose level (mg/dL) was measured at the start and after 4 weeks of
 treatment.
 Load the data. 
 
-```{r load_data}
+```{r load_data, message=FALSE}
 drugExercise <- read_csv("data/drugExercise.csv")
 drugExercise$DrugDose <- as_factor(drugExercise$DrugDose)
 drugExercise$Exercise <- as_factor(drugExercise$Exercise)
@@ -72,7 +72,7 @@ Summarize by mean change in glucose levels (`Delta`) and standard deviation.
 ```{r summary_table, message=FALSE}
 meansSD <- drugExercise %>%
   group_by(Exercise, DrugDose) %>%
-  summarise(meanChange = round(mean(Delta), 2),
+  summarise(meanChange = round(mean(Delta), 3),
             stDev = sd(Delta))
 meansSD
 ```
@@ -86,7 +86,7 @@ Boxplots show that exercise alone appears to lower glucose in the mice that were
 not given the drug. The greatest glucose changes are with a drug dose of 20 
 mg/kg for 2 of the 3 exercise groups - 0 and 30 minutes of exercise per day. At 
 60 minutes of exercise a day combined with 20 mg/kg drug dose, change in glucose 
-levels are zero and don't seem to have much effect. 
+levels are near zero and don't seem to have much effect. 
 
 ```{r boxplots_drugX}
 ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
@@ -188,6 +188,16 @@ ggplot(df2, aes(x=Exercise, y=Delta, group=DrugDose, color=DrugDose)) +
 remove.packages('plyr')
 ```
 
+```{r test_meansSDinteractionplot}
+ggplot(meansSD, aes(x=DrugDose, y=meanChange, group=Exercise, color=Exercise)) + 
+    geom_line() +
+    geom_point() +
+    geom_errorbar(aes(ymin=meanChange-stDev, ymax=meanChange+stDev), width=.2,
+                  position=position_dodge(0.05), alpha=.5) +
+  labs(y = "Δ Glucose (mg/dL)",
+       title = "Mean change in glucose by drug doseage") 
+
+```
 If lines were parallel we could assume no interaction between drug and exercise. 
 Since they are not  parallel we should assume interaction between exercise and 
 drug dose. The F-test from an ANOVA will tell us whether this apparent 
