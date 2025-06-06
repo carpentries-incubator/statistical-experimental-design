@@ -54,19 +54,6 @@ Load the data.
 
 ``` r
 drugExercise <- read_csv("data/drugExercise.csv")
-```
-
-``` output
-Rows: 45 Columns: 5
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-dbl (5): DrugDose, Exercise, Baseline, Delta, Post
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
-
-``` r
 drugExercise$DrugDose <- as_factor(drugExercise$DrugDose)
 drugExercise$Exercise <- as_factor(drugExercise$Exercise)
 head(drugExercise)
@@ -90,7 +77,7 @@ Summarize by mean change in glucose levels (`Delta`) and standard deviation.
 ``` r
 meansSD <- drugExercise %>%
   group_by(Exercise, DrugDose) %>%
-  summarise(meanChange = round(mean(Delta), 2),
+  summarise(meanChange = round(mean(Delta), 3),
             stDev = sd(Delta))
 meansSD
 ```
@@ -100,15 +87,15 @@ meansSD
 # Groups:   Exercise [3]
   Exercise DrugDose meanChange stDev
   <fct>    <fct>         <dbl> <dbl>
-1 0        0             -0.02 0.702
-2 0        10            -4.75 1.13 
-3 0        20           -10    0.824
-4 30       0             -0.54 0.339
-5 30       10            -2.65 1.57 
-6 30       20            -5.4  0.305
-7 60       0             -2.79 0.652
-8 60       10            -1.47 0.866
-9 60       20            -0.33 0.905
+1 0        0            -0.02  0.702
+2 0        10           -4.75  1.13 
+3 0        20           -9.99  0.824
+4 30       0            -0.542 0.339
+5 30       10           -2.65  1.57 
+6 30       20           -5.40  0.305
+7 60       0            -2.79  0.652
+8 60       10           -1.47  0.866
+9 60       20           -0.334 0.905
 ```
 
 The table shows that the drug alone lowered glucose in the mice in the 0 min/day
@@ -120,7 +107,7 @@ Boxplots show that exercise alone appears to lower glucose in the mice that were
 not given the drug. The greatest glucose changes are with a drug dose of 20 
 mg/kg for 2 of the 3 exercise groups - 0 and 30 minutes of exercise per day. At 
 60 minutes of exercise a day combined with 20 mg/kg drug dose, change in glucose 
-levels are zero and don't seem to have much effect. 
+levels are near zero and don't seem to have much effect. 
 
 
 ``` r
@@ -200,6 +187,18 @@ from more exercise.
 Removing package 'plyr' ... Done!
 ```
 
+
+``` r
+ggplot(meansSD, aes(x=DrugDose, y=meanChange, group=Exercise, color=Exercise)) + 
+    geom_line() +
+    geom_point() +
+    geom_errorbar(aes(ymin=meanChange-stDev, ymax=meanChange+stDev), width=.2,
+                  position=position_dodge(0.05), alpha=.5) +
+  labs(y = "Δ Glucose (mg/dL)",
+       title = "Mean change in glucose by drug doseage") 
+```
+
+<img src="fig/complete-random-design-multitreatment-factors-rendered-test_meansSDinteractionplot-1.png" style="display: block; margin: auto;" />
 If lines were parallel we could assume no interaction between drug and exercise. 
 Since they are not  parallel we should assume interaction between exercise and 
 drug dose. The F-test from an ANOVA will tell us whether this apparent 
