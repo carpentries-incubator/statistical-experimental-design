@@ -271,7 +271,6 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#design-issues">Design issues</a></li>
-<li><a href="#randomized-block-design-with-a-single-replication">Randomized block design with a single replication</a></li>
 <li><a href="#sizing-a-randomized-block-experiment">Sizing a randomized block experiment</a></li>
 <li><a href="#true-replication">True replication</a></li>
 <li><a href="#balanced-incomplete-block-designs">Balanced incomplete block designs</a></li>
@@ -385,54 +384,7 @@ experimental units within the block.</li>
 </div>
 </div>
 </div>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">g100meansSD</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">sex</span>, <span class="va">exercise_group</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">summarise</span><span class="op">(</span>meanChange <span class="op">=</span> <span class="fu">round</span><span class="op">(</span><span class="fu">mean</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>,</span>
-<span>            stDev <span class="op">=</span> <span class="fu">sd</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'sex'. You can override using the `.groups`
-argument.</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">g100meansSD</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code># A tibble: 6 × 4
-# Groups:   sex [2]
-  sex   exercise_group     meanChange stDev
-  &lt;chr&gt; &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt;
-1 F     control                  63.0  5.71
-2 F     high intensity           63.2  4.95
-3 F     moderate intensity       73.8  4.80
-4 M     control                  65.8  5.10
-5 M     high intensity           60.3  5.05
-6 M     moderate intensity       70.3  4.73</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">g100meansSD</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">exercise_group</span>, y<span class="op">=</span><span class="va">meanChange</span>, group<span class="op">=</span><span class="va">sex</span>, color<span class="op">=</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>    <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">geom_errorbar</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>ymin<span class="op">=</span><span class="va">meanChange</span><span class="op">-</span><span class="va">stDev</span>, ymax<span class="op">=</span><span class="va">meanChange</span><span class="op">+</span><span class="va">stDev</span><span class="op">)</span>, width<span class="op">=</span><span class="fl">.2</span>,</span>
-<span>                  position<span class="op">=</span><span class="fu">position_dodge</span><span class="op">(</span><span class="fl">0.05</span><span class="op">)</span>, alpha<span class="op">=</span><span class="fl">.5</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Heart rate"</span>,</span>
-<span>       title <span class="op">=</span> <span class="st">"Mean change in heart rate by exercise group and sex"</span><span class="op">)</span> </span></code></pre>
-</div>
-<figure><img src="../fig/complete-random-block-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Blocking of experimental units, as presented in an earlier episode on
+<p>Blocking of experimental units, as presented in an earlier episode on
 <a href="https://carpentries-incubator.github.io/statistical-experimental-design/design-principles.html#controlling-natural-variation-with-blocking" class="external-link">Experimental
 Design Principles</a>, can be critical for successful and valuable
 experiments. Blocking increases precision in treatment comparisons
@@ -453,14 +405,118 @@ response. Shelf height and resulting differences in illumination is one
 example of a nuisance variable. Age and sex are characteristics of
 experimental units that can influence the treatment response. Blocking
 by age and/or sex is a best practice in experimental design.</p>
-<!-- In an earlier episode on  -->
-<!-- [Completely Randomized Designs](https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html), -->
-<!-- we presented the Generation 100 Study of 3 exercise treatments on men and  -->
-<!-- women from 70 to 77 years of age. In the actual study, participants were  -->
-<!-- stratified (blocked) by sex and cohabitation status (living with someone vs. -->
-<!-- living alone) to form 4 blocks. The three treatment levels (control, moderate- -->
-<!-- and high-intensity exercise) were randomly assigned within each block. As such, -->
-<!-- we would **analyze** the experiment **as designed** in blocks. -->
+<p>In an earlier episode on <a href="https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html" class="external-link">Completely
+Randomized Designs</a>, we presented the Generation 100 Study of 3
+exercise treatments on men and women from 70 to 77 years of age. In the
+actual study, participants were stratified (blocked) by sex and
+cohabitation status (living with someone vs. living alone) to form 4
+blocks. The three treatment levels (control, moderate- and
+high-intensity exercise) were randomly assigned within each block. As
+such, we would <strong>analyze</strong> the experiment <strong>as
+designed</strong> in blocks. Let’s revisit these data with blocking by
+sex in mind. Read in the data again if needed.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">heart_rate</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"data/simulated_heart_rates.csv"</span><span class="op">)</span></span></code></pre>
+</div>
+<p>View the heart rate data separated by sex.</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">heart_rate</span> <span class="op">%&gt;%</span> <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">exercise_group</span>, <span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">facet_grid</span><span class="op">(</span>rows <span class="op">=</span> <span class="fu">vars</span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="../fig/complete-random-block-rendered-boxplot_grid-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>What patterns do you see? Does there appear to be a difference in
+heart rates between sexes? between exercise groups? between sexes and
+exercise groups?</p>
+<p>Let’s extract the means and standard deviates for exercise groups by
+sex.</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">g100meansSD</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">sex</span>, <span class="va">exercise_group</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">summarise</span><span class="op">(</span>meanChange <span class="op">=</span> <span class="fu">round</span><span class="op">(</span><span class="fu">mean</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>            stDev <span class="op">=</span> <span class="fu">sd</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">g100meansSD</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code># A tibble: 6 × 4
+# Groups:   sex [2]
+  sex   exercise_group     meanChange stDev
+  &lt;chr&gt; &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt;
+1 F     control                  63.0  5.71
+2 F     high intensity           63.2  4.95
+3 F     moderate intensity       73.8  4.80
+4 M     control                  65.8  5.10
+5 M     high intensity           60.3  5.05
+6 M     moderate intensity       70.3  4.73</code></pre>
+</div>
+<p>Use these summary statistics in an interaction plot to determine if
+there is an interaction between exercise (treatment) and sex
+(block).</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">g100meansSD</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">exercise_group</span>, y<span class="op">=</span><span class="va">meanChange</span>, group<span class="op">=</span><span class="va">sex</span>, color<span class="op">=</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_errorbar</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>ymin<span class="op">=</span><span class="va">meanChange</span><span class="op">-</span><span class="va">stDev</span>, ymax<span class="op">=</span><span class="va">meanChange</span><span class="op">+</span><span class="va">stDev</span><span class="op">)</span>, width<span class="op">=</span><span class="fl">.2</span>,</span>
+<span>                  position<span class="op">=</span><span class="fu">position_dodge</span><span class="op">(</span><span class="fl">0.05</span><span class="op">)</span>, alpha<span class="op">=</span><span class="fl">.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Heart rate"</span>,</span>
+<span>       title <span class="op">=</span> <span class="st">"Mean change in heart rate by exercise group and sex"</span><span class="op">)</span> </span></code></pre>
+</div>
+<figure><img src="../fig/complete-random-block-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>It appears that there is an interaction between exercise and sex
+given that the lines cross over one another. The effect of exercise is
+different depending on sex. The F-test from an ANOVA will tell us
+whether this apparent interaction is real or random, specifically
+whether it is more pronounced than would be expected due to random
+variation.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">anova</span><span class="op">(</span><span class="fu">lm</span><span class="op">(</span><span class="va">heart_rate</span> <span class="op">~</span> <span class="va">exercise_group</span><span class="op">*</span><span class="va">sex</span>, data <span class="op">=</span> <span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Analysis of Variance Table
+
+Response: heart_rate
+                     Df Sum Sq Mean Sq F value    Pr(&gt;F)
+exercise_group        2  30292 15145.9 589.790 &lt; 2.2e-16 ***
+sex                   1    529   529.4  20.616 6.045e-06 ***
+exercise_group:sex    2   3182  1590.8  61.945 &lt; 2.2e-16 ***
+Residuals          1561  40087    25.7
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<p>As before, we read the ANOVA table from the bottom up starting with
+the interaction <code>exercise_group:sex</code>. Since the interaction
+is significant, you should not compare sexes across exercise groups
+because the exercise effects are not the same across sexes. They are
+different for each sex.</p>
+<p>The ANOVA table looks similar to the previous example involving drug
+dose and exercise in mice. There is an important distinction between the
+two ANOVA tables, however. In the drug dose and exercise ANOVA table,
+the interaction was between two treatments - drug dose and exercise. In
+this ANOVA table, the interaction is between <strong>block</strong> and
+<strong>treatment</strong>. The block, sex, is not a treatment. It’s a
+characteristic of the experimental units. In the drug dose experiment,
+the experimental units (mice) are homogeneous and the treatments were
+randomized to the experimental units once only in a completely
+randomized design. In this case, the experimental units are
+heterogeneous and a separate randomization of treatments was applied to
+each block of experimental units. This is a randomized block design.</p>
 <!-- Imagine that you want to evaluate the effect of different doses of a new drug on the proliferation of cancer cell lines in vitro. You use -->
 <!-- four different cancer cell lines because you would like the results to -->
 <!-- generalize to many types of cell lines. Divide each of the cell lines into four -->
@@ -484,11 +540,9 @@ by age and/or sex is a best practice in experimental design.</p>
 <!-- plan <- data.frame(cellLine = block, DishNumber = dishnum, treatment = treatment) -->
 <!-- plan -->
 <!-- ``` -->
-<p>When analyzing a random complete block design, the effect of the
-block is included in the equation along with the effect of the
-treatment.</p>
-</section><section><h2 class="section-heading" id="randomized-block-design-with-a-single-replication">Randomized block design with a single replication<a class="anchor" aria-label="anchor" href="#randomized-block-design-with-a-single-replication"></a></h2>
-<hr class="half-width"></section><section><h2 class="section-heading" id="sizing-a-randomized-block-experiment">Sizing a randomized block experiment<a class="anchor" aria-label="anchor" href="#sizing-a-randomized-block-experiment"></a></h2>
+<!-- When analyzing a random complete block design, the effect of the block is -->
+<!-- included in the equation along with the effect of the treatment. -->
+</section><section><h2 class="section-heading" id="sizing-a-randomized-block-experiment">Sizing a randomized block experiment<a class="anchor" aria-label="anchor" href="#sizing-a-randomized-block-experiment"></a></h2>
 <hr class="half-width"></section><section><h2 class="section-heading" id="true-replication">True replication<a class="anchor" aria-label="anchor" href="#true-replication"></a></h2>
 <hr class="half-width"></section><section><h2 class="section-heading" id="balanced-incomplete-block-designs">Balanced incomplete block designs<a class="anchor" aria-label="anchor" href="#balanced-incomplete-block-designs"></a></h2>
 <hr class="half-width"><div id="keypoints1" class="callout keypoints">
