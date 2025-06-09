@@ -23,6 +23,26 @@ library(tidyverse)
 heart_rate <- read_csv("data/simulated_heart_rates.csv")
 ```
 
+
+```{r}
+g100meansSD <- heart_rate %>%
+  group_by(sex, exercise_group) %>%
+  summarise(meanChange = round(mean(heart_rate), 3),
+            stDev = sd(heart_rate))
+g100meansSD
+```
+
+```{4}
+ggplot(g100meansSD, aes(x=exercise_group, y=meanChange, group=sex, color=sex)) + 
+    geom_line() +
+    geom_point() +
+    geom_errorbar(aes(ymin=meanChange-stDev, ymax=meanChange+stDev), width=.2,
+                  position=position_dodge(0.05), alpha=.5) +
+  labs(y = "Heart rate",
+       title = "Mean change in heart rate by exercise group and sex") 
+
+```
+
 Blocking of experimental units, as presented in an earlier episode on 
 [Experimental Design Principles](https://carpentries-incubator.github.io/statistical-experimental-design/design-principles.html#controlling-natural-variation-with-blocking),
 can be critical for successful and valuable experiments. Blocking increases
