@@ -153,42 +153,7 @@ the three drug dosage groups. There is not a clear distinction indicating that
 the drug has an effect, although the 0 drug dosage group does appear to benefit
 from more exercise.
 
-```{r interaction_plots, echo=FALSE, message=FALSE, warning=FALSE}
-data_summary <- function(data, varname, groupnames){ 
-  require(plyr)
-  summary_func <- function(x, col){
-    c(mean = mean(x[[col]], na.rm=TRUE),
-      sd = sd(x[[col]], na.rm=TRUE))
-    }
-  data_sum<-ddply(data, groupnames, .fun=summary_func, varname)
-  data_sum <- rename(data_sum, c("mean" = varname))
-  return(data_sum)
-  }
-
-df2 <- data_summary(drugExercise, varname="Delta", 
-                    groupnames=c("DrugDose", "Exercise"))
-
-ggplot(df2, aes(x=DrugDose, y=Delta, group=Exercise, color=Exercise)) + 
-    geom_line() +
-    geom_point() +
-    geom_errorbar(aes(ymin=Delta-sd, ymax=Delta+sd), width=.2,
-                  position=position_dodge(0.05), alpha=.5) +
-  labs(y = "Δ Glucose (mg/dL)",
-       title = "Mean change in glucose by drug doseage") 
-
-ggplot(df2, aes(x=Exercise, y=Delta, group=DrugDose, color=DrugDose)) + 
-    geom_line() +
-    geom_point()+
-    geom_errorbar(aes(ymin=Delta-sd, ymax=Delta+sd), width=.2,
-                  position=position_dodge(0.05), alpha=.5) +
-  labs(y = "Δ Glucose (mg/dL)",
-       title = "Mean change in glucose by exercise group") +
-  scale_color_brewer(palette = "Dark2") # use a different color palette
-
-remove.packages('plyr')
-```
-
-```{r test_meansSDinteractionplot}
+```{r meansSDinteractionplot}
 ggplot(meansSD, aes(x=DrugDose, y=meanChange, group=Exercise, color=Exercise)) + 
     geom_line() +
     geom_point() +
@@ -196,8 +161,16 @@ ggplot(meansSD, aes(x=DrugDose, y=meanChange, group=Exercise, color=Exercise)) +
                   position=position_dodge(0.05), alpha=.5) +
   labs(y = "Δ Glucose (mg/dL)",
        title = "Mean change in glucose by drug doseage") 
-
+       
+ggplot(meansSD, aes(x=Exercise, y=meanChange, group=DrugDose, color=DrugDose)) + 
+    geom_line() +
+    geom_point() +
+    geom_errorbar(aes(ymin=meanChange-stDev, ymax=meanChange+stDev), width=.2,
+                  position=position_dodge(0.05), alpha=.5) +
+  labs(y = "Δ Glucose (mg/dL)",
+       title = "Mean change in glucose by exercise") 
 ```
+
 If lines were parallel we could assume no interaction between drug and exercise. 
 Since they are not  parallel we should assume interaction between exercise and 
 drug dose. The F-test from an ANOVA will tell us whether this apparent 
