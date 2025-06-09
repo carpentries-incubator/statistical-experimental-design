@@ -137,8 +137,8 @@ Analysis of Variance Table
 
 Response: heart_rate
                  Df Sum Sq Mean Sq F value    Pr(>F)    
-exercise_group    2  26993 13496.6  478.69 < 2.2e-16 ***
-Residuals      1564  44097    28.2                      
+exercise_group    2  30292   15146  540.85 < 2.2e-16 ***
+Residuals      1564  43798      28                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -146,12 +146,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 The output tells us that there are two terms in the model we provided: exercise 
 group plus some experimental error (residuals). The Sum of Squares (`Sum Sq`) 
 for the treatment (`exercise_group`) subtracts the overall mean for all groups
-(66.7) from each individual observation,
+(66.3) from each individual observation,
 squares the difference so that only positive numbers result, then sums all of 
 the squared differences together and multiplies the result by the number of
 observations in each group (391.75). 
 In the boxplots below, imagine drawing a vertical line from the overall mean
-(66.7) to an individual data point in the
+(66.3) to an individual data point in the
 control group. Square this line by adding sides of the same length to create a
 box. Calculate the area of the box (the length of the line squared). Repeat this
 for all data points in the group, then sum up the areas of all 
@@ -167,9 +167,9 @@ groups. Think of degrees of freedom as the number of values that are free to
 vary. Or, if you know two of the exercise groups, the identity of the third is 
 revealed. The mean squares values for the treatment (`Mean Sq`) divides the
 sum of squares by the degrees of freedom
-(2.6993\times 10^{4} / 
+(3.0292\times 10^{4} / 
 2 = 
-1.349664\times 10^{4}). 
+1.514586\times 10^{4}). 
 The treatment mean square is a measure of the variance among the treatment 
 groups, which is shown horizontally in the boxplots as upward or downward shift 
 of the treatment groups relative to one another.
@@ -182,7 +182,7 @@ The sum of squares for the residuals subtracts the group mean, not the overall
 mean, from each data point in that group, squares the difference, sums all of
 the squares for that group, then sums all of the squares for all groups. The
 total sum of squares for the errors 
-(4.4097\times 10^{4})
+(4.3798\times 10^{4})
 is divided by the residual degrees of freedom
 (1564) to
 produce the error mean square. Error mean square is an estimate of variance
@@ -191,9 +191,9 @@ its whiskers.
 
 The `F value`, or F statistic, equals the treatment mean square divided by the
 error mean square, or among-group variation divided by within-group variation
-(1.3497\times 10^{4} /
+(1.5146\times 10^{4} /
 28 = 
-478.692).
+540.855).
 
 `F value` = among-group variance / within-group variance
 
@@ -297,15 +297,13 @@ come from a normal distribution.
 shapiro.test(heart_rate$heart_rate)
 ```
 
-In this case the p-value of the test is greater than the alpha level of 0.05,
-so it fails to reject the null hypothesis. This suggests that the samples come 
-from a normal distribution.
-
-One-way ANOVA is also robust against violations of the normality assumption as 
-long as sample sizes are quite large. With very large sample sizes statistical 
-tests like the Shapiro-Wilk test will almost always report that your data are 
-not normally distributed. Visuals like histograms and Q-Q plots should clarify 
-this. 
+In this case the p-value of the test is less than the alpha level of 0.05,
+suggesting that the samples do not come from a normal distribution. With very 
+large sample sizes statistical tests like the Shapiro-Wilk test will almost 
+always report that your data are not normally distributed. Visuals like 
+histograms and Q-Q plots should clarify this. However, one-way ANOVA is robust 
+against violations of the normality assumption as long as sample sizes are quite 
+large. 
 
 If data are not normally distributed, or if you just want to be cautious, you 
 can:
@@ -335,9 +333,9 @@ heart_rate %>%
 # A tibble: 3 × 2
   exercise_group      mean
   <chr>              <dbl>
-1 control             71.3
-2 high intensity      61.3
-3 moderate intensity  67.6
+1 control             64.4
+2 high intensity      61.7
+3 moderate intensity  72.1
 ```
 
 To generalize these results to the entire population of Norwegian elders, we can 
@@ -347,10 +345,10 @@ confidence interval, however, we can do better by "borrowing strength" from
 all groups. We know that the underlying variation in the groups is the same for
 all three groups, so we can estimate the common standard deviation. ANOVA has
 already done this for us by supplying error mean square 
-(28.2)
+(28)
 as the pooled estimate of the variance. The standard deviation is the square 
 root of this value 
-(5.31).
+(5.29).
 The fact that we "borrowed strength" by including all groups is reflected in the
 degrees of freedom, which is 
 1564 for the 
@@ -366,10 +364,10 @@ confint(lm(heart_rate ~ exercise_group, data = heart_rate))
 ```
 
 ``` output
-                                      2.5 %    97.5 %
-(Intercept)                       70.864364 71.764944
-exercise_grouphigh intensity     -10.611944 -9.335332
-exercise_groupmoderate intensity  -4.389109 -3.094736
+                                     2.5 %    97.5 %
+(Intercept)                      63.952917 64.850436
+exercise_grouphigh intensity     -3.337310 -2.032887
+exercise_groupmoderate intensity  7.025102  8.285138
 ```
 
 The results provide us with the 95% confidence interval for the mean in the 
@@ -377,13 +375,13 @@ control group (`Intercept`), meaning that 95% of confidence intervals generated
 will contain the true mean value. Confidence intervals for the high- and
 moderate-intensity groups are given as values to be added to the intercept 
 values. The 95% confidence interval for the high-intensity group is from 
-60.3
+60.6
 to 
-62.4.
+62.8.
 The 95% confidence interval for the moderate-intensity group is from 
-66.5
+71
 to 
-68.7.
+73.1.
 
 ## Inference
 Inference about the underlying difference in means between exercise groups 
@@ -412,16 +410,16 @@ lm(formula = heart_rate ~ exercise_group, data = heart_rate)
 
 Coefficients:
                      (Intercept)      exercise_grouphigh intensity  
-                          71.315                            -9.974  
+                          64.402                            -2.685  
 exercise_groupmoderate intensity  
-                          -3.742  
+                           7.655  
 ```
 This effectively states that mean heart rate is 
-71.3
+64.4
 less 
--3.74 for 
+7.66 for 
 the moderate-intensity group or
--9.97
+-2.69
 for the high-intensity group. We can use this same linear model to predict 
 mean heart rate for a new group of participants.
 
@@ -438,11 +436,11 @@ predict(model,
 
 ``` output
        fit      lwr      upr
-1 71.31465 60.88969 81.73961
+1 64.40168 54.01213 74.79122
 ```
 
 Notice that in both the confidence interval and prediction interval, the predicted value for mean heart rate in controls is the same - 
-71.3.
+64.4.
 However, the prediction interval is much wider than the confidence interval. The 
 confidence interval defines a range of values likely to contain the true average 
 heart rate for the control group. The prediction interval defines the expected 
@@ -471,9 +469,9 @@ lm(formula = heart_rate ~ exercise_group, data = heart_rate)
 
 Coefficients:
                      (Intercept)      exercise_grouphigh intensity  
-                          71.315                            -9.974  
+                          64.402                            -2.685  
 exercise_groupmoderate intensity  
-                          -3.742  
+                           7.655  
 ```
 
 We know that the study
@@ -495,30 +493,30 @@ lm(formula = heart_rate ~ exercise_group + sex, data = heart_rate)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--17.2957  -3.3482  -0.0052   3.4017  15.2333 
+-16.9545  -3.5128  -0.0767   3.6192  16.0855 
 
 Coefficients:
                                  Estimate Std. Error t value Pr(>|t|)    
-(Intercept)                       72.7498     0.2544  286.01   <2e-16 ***
-exercise_grouphigh intensity      -9.8772     0.3130  -31.56   <2e-16 ***
-exercise_groupmoderate intensity  -3.7877     0.3173  -11.94   <2e-16 ***
-sexM                              -2.9305     0.2582  -11.35   <2e-16 ***
+(Intercept)                       64.9732     0.2623 247.665  < 2e-16 ***
+exercise_grouphigh intensity      -2.6693     0.3306  -8.074 1.35e-15 ***
+exercise_groupmoderate intensity   7.6554     0.3194  23.972  < 2e-16 ***
+sexM                              -1.1626     0.2659  -4.373 1.31e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 5.105 on 1563 degrees of freedom
-Multiple R-squared:  0.4269,	Adjusted R-squared:  0.4258 
-F-statistic: 388.2 on 3 and 1563 DF,  p-value: < 2.2e-16
+Residual standard error: 5.261 on 1563 degrees of freedom
+Multiple R-squared:  0.416,	Adjusted R-squared:  0.4149 
+F-statistic: 371.1 on 3 and 1563 DF,  p-value: < 2.2e-16
 ```
 The linear model including sex states that average heart rate for the control
 group is 
-72.7
+65
 less 
--3.79 
+7.66 
 for the moderate-intensity group or
--9.88
+-2.67
 for the high-intensity group. Males have heart rates that are
--2.93
+-1.16
 from mean control heart rate. The p-values (`Pr(>|t|)`) are near zero for all
 of the estimates (model coefficients). Exercise group and sex clearly impact 
 heart rate. What about age?
@@ -534,28 +532,28 @@ Call:
 lm(formula = heart_rate ~ exercise_group + sex + age, data = heart_rate)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--17.312  -3.346  -0.014   3.431  15.254 
+     Min       1Q   Median       3Q      Max 
+-16.7929  -3.5666  -0.0819   3.5795  16.1553 
 
 Coefficients:
                                  Estimate Std. Error t value Pr(>|t|)    
-(Intercept)                      77.71948    9.28405   8.371   <2e-16 ***
-exercise_grouphigh intensity     -9.87664    0.31307 -31.548   <2e-16 ***
-exercise_groupmoderate intensity -3.78928    0.31735 -11.940   <2e-16 ***
-sexM                             -2.93497    0.25835 -11.360   <2e-16 ***
-age                              -0.06823    0.12742  -0.535    0.592    
+(Intercept)                       77.3078     9.5055   8.133 8.45e-16 ***
+exercise_grouphigh intensity      -2.6771     0.3306  -8.098 1.12e-15 ***
+exercise_groupmoderate intensity   7.6434     0.3194  23.929  < 2e-16 ***
+sexM                              -1.1709     0.2659  -4.404 1.14e-05 ***
+age                               -0.1693     0.1304  -1.298    0.194    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 5.106 on 1562 degrees of freedom
-Multiple R-squared:  0.4271,	Adjusted R-squared:  0.4256 
-F-statistic: 291.1 on 4 and 1562 DF,  p-value: < 2.2e-16
+Residual standard error: 5.26 on 1562 degrees of freedom
+Multiple R-squared:  0.4166,	Adjusted R-squared:  0.4151 
+F-statistic: 278.9 on 4 and 1562 DF,  p-value: < 2.2e-16
 ```
 We can add age into the linear model to determine whether or not it impacts
 heart rate. The estimated coefficient for age is small 
-(-0.07)
+(-0.17)
 and has a high p-value 
-(0.59).
+(0.19).
 Age is not significant, which is not surprising since all participants were 
 between the ages of 70 and 77. The linear model that best fits the data includes
 only exercise group and sex.
@@ -594,9 +592,9 @@ power.t.test(delta = delta[[1]], sd = sd(heart_rate$heart_rate),
 
      Two-sample t test power calculation 
 
-              n = 51.87186
-          delta = 3.741922
-             sd = 6.737647
+              n = 13.70367
+          delta = 7.65512
+             sd = 6.878311
       sig.level = 0.05
           power = 0.8
     alternative = two.sided
@@ -605,7 +603,7 @@ NOTE: n is number in *each* group
 ```
 To obtain an effect size as large as the observed effect size between control
 and moderate-intensity exercise groups, you would need 
-52
+14
 participants per group to obtain 80% statistical power.
 
 Would you expect to need more or fewer participants per group to investigate

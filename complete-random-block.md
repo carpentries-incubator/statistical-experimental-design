@@ -20,50 +20,6 @@ source: Rmd
 
 
 
-
-
-``` r
-g100meansSD <- heart_rate %>%
-  group_by(sex, exercise_group) %>%
-  summarise(meanChange = round(mean(heart_rate), 3),
-            stDev = sd(heart_rate))
-```
-
-``` output
-`summarise()` has grouped output by 'sex'. You can override using the `.groups`
-argument.
-```
-
-``` r
-g100meansSD
-```
-
-``` output
-# A tibble: 6 × 4
-# Groups:   sex [2]
-  sex   exercise_group     meanChange stDev
-  <chr> <chr>                   <dbl> <dbl>
-1 F     control                  63.0  5.71
-2 F     high intensity           63.2  4.95
-3 F     moderate intensity       73.8  4.80
-4 M     control                  65.8  5.10
-5 M     high intensity           60.3  5.05
-6 M     moderate intensity       70.3  4.73
-```
-
-
-``` r
-ggplot(g100meansSD, aes(x=exercise_group, y=meanChange, group=sex, color=sex)) + 
-    geom_line() +
-    geom_point() +
-    geom_errorbar(aes(ymin=meanChange-stDev, ymax=meanChange+stDev), width=.2,
-                  position=position_dodge(0.05), alpha=.5) +
-  labs(y = "Heart rate",
-       title = "Mean change in heart rate by exercise group and sex") 
-```
-
-<img src="fig/complete-random-block-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
-
 Blocking of experimental units, as presented in an earlier episode on 
 [Experimental Design Principles](https://carpentries-incubator.github.io/statistical-experimental-design/design-principles.html#controlling-natural-variation-with-blocking),
 can be critical for successful and valuable experiments. Blocking increases
@@ -85,23 +41,115 @@ in illumination is one example of a nuisance variable. Age and sex are
 characteristics of experimental units that can influence the treatment response.
 Blocking by age and/or sex is a best practice in experimental design.
 
-<!-- In an earlier episode on  -->
-<!-- [Completely Randomized Designs](https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html), -->
-<!-- we presented the Generation 100 Study of 3 exercise treatments on men and  -->
-<!-- women from 70 to 77 years of age. In the actual study, participants were  -->
-<!-- stratified (blocked) by sex and cohabitation status (living with someone vs. -->
-<!-- living alone) to form 4 blocks. The three treatment levels (control, moderate- -->
-<!-- and high-intensity exercise) were randomly assigned within each block. As such, -->
-<!-- we would **analyze** the experiment **as designed** in blocks. -->
+In an earlier episode on
+[Completely Randomized Designs](https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html),
+we presented the Generation 100 Study of 3 exercise treatments on men and
+women from 70 to 77 years of age. In the actual study, participants were
+stratified (blocked) by sex and cohabitation status (living with someone vs.
+living alone) to form 4 blocks. The three treatment levels (control, moderate-
+and high-intensity exercise) were randomly assigned within each block. As such,
+we would **analyze** the experiment **as designed** in blocks. Let's revisit
+these data with blocking by sex in mind. Read in the data again if needed.
 
 
+``` r
+heart_rate <- read_csv("data/simulated_heart_rates.csv")
+```
+
+View the heart rate data separated by sex.
 
 
+``` r
+heart_rate %>% ggplot(aes(exercise_group, heart_rate)) + 
+  geom_boxplot() + 
+  facet_grid(rows = vars(sex))
+```
+
+<img src="fig/complete-random-block-rendered-boxplot_grid-1.png" style="display: block; margin: auto;" />
+
+What patterns do you see?
+Does there appear to be a difference in heart rates between sexes? between
+exercise groups? between sexes and exercise groups?
+
+Let's extract the means and standard deviates for exercise groups by sex.
 
 
+``` r
+g100meansSD <- heart_rate %>%
+  group_by(sex, exercise_group) %>%
+  summarise(meanChange = round(mean(heart_rate), 3),
+            stDev = sd(heart_rate))
+g100meansSD
+```
+
+``` output
+# A tibble: 6 × 4
+# Groups:   sex [2]
+  sex   exercise_group     meanChange stDev
+  <chr> <chr>                   <dbl> <dbl>
+1 F     control                  63.0  5.71
+2 F     high intensity           63.2  4.95
+3 F     moderate intensity       73.8  4.80
+4 M     control                  65.8  5.10
+5 M     high intensity           60.3  5.05
+6 M     moderate intensity       70.3  4.73
+```
+
+Use these summary statistics in an interaction plot to determine if there is an
+interaction between exercise (treatment) and sex (block).
 
 
+``` r
+ggplot(g100meansSD, aes(x=exercise_group, y=meanChange, group=sex, color=sex)) + 
+    geom_line() +
+    geom_point() +
+    geom_errorbar(aes(ymin=meanChange-stDev, ymax=meanChange+stDev), width=.2,
+                  position=position_dodge(0.05), alpha=.5) +
+  labs(y = "Heart rate",
+       title = "Mean change in heart rate by exercise group and sex") 
+```
 
+<img src="fig/complete-random-block-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
+
+It appears that there is an interaction between exercise and sex given that the
+lines cross over one another. The effect of exercise is different depending on
+sex. The F-test from an ANOVA will tell us whether this apparent interaction is 
+real or random, specifically whether it is more pronounced than would be 
+expected due to random variation.
+
+
+``` r
+anova(lm(heart_rate ~ exercise_group*sex, data = heart_rate))
+```
+
+``` output
+Analysis of Variance Table
+
+Response: heart_rate
+                     Df Sum Sq Mean Sq F value    Pr(>F)    
+exercise_group        2  30292 15145.9 589.790 < 2.2e-16 ***
+sex                   1    529   529.4  20.616 6.045e-06 ***
+exercise_group:sex    2   3182  1590.8  61.945 < 2.2e-16 ***
+Residuals          1561  40087    25.7                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+As before, we read the ANOVA table from the bottom up starting with the 
+interaction `exercise_group:sex`. Since the interaction is significant, you 
+should not compare sexes across exercise groups because the exercise effects are 
+not the same across sexes. They are different for each sex.
+
+The ANOVA table looks similar to the previous example involving drug dose and 
+exercise in mice. There is an important distinction between the two ANOVA 
+tables, however. In the drug dose and exercise ANOVA table, the interaction was 
+between two treatments - drug dose and exercise. In this ANOVA table, the 
+interaction is between **block** and **treatment**. The block, sex, is not a 
+treatment. It's a characteristic of the experimental units. In the drug dose 
+experiment, the experimental units (mice) are homogeneous and the treatments 
+were randomized to the experimental units once only in a completely randomized 
+design. In this case, the experimental units are heterogeneous and a separate 
+randomization of treatments was applied to each block of experimental units. 
+This is a randomized block design.
 
 
 
@@ -134,10 +182,8 @@ Blocking by age and/or sex is a best practice in experimental design.
 <!-- plan -->
 <!-- ``` -->
 
-When analyzing a random complete block design, the effect of the block is
-included in the equation along with the effect of the treatment.
-
-## Randomized block design with a single replication
+<!-- When analyzing a random complete block design, the effect of the block is -->
+<!-- included in the equation along with the effect of the treatment. -->
 
 ## Sizing a randomized block experiment
 
