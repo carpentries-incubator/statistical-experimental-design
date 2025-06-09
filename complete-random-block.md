@@ -43,16 +43,16 @@ g100meansSD
 # Groups:   sex [2]
   sex   exercise_group     meanChange stDev
   <chr> <chr>                   <dbl> <dbl>
-1 F     control                  72.8  5.38
-2 F     high intensity           62.7  5.10
-3 F     moderate intensity       69.0  5.05
-4 M     control                  69.8  5.35
-5 M     high intensity           60.1  5.08
-6 M     moderate intensity       65.9  4.60
+1 F     control                  63.0  5.71
+2 F     high intensity           63.2  4.95
+3 F     moderate intensity       73.8  4.80
+4 M     control                  65.8  5.10
+5 M     high intensity           60.3  5.05
+6 M     moderate intensity       70.3  4.73
 ```
 
 
-``` 4
+``` r
 ggplot(g100meansSD, aes(x=exercise_group, y=meanChange, group=sex, color=sex)) + 
     geom_line() +
     geom_point() +
@@ -60,8 +60,9 @@ ggplot(g100meansSD, aes(x=exercise_group, y=meanChange, group=sex, color=sex)) +
                   position=position_dodge(0.05), alpha=.5) +
   labs(y = "Heart rate",
        title = "Mean change in heart rate by exercise group and sex") 
-
 ```
+
+<img src="fig/complete-random-block-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
 
 Blocking of experimental units, as presented in an earlier episode on 
 [Experimental Design Principles](https://carpentries-incubator.github.io/statistical-experimental-design/design-principles.html#controlling-natural-variation-with-blocking),
