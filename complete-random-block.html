@@ -348,7 +348,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Randomized Complete Block Designs</h1>
-        <p>Last updated on 2025-06-03 |
+        <p>Last updated on 2025-06-09 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-block.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -383,56 +383,58 @@ experimental units within the block.</li>
 </div>
 </div>
 </div>
+<p>Blocking of experimental units, as presented in an earlier episode on
+<a href="https://carpentries-incubator.github.io/statistical-experimental-design/design-principles.html#controlling-natural-variation-with-blocking" class="external-link">Experimental
+Design Principles</a>, can be critical for successful and valuable
+experiments. Blocking increases precision in treatment comparisons
+relative to an unblocked experiment with the same experimental units. A
+randomized block design can be thought of as a set of separate
+completely randomized designs for comparing the same treatments. Each
+member of the set is a block, and within this block, each of the
+treatments is randomly assigned. We can assess treatment differences
+within each block and determine whether treatment differences are
+consistent from block to block. In other words, we can determine whether
+there is an interaction block and treatment.</p>
 <section><h2 class="section-heading" id="design-issues">Design issues<a class="anchor" aria-label="anchor" href="#design-issues"></a></h2>
-<hr class="half-width"><p>Imagine that you want to evaluate the effect of different doses of a
-new drug on the proliferation of cancer cell lines in vitro. You use
-four different cancer cell lines because you would like the results to
-generalize to many types of cell lines. Divide each of the cell lines
-into four treatment groups, each with the same number of cells. Each
-treatment group receives a different dose of the drug for five
-consecutive days.</p>
-<p>Group 1: Control (no drug)<br>
-Group 2: Low dose (10 μM) Group 3: Medium dose (50 μM) Group 4: High
-dose (100 μM)</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># create treatment levels</span></span>
-<span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu">factor</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"control"</span>, <span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># create random orderings of the treatment levels</span></span>
-<span><span class="va">block1</span> <span class="op">&lt;-</span> <span class="fu">sample</span><span class="op">(</span><span class="va">f</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">block2</span> <span class="op">&lt;-</span> <span class="fu">sample</span><span class="op">(</span><span class="va">f</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">block3</span> <span class="op">&lt;-</span> <span class="fu">sample</span><span class="op">(</span><span class="va">f</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">block4</span> <span class="op">&lt;-</span> <span class="fu">sample</span><span class="op">(</span><span class="va">f</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">treatment</span> <span class="op">&lt;-</span> <span class="fu">c</span><span class="op">(</span><span class="va">block1</span>, <span class="va">block2</span>, <span class="va">block3</span>, <span class="va">block4</span><span class="op">)</span></span>
-<span><span class="va">block</span> <span class="op">&lt;-</span> <span class="fu">factor</span><span class="op">(</span><span class="fu">rep</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"cellLine1"</span>, <span class="st">"cellLine2"</span>, <span class="st">"cellLine3"</span>, <span class="st">"cellLine4"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">dishnum</span> <span class="op">&lt;-</span> <span class="fu">rep</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">plan</span> <span class="op">&lt;-</span> <span class="fu">data.frame</span><span class="op">(</span>cellLine <span class="op">=</span> <span class="va">block</span>, DishNumber <span class="op">=</span> <span class="va">dishnum</span>, treatment <span class="op">=</span> <span class="va">treatment</span><span class="op">)</span></span>
-<span><span class="va">plan</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>    cellLine DishNumber treatment
-1  cellLine1          1      high
-2  cellLine1          2    medium
-3  cellLine1          3   control
-4  cellLine1          4       low
-5  cellLine2          1      high
-6  cellLine2          2   control
-7  cellLine2          3       low
-8  cellLine2          4    medium
-9  cellLine3          1    medium
-10 cellLine3          2      high
-11 cellLine3          3   control
-12 cellLine3          4       low
-13 cellLine4          1       low
-14 cellLine4          2   control
-15 cellLine4          3      high
-16 cellLine4          4    medium</code></pre>
-</div>
+<hr class="half-width"><p>The first issue to consider in this case is whether or not to block
+the experiment. Blocks serve to control natural variation among
+experimental units, and randomization within blocks accounts for
+“nuisance” variables or traits that are likely associated with the
+response. Shelf height and resulting differences in illumination is one
+example of a nuisance variable. Age and sex are characteristics of
+experimental units that can influence the treatment response. Blocking
+by age and/or sex is a best practice in experimental design.</p>
+<!-- In an earlier episode on  -->
+<!-- [Completely Randomized Designs](https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html), -->
+<!-- we presented the Generation 100 Study of 3 exercise treatments on men and  -->
+<!-- women from 70 to 77 years of age. In the actual study, participants were  -->
+<!-- stratified (blocked) by sex and cohabitation status (living with someone vs. -->
+<!-- living alone) to form 4 blocks. The three treatment levels (control, moderate- -->
+<!-- and high-intensity exercise) were randomly assigned within each block. As such, -->
+<!-- we would **analyze** the experiment **as designed** in blocks. -->
+<!-- Imagine that you want to evaluate the effect of different doses of a new drug on the proliferation of cancer cell lines in vitro. You use -->
+<!-- four different cancer cell lines because you would like the results to -->
+<!-- generalize to many types of cell lines. Divide each of the cell lines into four -->
+<!-- treatment groups, each with the same number of cells. Each treatment group -->
+<!-- receives a different dose of the drug for five consecutive days. -->
+<!-- Group 1: Control (no drug)   -->
+<!-- Group 2: Low dose (10 μM) -->
+<!-- Group 3: Medium dose (50 μM) -->
+<!-- Group 4: High dose (100 μM) -->
+<!-- ```{r} -->
+<!-- # create treatment levels -->
+<!-- f <- factor(c("control", "low", "medium", "high")) -->
+<!-- # create random orderings of the treatment levels -->
+<!-- block1 <- sample(f, 4) -->
+<!-- block2 <- sample(f, 4) -->
+<!-- block3 <- sample(f, 4) -->
+<!-- block4 <- sample(f, 4) -->
+<!-- treatment <- c(block1, block2, block3, block4) -->
+<!-- block <- factor(rep(c("cellLine1", "cellLine2", "cellLine3", "cellLine4"), each = 4)) -->
+<!-- dishnum <- rep(1:4, 4) -->
+<!-- plan <- data.frame(cellLine = block, DishNumber = dishnum, treatment = treatment) -->
+<!-- plan -->
+<!-- ``` -->
 <p>When analyzing a random complete block design, the effect of the
 block is included in the equation along with the effect of the
 treatment.</p>
@@ -510,8 +512,8 @@ usefulness of an experiment.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-block.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-block.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-06-03",
-  "datePublished": "2025-06-06"
+  "dateModified": "2025-06-09",
+  "datePublished": "2025-06-09"
 }
 
   </script><script>
