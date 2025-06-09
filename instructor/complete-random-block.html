@@ -385,6 +385,52 @@ experimental units within the block.</li>
 </div>
 </div>
 </div>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">g100meansSD</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">sex</span>, <span class="va">exercise_group</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">summarise</span><span class="op">(</span>meanChange <span class="op">=</span> <span class="fu">round</span><span class="op">(</span><span class="fu">mean</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>            stDev <span class="op">=</span> <span class="fu">sd</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>`summarise()` has grouped output by 'sex'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">g100meansSD</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code># A tibble: 6 × 4
+# Groups:   sex [2]
+  sex   exercise_group     meanChange stDev
+  &lt;chr&gt; &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt;
+1 F     control                  72.8  5.38
+2 F     high intensity           62.7  5.10
+3 F     moderate intensity       69.0  5.05
+4 M     control                  69.8  5.35
+5 M     high intensity           60.1  5.08
+6 M     moderate intensity       65.9  4.60</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">4<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode 4" tabindex="0"><code class="sourceCode mandoc"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>ggplot(g100meansSD, aes(x=exercise_group, y=meanChange, group=sex, color=sex)) + </span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>    geom_line() +</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>    geom_point() +</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>    geom_errorbar(aes(ymin=meanChange-stDev, ymax=meanChange+stDev), width=.2,</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>                  position=position_dodge(0.05), alpha=.5) +</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  labs(y = <span class="st">"Heart rate"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>       title = <span class="st">"Mean change in heart rate by exercise group and sex"</span>) </span></code></pre>
+</div>
 <p>Blocking of experimental units, as presented in an earlier episode on
 <a href="https://carpentries-incubator.github.io/statistical-experimental-design/design-principles.html#controlling-natural-variation-with-blocking" class="external-link">Experimental
 Design Principles</a>, can be critical for successful and valuable
