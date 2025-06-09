@@ -14,7 +14,7 @@ heart_rate <- heart_rate %>%
                                         sd = 5.1),
                                 sex == "M" & exercise_group == "moderate intensity" ~ 
                                   rnorm(n = dim(heart_rate)[1], mean = 70, 
-                                        sd = 4.9),
+                                        sd = 4.8),
                                 sex == "M" & exercise_group == "control" ~  
                                   rnorm(n = dim(heart_rate)[1], mean = 66, 
                                         sd = 5.2), 
@@ -25,7 +25,7 @@ heart_rate <- heart_rate %>%
                                   rnorm(dim(heart_rate)[1], mean = 73, 
                                         sd = 4.9), 
                                 sex == "F" & exercise_group == "control" ~ 
-                                  rnorm(dim(heart_rate)[1], mean = 62, 
-                                        sd = 5.2)))
+                                  rnorm(dim(heart_rate)[1], mean = 63, 
+                                        sd = 5.3)))
 
 write_csv(heart_rate, file = "data/simulated_heart_rates.csv")

@@ -32,7 +32,7 @@ g100meansSD <- heart_rate %>%
 g100meansSD
 ```
 
-```{4}
+```{r}
 ggplot(g100meansSD, aes(x=exercise_group, y=meanChange, group=sex, color=sex)) + 
     geom_line() +
     geom_point() +
