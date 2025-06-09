@@ -305,15 +305,13 @@ come from a normal distribution.
 shapiro.test(heart_rate$heart_rate)
 ```
 
-In this case the p-value of the test is greater than the alpha level of 0.05,
-so it fails to reject the null hypothesis. This suggests that the samples come 
-from a normal distribution.
-
-One-way ANOVA is also robust against violations of the normality assumption as 
-long as sample sizes are quite large. With very large sample sizes statistical 
-tests like the Shapiro-Wilk test will almost always report that your data are 
-not normally distributed. Visuals like histograms and Q-Q plots should clarify 
-this. 
+In this case the p-value of the test is less than the alpha level of 0.05,
+suggesting that the samples do not come from a normal distribution. With very 
+large sample sizes statistical tests like the Shapiro-Wilk test will almost 
+always report that your data are not normally distributed. Visuals like 
+histograms and Q-Q plots should clarify this. However, one-way ANOVA is robust 
+against violations of the normality assumption as long as sample sizes are quite 
+large. 
 
 If data are not normally distributed, or if you just want to be cautious, you 
 can:
