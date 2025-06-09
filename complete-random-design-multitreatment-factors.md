@@ -180,13 +180,6 @@ the three drug dosage groups. There is not a clear distinction indicating that
 the drug has an effect, although the 0 drug dosage group does appear to benefit
 from more exercise.
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-interaction_plots-1.png" style="display: block; margin: auto;" /><img src="fig/complete-random-design-multitreatment-factors-rendered-interaction_plots-2.png" style="display: block; margin: auto;" />
-
-``` output
-- Removing package(s) from project library ...
-Removing package 'plyr' ... Done!
-```
-
 
 ``` r
 ggplot(meansSD, aes(x=DrugDose, y=meanChange, group=Exercise, color=Exercise)) + 
@@ -198,7 +191,20 @@ ggplot(meansSD, aes(x=DrugDose, y=meanChange, group=Exercise, color=Exercise)) +
        title = "Mean change in glucose by drug doseage") 
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-test_meansSDinteractionplot-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplot-1.png" style="display: block; margin: auto;" />
+
+``` r
+ggplot(meansSD, aes(x=Exercise, y=meanChange, group=DrugDose, color=DrugDose)) + 
+    geom_line() +
+    geom_point() +
+    geom_errorbar(aes(ymin=meanChange-stDev, ymax=meanChange+stDev), width=.2,
+                  position=position_dodge(0.05), alpha=.5) +
+  labs(y = "Δ Glucose (mg/dL)",
+       title = "Mean change in glucose by exercise") 
+```
+
+<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplot-2.png" style="display: block; margin: auto;" />
+
 If lines were parallel we could assume no interaction between drug and exercise. 
 Since they are not  parallel we should assume interaction between exercise and 
 drug dose. The F-test from an ANOVA will tell us whether this apparent 
