@@ -147,7 +147,7 @@ The output tells us that there are two terms in the model we provided: exercise
 group plus some experimental error (residuals). 
 
 <table>
-<caption>Table example</caption>
+<caption>ANOVA Table for Completely Randomized Design with One Treatment Factor with k levels and n Observations per Treatment</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> source.of.variation </th>
@@ -160,25 +160,25 @@ group plus some experimental error (residuals).
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;font-weight: bold;"> treatments </td>
-   <td style="text-align:left;"> $k - 1$ </td>
-   <td style="text-align:left;width: 14cm; "> $n\sum(\bar{y_i} - \bar{y_.})^2$ </td>
+   <td style="text-align:left;"> treatments </td>
+   <td style="text-align:left;width: 5cm; "> $k - 1$ </td>
+   <td style="text-align:left;width: 7cm; "> $n\sum(\bar{y_i} - \bar{y_.})^2$ </td>
    <td style="text-align:left;"> TMS </td>
    <td style="text-align:left;"> TMS/EMS </td>
    <td style="text-align:left;"> prob(&gt;F) </td>
   </tr>
   <tr>
-   <td style="text-align:left;font-weight: bold;"> error </td>
-   <td style="text-align:left;"> $k(n - 1)$ </td>
-   <td style="text-align:left;width: 14cm; "> $\sum\sum({y_{ij}} - \bar{y_i})^2$ </td>
+   <td style="text-align:left;"> error </td>
+   <td style="text-align:left;width: 5cm; "> $k(n - 1)$ </td>
+   <td style="text-align:left;width: 7cm; "> $\sum\sum({y_{ij}} - \bar{y_i})^2$ </td>
    <td style="text-align:left;"> EMS </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;font-weight: bold;"> total </td>
-   <td style="text-align:left;"> $nk - 1$ </td>
-   <td style="text-align:left;width: 14cm; "> $\sum\sum({y_{ij}} - \bar{y_.})^2$ </td>
+   <td style="text-align:left;"> total </td>
+   <td style="text-align:left;width: 5cm; "> $nk - 1$ </td>
+   <td style="text-align:left;width: 7cm; "> $\sum\sum({y_{ij}} - \bar{y_.})^2$ </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
    <td style="text-align:left;">  </td>
