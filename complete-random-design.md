@@ -146,20 +146,33 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 The output tells us that there are two terms in the model we provided: exercise 
 group plus some experimental error (residuals). 
 
-\begin{table}[!h]
-\centering
-\caption{\label{tab:anova_table}Table example}
-\centering
-\begin{tabular}[t]{>{}ll>{\raggedright\arraybackslash}p{14cm}}
-\toprule
-source & df & SS\\
-\midrule
-\textbf{treatments} & $k - 1$ & $n\sum(\bar{y_i} - \bar{y_.})^2$\\
-\textbf{error} & $k(n - 1)$ & $\sum\sum({y_{ij}} - \bar{y_i})^2$\\
-\textbf{total} & $nk - 1$ & $\sum\sum({y_{ij}} - \bar{y_.})^2$\\
-\bottomrule
-\end{tabular}
-\end{table}
+<table>
+<caption>Table example</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> source </th>
+   <th style="text-align:left;"> df </th>
+   <th style="text-align:left;"> SS </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> treatments </td>
+   <td style="text-align:left;"> $k - 1$ </td>
+   <td style="text-align:left;width: 14cm; "> $n\sum(\bar{y_i} - \bar{y_.})^2$ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> error </td>
+   <td style="text-align:left;"> $k(n - 1)$ </td>
+   <td style="text-align:left;width: 14cm; "> $\sum\sum({y_{ij}} - \bar{y_i})^2$ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> total </td>
+   <td style="text-align:left;"> $nk - 1$ </td>
+   <td style="text-align:left;width: 14cm; "> $\sum\sum({y_{ij}} - \bar{y_.})^2$ </td>
+  </tr>
+</tbody>
+</table>
 
 
 
