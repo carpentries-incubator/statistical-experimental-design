@@ -548,7 +548,7 @@ participant’s characteristics? Why or why not?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The research question asked whether exercise, specifically
 high-intensity exercise, would affect healthspan and lifespan of elderly
@@ -612,7 +612,7 @@ room are fed regular chow.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>The individual animal is the experimental unit.</p></li>
@@ -693,7 +693,7 @@ patients.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>1 and 2 describe nonblind data collection reporting increased
 treatment effects. Inflated effect sizes are a common problem with
@@ -2398,7 +2398,7 @@ treatment assignments?<br>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How would you randomize the 1,500+ individuals in the study to one
@@ -2502,89 +2502,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>The output tells us that there are two terms in the model we
 provided: exercise group plus some experimental error (residuals).</p>
-<table class="table">
-<caption>
-ANOVA Table for Completely Randomized Design with One Treatment Factor
-with k levels and n Observations per Treatment
-</caption>
-<thead><tr>
-<th style="text-align:left;">
-source.of.variation
-</th>
-<th style="text-align:left;">
-df
-</th>
-<th style="text-align:left;">
-SS
-</th>
-<th style="text-align:left;">
-MS…SS.df
-</th>
-<th style="text-align:left;">
-F
-</th>
-<th style="text-align:left;">
-p.value
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-treatments
-</td>
-<td style="text-align:left;width: 5cm; ">
-<span class="math inline">\(k - 1\)</span>
-</td>
-<td style="text-align:left;width: 7cm; ">
-<span class="math inline">\(n\sum(\bar{y_i} - \bar{y_.})^2\)</span>
-</td>
-<td style="text-align:left;">
-TMS
-</td>
-<td style="text-align:left;">
-TMS/EMS
-</td>
-<td style="text-align:left;">
-prob(&gt;F)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-error
-</td>
-<td style="text-align:left;width: 5cm; ">
-<span class="math inline">\(k(n - 1)\)</span>
-</td>
-<td style="text-align:left;width: 7cm; ">
-<span class="math inline">\(\sum\sum({y_{ij}} - \bar{y_i})^2\)</span>
-</td>
-<td style="text-align:left;">
-EMS
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-total
-</td>
-<td style="text-align:left;width: 5cm; ">
-<span class="math inline">\(nk - 1\)</span>
-</td>
-<td style="text-align:left;width: 7cm; ">
-<span class="math inline">\(\sum\sum({y_{ij}} - \bar{y_.})^2\)</span>
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-</tbody>
-</table>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error: '\s' is an unrecognized escape in character string (&lt;input&gt;:1:32)</code></pre>
+</div>
 <p>The Sum of Squares (<code>Sum Sq</code>) for the treatment
 (<code>exercise_group</code>) subtracts the overall mean for all groups
 (66.3) from each individual observation, squares the difference so that
@@ -2660,7 +2582,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How can you check whether variances are equal?<br>
@@ -2700,14 +2622,14 @@ other and groups randomly assigned?</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> More formal tests of normality and equal variances </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>More formal tests of normality and equal variance include the
 Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
 <p>The Bartlett test of homogeneity of variances tests the null
 hypothesis that the samples have equal variances against the alternative
 that they do not.</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2724,7 +2646,7 @@ between the medians of three or more independent groups.</p>
 <p>The Shapiro-Wilk Normality Test tests the null hypothesis that the
 samples come from a normal distribution against the alternative
 hypothesis that samples don’t come from a normal distribution.</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2756,7 +2678,7 @@ require assumption of normality.</p></li>
 <hr class="half-width">
 <p>The boxplots show that high-intensity exercise results in lower
 average heart rate.</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2790,7 +2712,7 @@ of only one group. This makes the test more powerful because it borrows
 information from all groups. We use the sample standard deviation to
 calculate a 95% confidence interval for mean heart rate in the
 high-intensity group.</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2830,7 +2752,7 @@ worldwide.</p>
 <hr class="half-width">
 <p>To create a confidence interval for the group means we used a linear
 model that states that heart rate is dependent on exercise group.</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2853,7 +2775,7 @@ exercise_groupmoderate intensity
 the moderate-intensity group or -2.69 for the high-intensity group. We
 can use this same linear model to predict mean heart rate for a new
 group of participants.</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2889,7 +2811,7 @@ participant in the control group?</li>
 </ol>
 <p>Notice that for both kinds of intervals we used the same linear model
 that states that heart rate depends on exercise group.</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2914,7 +2836,7 @@ relatively similar, and the designs don’t remove or account for
 systematic differences. We should add sex into the linear model because
 heart rate is likely influenced by sex. We can get more information
 about the linear model with a <code>summary()</code>.</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2950,7 +2872,7 @@ for the high-intensity group. Males have heart rates that are -1.16 from
 mean control heart rate. The p-values (<code>Pr(&gt;|t|)</code>) are
 near zero for all of the estimates (model coefficients). Exercise group
 and sex clearly impact heart rate. What about age?</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2999,7 +2921,7 @@ comparing heart rate between control and moderate-intensity exercise,
 what is the minimum number of people we would need per group in order to
 detect an effect as large as the mean heart rate difference from this
 experiment?</p>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
