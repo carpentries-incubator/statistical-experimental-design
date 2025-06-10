@@ -530,7 +530,46 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>The output tells us that there are two terms in the model we
 provided: exercise group plus some experimental error (residuals).</p>
-<p>The Sum of Squares (<code>Sum Sq</code>) for the treatment
+<table class="table"><caption>
+Table example
+</caption>
+<thead><tr><th style="text-align:left;">
+source
+</th>
+<th style="text-align:left;">
+df
+</th>
+<th style="text-align:left;">
+SS
+</th>
+</tr></thead><tbody><tr><td style="text-align:left;font-weight: bold;">
+treatments
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(k - 1\)</span>
+</td>
+<td style="text-align:left;width: 14cm; ">
+<span class="math inline">\(n\sum(\bar{y_i} - \bar{y_.})^2\)</span>
+</td>
+</tr><tr><td style="text-align:left;font-weight: bold;">
+error
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(k(n - 1)\)</span>
+</td>
+<td style="text-align:left;width: 14cm; ">
+<span class="math inline">\(\sum\sum({y_{ij}} - \bar{y_i})^2\)</span>
+</td>
+</tr><tr><td style="text-align:left;font-weight: bold;">
+total
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(nk - 1\)</span>
+</td>
+<td style="text-align:left;width: 14cm; ">
+<span class="math inline">\(\sum\sum({y_{ij}} - \bar{y_.})^2\)</span>
+</td>
+</tr></tbody></table><p>The Sum of Squares (<code>Sum Sq</code>) for the treatment
 (<code>exercise_group</code>) subtracts the overall mean for all groups
 (66.3) from each individual observation, squares the difference so that
 only positive numbers result, then sums all of the squared differences
