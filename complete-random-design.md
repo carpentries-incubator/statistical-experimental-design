@@ -144,7 +144,17 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 The output tells us that there are two terms in the model we provided: exercise 
-group plus some experimental error (residuals). The Sum of Squares (`Sum Sq`) 
+group plus some experimental error (residuals). 
+
+
+``` error
+Error in column_spec(., 3, width = "14cm"): could not find function "column_spec"
+```
+
+
+
+
+The Sum of Squares (`Sum Sq`) 
 for the treatment (`exercise_group`) subtracts the overall mean for all groups
 (66.3) from each individual observation,
 squares the difference so that only positive numbers result, then sums all of 
