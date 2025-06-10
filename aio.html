@@ -837,7 +837,7 @@ instrument readings, animal behavior, and indoor relative humidity.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Solution to Exercise 1 </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>1). random, because the scale is broken and provides any kind of
 random reading it comes up with (inconsistent reading)<br>
@@ -892,7 +892,7 @@ experimental units there are?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution to Exercise 2 </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>1). One biological sample (not replicated) with five technical
 replicates. The only conclusion to be drawn from the measurements would
@@ -950,7 +950,7 @@ Can you foresee any problems with the experimental results?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Solution to Exercise 3 </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Since each treatment is run on only one day, the day effectively
 becomes the experimental unit (explain this). Each experimental unit
@@ -1117,7 +1117,7 @@ groups?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>1). Scenario: One technician processed samples A through M, and a
 different technician processed samples N through Z. Might the first
@@ -1201,7 +1201,7 @@ experiment.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Solution to Exercise 3 </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1236,7 +1236,7 @@ humidity increased.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Solution to Exercise 4 </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 
 </div>
@@ -2495,11 +2495,6 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>The output tells us that there are two terms in the model we
 provided: exercise group plus some experimental error (residuals).</p>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in column_spec(., 3, width = "14cm"): could not find function "column_spec"</code></pre>
-</div>
 <p>The Sum of Squares (<code>Sum Sq</code>) for the treatment
 (<code>exercise_group</code>) subtracts the overall mean for all groups
 (66.3) from each individual observation, squares the difference so that
@@ -2622,7 +2617,7 @@ Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
 <p>The Bartlett test of homogeneity of variances tests the null
 hypothesis that the samples have equal variances against the alternative
 that they do not.</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2639,7 +2634,7 @@ between the medians of three or more independent groups.</p>
 <p>The Shapiro-Wilk Normality Test tests the null hypothesis that the
 samples come from a normal distribution against the alternative
 hypothesis that samples don’t come from a normal distribution.</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2671,7 +2666,7 @@ require assumption of normality.</p></li>
 <hr class="half-width">
 <p>The boxplots show that high-intensity exercise results in lower
 average heart rate.</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2705,7 +2700,7 @@ of only one group. This makes the test more powerful because it borrows
 information from all groups. We use the sample standard deviation to
 calculate a 95% confidence interval for mean heart rate in the
 high-intensity group.</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2745,7 +2740,7 @@ worldwide.</p>
 <hr class="half-width">
 <p>To create a confidence interval for the group means we used a linear
 model that states that heart rate is dependent on exercise group.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2768,7 +2763,7 @@ exercise_groupmoderate intensity
 the moderate-intensity group or -2.69 for the high-intensity group. We
 can use this same linear model to predict mean heart rate for a new
 group of participants.</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2804,7 +2799,7 @@ participant in the control group?</li>
 </ol>
 <p>Notice that for both kinds of intervals we used the same linear model
 that states that heart rate depends on exercise group.</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2829,7 +2824,7 @@ relatively similar, and the designs don’t remove or account for
 systematic differences. We should add sex into the linear model because
 heart rate is likely influenced by sex. We can get more information
 about the linear model with a <code>summary()</code>.</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2865,7 +2860,7 @@ for the high-intensity group. Males have heart rates that are -1.16 from
 mean control heart rate. The p-values (<code>Pr(&gt;|t|)</code>) are
 near zero for all of the estimates (model coefficients). Exercise group
 and sex clearly impact heart rate. What about age?</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2914,7 +2909,7 @@ comparing heart rate between control and moderate-intensity exercise,
 what is the minimum number of people we would need per group in order to
 detect an effect as large as the mean heart rate difference from this
 experiment?</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
