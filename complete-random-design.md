@@ -146,10 +146,20 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 The output tells us that there are two terms in the model we provided: exercise 
 group plus some experimental error (residuals). 
 
-
-``` error
-Error in column_spec(., 3, width = "14cm"): could not find function "column_spec"
-```
+\begin{table}[!h]
+\centering
+\caption{\label{tab:anova_table}Table example}
+\centering
+\begin{tabular}[t]{>{}ll>{\raggedright\arraybackslash}p{14cm}}
+\toprule
+source & df & SS\\
+\midrule
+\textbf{treatments} & $k - 1$ & $n\sum(\bar{y_i} - \bar{y_.})^2$\\
+\textbf{error} & $k(n - 1)$ & $\sum\sum({y_{ij}} - \bar{y_i})^2$\\
+\textbf{total} & $nk - 1$ & $\sum\sum({y_{ij}} - \bar{y_.})^2$\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 
