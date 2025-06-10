@@ -146,45 +146,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 The output tells us that there are two terms in the model we provided: exercise 
 group plus some experimental error (residuals). 
 
-<table>
-<caption>ANOVA Table for Completely Randomized Design with One Treatment Factor with k levels and n Observations per Treatment</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> source.of.variation </th>
-   <th style="text-align:left;"> df </th>
-   <th style="text-align:left;"> SS </th>
-   <th style="text-align:left;"> MS...SS.df </th>
-   <th style="text-align:left;"> F </th>
-   <th style="text-align:left;"> p.value </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> treatments </td>
-   <td style="text-align:left;width: 5cm; "> $k - 1$ </td>
-   <td style="text-align:left;width: 7cm; "> $n\sum(\bar{y_i} - \bar{y_.})^2$ </td>
-   <td style="text-align:left;"> TMS </td>
-   <td style="text-align:left;"> TMS/EMS </td>
-   <td style="text-align:left;"> prob(&gt;F) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> error </td>
-   <td style="text-align:left;width: 5cm; "> $k(n - 1)$ </td>
-   <td style="text-align:left;width: 7cm; "> $\sum\sum({y_{ij}} - \bar{y_i})^2$ </td>
-   <td style="text-align:left;"> EMS </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> total </td>
-   <td style="text-align:left;width: 5cm; "> $nk - 1$ </td>
-   <td style="text-align:left;width: 7cm; "> $\sum\sum({y_{ij}} - \bar{y_.})^2$ </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-</tbody>
-</table>
+
+``` error
+Error: '\s' is an unrecognized escape in character string (<input>:1:32)
+```
 
 
 
