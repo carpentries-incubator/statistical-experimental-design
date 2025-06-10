@@ -150,9 +150,12 @@ group plus some experimental error (residuals).
 <caption>Table example</caption>
  <thead>
   <tr>
-   <th style="text-align:left;"> source </th>
+   <th style="text-align:left;"> source.of.variation </th>
    <th style="text-align:left;"> df </th>
    <th style="text-align:left;"> SS </th>
+   <th style="text-align:left;"> MS...SS.df </th>
+   <th style="text-align:left;"> F </th>
+   <th style="text-align:left;"> p.value </th>
   </tr>
  </thead>
 <tbody>
@@ -160,16 +163,25 @@ group plus some experimental error (residuals).
    <td style="text-align:left;font-weight: bold;"> treatments </td>
    <td style="text-align:left;"> $k - 1$ </td>
    <td style="text-align:left;width: 14cm; "> $n\sum(\bar{y_i} - \bar{y_.})^2$ </td>
+   <td style="text-align:left;"> TMS </td>
+   <td style="text-align:left;"> TMS/EMS </td>
+   <td style="text-align:left;"> prob(&gt;F) </td>
   </tr>
   <tr>
    <td style="text-align:left;font-weight: bold;"> error </td>
    <td style="text-align:left;"> $k(n - 1)$ </td>
    <td style="text-align:left;width: 14cm; "> $\sum\sum({y_{ij}} - \bar{y_i})^2$ </td>
+   <td style="text-align:left;"> EMS </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
   <tr>
    <td style="text-align:left;font-weight: bold;"> total </td>
    <td style="text-align:left;"> $nk - 1$ </td>
    <td style="text-align:left;width: 14cm; "> $\sum\sum({y_{ij}} - \bar{y_.})^2$ </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;">  </td>
   </tr>
 </tbody>
 </table>
