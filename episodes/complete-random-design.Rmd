@@ -23,6 +23,8 @@ source: Rmd
 
 ```{r, include=FALSE}
 library(tidyverse)
+library(knitr)
+library(kableExtra)
 heart_rate <- read_csv("data/simulated_heart_rates.csv")
 ```
 
