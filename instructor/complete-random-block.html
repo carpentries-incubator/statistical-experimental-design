@@ -347,7 +347,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Randomized Complete Block Designs</h1>
-        <p>Last updated on 2025-06-09 |
+        <p>Last updated on 2025-06-10 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-block.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -395,16 +395,17 @@ member of the set is a block, and within this block, each of the
 treatments is randomly assigned. We can assess treatment differences
 within each block and determine whether treatment differences are
 consistent from block to block. In other words, we can determine whether
-there is an interaction block and treatment.</p>
+there is an interaction between block and treatment.</p>
 <section><h2 class="section-heading" id="design-issues">Design issues<a class="anchor" aria-label="anchor" href="#design-issues"></a></h2>
 <hr class="half-width"><p>The first issue to consider in this case is whether or not to block
 the experiment. Blocks serve to control natural variation among
 experimental units, and randomization within blocks accounts for
 “nuisance” variables or traits that are likely associated with the
 response. Shelf height and resulting differences in illumination is one
-example of a nuisance variable. Age and sex are characteristics of
-experimental units that can influence the treatment response. Blocking
-by age and/or sex is a best practice in experimental design.</p>
+example of a nuisance variable. Other variables like age and sex are
+characteristics of experimental units that can influence the treatment
+response. Blocking by sex and/or age is a best practice in experimental
+design.</p>
 <p>In an earlier episode on <a href="https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html" class="external-link">Completely
 Randomized Designs</a>, we presented the Generation 100 Study of 3
 exercise treatments on men and women from 70 to 77 years of age. In the
@@ -430,11 +431,12 @@ sex in mind. Read in the data again if needed.</p>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">facet_grid</span><span class="op">(</span>rows <span class="op">=</span> <span class="fu">vars</span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/complete-random-block-rendered-boxplot_grid-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>What patterns do you see? Does there appear to be a difference in
+<figure><img src="../fig/complete-random-block-rendered-boxplot_grid-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Each panel in the plot above is one block, one for females, one for
+males. What patterns do you see? Does there appear to be a difference in
 heart rates between sexes? between exercise groups? between sexes and
 exercise groups?</p>
-<p>Let’s extract the means and standard deviates for exercise groups by
-sex.</p>
+<p>Let’s extract the means and standard deviations for exercise groups
+by sex.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -615,7 +617,7 @@ usefulness of an experiment.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-block.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-block.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-06-09",
+  "dateModified": "2025-06-10",
   "datePublished": "2025-06-10"
 }
 
