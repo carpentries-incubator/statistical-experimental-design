@@ -150,8 +150,8 @@ treatments have 2 degrees of freedom. The Sum of Squares (`Sum Sq`) for the
 treatment subtracts the overall mean for all groups 
 ($\bar{y_.}$ = `r round(mean(heart_rate$heart_rate), 1)`) from the mean for each 
 treatment group ($\bar{y_i}$), squares the difference so that only positive 
-numbers result, then sums all of the squared differences together and multiplies 
-the result by the number of observations in each group 
+numbers result, then sums ($\sum$) all of the squared differences together and 
+multiplies the result by the number of observations in each group 
 (`r dim(heart_rate)[1]/dim(heart_rate)[2]`). 
 
 The source of 

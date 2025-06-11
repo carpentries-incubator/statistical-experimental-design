@@ -1,12 +1,10 @@
 # create simulated heart rate data for Generation 100 Study
 
-heart_rate <- tibble(sex            = rep(c("M", "F"), c(777, 790)), 
-                     exercise_group = sample(c("control", 
-                                               "moderate intensity",
-                                               "high intensity"),
-                                             size=1567, 
-                                             replace = TRUE),
-                     age            = rnorm(1567, mean = 72.8, sd = 1))
+heart_rate <- tibble(sex            = rep(c("M", "F"), c(777, 789)), 
+                     exercise_group = rep(c("control", 
+                                            "moderate intensity",
+                                            "high intensity"), 522),
+                     age            = rnorm(1566, mean = 72.8, sd = 1))
 
 heart_rate <- heart_rate %>%
   mutate(heart_rate = case_when(sex == "M" & exercise_group == "high intensity" ~ 
