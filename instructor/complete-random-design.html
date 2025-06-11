@@ -352,7 +352,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Designs</h1>
-        <p>Last updated on 2025-06-10 |
+        <p>Last updated on 2025-06-11 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -532,12 +532,36 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>The output tells us that there are two terms in the model we
 provided: exercise group plus some experimental error (residuals).</p>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: '\s' is an unrecognized escape in character string (&lt;input&gt;:1:32)</code></pre>
-</div>
-<p>The Sum of Squares (<code>Sum Sq</code>) for the treatment
+<table class="table"><caption>ANOVA Table for Completely Randomized Design with One Treatment
+Factor with k levels and n Observations per Treatment</caption>
+<colgroup><col width="21%"><col width="11%"><col width="38%"><col width="9%"><col width="8%"><col width="9%"></colgroup><thead><tr class="header"><th align="left">source of variation</th>
+<th align="left">df</th>
+<th align="left">SS</th>
+<th align="left">MS=SS/df</th>
+<th align="left">F</th>
+<th align="left">p-value</th>
+</tr></thead><tbody><tr class="odd"><td align="left">treatment</td>
+<td align="left"><span class="math inline">\(k - 1\)</span></td>
+<td align="left"><span class="math inline">\(n\sum(\bar{y_i} -
+\bar{y_.})^2\)</span></td>
+<td align="left">TMS</td>
+<td align="left">TMS/EMS</td>
+<td align="left">prob(&gt;F)</td>
+</tr><tr class="even"><td align="left">error</td>
+<td align="left"><span class="math inline">\(k(n - 1)\)</span></td>
+<td align="left"><span class="math inline">\(\sum\sum({y_{ij}} -
+\bar{y_i})^2\)</span></td>
+<td align="left">EMS</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr><tr class="odd"><td align="left">total</td>
+<td align="left"><span class="math inline">\(nk - 1\)</span></td>
+<td align="left"><span class="math inline">\(\sum\sum({y_{ij}} -
+\bar{y_.})^2\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr></tbody></table><p>The Sum of Squares (<code>Sum Sq</code>) for the treatment
 (<code>exercise_group</code>) subtracts the overall mean for all groups
 (66.3) from each individual observation, squares the difference so that
 only positive numbers result, then sums all of the squared differences
@@ -649,7 +673,7 @@ Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
 <p>The Bartlett test of homogeneity of variances tests the null
 hypothesis that the samples have equal variances against the alternative
 that they do not.</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -666,7 +690,7 @@ between the medians of three or more independent groups.</p>
 <p>The Shapiro-Wilk Normality Test tests the null hypothesis that the
 samples come from a normal distribution against the alternative
 hypothesis that samples don’t come from a normal distribution.</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -694,7 +718,7 @@ require assumption of normality.</p></li>
 </section><section><h2 class="section-heading" id="confidence-intervals">Confidence intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"></a></h2>
 <hr class="half-width"><p>The boxplots show that high-intensity exercise results in lower
 average heart rate.</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -728,7 +752,7 @@ of only one group. This makes the test more powerful because it borrows
 information from all groups. We use the sample standard deviation to
 calculate a 95% confidence interval for mean heart rate in the
 high-intensity group.</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -764,7 +788,7 @@ worldwide.</p>
 </section><section><h2 class="section-heading" id="statistical-prediction-interval">Statistical Prediction Interval<a class="anchor" aria-label="anchor" href="#statistical-prediction-interval"></a></h2>
 <hr class="half-width"><p>To create a confidence interval for the group means we used a linear
 model that states that heart rate is dependent on exercise group.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -787,7 +811,7 @@ exercise_groupmoderate intensity
 the moderate-intensity group or -2.69 for the high-intensity group. We
 can use this same linear model to predict mean heart rate for a new
 group of participants.</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -821,7 +845,7 @@ controls? OR</li>
 participant in the control group?</li>
 </ol><p>Notice that for both kinds of intervals we used the same linear model
 that states that heart rate depends on exercise group.</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -846,7 +870,7 @@ relatively similar, and the designs don’t remove or account for
 systematic differences. We should add sex into the linear model because
 heart rate is likely influenced by sex. We can get more information
 about the linear model with a <code>summary()</code>.</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -882,7 +906,7 @@ for the high-intensity group. Males have heart rates that are -1.16 from
 mean control heart rate. The p-values (<code>Pr(&gt;|t|)</code>) are
 near zero for all of the estimates (model coefficients). Exercise group
 and sex clearly impact heart rate. What about age?</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -929,7 +953,7 @@ comparing heart rate between control and moderate-intensity exercise,
 what is the minimum number of people we would need per group in order to
 detect an effect as large as the mean heart rate difference from this
 experiment?</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1045,8 +1069,8 @@ homogeneous.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-06-10",
-  "datePublished": "2025-06-10"
+  "dateModified": "2025-06-11",
+  "datePublished": "2025-06-11"
 }
 
   </script><script>
