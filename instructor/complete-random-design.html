@@ -498,8 +498,7 @@ of variation.</p>
 <code class="sourceCode R"><span><span class="va">heart_rate</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>exercise_group <span class="op">=</span> <span class="fu">fct_reorder</span><span class="op">(</span><span class="va">exercise_group</span>,</span>
 <span>                                      <span class="va">heart_rate</span>,</span>
-<span>                                      .fun<span class="op">=</span><span class="st">'mean'</span>,</span>
-<span>                                      .desc <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>  <span class="op">%&gt;%</span> </span>
+<span>                                      .fun<span class="op">=</span><span class="st">'mean'</span><span class="op">)</span><span class="op">)</span>  <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">exercise_group</span>, <span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
@@ -537,31 +536,41 @@ linear model looks like this:</p>
 <p><span class="math inline">\(y = \beta*x + \epsilon\)</span></p>
 <p>where <span class="math inline">\(y\)</span> is the response (heart
 rate), <span class="math inline">\(x\)</span> is the treatment (exercise
-group), <span class="math inline">\(\beta\)</span> is the coefficient,
-and <span class="math inline">\(\epsilon\)</span> is experimental
-error.</p>
+group), <span class="math inline">\(\beta\)</span> is the effect size,
+and <span class="math inline">\(\epsilon\)</span> is experimental error,
+also known as residuals.</p>
 <p>To help interpret the rest of the ANOVA output, the following table
-defines each element. The source of variation <em>among</em> treatments
-is called <code>treatment</code> for short. This is shown on the y-axis
-of the boxplots above. The source of variation <em>within</em>
-treatments is called <code>error</code> (<code>Residuals</code>),
-meaning the variation among experimental units within the same treatment
-group. You can see this in the length of each boxplot.</p>
-<table class="table"><caption>ANOVA Table for Completely Randomized Design with One Treatment
+defines each element. The source of variation <em>among</em>
+<code>treatments</code> is shown on the y-axis of the boxplots above.
+Treatments have <span class="math inline">\(k - 1\)</span> degrees of
+freedom (<code>Df</code>), where <span class="math inline">\(k\)</span>
+is the number of treatment levels. Since we have 3 exercise groups, the
+treatments have 2 degrees of freedom. The Sum of Squares
+(<code>Sum Sq</code>) for the treatment subtracts the overall mean for
+all groups (<span class="math inline">\(\bar{y_.}\)</span> = 66.3) from
+the mean for each treatment group (<span class="math inline">\(\bar{y_i}\)</span>), squares the difference so
+that only positive numbers result, then sums all of the squared
+differences together and multiplies the result by the number of
+observations in each group (391.75).</p>
+<p>The source of variation <em>within</em> treatments is called
+<code>error</code> (<code>Residuals</code>), meaning the variation among
+experimental units within the same treatment group. You can see this in
+the length of each boxplot.</p>
+<table style="width:100%;" class="table"><caption>ANOVA Table for Completely Randomized Design with One Treatment
 Factor with k levels and n Observations per Treatment</caption>
-<colgroup><col width="21%"><col width="11%"><col width="38%"><col width="9%"><col width="8%"><col width="9%"></colgroup><thead><tr class="header"><th align="left">source of variation</th>
-<th align="left">df</th>
-<th align="left">SS</th>
-<th align="left">MS=SS/df</th>
-<th align="left">F</th>
-<th align="left">p-value</th>
-</tr></thead><tbody><tr class="odd"><td align="left">treatment</td>
+<colgroup><col width="19%"><col width="10%"><col width="34%"><col width="17%"><col width="7%"><col width="8%"></colgroup><thead><tr class="header"><th align="left">source of variation</th>
+<th align="left">Df</th>
+<th align="left">Sum Sq</th>
+<th align="left">Mean Sq=Sum Sq/Df</th>
+<th align="left">F value</th>
+<th align="left">prob(&gt;F)</th>
+</tr></thead><tbody><tr class="odd"><td align="left">treatments</td>
 <td align="left"><span class="math inline">\(k - 1\)</span></td>
 <td align="left"><span class="math inline">\(n\sum(\bar{y_i} -
 \bar{y_.})^2\)</span></td>
 <td align="left">TMS</td>
 <td align="left">TMS/EMS</td>
-<td align="left">prob(&gt;F)</td>
+<td align="left">p-value</td>
 </tr><tr class="even"><td align="left">error</td>
 <td align="left"><span class="math inline">\(k(n - 1)\)</span></td>
 <td align="left"><span class="math inline">\(\sum\sum({y_{ij}} -
@@ -576,17 +585,12 @@ Factor with k levels and n Observations per Treatment</caption>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
-</tr></tbody></table><p>The Sum of Squares (<code>Sum Sq</code>) for the treatment
-(<code>exercise_group</code>) subtracts the overall mean for all groups
-(66.3) from each individual observation, squares the difference so that
-only positive numbers result, then sums all of the squared differences
-together and multiplies the result by the number of observations in each
-group (391.75). In the boxplots below, imagine drawing a vertical line
-from the overall mean (66.3) to an individual data point in the control
-group. Square this line by adding sides of the same length to create a
-box. Calculate the area of the box (the length of the line squared).
-Repeat this for all data points in the group, then sum up the areas of
-all 391.75 boxes. Repeat the process with the other two groups, then
+</tr></tbody></table><p>In the boxplots below, imagine drawing a vertical line from the
+overall mean (66.3) to an individual data point in the control group.
+Square this line by adding sides of the same length to create a box.
+Calculate the area of the box (the length of the line squared). Repeat
+this for all data points in the group, then sum up the areas of all
+391.75 boxes. Repeat the process with the other two groups, then
 multiply the total by 391.75. This used to be a manual process.
 Fortunately R does all of this labor for us.</p>
 <figure><img src="../fig/complete-random-design-rendered-boxplot-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p><code>exercise_group</code> has 2 degrees of freedom, one less than
