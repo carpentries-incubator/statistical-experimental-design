@@ -147,9 +147,13 @@ The output tells us that there are two terms in the model we provided: exercise
 group plus some experimental error (residuals). 
 
 
-``` error
-Error: '\s' is an unrecognized escape in character string (<input>:1:32)
-```
+Table: ANOVA Table for Completely Randomized Design with One Treatment Factor with k levels and n Observations per Treatment
+
+|source of variation |df         |SS                                 |MS=SS/df |F       |p-value  |
+|:-------------------|:----------|:----------------------------------|:--------|:-------|:--------|
+|treatment           |$k - 1$    |$n\sum(\bar{y_i} - \bar{y_.})^2$   |TMS      |TMS/EMS |prob(>F) |
+|error               |$k(n - 1)$ |$\sum\sum({y_{ij}} - \bar{y_i})^2$ |EMS      |        |         |
+|total               |$nk - 1$   |$\sum\sum({y_{ij}} - \bar{y_.})^2$ |         |        |         |
 
 
 
