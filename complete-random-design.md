@@ -144,7 +144,20 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 The output tells us that there are two terms in the model we provided: exercise 
-group plus some experimental error (residuals). 
+group plus some experimental error (`Residuals`). The response is heart rate. As
+an equation the linear model looks like this:  
+
+$y = \beta*x + \epsilon$
+
+where $y$ is the response (heart rate), $x$ is the treatment (exercise group), 
+$\beta$ is the coefficient, and $\epsilon$ is experimental error.
+
+To help interpret the rest of the ANOVA output, the following table defines each
+element. The source of variation *among* treatments is called `treatment` for 
+short. This is shown on the y-axis of the boxplots above. The source of 
+variation *within* treatments is called `error` (`Residuals`), meaning the 
+variation among experimental units within the same treatment group. You can see 
+this in the length of each boxplot. 
 
 
 Table: ANOVA Table for Completely Randomized Design with One Treatment Factor with k levels and n Observations per Treatment
@@ -155,15 +168,12 @@ Table: ANOVA Table for Completely Randomized Design with One Treatment Factor wi
 |error               |$k(n - 1)$ |$\sum\sum({y_{ij}} - \bar{y_i})^2$ |EMS      |        |         |
 |total               |$nk - 1$   |$\sum\sum({y_{ij}} - \bar{y_.})^2$ |         |        |         |
 
-
-
-
-The Sum of Squares (`Sum Sq`) 
-for the treatment (`exercise_group`) subtracts the overall mean for all groups
-(66.3) from each individual observation,
-squares the difference so that only positive numbers result, then sums all of 
-the squared differences together and multiplies the result by the number of
-observations in each group (391.75). 
+The Sum of Squares (`Sum Sq`) for the treatment (`exercise_group`) subtracts the 
+overall mean for all groups (66.3) from 
+each individual observation, squares the difference so that only positive 
+numbers result, then sums all of the squared differences together and multiplies 
+the result by the number of observations in each group 
+(391.75). 
 In the boxplots below, imagine drawing a vertical line from the overall mean
 (66.3) to an individual data point in the
 control group. Square this line by adding sides of the same length to create a
