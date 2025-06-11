@@ -137,18 +137,19 @@ The output tells us that there are two terms in the model we provided: exercise
 group plus some experimental error (residuals). 
 
 ```{r anova_table, echo=FALSE}
-text_tbl <- data.frame('source\sof\svariation' = c('treatment', 
+text_tbl <- data.frame('source of variation' = c('treatment', 
                                                  'error', 
                                                  'total'),
                        'df' = c("$k - 1$", "$k(n - 1)$", "$nk - 1$"),
                        'SS' = c("$n\\sum(\\bar{y_i} - \\bar{y_.})^2$",
                                 "$\\sum\\sum({y_{ij}} - \\bar{y_i})^2$",
                                 "$\\sum\\sum({y_{ij}} - \\bar{y_.})^2$"),
-                       'MS\s=\sSS\/df' = c("TMS", "EMS", "   "),
+                       'MS=SS/df' = c("TMS", "EMS", "   "),
                        'F' = c("TMS/EMS", "   ", "   "),
-                       'p\-value' = c("prob(>F)", "   ", "   ")
+                       'p-value' = c("prob(>F)", "   ", "   ")
                        )
-
+colnames(text_tbl) = c('source of variation', 'df', 'SS', 
+                       'MS=SS/df', 'F', 'p-value')
 kable(text_tbl,
       caption = 'ANOVA Table for Completely Randomized Design with One Treatment Factor with k levels and n Observations per Treatment') 
 ```
