@@ -531,7 +531,22 @@ Residuals      1564  43798      28
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>The output tells us that there are two terms in the model we
-provided: exercise group plus some experimental error (residuals).</p>
+provided: exercise group plus some experimental error
+(<code>Residuals</code>). The response is heart rate. As an equation the
+linear model looks like this:</p>
+<p><span class="math inline">\(y = \beta*x + \epsilon\)</span></p>
+<p>where <span class="math inline">\(y\)</span> is the response (heart
+rate), <span class="math inline">\(x\)</span> is the treatment (exercise
+group), <span class="math inline">\(\beta\)</span> is the coefficient,
+and <span class="math inline">\(\epsilon\)</span> is experimental
+error.</p>
+<p>To help interpret the rest of the ANOVA output, the following table
+defines each element. The source of variation <em>among</em> treatments
+is called <code>treatment</code> for short. This is shown on the y-axis
+of the boxplots above. The source of variation <em>within</em>
+treatments is called <code>error</code> (<code>Residuals</code>),
+meaning the variation among experimental units within the same treatment
+group. You can see this in the length of each boxplot.</p>
 <table class="table"><caption>ANOVA Table for Completely Randomized Design with One Treatment
 Factor with k levels and n Observations per Treatment</caption>
 <colgroup><col width="21%"><col width="11%"><col width="38%"><col width="9%"><col width="8%"><col width="9%"></colgroup><thead><tr class="header"><th align="left">source of variation</th>
