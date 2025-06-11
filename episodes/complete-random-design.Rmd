@@ -117,8 +117,7 @@ and compares these two sources of variation.
 heart_rate %>% 
   mutate(exercise_group = fct_reorder(exercise_group,
                                       heart_rate,
-                                      .fun='mean',
-                                      .desc = TRUE))  %>% 
+                                      .fun='mean'))  %>% 
   ggplot(aes(exercise_group, heart_rate)) + 
   geom_boxplot()
 ```
@@ -140,39 +139,45 @@ an equation the linear model looks like this:
 $y = \beta*x + \epsilon$
 
 where $y$ is the response (heart rate), $x$ is the treatment (exercise group), 
-$\beta$ is the coefficient, and $\epsilon$ is experimental error.
+$\beta$ is the effect size, and $\epsilon$ is experimental error, also known as
+residuals.
 
 To help interpret the rest of the ANOVA output, the following table defines each
-element. The source of variation *among* treatments is called `treatment` for 
-short. This is shown on the y-axis of the boxplots above. The source of 
+element. The source of variation *among* `treatments` is shown on the y-axis of 
+the boxplots above. Treatments have $k - 1$ degrees of freedom (`Df`), where $k$
+is the number of treatment levels. Since we have 3 exercise groups, the 
+treatments have 2 degrees of freedom. The Sum of Squares (`Sum Sq`) for the 
+treatment subtracts the overall mean for all groups 
+($\bar{y_.}$ = `r round(mean(heart_rate$heart_rate), 1)`) from the mean for each 
+treatment group ($\bar{y_i}$), squares the difference so that only positive 
+numbers result, then sums all of the squared differences together and multiplies 
+the result by the number of observations in each group 
+(`r dim(heart_rate)[1]/dim(heart_rate)[2]`). 
+
+The source of 
 variation *within* treatments is called `error` (`Residuals`), meaning the 
 variation among experimental units within the same treatment group. You can see 
 this in the length of each boxplot. 
 
 ```{r anova_table, echo=FALSE}
-text_tbl <- data.frame('source of variation' = c('treatment', 
+text_tbl <- data.frame('source of variation' = c('treatments', 
                                                  'error', 
                                                  'total'),
-                       'df' = c("$k - 1$", "$k(n - 1)$", "$nk - 1$"),
-                       'SS' = c("$n\\sum(\\bar{y_i} - \\bar{y_.})^2$",
+                       'Df' = c("$k - 1$", "$k(n - 1)$", "$nk - 1$"),
+                       'Sum Sq' = c("$n\\sum(\\bar{y_i} - \\bar{y_.})^2$",
                                 "$\\sum\\sum({y_{ij}} - \\bar{y_i})^2$",
                                 "$\\sum\\sum({y_{ij}} - \\bar{y_.})^2$"),
-                       'MS=SS/df' = c("TMS", "EMS", "   "),
-                       'F' = c("TMS/EMS", "   ", "   "),
-                       'p-value' = c("prob(>F)", "   ", "   ")
+                       'Mean Sq=Sum Sq/Df' = c("TMS", "EMS", "   "),
+                       'F value' = c("TMS/EMS", "   ", "   "),
+                       'prob(>F)' = c("p-value", "   ", "   ")
                        )
-colnames(text_tbl) = c('source of variation', 'df', 'SS', 
-                       'MS=SS/df', 'F', 'p-value')
+colnames(text_tbl) = c('source of variation', 'Df', 'Sum Sq', 
+                       'Mean Sq=Sum Sq/Df', 'F value', 'prob(>F)')
 kable(text_tbl,
       caption = 'ANOVA Table for Completely Randomized Design with One Treatment Factor with k levels and n Observations per Treatment') 
 ```
 
-The Sum of Squares (`Sum Sq`) for the treatment (`exercise_group`) subtracts the 
-overall mean for all groups (`r round(mean(heart_rate$heart_rate), 1)`) from 
-each individual observation, squares the difference so that only positive 
-numbers result, then sums all of the squared differences together and multiplies 
-the result by the number of observations in each group 
-(`r dim(heart_rate)[1]/dim(heart_rate)[2]`). 
+
 In the boxplots below, imagine drawing a vertical line from the overall mean
 (`r round(mean(heart_rate$heart_rate), 1)`) to an individual data point in the
 control group. Square this line by adding sides of the same length to create a
