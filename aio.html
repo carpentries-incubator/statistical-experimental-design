@@ -2307,7 +2307,7 @@ quantify effects against random variation.</li>
 </div>
 </section></section><section id="aio-complete-random-design"><p>Content from <a href="complete-random-design.html">Completely Randomized Designs</a></p>
 <hr>
-<p>Last updated on 2025-06-11 |
+<p>Last updated on 2025-06-12 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2493,7 +2493,7 @@ Residuals      1563  46713    29.9
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>The output tells us that there are two terms in the model we
-provided: exercise group plus some experimental error
+provided: <code>exercise_group</code> plus some experimental error
 (<code>Residuals</code>). The response is heart rate. As an equation the
 linear model looks like this:</p>
 <p><span class="math inline">\(y = \beta*x + \epsilon\)</span></p>
@@ -2508,17 +2508,18 @@ defines each element. The source of variation <em>among</em>
 Treatments have <span class="math inline">\(k - 1\)</span> degrees of
 freedom (<code>Df</code>), where <span class="math inline">\(k\)</span>
 is the number of treatment levels. Since we have 3 exercise groups, the
-treatments have 2 degrees of freedom. The Sum of Squares
-(<code>Sum Sq</code>) for the treatment subtracts the overall mean for
-all groups (<span class="math inline">\(\bar{y_.}\)</span> = 65.8) from
-the mean for each treatment group (<span class="math inline">\(\bar{y_i}\)</span>), squares the difference so
-that only positive numbers result, then sums (<span class="math inline">\(\sum\)</span>) all of the squared differences
+treatments have 2 degrees of freedom. Think of degrees of freedom as the
+number of values that are free to vary. Or, if you know two of the
+exercise groups, the identity of the third is revealed.</p>
+<p>The Sum of Squares (<code>Sum Sq</code>) for the treatment subtracts
+the overall mean for all groups from the mean for each treatment group
+(<span class="math inline">\(\bar{y_i} - \bar{y_.}\)</span>), squares
+the difference so that only positive numbers result, then sums (<span class="math inline">\(\sum\)</span>) all of the squared differences
 together and multiplies the result by the number of observations in each
-group (391.5).</p>
+group (522).</p>
 <p>The source of variation <em>within</em> treatments is called
 <code>error</code> (<code>Residuals</code>), meaning the variation among
-experimental units within the same treatment group. You can see this in
-the length of each boxplot.</p>
+experimental units within the same treatment group.</p>
 <table style="width:100%;" class="table">
 <caption>ANOVA Table for Completely Randomized Design with One Treatment
 Factor with k levels and n Observations per Treatment</caption>
@@ -2576,15 +2577,12 @@ this for all data points in the group, then sum up the areas of all
 391.5 boxes. Repeat the process with the other two groups, then multiply
 the total by 391.5. This used to be a manual process. Fortunately R does
 all of this labor for us.</p>
-<figure><img src="fig/complete-random-design-rendered-boxplot-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p><code>exercise_group</code> has 2 degrees of freedom, one less than
-the number of exercise groups. Think of degrees of freedom as the number
-of values that are free to vary. Or, if you know two of the exercise
-groups, the identity of the third is revealed. The mean squares values
-for the treatment (<code>Mean Sq</code>) divides the sum of squares by
-the degrees of freedom (2.696^{4} / 2 = 1.348011^{4}). The treatment
-mean square is a measure of the variance among the treatment groups,
-which is shown horizontally in the boxplots as upward or downward shift
-of the treatment groups relative to one another.</p>
+<figure><img src="fig/complete-random-design-rendered-boxplot-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The mean squares values for the treatment (<code>Mean Sq</code>)
+divides the sum of squares by the degrees of freedom (2.696^{4} / 2 =
+1.348011^{4}). The treatment mean square is a measure of the variance
+among the treatment groups, which is shown horizontally in the boxplots
+as upward or downward shift of the treatment groups relative to one
+another.</p>
 <p>The degrees of freedom for the residuals is equal to the number of
 groups (4) times one less than the number of observations in each group
 (390.5), or 1563. The sum of squares for the residuals subtracts the
@@ -3653,8 +3651,8 @@ units repeatedly during the study.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/aio.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/aio.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-06-11",
-  "datePublished": "2025-06-11"
+  "dateModified": "2025-06-12",
+  "datePublished": "2025-06-12"
 }
 
   </script><script>
