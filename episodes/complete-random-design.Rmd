@@ -132,9 +132,9 @@ a linear model (`lm()`) stating that `heart_rate` depends on `exercise_group`.
 anova(lm(heart_rate ~ exercise_group, data = heart_rate))
 ```
 
-The output tells us that there are two terms in the model we provided: exercise 
-group plus some experimental error (`Residuals`). The response is heart rate. As
-an equation the linear model looks like this:  
+The output tells us that there are two terms in the model we provided: 
+`exercise_group` plus some experimental error (`Residuals`). The response is 
+heart rate. As an equation the linear model looks like this:  
 
 $y = \beta*x + \epsilon$
 
@@ -146,18 +146,21 @@ To help interpret the rest of the ANOVA output, the following table defines each
 element. The source of variation *among* `treatments` is shown on the y-axis of 
 the boxplots above. Treatments have $k - 1$ degrees of freedom (`Df`), where $k$
 is the number of treatment levels. Since we have 3 exercise groups, the 
-treatments have 2 degrees of freedom. The Sum of Squares (`Sum Sq`) for the 
-treatment subtracts the overall mean for all groups 
-($\bar{y_.}$ = `r round(mean(heart_rate$heart_rate), 1)`) from the mean for each 
-treatment group ($\bar{y_i}$), squares the difference so that only positive 
-numbers result, then sums ($\sum$) all of the squared differences together and 
-multiplies the result by the number of observations in each group 
-(`r dim(heart_rate)[1]/dim(heart_rate)[2]`). 
+treatments have 2 degrees of freedom. Think of degrees of freedom as the number 
+of values that are free to vary. Or, if you know two of the exercise groups, the 
+identity of the third is revealed.
+
+
+The Sum of Squares (`Sum Sq`) for the 
+treatment subtracts the overall mean for all groups from the mean for each 
+treatment group ($\bar{y_i} - \bar{y_.}$), squares the difference so that only 
+positive numbers result, then sums ($\sum$) all of the squared differences 
+together and multiplies the result by the number of observations in each group 
+(`r table(heart_rate$exercise_group)[[1]]`). 
 
 The source of 
 variation *within* treatments is called `error` (`Residuals`), meaning the 
-variation among experimental units within the same treatment group. You can see 
-this in the length of each boxplot. 
+variation among experimental units within the same treatment group. 
 
 ```{r anova_table, echo=FALSE}
 text_tbl <- data.frame('source of variation' = c('treatments', 
@@ -198,10 +201,7 @@ heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group,
   geom_jitter(alpha=0.1) 
 ```
 
-`exercise_group` has 2 degrees of freedom, one less than the number of exercise 
-groups. Think of degrees of freedom as the number of values that are free to 
-vary. Or, if you know two of the exercise groups, the identity of the third is 
-revealed. The mean squares values for the treatment (`Mean Sq`) divides the
+  The mean squares values for the treatment (`Mean Sq`) divides the
 sum of squares by the degrees of freedom
 (`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[2]][1])` / 
 `r anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[1]][1]` = 
