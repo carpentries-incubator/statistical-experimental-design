@@ -142,9 +142,9 @@ Residuals      1563  46713    29.9
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
-The output tells us that there are two terms in the model we provided: exercise 
-group plus some experimental error (`Residuals`). The response is heart rate. As
-an equation the linear model looks like this:  
+The output tells us that there are two terms in the model we provided: 
+`exercise_group` plus some experimental error (`Residuals`). The response is 
+heart rate. As an equation the linear model looks like this:  
 
 $y = \beta*x + \epsilon$
 
@@ -156,18 +156,21 @@ To help interpret the rest of the ANOVA output, the following table defines each
 element. The source of variation *among* `treatments` is shown on the y-axis of 
 the boxplots above. Treatments have $k - 1$ degrees of freedom (`Df`), where $k$
 is the number of treatment levels. Since we have 3 exercise groups, the 
-treatments have 2 degrees of freedom. The Sum of Squares (`Sum Sq`) for the 
-treatment subtracts the overall mean for all groups 
-($\bar{y_.}$ = 65.8) from the mean for each 
-treatment group ($\bar{y_i}$), squares the difference so that only positive 
-numbers result, then sums ($\sum$) all of the squared differences together and 
-multiplies the result by the number of observations in each group 
-(391.5). 
+treatments have 2 degrees of freedom. Think of degrees of freedom as the number 
+of values that are free to vary. Or, if you know two of the exercise groups, the 
+identity of the third is revealed.
+
+
+The Sum of Squares (`Sum Sq`) for the 
+treatment subtracts the overall mean for all groups from the mean for each 
+treatment group ($\bar{y_i} - \bar{y_.}$), squares the difference so that only 
+positive numbers result, then sums ($\sum$) all of the squared differences 
+together and multiplies the result by the number of observations in each group 
+(522). 
 
 The source of 
 variation *within* treatments is called `error` (`Residuals`), meaning the 
-variation among experimental units within the same treatment group. You can see 
-this in the length of each boxplot. 
+variation among experimental units within the same treatment group. 
 
 
 Table: ANOVA Table for Completely Randomized Design with One Treatment Factor with k levels and n Observations per Treatment
@@ -191,10 +194,7 @@ Fortunately R does all of this labor for us.
 
 <img src="fig/complete-random-design-rendered-boxplot-1.png" style="display: block; margin: auto;" />
 
-`exercise_group` has 2 degrees of freedom, one less than the number of exercise 
-groups. Think of degrees of freedom as the number of values that are free to 
-vary. Or, if you know two of the exercise groups, the identity of the third is 
-revealed. The mean squares values for the treatment (`Mean Sq`) divides the
+  The mean squares values for the treatment (`Mean Sq`) divides the
 sum of squares by the degrees of freedom
 (2.696\times 10^{4} / 
 2 = 
