@@ -209,13 +209,12 @@ differences calculated for each exercise group $i$.
 In the boxplots below, each individual data point, $y_{ij}$, is shown as a gray
 dot. The group mean, $\bar{y_i}$, is shown as a red dot. Imagine drawing a box 
 that has one corner on the group mean for high-intensity exercise 
-(`r round(groupMeans[[2]][2]), 1)`) and another corner on a single data point 
+(`r round(groupMeans[[2]][2], 1)`) and another corner on a single data point 
 nearby. The area of this box represents the difference between the group mean 
 and the data point squared, or $(y_{ij} - \bar{y_i})^2$. Repeat this
-for all 522 data points in the group, then sum up the areas of all the boxes. 
-Repeat the process with the other two groups, then add all of the sums 
-($\sum\sum$) together. This used to be a manual process. Fortunately R does all 
-of this labor for us.
+for all 522 data points in the group, then sum up ($\sum$) the areas of all the 
+boxes for that group. Repeat the process with the other two groups, then add all 
+of the group sums ($\sum\sum$) together. 
 
 ```{r boxplot, echo=FALSE, message=FALSE}
 heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
@@ -230,35 +229,38 @@ heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group,
   geom_segment(x=1, y = 63.5, xend = 1.201, yend = 63.5)
 ```
 
-  The mean squares values for the treatment (`Mean Sq`) divides the
-sum of squares by the degrees of freedom
-(`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[2]][1])` / 
-`r anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[1]][1]` = 
-`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[3]][1], 2)`). 
+This used to be a manual process. Fortunately R does all of this labor for us. 
+The ANOVA table tells us that the sum of all squares for all groups equals 
+`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[2]][2], 0)`.
+
+The mean squares values (`Mean Sq`) divides the Sum of Squares by the degrees of 
+freedom. The treatment mean squares, TMS, equals 
+
+(
+`r as.integer(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[2]][1])` 
+/ 
+`r anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[1]][1]` 
+= 
+`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[3]][1], 1)`
+). 
+
 The treatment mean square is a measure of the variance among the treatment 
 groups, which is shown horizontally in the boxplots as upward or downward shift 
 of the treatment groups relative to one another.
 
-The degrees of freedom for the residuals is equal to the number of groups 
-(`r dim(heart_rate)[2]`) times one less than the number 
-of observations in each group (`r dim(heart_rate)[1]/dim(heart_rate)[2] - 1`), 
-or `r summary(aov(heart_rate ~ exercise_group, data = heart_rate))[[1]][[1]][2]`.
-The sum of squares for the residuals subtracts the group mean, not the overall
-mean, from each data point in that group, squares the difference, sums all of
-the squares for that group, then sums all of the squares for all groups. The
-total sum of squares for the errors 
-(`r ceiling(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[2]][2])`)
-is divided by the residual degrees of freedom
-(`r anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[1]][2]`) to
-produce the error mean square. Error mean square is an estimate of variance
-within the groups, which is shown in the vertical length of the each boxplot and 
-its whiskers.
+The error mean square, EMS, similarly is the Sum of Squares divided by the
+degrees of freedom, or
+(`r floor(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[2]][2])`)
+divided by 
+(`r anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[1]][2]`).
+Error mean square is an estimate of variance within the groups, which is shown 
+in the vertical length of the each boxplot and its whiskers.
 
 The `F value`, or F statistic, equals the treatment mean square divided by the
 error mean square, or among-group variation divided by within-group variation
 (`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[3]][1])` /
 `r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[3]][2])` = 
-`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[4]][1], 3)`).
+`r round(anova(lm(heart_rate ~ exercise_group, data = heart_rate))[[4]][1], 2)`).
 
 `F value` = among-group variance / within-group variance
 
