@@ -139,28 +139,10 @@ heart rate. As an equation the linear model looks like this:
 $y = \beta*x + \epsilon$
 
 where $y$ is the response (heart rate), $x$ is the treatment (exercise group), 
-$\beta$ is the effect size, and $\epsilon$ is experimental error, also known as
-residuals.
+$\beta$ is the effect size, and $\epsilon$ is experimental error, also called `Residuals`.
 
 To help interpret the rest of the ANOVA output, the following table defines each
-element. The source of variation *among* `treatments` is shown on the y-axis of 
-the boxplots above. Treatments have $k - 1$ degrees of freedom (`Df`), where $k$
-is the number of treatment levels. Since we have 3 exercise groups, the 
-treatments have 2 degrees of freedom. Think of degrees of freedom as the number 
-of values that are free to vary. Or, if you know two of the exercise groups, the 
-identity of the third is revealed.
-
-
-The Sum of Squares (`Sum Sq`) for the 
-treatment subtracts the overall mean for all groups from the mean for each 
-treatment group ($\bar{y_i} - \bar{y_.}$), squares the difference so that only 
-positive numbers result, then sums ($\sum$) all of the squared differences 
-together and multiplies the result by the number of observations in each group 
-(`r table(heart_rate$exercise_group)[[1]]`). 
-
-The source of 
-variation *within* treatments is called `error` (`Residuals`), meaning the 
-variation among experimental units within the same treatment group. 
+element. 
 
 ```{r anova_table, echo=FALSE}
 text_tbl <- data.frame('source of variation' = c('treatments', 
@@ -180,25 +162,72 @@ kable(text_tbl,
       caption = 'ANOVA Table for Completely Randomized Design with One Treatment Factor with k levels and n Observations per Treatment') 
 ```
 
+The source of variation *among* `treatments` is shown on the y-axis of 
+the boxplots shown earlier. Treatments have $k - 1$ degrees of freedom (`Df`), 
+where $k$ is the number of treatment levels. Since we have 3 exercise groups, 
+the treatments have 2 degrees of freedom. Think of degrees of freedom as the 
+number of values that are free to vary. Or, if you know two of the exercise 
+groups, the identity of the third is revealed.  
 
-In the boxplots below, imagine drawing a vertical line from the overall mean
-(`r round(mean(heart_rate$heart_rate), 1)`) to an individual data point in the
-control group. Square this line by adding sides of the same length to create a
-box. Calculate the area of the box (the length of the line squared). Repeat this
-for all data points in the group, then sum up the areas of all 
-`r dim(heart_rate)[1]/dim(heart_rate)[2]` boxes. Repeat the process with the 
-other two groups, then multiply the total by 
-`r dim(heart_rate)[1]/dim(heart_rate)[2]`. This used to be a manual process.
-Fortunately R does all of this labor for us.
+The Sum of Squares (`Sum Sq`) for the treatment subtracts the overall mean for 
+all groups from the mean for each treatment group ($\bar{y_i} - \bar{y_.}$), 
+squares the difference so that only positive numbers result, then sums ($\sum$) 
+all of the squared differences together and multiplies the result by the number 
+of observations in each group ($n$ = `r table(heart_rate$exercise_group)[[1]]`). 
+If we were to calculate the Sum of Squares manually, it would look like this:
+
+```{r means}
+# these are the y_i
+groupMeans <- heart_rate %>% 
+  group_by(exercise_group) %>% 
+  summarise(mean = mean(heart_rate))
+groupMeans
+
+# this is y.
+overallMean <- heart_rate %>%
+  summarise(mean = mean(heart_rate))
+overallMean
+
+# sum the squared differences and multiply the sum by n
+((groupMeans$mean[1] - overallMean)^2 + 
+    (groupMeans$mean[2] - overallMean)^2 + 
+    (groupMeans$mean[3] - overallMean)^2) * 522
+```
+
+The source of variation *within* treatments is called `error` (`Residuals`), 
+meaning the variation among experimental units within the same treatment group. 
+The degrees of freedom (`Df`) for error equals $k$, the number of treatment 
+levels, times $n - 1$, one less than the number of observations in each group.
+For this experiment $k = 3$ and $n - 1 = 521$ so the degrees of freedom for the
+error equals 1563. If you know 521 of the data points in an exercise group, the 
+identity of number 522 is revealed. Each of the 3 exercise groups has 521 
+degrees of freedom, so the total degrees of freedom for error is 1563. The Sum
+of Squares for error is the difference between each data point, $y_{ij}$ and the
+group mean $\bar{y_i}$. This difference is squared and the sum of all squared 
+differences calculated for each exercise group $i$.
+
+In the boxplots below, each individual data point, $y_{ij}$, is shown as a gray
+dot. The group mean, $\bar{y_i}$, is shown as a red dot. Imagine drawing a box 
+that has one corner on the group mean for high-intensity exercise 
+(`r round(groupMeans[[2]][2]), 1)`) and another corner on a single data point 
+nearby. The area of this box represents the difference between the group mean 
+and the data point squared, or $(y_{ij} - \bar{y_i})^2$. Repeat this
+for all 522 data points in the group, then sum up the areas of all the boxes. 
+Repeat the process with the other two groups, then add all of the sums 
+($\sum\sum$) together. This used to be a manual process. Fortunately R does all 
+of this labor for us.
 
 ```{r boxplot, echo=FALSE, message=FALSE}
 heart_rate %>% mutate(exercise_group = fct_reorder(exercise_group, 
                                                    heart_rate, 
-                                                   .fun='median', 
-                                                   .desc = TRUE))  %>% 
+                                                   .fun='mean'))  %>% 
   ggplot(aes(exercise_group, heart_rate)) + 
   geom_boxplot(alpha=0.1, linewidth=0.1) +
-  geom_jitter(alpha=0.1) 
+  geom_jitter(alpha=0.1) + 
+  geom_segment(x=1, y = 62, xend = 1, yend = 63.5) + 
+  geom_segment(x=1.2, y = 61.6, xend = 1.2, yend = 63.5) + 
+  geom_segment(x=1.03, y = 61.6, xend = 1.201, yend = 61.6) + 
+  geom_segment(x=1, y = 63.5, xend = 1.201, yend = 63.5)
 ```
 
   The mean squares values for the treatment (`Mean Sq`) divides the
