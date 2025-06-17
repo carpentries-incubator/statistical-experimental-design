@@ -659,27 +659,33 @@ of all the boxes for that group. Repeat the process with the other two
 groups, then add all of the group sums (<span class="math inline">\(\sum\sum\)</span>) together.</p>
 <figure><img src="fig/complete-random-design-rendered-boxplot-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>This used to be a manual process. Fortunately R does all of this
 labor for us. The ANOVA table tells us that the sum of all squares for
-all groups equals 4.6713^{4}.</p>
+all groups equals 46713.</p>
 <p>The mean squares values (<code>Mean Sq</code>) divides the Sum of
 Squares by the degrees of freedom. The treatment mean squares, TMS,
 equals</p>
-<p>( 26960 / 2 = 1.34801^{4} ).</p>
+<p>( 26960 / 2 = 1.3480108^{4} ).</p>
 <p>The treatment mean square is a measure of the variance among the
 treatment groups, which is shown horizontally in the boxplots as upward
 or downward shift of the treatment groups relative to one another.</p>
 <p>The error mean square, EMS, similarly is the Sum of Squares divided
-by the degrees of freedom, or (4.6713^{4}) divided by (1563). Error mean
+by the degrees of freedom, or (46713) divided by (1563). Error mean
 square is an estimate of variance within the groups, which is shown in
 the vertical length of the each boxplot and its whiskers.</p>
 <p>The <code>F value</code>, or F statistic, equals the treatment mean
 square divided by the error mean square, or among-group variation
-divided by within-group variation (1.348^{4} / 30 = 451.04).</p>
+divided by within-group variation (1.3480108^{4} / 29.9 = 451.04).</p>
 <p><code>F value</code> = among-group variance / within-group
 variance</p>
 <p>These variance estimates are statistically independent of one
 another, such that you could move any of the three boxplots up or down
 and this would not affect the within-group variance. Among-group
 variance would change, but not within-group variance.</p>
+<p>The final source of variation, <code>total</code>, doesn’t appear in
+the ANOVA table. The degrees of freedom for the total is one less than
+the number of observations, or (n = 522 * k = 3) - 1 = 1565 for this
+experiment. The Sum of Squares for the total the squared difference
+between each data point and the overall mean, summed over all
+groups.</p>
 </section><section><h2 class="section-heading" id="equal-variances-and-normality">Equal variances and normality<a class="anchor" aria-label="anchor" href="#equal-variances-and-normality"></a></h2>
 <hr class="half-width"><div id="challenge-2-checking-for-equal-variances-and-normality" class="callout challenge">
 <div class="callout-square">
