@@ -247,7 +247,7 @@ of the group sums ($\sum\sum$) together.
 
 This used to be a manual process. Fortunately R does all of this labor for us. 
 The ANOVA table tells us that the sum of all squares for all groups equals 
-4.6713\times 10^{4}.
+46713.
 
 The mean squares values (`Mean Sq`) divides the Sum of Squares by the degrees of 
 freedom. The treatment mean squares, TMS, equals 
@@ -257,7 +257,7 @@ freedom. The treatment mean squares, TMS, equals
 / 
 2 
 = 
-1.34801\times 10^{4}
+1.3480108\times 10^{4}
 ). 
 
 The treatment mean square is a measure of the variance among the treatment 
@@ -266,7 +266,7 @@ of the treatment groups relative to one another.
 
 The error mean square, EMS, similarly is the Sum of Squares divided by the
 degrees of freedom, or
-(4.6713\times 10^{4})
+(46713)
 divided by 
 (1563).
 Error mean square is an estimate of variance within the groups, which is shown 
@@ -274,8 +274,8 @@ in the vertical length of the each boxplot and its whiskers.
 
 The `F value`, or F statistic, equals the treatment mean square divided by the
 error mean square, or among-group variation divided by within-group variation
-(1.348\times 10^{4} /
-30 = 
+(1.3480108\times 10^{4} /
+29.9 = 
 451.04).
 
 `F value` = among-group variance / within-group variance
@@ -285,6 +285,11 @@ you could move any of the three boxplots up or down and this would not affect
 the within-group variance. Among-group variance would change, but not 
 within-group variance. 
 
+The final source of variation, `total`, doesn't appear in the ANOVA table. The
+degrees of freedom for the total is one less than the number of observations,
+or (n = 522 * k = 3) - 1 = 1565 for this experiment. The Sum of Squares for the
+total the squared difference between each data point and the overall mean, 
+summed over all groups.
 
 
 
