@@ -149,28 +149,10 @@ heart rate. As an equation the linear model looks like this:
 $y = \beta*x + \epsilon$
 
 where $y$ is the response (heart rate), $x$ is the treatment (exercise group), 
-$\beta$ is the effect size, and $\epsilon$ is experimental error, also known as
-residuals.
+$\beta$ is the effect size, and $\epsilon$ is experimental error, also called `Residuals`.
 
 To help interpret the rest of the ANOVA output, the following table defines each
-element. The source of variation *among* `treatments` is shown on the y-axis of 
-the boxplots above. Treatments have $k - 1$ degrees of freedom (`Df`), where $k$
-is the number of treatment levels. Since we have 3 exercise groups, the 
-treatments have 2 degrees of freedom. Think of degrees of freedom as the number 
-of values that are free to vary. Or, if you know two of the exercise groups, the 
-identity of the third is revealed.
-
-
-The Sum of Squares (`Sum Sq`) for the 
-treatment subtracts the overall mean for all groups from the mean for each 
-treatment group ($\bar{y_i} - \bar{y_.}$), squares the difference so that only 
-positive numbers result, then sums ($\sum$) all of the squared differences 
-together and multiplies the result by the number of observations in each group 
-(522). 
-
-The source of 
-variation *within* treatments is called `error` (`Residuals`), meaning the 
-variation among experimental units within the same treatment group. 
+element. 
 
 
 Table: ANOVA Table for Completely Randomized Design with One Treatment Factor with k levels and n Observations per Treatment
@@ -181,48 +163,120 @@ Table: ANOVA Table for Completely Randomized Design with One Treatment Factor wi
 |error               |$k(n - 1)$ |$\sum\sum({y_{ij}} - \bar{y_i})^2$ |EMS               |        |         |
 |total               |$nk - 1$   |$\sum\sum({y_{ij}} - \bar{y_.})^2$ |                  |        |         |
 
+The source of variation *among* `treatments` is shown on the y-axis of 
+the boxplots shown earlier. Treatments have $k - 1$ degrees of freedom (`Df`), 
+where $k$ is the number of treatment levels. Since we have 3 exercise groups, 
+the treatments have 2 degrees of freedom. Think of degrees of freedom as the 
+number of values that are free to vary. Or, if you know two of the exercise 
+groups, the identity of the third is revealed.  
 
-In the boxplots below, imagine drawing a vertical line from the overall mean
-(65.8) to an individual data point in the
-control group. Square this line by adding sides of the same length to create a
-box. Calculate the area of the box (the length of the line squared). Repeat this
-for all data points in the group, then sum up the areas of all 
-391.5 boxes. Repeat the process with the 
-other two groups, then multiply the total by 
-391.5. This used to be a manual process.
-Fortunately R does all of this labor for us.
+The Sum of Squares (`Sum Sq`) for the treatment subtracts the overall mean for 
+all groups from the mean for each treatment group ($\bar{y_i} - \bar{y_.}$), 
+squares the difference so that only positive numbers result, then sums ($\sum$) 
+all of the squared differences together and multiplies the result by the number 
+of observations in each group ($n$ = 522). 
+If we were to calculate the Sum of Squares manually, it would look like this:
+
+
+``` r
+# these are the y_i
+groupMeans <- heart_rate %>% 
+  group_by(exercise_group) %>% 
+  summarise(mean = mean(heart_rate))
+groupMeans
+```
+
+``` output
+# A tibble: 3 × 2
+  exercise_group      mean
+  <chr>              <dbl>
+1 control             64.2
+2 high intensity      61.7
+3 moderate intensity  71.5
+```
+
+``` r
+# this is y.
+overallMean <- heart_rate %>%
+  summarise(mean = mean(heart_rate))
+overallMean
+```
+
+``` output
+# A tibble: 1 × 1
+   mean
+  <dbl>
+1  65.8
+```
+
+``` r
+# sum the squared differences and multiply the sum by n
+((groupMeans$mean[1] - overallMean)^2 + 
+    (groupMeans$mean[2] - overallMean)^2 + 
+    (groupMeans$mean[3] - overallMean)^2) * 522
+```
+
+``` output
+      mean
+1 26960.22
+```
+
+The source of variation *within* treatments is called `error` (`Residuals`), 
+meaning the variation among experimental units within the same treatment group. 
+The degrees of freedom (`Df`) for error equals $k$, the number of treatment 
+levels, times $n - 1$, one less than the number of observations in each group.
+For this experiment $k = 3$ and $n - 1 = 521$ so the degrees of freedom for the
+error equals 1563. If you know 521 of the data points in an exercise group, the 
+identity of number 522 is revealed. Each of the 3 exercise groups has 521 
+degrees of freedom, so the total degrees of freedom for error is 1563. The Sum
+of Squares for error is the difference between each data point, $y_{ij}$ and the
+group mean $\bar{y_i}$. This difference is squared and the sum of all squared 
+differences calculated for each exercise group $i$.
+
+In the boxplots below, each individual data point, $y_{ij}$, is shown as a gray
+dot. The group mean, $\bar{y_i}$, is shown as a red dot. Imagine drawing a box 
+that has one corner on the group mean for high-intensity exercise 
+(61.7) and another corner on a single data point 
+nearby. The area of this box represents the difference between the group mean 
+and the data point squared, or $(y_{ij} - \bar{y_i})^2$. Repeat this
+for all 522 data points in the group, then sum up ($\sum$) the areas of all the 
+boxes for that group. Repeat the process with the other two groups, then add all 
+of the group sums ($\sum\sum$) together. 
 
 <img src="fig/complete-random-design-rendered-boxplot-1.png" style="display: block; margin: auto;" />
 
-  The mean squares values for the treatment (`Mean Sq`) divides the
-sum of squares by the degrees of freedom
-(2.696\times 10^{4} / 
-2 = 
-1.348011\times 10^{4}). 
+This used to be a manual process. Fortunately R does all of this labor for us. 
+The ANOVA table tells us that the sum of all squares for all groups equals 
+4.6713\times 10^{4}.
+
+The mean squares values (`Mean Sq`) divides the Sum of Squares by the degrees of 
+freedom. The treatment mean squares, TMS, equals 
+
+(
+26960 
+/ 
+2 
+= 
+1.34801\times 10^{4}
+). 
+
 The treatment mean square is a measure of the variance among the treatment 
 groups, which is shown horizontally in the boxplots as upward or downward shift 
 of the treatment groups relative to one another.
 
-The degrees of freedom for the residuals is equal to the number of groups 
-(4) times one less than the number 
-of observations in each group (390.5), 
-or 1563.
-The sum of squares for the residuals subtracts the group mean, not the overall
-mean, from each data point in that group, squares the difference, sums all of
-the squares for that group, then sums all of the squares for all groups. The
-total sum of squares for the errors 
-(4.6714\times 10^{4})
-is divided by the residual degrees of freedom
-(1563) to
-produce the error mean square. Error mean square is an estimate of variance
-within the groups, which is shown in the vertical length of the each boxplot and 
-its whiskers.
+The error mean square, EMS, similarly is the Sum of Squares divided by the
+degrees of freedom, or
+(4.6713\times 10^{4})
+divided by 
+(1563).
+Error mean square is an estimate of variance within the groups, which is shown 
+in the vertical length of the each boxplot and its whiskers.
 
 The `F value`, or F statistic, equals the treatment mean square divided by the
 error mean square, or among-group variation divided by within-group variation
 (1.348\times 10^{4} /
 30 = 
-451.038).
+451.04).
 
 `F value` = among-group variance / within-group variance
 
