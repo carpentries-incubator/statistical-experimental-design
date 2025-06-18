@@ -287,9 +287,13 @@ within-group variance.
 
 The final source of variation, `total`, doesn't appear in the ANOVA table. The
 degrees of freedom for the total is one less than the number of observations,
-or (n = 522 * k = 3) - 1 = 1565 for this experiment. The Sum of Squares for the
+or (522 * 3) - 1 = 1565 for this experiment. The Sum of Squares for the
 total the squared difference between each data point and the overall mean, 
-summed over all groups.
+summed over all groups. This is as if there were no treatment groups and all
+observations were grouped together as one. You can imagine merging all three 
+boxplots into one and calculating the difference between each individual data
+point and the overall mean, squaring the result, and adding the sum of all 
+squares.
 
 
 
@@ -303,6 +307,10 @@ A one-way ANOVA assumes that:
 2. samples were drawn from a normally distributed population, and  
 3. observations are independent of each other and observations 
 within groups were obtained by random sampling.
+
+One-way ANOVA determines whether a single factor such as exercise influences the
+response. Two-way ANOVA looks at how two factors influence a response, and
+whether the two interact with one another. We will look at two-way ANOVA later.
 
 Discuss the following questions with your partner, then share your answers
 to each question in the collaborative document.
