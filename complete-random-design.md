@@ -81,11 +81,19 @@ problem. So, randomly assigning all women to one of the three treatment groups,
 then randomly assigning all men to one of the three treatment groups would be 
 the best way to handle this situation.  
 In addition to stratification by sex, the Generation 100 investigators 
-stratified by marital status because this would also influence study outcomes.
+stratified by cohabitation status because this would also influence study 
+outcomes.
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+*IMPORTANT* For the purpose of learning about analysis of variance we will treat
+all experimental units as is they are the same. In reality, sex and cohabitation
+status are important characteristics of participants and should be used in both
+experimental design and analysis as they were in the actual study. We simplify
+things here and will look at these important differences in a later episode on
+[Randomized Complete Block Designs](https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-block.html).
 
 ## Analysis of variance (ANOVA)
 Previously we tested the difference in means between two treatment groups, 
@@ -119,6 +127,7 @@ heart_rate %>%
 ```
 
 <img src="fig/complete-random-design-rendered-boxplots-1.png" style="display: block; margin: auto;" />
+
 By eye it appears that there is a difference in mean heart rate between exercise
 groups, and that increasing exercise intensity decreases mean heart rate. We 
 want to know if there is any statistically significant difference between mean 
@@ -146,10 +155,13 @@ The output tells us that there are two terms in the model we provided:
 `exercise_group` plus some experimental error (`Residuals`). The response is 
 heart rate. As an equation the linear model looks like this:  
 
-$y = \beta*x + \epsilon$
+$y = \alpha + \beta*x + \epsilon$
 
-where $y$ is the response (heart rate), $x$ is the treatment (exercise group), 
-$\beta$ is the effect size, and $\epsilon$ is experimental error, also called `Residuals`.
+where $y$ is the response (heart rate), $\alpha$ is the intercept or  mean 
+value, $x$ is the treatment (exercise group), $\beta$ is the effect size, 
+and $\epsilon$ is experimental error, also called `Residuals`. If you don't like mathematical equations, think of them in emoji language.
+
+:heartpulse: = :heartbeat: + :boom: * (:runner::walking::dancer:) + :sparkles:
 
 To help interpret the rest of the ANOVA output, the following table defines each
 element. 
@@ -257,7 +269,7 @@ freedom. The treatment mean squares, TMS, equals
 / 
 2 
 = 
-1.3480108\times 10^{4}
+1.348\times 10^{4}
 ). 
 
 The treatment mean square is a measure of the variance among the treatment 
@@ -274,7 +286,7 @@ in the vertical length of the each boxplot and its whiskers.
 
 The `F value`, or F statistic, equals the treatment mean square divided by the
 error mean square, or among-group variation divided by within-group variation
-(1.3480108\times 10^{4} /
+(1.348\times 10^{4} /
 29.9 = 
 451.04).
 
@@ -416,7 +428,9 @@ assumption of normality.
 
 ## Confidence intervals
 The boxplots show that high-intensity exercise results in lower average heart
-rate. 
+rate. Remember that these are simulated data and that the 
+[actual study measured all-cause mortality](https://www.bmj.com/content/371/bmj.m3485) 
+after five years of exercise.
 
 
 ``` r
@@ -448,11 +462,10 @@ root of this value
 The fact that we "borrowed strength" by including all groups is reflected in the
 degrees of freedom, which is 
 1563 for the 
-sample standard deviation instead of `n - 1` for the sample variance of only one 
-group. This makes the test more powerful because it borrows information from all 
-groups.
-We use the sample standard deviation to calculate a 95% confidence interval for
-mean heart rate in the high-intensity group.
+sample standard deviation instead of `n - 1 = 521` for the sample variance of 
+only one group. This makes the test more powerful because it borrows information 
+from all groups. We use the sample standard deviation to calculate a 95% 
+confidence interval for mean heart rate in the high-intensity group.
 
 
 ``` r
@@ -512,12 +525,12 @@ exercise_groupmoderate intensity
 ```
 This effectively states that mean heart rate is 
 64.2
-less 
+plus 
 7.27 for 
 the moderate-intensity group or
 -2.52
 for the high-intensity group. We can use this same linear model to predict 
-mean heart rate for a new group of participants.
+mean heart rate for a new group of control participants.
 
 
 ``` r
@@ -604,6 +617,7 @@ Residual standard error: 5.458 on 1562 degrees of freedom
 Multiple R-squared:  0.3683,	Adjusted R-squared:  0.3671 
 F-statistic: 303.6 on 3 and 1562 DF,  p-value: < 2.2e-16
 ```
+
 The linear model including sex states that average heart rate for the control
 group is 
 64.6
@@ -619,40 +633,45 @@ heart rate. What about age?
 
 
 ``` r
-summary(lm(heart_rate ~ exercise_group + sex + age, data = heart_rate))
+summary(lm(heart_rate ~ exercise_group + age, data = heart_rate))
 ```
 
 ``` output
 
 Call:
-lm(formula = heart_rate ~ exercise_group + sex + age, data = heart_rate)
+lm(formula = heart_rate ~ exercise_group + age, data = heart_rate)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--14.3515  -3.7707  -0.1119   3.7359  19.2649 
+-14.6891  -3.8014  -0.1194   3.7565  19.5980 
 
 Coefficients:
                                  Estimate Std. Error t value Pr(>|t|)    
-(Intercept)                       84.6122    10.1667   8.323  < 2e-16 ***
-exercise_grouphigh intensity      -2.5144     0.3376  -7.449 1.55e-13 ***
-exercise_groupmoderate intensity   7.2652     0.3376  21.523  < 2e-16 ***
-sexM                              -0.6735     0.2756  -2.443   0.0147 *  
-age                               -0.2753     0.1397  -1.972   0.0488 *  
+(Intercept)                       84.1077    10.1807   8.261 3.03e-16 ***
+exercise_grouphigh intensity      -2.5145     0.3381  -7.437 1.69e-13 ***
+exercise_groupmoderate intensity   7.2653     0.3381  21.489  < 2e-16 ***
+age                               -0.2730     0.1399  -1.952   0.0511 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 5.453 on 1561 degrees of freedom
-Multiple R-squared:  0.3699,	Adjusted R-squared:  0.3683 
-F-statistic: 229.1 on 4 and 1561 DF,  p-value: < 2.2e-16
+Residual standard error: 5.462 on 1562 degrees of freedom
+Multiple R-squared:  0.3675,	Adjusted R-squared:  0.3663 
+F-statistic: 302.5 on 3 and 1562 DF,  p-value: < 2.2e-16
 ```
+
 We can add age into the linear model to determine whether or not it impacts
 heart rate. The estimated coefficient for age is small 
-(-0.28)
+(-0.27)
 and has a high p-value 
-(0.05).
+(0.0511467).
 Age is not significant, which is not surprising since all participants were 
-between the ages of 70 and 77. The linear model that best fits the data includes
-only exercise group and sex.
+between the ages of 70 and 77. Notice also that the `Estimate` for average heart
+rate in the control group (`Intercept`) is very high even though it is 
+statistically significant. This `Estimate` of
+84.1
+is far higher than the confidence interval or prediction interval for average 
+heart rate of controls that we calculated earlier. The linear model that best 
+fits the data includes only exercise group and sex.
 
 ## Sizing a Complete Random Design 
 The same principles apply for sample sizes and power calculations as were 
@@ -697,6 +716,7 @@ power.t.test(delta = delta[[1]], sd = sd(heart_rate$heart_rate),
 
 NOTE: n is number in *each* group
 ```
+
 To obtain an effect size as large as the observed effect size between control
 and moderate-intensity exercise groups, you would need 
 15
@@ -707,6 +727,34 @@ the difference between control and high-intensity exercise on heart rate?
 Between moderate- and high-intensity?
 
 ## A Single Quantitative Factor
+So far we have been working with a single qualitative factor, exercise. Often
+our experiments involve quantitative factors such as drug dose. When working
+with quantitative factors rather than determining whether there is a 
+significant difference in means between treatment groups, we often want to fit
+a curve with good precision to the data. We've been doing this with linear
+modeling already even when working with a qualitative factor. We want to design
+an experiment with enough replicates to estimate the slope of a line with good
+precision. The equation for a linear model:  
+
+$y = \alpha + \beta*x + \epsilon$
+
+is often the first model we fit to the data. The slope of the line is 
+represented by $\beta$ and the experimental error, $\epsilon$, is the distance
+from each data point to the line. In the following graphic, what would you say
+about how well the model fits the data, or how large the sum of the errors is?
+The linear model is shown in blue and the confidence interval shown in gray.
+
+<img src="fig/complete-random-design-rendered-linear-fit-1.png" style="display: block; margin: auto;" />
+
+Linear models can be a good first approximation but not so in this case. The 
+model fits badly. Sometimes nature throws a curve, not a line, and a different
+model is needed. In this case a quadratic model with a squared term fits better.
+
+<img src="fig/complete-random-design-rendered-quadratic-fit-1.png" style="display: block; margin: auto;" />
+
+The distances from each data point to the line are much smaller. Plotting the 
+data is the first step to discovering these kinds of relationships between
+treatment and response.
 
 ## Design issues
 
