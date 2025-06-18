@@ -352,7 +352,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Designs</h1>
-        <p>Last updated on 2025-06-17 |
+        <p>Last updated on 2025-06-18 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -434,7 +434,7 @@ treatment assignments?<br></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>How would you randomize the 1,500+ individuals in the study to one
 of the treatment levels?<br>
@@ -684,10 +684,14 @@ and this would not affect the within-group variance. Among-group
 variance would change, but not within-group variance.</p>
 <p>The final source of variation, <code>total</code>, doesn’t appear in
 the ANOVA table. The degrees of freedom for the total is one less than
-the number of observations, or (n = 522 * k = 3) - 1 = 1565 for this
-experiment. The Sum of Squares for the total the squared difference
-between each data point and the overall mean, summed over all
-groups.</p>
+the number of observations, or (522 * 3) - 1 = 1565 for this experiment.
+The Sum of Squares for the total the squared difference between each
+data point and the overall mean, summed over all groups. This is as if
+there were no treatment groups and all observations were grouped
+together as one. You can imagine merging all three boxplots into one and
+calculating the difference between each individual data point and the
+overall mean, squaring the result, and adding the sum of all
+squares.</p>
 </section><section><h2 class="section-heading" id="equal-variances-and-normality">Equal variances and normality<a class="anchor" aria-label="anchor" href="#equal-variances-and-normality"></a></h2>
 <hr class="half-width"><div id="challenge-2-checking-for-equal-variances-and-normality" class="callout challenge">
 <div class="callout-square">
@@ -702,6 +706,10 @@ equal,<br>
 2. samples were drawn from a normally distributed population, and<br>
 3. observations are independent of each other and observations within
 groups were obtained by random sampling.</p>
+<p>One-way ANOVA determines whether a single factor such as exercise
+influences the response. Two-way ANOVA looks at how two factors
+influence a response, and whether the two interact with one another. We
+will look at two-way ANOVA later.</p>
 <p>Discuss the following questions with your partner, then share your
 answers to each question in the collaborative document.</p>
 <ol style="list-style-type: decimal"><li>How can you check whether variances are equal?<br></li>
@@ -716,7 +724,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>How can you check whether variances are equal?<br>
 A visual like a boxplot can be used to check whether variances are
@@ -752,7 +760,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> More formal tests of normality and equal variances </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>More formal tests of normality and equal variance include the
 Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
@@ -1156,8 +1164,8 @@ homogeneous.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-06-17",
-  "datePublished": "2025-06-17"
+  "dateModified": "2025-06-18",
+  "datePublished": "2025-06-18"
 }
 
   </script><script>

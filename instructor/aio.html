@@ -842,7 +842,7 @@ instrument readings, animal behavior, and indoor relative humidity.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Solution to Exercise 1 </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>1). random, because the scale is broken and provides any kind of
 random reading it comes up with (inconsistent reading)<br>
@@ -897,7 +897,7 @@ experimental units there are?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution to Exercise 2 </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>1). One biological sample (not replicated) with five technical
 replicates. The only conclusion to be drawn from the measurements would
@@ -955,7 +955,7 @@ Can you foresee any problems with the experimental results?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Solution to Exercise 3 </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Since each treatment is run on only one day, the day effectively
 becomes the experimental unit (explain this). Each experimental unit
@@ -1122,7 +1122,7 @@ groups?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>1). Scenario: One technician processed samples A through M, and a
 different technician processed samples N through Z. Might the first
@@ -1206,7 +1206,7 @@ experiment.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Solution to Exercise 3 </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1241,7 +1241,7 @@ humidity increased.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Solution to Exercise 4 </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 
 </div>
@@ -2313,7 +2313,7 @@ quantify effects against random variation.</li>
 </div>
 </section></section><section id="aio-complete-random-design"><p>Content from <a href="complete-random-design.html">Completely Randomized Designs</a></p>
 <hr>
-<p>Last updated on 2025-06-17 |
+<p>Last updated on 2025-06-18 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -2398,7 +2398,7 @@ treatment assignments?<br>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How would you randomize the 1,500+ individuals in the study to one
@@ -2674,10 +2674,14 @@ and this would not affect the within-group variance. Among-group
 variance would change, but not within-group variance.</p>
 <p>The final source of variation, <code>total</code>, doesn’t appear in
 the ANOVA table. The degrees of freedom for the total is one less than
-the number of observations, or (n = 522 * k = 3) - 1 = 1565 for this
-experiment. The Sum of Squares for the total the squared difference
-between each data point and the overall mean, summed over all
-groups.</p>
+the number of observations, or (522 * 3) - 1 = 1565 for this experiment.
+The Sum of Squares for the total the squared difference between each
+data point and the overall mean, summed over all groups. This is as if
+there were no treatment groups and all observations were grouped
+together as one. You can imagine merging all three boxplots into one and
+calculating the difference between each individual data point and the
+overall mean, squaring the result, and adding the sum of all
+squares.</p>
 </section><section><h2 class="section-heading" id="equal-variances-and-normality">Equal variances and normality<a class="anchor" aria-label="anchor" href="#equal-variances-and-normality"></a>
 </h2>
 <hr class="half-width">
@@ -2694,6 +2698,10 @@ equal,<br>
 2. samples were drawn from a normally distributed population, and<br>
 3. observations are independent of each other and observations within
 groups were obtained by random sampling.</p>
+<p>One-way ANOVA determines whether a single factor such as exercise
+influences the response. Two-way ANOVA looks at how two factors
+influence a response, and whether the two interact with one another. We
+will look at two-way ANOVA later.</p>
 <p>Discuss the following questions with your partner, then share your
 answers to each question in the collaborative document.</p>
 <ol style="list-style-type: decimal">
@@ -2712,7 +2720,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How can you check whether variances are equal?<br>
@@ -2752,7 +2760,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> More formal tests of normality and equal variances </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>More formal tests of normality and equal variance include the
 Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
@@ -3730,8 +3738,8 @@ units repeatedly during the study.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/aio.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/aio.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-06-17",
-  "datePublished": "2025-06-17"
+  "dateModified": "2025-06-18",
+  "datePublished": "2025-06-18"
 }
 
   </script><script>
