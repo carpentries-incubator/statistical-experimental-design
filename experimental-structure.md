@@ -1,7 +1,7 @@
 ---
 title: Essential Features of a Comparative Experiment
-teaching: 0
-exercises: 0
+teaching: 10
+exercises: 15
 source: Rmd
 ---
 

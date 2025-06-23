@@ -1,7 +1,7 @@
 ---
 title: Completely Randomized Designs
-teaching: 0
-exercises: 0
+teaching: 30
+exercises: 10
 source: Rmd
 ---
 

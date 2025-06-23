@@ -1,6 +1,6 @@
 ---
 title: Randomized Complete Block Designs
-teaching: 0
+teaching: 20
 exercises: 0
 source: Rmd
 ---
@@ -89,12 +89,12 @@ g100meansSD
 # Groups:   sex [2]
   sex   exercise_group     meanChange stDev
   <chr> <chr>                   <dbl> <dbl>
-1 F     control                  63.0  5.71
-2 F     high intensity           63.2  4.95
-3 F     moderate intensity       73.8  4.80
-4 M     control                  65.8  5.10
-5 M     high intensity           60.3  5.05
-6 M     moderate intensity       70.3  4.73
+1 F     control                  62.5  5.27
+2 F     high intensity           63.0  5.58
+3 F     moderate intensity       73.0  4.92
+4 M     control                  66.1  5.36
+5 M     high intensity           60.4  5.30
+6 M     moderate intensity       70.0  5.02
 ```
 
 Use these summary statistics in an interaction plot to determine if there is an
@@ -128,11 +128,11 @@ anova(lm(heart_rate ~ exercise_group*sex, data = heart_rate))
 Analysis of Variance Table
 
 Response: heart_rate
-                     Df Sum Sq Mean Sq F value    Pr(>F)    
-exercise_group        2  30292 15145.9 589.790 < 2.2e-16 ***
-sex                   1    529   529.4  20.616 6.045e-06 ***
-exercise_group:sex    2   3182  1590.8  61.945 < 2.2e-16 ***
-Residuals          1561  40087    25.7                      
+                     Df Sum Sq Mean Sq  F value  Pr(>F)    
+exercise_group        2  26960 13480.1 489.6147 < 2e-16 ***
+sex                   1    176   175.6   6.3779 0.01165 *  
+exercise_group:sex    2   3587  1793.7  65.1510 < 2e-16 ***
+Residuals          1560  42950    27.5                     
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
