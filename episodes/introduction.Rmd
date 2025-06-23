@@ -40,7 +40,8 @@ more than a million additional children were vaccinated and served as observed
 controls. This study hypothesized that the vaccine would reduce the incidence of 
 polio in schoolchildren and the placebo-controlled trials were necessary to 
 demonstrate the effectiveness of the Salk vaccine. The results showed that the 
-vaccine was 80-90% effective in reducing polio incidence.
+vaccine was 80-90% effective in reducing polio incidence. The intervention
+successfully affect variation in polio incidence directly.  
 ["A calculated risk": the Salk polio vaccine field trials of 1954 by Marcia Meldrum](https://pmc.ncbi.nlm.nih.gov/articles/PMC1114166/)
 
   

@@ -104,7 +104,11 @@ same or even better results. To know whether high-intensity training is better
 than moderate or low-intensity training, it was necessary to run experiments in 
 which some experimental units engaged in high-intensity training, others in 
 moderate, and others still in low-intensity training. Only then can the 
-responses to those treatments be statistically analyzed to determine treatment effects.
+responses to those treatments be statistically analyzed to determine treatment 
+effects.
+
+An experimental unit is the entity to which treatment is applied, whether this
+is a person, a mouse, a cell line, or a sample.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
