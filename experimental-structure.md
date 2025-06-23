@@ -30,6 +30,29 @@ this can protect conclusions by ruling out extraneous factors or biases, and
 with certainty and confidence claiming that the effect is a direct result of the
 treatment and not something else.
 
+For example, to compare enzyme levels measured in processed blood samples from 
+laboratory mice using either a kit from a vendor A or a kit from a competitor B. 
+From 20 mice, randomly select 10 of them for sample preparation with kit A, 
+while the blood samples of the remaining 10 mice are prepared with kit B. The
+average level of for kit A is 10.32 and for kit B 10.66. We might interpret the
+difference of -0.34 as due to differences in the two preparation kits and 
+conclude that either they give substantially equal results or alternatively, 
+that they systematically differ from one another.
+
+
+![boxplots of enzyme levels in kits A and B](fig/ChatGPT Image Jun 23, 2025, 07_29_08 AM.png)
+
+Either interpretation is only valid if the two groups of mice and their 
+measurements are identical in all aspects except for the sample preparation kit. 
+If we use one strain of mice for kit A and another strain for kit B, any 
+difference might also be attributed to inherent differences between the strains. 
+Similarly, if the measurements using kit B were conducted much later than those 
+using kit A, any observed difference might be attributed to changes in, e.g., 
+personnel, device calibration, or any number of other influences. None of these 
+competing explanations for an observed difference can be excluded from the given 
+data alone, but good experimental design allows us to render them (almost)
+implausible.
+[adapted from Statistical Design and Analysis of Biological Experiments by Hans-Michael Kaltenbach](https://n.ethz.ch/~kahans/doe2021/principles-of-experimental-design.html#sec:cautionarytale)
 
 The 
 [Generation 100 study](https://bmjopen.bmj.com/content/5/2/e007519)
@@ -46,6 +69,9 @@ Clinical examinations and questionnaires were administered to all at the start
 and after one, three, and five years. Heart rate, blood pressure, leg and grip
 strength, cognitive function, and other health indicators were measured during
 clinical exams.
+
+![experimental design for Generation 100 study](fig/generation-100-experimental-design)
+
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 

@@ -22,7 +22,11 @@ is not the result of fancy analyses or algorithms. In fact, analysis and design
 are intrinsically linked and dependent on one another. What you want to find out
 in your analysis dictates how to design the study, and that design in turn 
 limits the kinds of analysis that you can realistically do. In other words,
-you would analyze as designed. No analysis, no matter how elegant or complex,
+you would analyze as designed. 
+
+![graphic of design and analysis](fig/ChatGPT Image Jun 23, 2025, 07_35_42 AM.png)
+
+No analysis, no matter how elegant or complex,
 will be reliable or meaningful if based on a flawed design. Sir Ronald A. Fisher
 famously said:
 
@@ -41,7 +45,7 @@ controls. This study hypothesized that the vaccine would reduce the incidence of
 polio in schoolchildren and the placebo-controlled trials were necessary to 
 demonstrate the effectiveness of the Salk vaccine. The results showed that the 
 vaccine was 80-90% effective in reducing polio incidence. The intervention
-successfully affect variation in polio incidence directly.  
+successfully affected variation in polio incidence directly.  
 ["A calculated risk": the Salk polio vaccine field trials of 1954 by Marcia Meldrum](https://pmc.ncbi.nlm.nih.gov/articles/PMC1114166/)
 
   
