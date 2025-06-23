@@ -453,11 +453,74 @@ Finish
 </tr></tbody></table><p>
       The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
       </p>
-      </section><section id="setup"><ul><li>
-</li>
-<li>
-</li>
-</ul></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
+      </section><section id="setup"><section><h2 class="section-heading" id="software-setup">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a></h2>
+<hr class="half-width"><p>R is a programming language that is especially powerful for data
+exploration, visualization, and statistical analysis. To interact with
+R, we use RStudio.</p>
+<ol style="list-style-type: decimal"><li><p>Install the latest version of R from <a href="https://cran.r-project.org/" class="external-link">CRAN</a>.</p></li>
+<li><p>Install the latest version of <a href="https://www.rstudio.com/products/rstudio/download/" class="external-link">RStudio</a>.
+Choose the free RStudio Desktop version for Windows, Mac, or
+Linux.</p></li>
+<li><p>Start RStudio.</p></li>
+<li><p>Install packages by copying and pasting the following code in the
+R console.</p></li>
+</ol><div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+<p>Once the installation is complete, load the libraries to make sure
+that they installed correctly.</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">tidyverse</span><span class="op">)</span></span></code></pre>
+</div>
+</section><section><h2 class="section-heading" id="project-organization">Project organization<a class="anchor" aria-label="anchor" href="#project-organization"></a></h2>
+<hr class="half-width"><ol style="list-style-type: decimal"><li>Create a new project in your Desktop called
+<code>experimental_design</code>.</li>
+</ol><ul><li>Click the <code>File</code> menu button, then
+<code>New Project</code>.</li>
+<li>Click <code>New Directory</code>.</li>
+<li>Click <code>New Project</code>.</li>
+<li>Type <code>experimental_design</code> as the directory name. Browse
+to your Desktop to create the project there.</li>
+<li>Click the <code>Create Project</code> button.</li>
+</ul><ol start="2" style="list-style-type: decimal"><li>Use the <code>Files</code> tab to create a <code>data</code> folder
+to hold the data, a <code>scripts</code> folder to house your scripts,
+and a <code>results</code> folder to hold results. Alternatively, you
+can use the R console to run the following commands for step 2 only. You
+still need to create a project with step 1.</li>
+</ol><div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">dir.create</span><span class="op">(</span><span class="st">"./data"</span><span class="op">)</span></span>
+<span><span class="fu">dir.create</span><span class="op">(</span><span class="st">"./scripts"</span><span class="op">)</span></span>
+<span><span class="fu">dir.create</span><span class="op">(</span><span class="st">"./results"</span><span class="op">)</span></span></code></pre>
+</div>
+</section><section><h2 class="section-heading" id="data-sets">Data Sets<a class="anchor" aria-label="anchor" href="#data-sets"></a></h2>
+<hr class="half-width"><p>For this course, we will have several data files which you will need
+to download to the <code>data</code> directory in the project folder on
+your Desktop. Copy, paste, and run the following code in the RStudio
+console.</p>
+<p>Download the files using the code below.</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">download.file</span><span class="op">(</span>url      <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/carpentries-incubator/statistical-experimental-design/refs/heads/main/episodes/data/simulated_heart_rates.csv"</span>,</span>
+<span>              destfile <span class="op">=</span> <span class="st">"Desktop/data/heart_rate.csv"</span>,</span>
+<span>              mode     <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
+<span><span class="fu">download.file</span><span class="op">(</span>url      <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/carpentries-incubator/statistical-experimental-design/refs/heads/main/episodes/data/drugExercise.csv"</span>,</span>
+<span>              destfile <span class="op">=</span> <span class="st">"Desktop/data/drugExercise.csv"</span>,</span>
+<span>              mode     <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span></code></pre>
+</div>
+<p>Development of this lesson was funded by NIH award GM141520 to
+Dr. Gary Churchill at The Jackson Laboratory.</p>
+</section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link float-end" href="../instructor/introduction.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
