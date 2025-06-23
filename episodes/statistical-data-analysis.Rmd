@@ -21,6 +21,7 @@ source: Rmd
 
 ```{r, include=FALSE}
 library(tidyverse)
+heart_rate <- read_csv("data/heart_rate.csv")
 ```
 
 ## A picture is worth a thousand words
@@ -87,13 +88,15 @@ distribution toward taller heights, as would the median.
 A picture is worth a thousand words, and a picture of your data could reveal
 important information that can guide you forward. So first, plot the data!
 
-```{r load_data, message=FALSE}
+```{r load_data, message=FALSE, eval=FALSE}
 # load the tidyverse library to write more easily interpreted code
 library(tidyverse)
 
 # read in the simulated heart rate data
 heart_rate <- read_csv("data/heart_rate.csv")
+```
 
+```{r sample_data, message=FALSE}
 # take a random sample of 100 and create a histogram
 # first set the seed for the random number generator
 set.seed(42)
@@ -545,6 +548,7 @@ result <- t.test(x = control_group$heart_rate,
                  y = high_group$heart_rate)
 result$p.value
 ```
+
 The p-value indicates a statistically significant difference between exercise
 groups. It is not enough, though, to report only a p-value. The p-value says
 nothing about the effect size (the observed difference). If the effect size was
@@ -565,7 +569,7 @@ scientific significance. Confidence intervals include estimates of the effect
 size and uncertainty associated with these estimates. When reporting results, 
 use confidence intervals.
 
-```{r confidence-interval}
+```{r confidence-interval, eval=FALSE}
 # access the confidence interval
 result$conf.int
 ```
