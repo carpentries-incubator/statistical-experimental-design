@@ -17,14 +17,19 @@ exercises: 0
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 Good experimental design generates information-rich data with a clear message. 
 In both scientific research and industry, experimental design plays a critical 
-role in obtaining reliable and meaningful results. Scientists can better 
-understand their work when they carry out well-conceived, well-executed 
-experiments and then extract, communicate, and act on information generated in 
-those experiments. This course will prepare scientists to design rigorous 
-experiments that generate high-value data and to extract and communicate its 
-messages. By applying statistical concepts in designing experiments, 
-understanding variability, and drawing meaningful inferences, participants will
-be equipped with the knowledge and skills for data-driven decision-making.
+role in obtaining reliable and meaningful results. Reliable, trustworthy science
+is not the result of fancy analyses or algorithms. In fact, analysis and design
+are intrinsically linked and dependent on one another. What you want to find out
+in your analysis dictates how to design the study, and that design in turn 
+limits the kinds of analysis that you can realistically do. In other words,
+you would analyze as designed. No analysis, no matter how elegant or complex,
+will be reliable or meaningful if based on a flawed design. Sir Ronald A. Fisher
+famously said:
+
+“To consult the statistician after an experiment is finished is often merely to 
+ask him to conduct a post mortem examination. He can perhaps say what the 
+experiment died of.”
+Presidential Address to the First Indian Statistical Congress, 1938.
 
 Experimental design aims to describe and explain variation in natural systems by
 intervening to affect that variation directly. For example, the Salk polio 
