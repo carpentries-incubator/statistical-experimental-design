@@ -571,7 +571,7 @@ use confidence intervals.
 
 ```{r confidence-interval, eval=FALSE}
 # access the confidence interval
-result$conf.int
+# result$conf.int
 ```
 
 The confidence interval states that the true difference in means is between
