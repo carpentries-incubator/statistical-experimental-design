@@ -544,9 +544,9 @@ accessing individual elements with the `$` operator.
 
 ```{r p-value}
 # save the t-test result and access the p-value alone
-result <- t.test(x = control_group$heart_rate,
+# result <- t.test(x = control_group$heart_rate,
                  y = high_group$heart_rate)
-result$p.value
+# result$p.value
 ```
 
 The p-value indicates a statistically significant difference between exercise
@@ -575,10 +575,10 @@ use confidence intervals.
 ```
 
 The confidence interval states that the true difference in means is between
-`r round(result$conf.int[1], 2)` and `r round(result$conf.int[2], 2)`. We can
+`r # round(result$conf.int[1], 2)` and `r # round(result$conf.int[2], 2)`. We can
 say, with 95% confidence, that high intensity exercise could decrease mean 
-heart rate from `r round(result$conf.int[1], 2)` to 
-`r round(result$conf.int[2], 2)` beats per minute. Note that these are 
+heart rate from `r # round(result$conf.int[1], 2)` to 
+`r # round(result$conf.int[2], 2)` beats per minute. Note that these are 
 *simulated data and are not the real outcomes* of the Generation 100 study. 
 
 A 95% confidence interval states that 95% of random intervals will contain the 
