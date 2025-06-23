@@ -92,7 +92,7 @@ important information that can guide you forward. So first, plot the data!
 library(tidyverse)
 
 # read in the simulated heart rate data
-heart_rate <- read_csv("data/simulated_heart_rates.csv")
+heart_rate <- read_csv("data/heart_rate.csv")
 
 # take a random sample of 100 and create a histogram
 # first set the seed for the random number generator
@@ -157,17 +157,17 @@ elderly adults affects lifespan and healthspan.
 
 ```{r boxplot}
 heart_rate %>% 
-  filter(exercise_group %in% c("moderate intensity", "control")) %>%
+  filter(exercise_group %in% c("high intensity", "control")) %>%
   ggplot(aes(exercise_group, heart_rate)) + 
   geom_boxplot()
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 4: Comparing two groups - control vs. moderate intensity exercise
+## Exercise 4: Comparing two groups - control vs. high intensity exercise
 
 1. Does there appear to be a significant heart rate difference between the
-  moderate and control exercise groups? How would you know?
+  high and control exercise groups? How would you know?
 2. Do any of the data overlap between the two boxplots?
 3. Can you know which exercise group a person belongs to just by knowing their
   heart rate? For example, for a heart rate of 80 could you say with certainty
@@ -194,7 +194,7 @@ heart_rate %>%
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 The boxplots above show a trend of lower heart rate in the control exercise 
-group and higher heart rate in the moderate-intensity exercise group. There
+group and higher heart rate in the high-intensity exercise group. There
 is inherent variability in heart rate in both groups however, which is to be
 expected. That variability appears in the box and whisker lengths of the
 boxplots, along with any outliers that appear as black dots outside of the
@@ -208,22 +208,22 @@ question about exercise intensity.
 ```{r}
 # calculate the means of the two groups
 # unlist() converts a tibble (special tidyverse table) to a vector
-moderateHR <- heart_rate %>% 
-            filter(exercise_group == "moderate intensity") %>% 
+highHR <- heart_rate %>% 
+            filter(exercise_group == "high intensity") %>% 
             select(heart_rate) %>% 
             unlist() 
 controlHR <- heart_rate %>% 
                 filter(exercise_group == "control") %>% 
                 select(heart_rate) %>% 
                 unlist() 
-meanDiff <- mean(moderateHR) - mean(controlHR)
+meanDiff <- mean(highHR) - mean(controlHR)
 meanDiff
 ```
 
 The actual difference in mean heart rates between the two groups is
-`r  round(mean(moderateHR) - mean(controlHR), 2)`. Another way of 
+`r  round(mean(highHR) - mean(controlHR), 2)`. Another way of 
 stating this is that the control group had a mean heart rate that was
-`r round((mean(moderateHR) - mean(controlHR))/mean(moderateHR)* 100, 1)` 
+`r round((mean(highHR) - mean(controlHR))/mean(highHR)* 100, 1)` 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -241,9 +241,9 @@ for those samples.
 
 ```{r}
 # calculate the sample mean of 100 people in each group
-moderate100 <- mean(sample(moderateHR, size = 100))
+high100 <- mean(sample(highHR, size = 100))
 control100 <- mean(sample(controlHR, size = 100))
-moderate100 - control100
+high100 - control100
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -251,9 +251,11 @@ means.
 
 ```{r}
 # calculate the sample mean of 100 people in each group
-moderate100 <- mean(sample(moderateHR, size = 100))
-control100 <- mean(sample(controlHR, size = 100))
-moderate100 - control100
+high100 <- mean(sample(highHR, 
+                           size = 100))
+control100 <- mean(sample(controlHR, 
+                          size = 100))
+high100 - control100
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -302,18 +304,22 @@ Here is this process written in R code:
 
 ```{r}
 ## 100 controls
-control <- sample(population$heart_rate, size = 100)
+control <- sample(population$heart_rate, 
+                  size = 100)
 
 ## another 100 controls that we pretend are on a high-intensity regimen
-treatment <- sample(population$heart_rate, size = 100)
+treatment <- sample(population$heart_rate, 
+                    size = 100)
 mean(control) - mean(treatment)
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
 
 ```{r}
-treatment <- replicate(n = 10000, mean(sample(population$heart_rate, 100)))
-control <- replicate(n = 10000, mean(sample(population$heart_rate, 100)))
+treatment <- replicate(n = 10000, 
+                       mean(sample(population$heart_rate, 100)))
+control <- replicate(n = 10000, 
+                     mean(sample(population$heart_rate, 100)))
 null <- control - treatment
 hist(null)
 abline(v=meanDiff, col="red", lwd=2)
@@ -352,8 +358,8 @@ significance of the difference in mean values?
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 P-values are often misinterpreted as the probability that, in this example,
-moderate-intensity and control exercise result in the same average heart rate.
-However, "moderate-intensity and control exercise result in the same average 
+high-intensity and control exercise result in the same average heart rate.
+However, "high-intensity and control exercise result in the same average 
 heart rate" is not a **random variable** like the number of heads or tails in 10 
 flips of a coin. It's a statement that doesn't have a 
 **probability distribution**, so you can't make probability statements about it. 
@@ -524,10 +530,10 @@ means of the two **samples** from the whole **population** of elders in Norway.
 
 control_group <- population %>%
   filter(exercise_group == "control") 
-moderate_group <- population %>%
-  filter(exercise_group == "moderate intensity") 
+high_group <- population %>%
+  filter(exercise_group == "high intensity") 
 t.test(x = control_group$heart_rate,
-       y = moderate_group$heart_rate)
+       y = high_group$heart_rate)
 ```
 ## The perils of p-values
 You can access the p-value alone from the t-test by saving the results and 
@@ -536,7 +542,7 @@ accessing individual elements with the `$` operator.
 ```{r p-value}
 # save the t-test result and access the p-value alone
 result <- t.test(x = control_group$heart_rate,
-                 y = moderate_group$heart_rate)
+                 y = high_group$heart_rate)
 result$p.value
 ```
 The p-value indicates a statistically significant difference between exercise
@@ -566,7 +572,7 @@ result$conf.int
 
 The confidence interval states that the true difference in means is between
 `r round(result$conf.int[1], 2)` and `r round(result$conf.int[2], 2)`. We can
-say, with 95% confidence, that moderate intensity exercise could decrease mean 
+say, with 95% confidence, that high intensity exercise could decrease mean 
 heart rate from `r round(result$conf.int[1], 2)` to 
 `r round(result$conf.int[2], 2)` beats per minute. Note that these are 
 *simulated data and are not the real outcomes* of the Generation 100 study. 
@@ -607,7 +613,7 @@ confidence intervals (shown in red) fail to cover the true population mean.
 For each statement, explain to a partner why you believe the statement is true
 or untrue.
 
-1. A p-value of .02 means that there is only a 2% chance that moderate-intensity 
+1. A p-value of .02 means that there is only a 2% chance that high-intensity 
 and control exercise result in the same average heart rate.
 2. A p-value of .02 demonstrates that there is a meaningful difference in 
 average heart rates between the two groups.
@@ -672,7 +678,7 @@ from a normal population.
 
 ```{r f-test}
 var.test(heart_rate$exercise_group == "control",
-         heart_rate$exercise_group == "moderate intensity")
+         heart_rate$exercise_group == "high intensity")
 ```
 The F test reports that the variances between the groups are not the same, 
 however, the ratio of variances is very close to 1 as indicated by the 
