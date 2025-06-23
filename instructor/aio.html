@@ -437,9 +437,11 @@ algorithms. In fact, analysis and design are intrinsically linked and
 dependent on one another. What you want to find out in your analysis
 dictates how to design the study, and that design in turn limits the
 kinds of analysis that you can realistically do. In other words, you
-would analyze as designed. No analysis, no matter how elegant or
-complex, will be reliable or meaningful if based on a flawed design. Sir
-Ronald A. Fisher famously said:</p>
+would analyze as designed.</p>
+<figure><img src="../fig/ChatGPT%20Image%20Jun%2023,%202025,%2007_35_42%20AM.png" alt="graphic of design and analysis" class="figure mx-auto d-block"><div class="figcaption">graphic of design and analysis</div>
+</figure><p>No analysis, no matter how elegant or complex, will be reliable or
+meaningful if based on a flawed design. Sir Ronald A. Fisher famously
+said:</p>
 <p>“To consult the statistician after an experiment is finished is often
 merely to ask him to conduct a post mortem examination. He can perhaps
 say what the experiment died of.” Presidential Address to the First
@@ -455,7 +457,7 @@ hypothesized that the vaccine would reduce the incidence of polio in
 schoolchildren and the placebo-controlled trials were necessary to
 demonstrate the effectiveness of the Salk vaccine. The results showed
 that the vaccine was 80-90% effective in reducing polio incidence. The
-intervention successfully affect variation in polio incidence
+intervention successfully affected variation in polio incidence
 directly.<br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1114166/" class="external-link">“A
 calculated risk”: the Salk polio vaccine field trials of 1954 by Marcia
 Meldrum</a></p>
@@ -518,6 +520,29 @@ a real effect if it’s there. Ultimately this can protect conclusions by
 ruling out extraneous factors or biases, and with certainty and
 confidence claiming that the effect is a direct result of the treatment
 and not something else.</p>
+<p>For example, to compare enzyme levels measured in processed blood
+samples from laboratory mice using either a kit from a vendor A or a kit
+from a competitor B. From 20 mice, randomly select 10 of them for sample
+preparation with kit A, while the blood samples of the remaining 10 mice
+are prepared with kit B. The average level of for kit A is 10.32 and for
+kit B 10.66. We might interpret the difference of -0.34 as due to
+differences in the two preparation kits and conclude that either they
+give substantially equal results or alternatively, that they
+systematically differ from one another.</p>
+<figure><img src="../fig/ChatGPT%20Image%20Jun%2023,%202025,%2007_29_08%20AM.png" alt="boxplots of enzyme levels in kits A and B" class="figure mx-auto d-block"><div class="figcaption">boxplots of enzyme levels in kits A and B</div>
+</figure><p>Either interpretation is only valid if the two groups of mice and
+their measurements are identical in all aspects except for the sample
+preparation kit. If we use one strain of mice for kit A and another
+strain for kit B, any difference might also be attributed to inherent
+differences between the strains. Similarly, if the measurements using
+kit B were conducted much later than those using kit A, any observed
+difference might be attributed to changes in, e.g., personnel, device
+calibration, or any number of other influences. None of these competing
+explanations for an observed difference can be excluded from the given
+data alone, but good experimental design allows us to render them
+(almost) implausible. <a href="https://n.ethz.ch/~kahans/doe2021/principles-of-experimental-design.html#sec:cautionarytale" class="external-link">adapted
+from Statistical Design and Analysis of Biological Experiments by
+Hans-Michael Kaltenbach</a></p>
 <p>The <a href="https://bmjopen.bmj.com/content/5/2/e007519" class="external-link">Generation
 100 study</a> evaluated the effects of exercise on more than 1500
 elderly Norwegians from Trondheim, Norway, to determine if exercise led
@@ -533,7 +558,9 @@ questionnaires were administered to all at the start and after one,
 three, and five years. Heart rate, blood pressure, leg and grip
 strength, cognitive function, and other health indicators were measured
 during clinical exams.</p>
-<div id="challenge-1-raw-ingredients-of-a-comparative-experiment" class="callout challenge">
+<figure><img src="../fig/generation-100-experimental-design" alt="experimental design for Generation 100 study" class="figure mx-auto d-block"><div class="figcaption">experimental design for Generation 100
+study</div>
+</figure><div id="challenge-1-raw-ingredients-of-a-comparative-experiment" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -862,7 +889,7 @@ instrument readings, animal behavior, and indoor relative humidity.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Solution to Exercise 1 </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>1). random, because the scale is broken and provides any kind of
 random reading it comes up with (inconsistent reading)<br>
@@ -917,7 +944,7 @@ experimental units there are?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution to Exercise 2 </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>1). One biological sample (not replicated) with five technical
 replicates. The only conclusion to be drawn from the measurements would
@@ -975,7 +1002,7 @@ Can you foresee any problems with the experimental results?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Solution to Exercise 3 </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Since each treatment is run on only one day, the day effectively
 becomes the experimental unit (explain this). Each experimental unit
@@ -1142,7 +1169,7 @@ groups?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>1). Scenario: One technician processed samples A through M, and a
 different technician processed samples N through Z. Might the first
@@ -1226,7 +1253,7 @@ experiment.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Solution to Exercise 3 </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1261,7 +1288,7 @@ humidity increased.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Solution to Exercise 4 </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 
 </div>
@@ -1358,7 +1385,7 @@ outliers if an equal number of men were added to the histogram?</p>
   Solution to Exercise 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>1). Mean and median are two measures of the center of the data. The
 median is the 50th% of the data with half the women above this value and
@@ -1436,7 +1463,7 @@ do the data deliver in this histogram?</p>
   Solution to Exercise 2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 
 </div>
@@ -1471,7 +1498,7 @@ boxplot?</p>
   Solution to Exercise 3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 
 </div>
@@ -1523,7 +1550,7 @@ say with certainty that a person belongs to one group or the other?</li>
   Solution to Exercise 4
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>There appears to be a trend of lower heart rate in the
@@ -1763,7 +1790,7 @@ the significance of the difference in mean values?</p>
   Solution to Exercise 5
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1921,7 +1948,7 @@ it was drawn?</li>
   Solution to Exercise 6
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 
 </div>
@@ -2089,7 +2116,7 @@ p-value.</li>
   Solution to Exercise 7
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 
 </div>
@@ -2418,7 +2445,7 @@ treatment assignments?<br>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How would you randomize the 1,500+ individuals in the study to one
@@ -2750,7 +2777,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How can you check whether variances are equal?<br>
@@ -2790,7 +2817,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> More formal tests of normality and equal variances </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>More formal tests of normality and equal variance include the
 Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
