@@ -32,13 +32,18 @@ experiment died of.”
 Presidential Address to the First Indian Statistical Congress, 1938.
 
 Experimental design aims to describe and explain variation in natural systems by
-intervening to affect that variation directly. For example, the Salk polio 
+intervening to affect that variation directly. In an experiment, the 
+experimenter actively controls the conditions. For example, the Salk polio 
 vaccine trials collected data about variation in polio incidence after injecting 
-more than 600,000 schoolchildren with vaccine or placebo. This clinical trial
-hypothesized that the vaccine would reduce the incidence of polio in 
-schoolchildren. More than a million additional children were vaccinated and 
-served as observed controls. The results showed evidence that the vaccine was
-80-90% effective in preventing polio.
+more than 600,000 schoolchildren with either vaccine or placebo. In addition,
+more than a million additional children were vaccinated and served as observed 
+controls. This study hypothesized that the vaccine would reduce the incidence of 
+polio in schoolchildren and the placebo-controlled trials were necessary to 
+demonstrate the effectiveness of the Salk vaccine. The results showed that the 
+vaccine was 80-90% effective in reducing polio incidence.
+["A calculated risk": the Salk polio vaccine field trials of 1954 by Marcia Meldrum](https://pmc.ncbi.nlm.nih.gov/articles/PMC1114166/)
+
+  
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
