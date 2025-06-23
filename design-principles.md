@@ -171,6 +171,30 @@ experimental units.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+In the graphic below, four mice in each experimental design are assigned to
+either enzyme kit A or kit B. In the first design, one blood sample is drawn 
+from each mouse and tested with kit A or kit B. In the second design, two blood 
+samples are drawn from each mouse and tested with kit A or kit B. In the third 
+design, two blood samples are drawn from each mouse and one sample is tested 
+with kit A and the other with kit B.
+
+How many biological replicates are in each design?  
+What are the experimental units in each design?  
+What are the advantages of design C?
+
+![three different experimental designs](fig/three-experimental-designs.png)
+[adapted from Statistical Design and Analysis of Biological Experiments by Hans-Michael Kaltenbach](https://n.ethz.ch/~kahans/doe2021/principles-of-experimental-design.html#the-language-of-experimental-design)
+
+Pseudoreplication occurs when multiple samples are taken from the same entity.
+For example, if two blood sample are taken from a mouse and each sample receives
+treatment A, the entity to which the treatment is applied 
+(the experimental unit) is the mouse, not the blood sample. When each of two
+blood samples from a mouse receives different treatments, e.g. one blood sample
+is assigned to kit A and the other to kit B, the blood sample is the 
+experimental unit, the entity to which treatment is applied. The same goes for
+cell lines. Dividing a cell line into multiples and treating all multiples with
+the same treatment is still only one replicate.
+
 ## Randomization
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -232,32 +256,32 @@ random_allocation
 
 ``` output
    mouse_ID random_number treatment
-1         A            40      chow
-2         B            65  high fat
-3         C            15  high fat
-4         D            27  high fat
-5         E            26      chow
-6         F            77  high fat
-7         G            89  high fat
-8         H            72      chow
-9         I             1  high fat
-10        J            46      chow
-11        K            57  high fat
-12        L            90      chow
-13        M            92      chow
-14        N            96      chow
-15        O            10      chow
-16        P            53  high fat
-17        Q            43  high fat
-18        R            37  high fat
-19        S            12      chow
-20        T            41  high fat
-21        U            39  high fat
-22        V            80      chow
-23        W            52      chow
-24        X            44      chow
-25        Y            75  high fat
-26        Z            30      chow
+1         A            79  high fat
+2         B            30      chow
+3         C            92      chow
+4         D            88      chow
+5         E            42      chow
+6         F             5  high fat
+7         G            38      chow
+8         H            60      chow
+9         I            85  high fat
+10        J            78      chow
+11        K             4      chow
+12        L            40      chow
+13        M            11  high fat
+14        N            69  high fat
+15        O            64      chow
+16        P            62      chow
+17        Q            28      chow
+18        R            23  high fat
+19        S            39  high fat
+20        T            43  high fat
+21        U            45  high fat
+22        V             9  high fat
+23        W            89  high fat
+24        X            86      chow
+25        Y            25  high fat
+26        Z            82      chow
 ```
 
 This might produce unequal numbers between treatment and control groups. It
@@ -273,7 +297,7 @@ table(random_allocation$treatment)
 ``` output
 
     chow high fat 
-      13       13 
+      14       12 
 ```
 
 To randomly assign samples to groups with equal numbers, you can do the
@@ -296,32 +320,32 @@ equal_allocation
 
 ``` output
    mouse_ID random_number treatment
-1         I             1      chow
-2         O            10      chow
-3         S            12      chow
-4         C            15      chow
-5         E            26      chow
-6         D            27      chow
-7         Z            30      chow
-8         R            37      chow
-9         U            39      chow
-10        A            40      chow
-11        T            41      chow
-12        Q            43      chow
-13        X            44      chow
-14        J            46  high fat
-15        W            52  high fat
-16        P            53  high fat
-17        K            57  high fat
-18        B            65  high fat
-19        H            72  high fat
-20        Y            75  high fat
-21        F            77  high fat
-22        V            80  high fat
-23        G            89  high fat
-24        L            90  high fat
-25        M            92  high fat
-26        N            96  high fat
+1         K             4      chow
+2         F             5      chow
+3         V             9      chow
+4         M            11      chow
+5         R            23      chow
+6         Y            25      chow
+7         Q            28      chow
+8         B            30      chow
+9         G            38      chow
+10        S            39      chow
+11        L            40      chow
+12        E            42      chow
+13        T            43      chow
+14        U            45  high fat
+15        H            60  high fat
+16        P            62  high fat
+17        O            64  high fat
+18        N            69  high fat
+19        J            78  high fat
+20        A            79  high fat
+21        Z            82  high fat
+22        I            85  high fat
+23        X            86  high fat
+24        D            88  high fat
+25        W            89  high fat
+26        C            92  high fat
 ```
 
 You can write out this treatment plan to a comma-separated values (csv) file,

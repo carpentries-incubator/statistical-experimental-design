@@ -184,12 +184,12 @@ heart_rate %>%
 
 ## Solution to Exercise 4
 
-1. There appears to be a trend of lower heart rate in the moderate-intensity
+1. There appears to be a trend of lower heart rate in the control
   exercise group, however, we can't say whether or not it is significant
   without performing statistical tests.
 2. There is considerable overlap between the two groups, which shows that
   there is considerable variability in the data.
-3. Someone with a heart rate of 80 could belong to any group. When
+3. Someone with a heart rate of 68 could belong to any group. When
   considering significance of heart rate differences between the two groups
   we don't look at individuals, rather, we look at averages between the two
   groups.
@@ -200,11 +200,11 @@ heart_rate %>%
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-The boxplots above show a trend of lower heart rate in the moderate-intensity
-exercise group and higher heart rate in the control exercise group. There
+The boxplots above show a trend of lower heart rate in the control exercise 
+group and higher heart rate in the moderate-intensity exercise group. There
 is inherent variability in heart rate in both groups however, which is to be
 expected. That variability appears in the box and whisker lengths of the
-boxplots, along with any outliers that appear as hollow circles outside of the
+boxplots, along with any outliers that appear as black dots outside of the
 whisker length. This variability in heart rate measurements also means that the
 boxplots overlap between the two groups, making it difficult to determine 
 whether there is a significant difference in mean heart rate between the groups.
@@ -224,18 +224,18 @@ controlHR <- heart_rate %>%
                 filter(exercise_group == "control") %>% 
                 select(heart_rate) %>% 
                 unlist() 
-meanDiff <- mean(controlHR) - mean(moderateHR)
+meanDiff <- mean(moderateHR) - mean(controlHR)
 meanDiff
 ```
 
 ``` output
-[1] -7.267638
+[1] 7.267638
 ```
 
 The actual difference in mean heart rates between the two groups is
--7.27. Another way of 
-stating this is that the moderate-intensity group had a mean heart rate that was
--11.3 
+7.27. Another way of 
+stating this is that the control group had a mean heart rate that was
+10.2 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -256,11 +256,11 @@ for those samples.
 # calculate the sample mean of 100 people in each group
 moderate100 <- mean(sample(moderateHR, size = 100))
 control100 <- mean(sample(controlHR, size = 100))
-control100 - moderate100 
+moderate100 - control100
 ```
 
 ``` output
-[1] -7.121813
+[1] 7.121813
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -271,11 +271,11 @@ means.
 # calculate the sample mean of 100 people in each group
 moderate100 <- mean(sample(moderateHR, size = 100))
 control100 <- mean(sample(controlHR, size = 100))
-control100 - moderate100
+moderate100 - control100
 ```
 
 ``` output
-[1] -7.485819
+[1] 7.485819
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -380,13 +380,13 @@ mean(null >= meanDiff)
 ```
 
 ``` output
-[1] 1
+[1] 0
 ```
 
-Approximately 100% of the 10,000 
+Approximately 0% of the 10,000 
 simulations are greater than the observed difference in means. We can expect 
 then that we will see a difference in means approximately 
-100% of the time even if there is no 
+0% of the time even if there is no 
 effect of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -438,7 +438,14 @@ assuming that no effect exists.
 The alternative hypothesis challenges the null by stating that an effect exists 
 and that the mean difference, $\mu_A$, is greater than zero. The difference 
 between  $\mu_0$ and  $\mu_A$ is known as the effect size, which is expressed in 
-units of standard deviation: $d = (\mu_A - \mu_0) / \sigma$. 
+units of standard deviation: $d = (\mu_A - \mu_0) / \sigma$.  
+
+If mathematical symbols and Greek letters are confusing, think of them as emoji
+language. For example,   
+
+$\mu$ is a :cow:  
+$\alpha$ is a :dog:  
+$\sigma$ is a :bug:  
 
 ## Probability and probability distributions
 
@@ -492,7 +499,7 @@ interval. That formula is conveniently stored in the function `pnorm`.
 
 If the normal approximation holds for our list of data values, then the mean and
 variance (spread) of the data can be used. For example, when we noticed that
-~ 100% of the values in the null 
+~ 0% of the values in the null 
 distribution were greater than `meanDiff`, the mean difference between control
 and high-intensity groups. We can compute the proportion of values below a value
 `x` with `pnorm(x, mu, sigma)` where `mu` is the mean and `sigma` the standard
@@ -504,7 +511,7 @@ deviation (the square root of the variance).
 ```
 
 ``` output
-[1] 1
+[1] 4.107825e-15
 ```
 
 A useful characteristic of this approximation is that we only need to know `mu`
