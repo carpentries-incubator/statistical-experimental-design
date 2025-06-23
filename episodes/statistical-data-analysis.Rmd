@@ -216,15 +216,15 @@ controlHR <- heart_rate %>%
                 filter(exercise_group == "control") %>% 
                 select(heart_rate) %>% 
                 unlist() 
-meanDiff <- mean(highHR) - mean(controlHR)
+meanDiff <- mean(controlHR) - mean(highHR)
 meanDiff
 ```
 
 The actual difference in mean heart rates between the two groups is
-`r  round(mean(highHR) - mean(controlHR), 2)`. Another way of 
+`r  round(mean(controlHR) - mean(highHR), 2)`. Another way of 
 stating this is that the control group had a mean heart rate that was
-`r round((mean(highHR) - mean(controlHR))/mean(highHR)* 100, 1)` 
-percent lower than the control group. This is the *observed effect size*.
+`r round((mean(controlHR) - mean(highHR))/mean(controlHR)* 100, 1)` 
+percent higher than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
 that there is a significant difference in mean heart rates? Or does it fail to
@@ -243,7 +243,7 @@ for those samples.
 # calculate the sample mean of 100 people in each group
 high100 <- mean(sample(highHR, size = 100))
 control100 <- mean(sample(controlHR, size = 100))
-high100 - control100
+control100 - high100
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -255,7 +255,7 @@ high100 <- mean(sample(highHR,
                            size = 100))
 control100 <- mean(sample(controlHR, 
                           size = 100))
-high100 - control100
+control100 - high100
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
