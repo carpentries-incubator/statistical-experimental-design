@@ -39,8 +39,8 @@ and randomization within blocks accounts for "nuisance" variables or traits that
 are likely associated with the response. Shelf height and resulting differences
 in illumination is one example of a nuisance variable. Other variables like age 
 and sex are characteristics of experimental units that can influence the 
-treatment response. Blocking by sex and/or age is a best practice in 
-experimental design.
+treatment response. Blocking by sex and other characteristics is a best practice
+in experimental design.
 
 In an earlier episode on
 [Completely Randomized Designs](https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html),
@@ -151,7 +151,8 @@ experiment, the experimental units (mice) are homogeneous and the treatments
 were randomized to the experimental units once only in a completely randomized 
 design. In this case, the experimental units are heterogeneous and a separate 
 randomization of treatments was applied to each block of experimental units. 
-This is a randomized block design.
+This is a randomized block design. The purpose of the blocks is to remove a
+source of variation, (e.g. sex), from the comparison of treatments.
 
 
 
