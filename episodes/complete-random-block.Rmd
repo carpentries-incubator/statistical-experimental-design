@@ -1,6 +1,6 @@
 ---
 title: Randomized Complete Block Designs
-teaching: 0
+teaching: 20
 exercises: 0
 source: Rmd
 ---
