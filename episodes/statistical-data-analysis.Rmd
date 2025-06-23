@@ -223,7 +223,7 @@ meanDiff
 The actual difference in mean heart rates between the two groups is
 `r  round(mean(moderateHR) - mean(controlHR), 2)`. Another way of 
 stating this is that the control group had a mean heart rate that was
-`r round((mean(moderateHR) - mean(controlHR))/mean(moderateHR)) * 100, 1)` 
+`r round((mean(moderateHR) - mean(controlHR))/mean(moderateHR)* 100, 1)` 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
