@@ -177,12 +177,12 @@ heart_rate %>%
 
 ## Solution to Exercise 4
 
-1. There appears to be a trend of lower heart rate in the moderate-intensity
+1. There appears to be a trend of lower heart rate in the control
   exercise group, however, we can't say whether or not it is significant
   without performing statistical tests.
 2. There is considerable overlap between the two groups, which shows that
   there is considerable variability in the data.
-3. Someone with a heart rate of 80 could belong to any group. When
+3. Someone with a heart rate of 68 could belong to any group. When
   considering significance of heart rate differences between the two groups
   we don't look at individuals, rather, we look at averages between the two
   groups.
@@ -193,11 +193,11 @@ heart_rate %>%
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-The boxplots above show a trend of lower heart rate in the moderate-intensity
-exercise group and higher heart rate in the control exercise group. There
+The boxplots above show a trend of lower heart rate in the control exercise 
+group and higher heart rate in the moderate-intensity exercise group. There
 is inherent variability in heart rate in both groups however, which is to be
 expected. That variability appears in the box and whisker lengths of the
-boxplots, along with any outliers that appear as hollow circles outside of the
+boxplots, along with any outliers that appear as black dots outside of the
 whisker length. This variability in heart rate measurements also means that the
 boxplots overlap between the two groups, making it difficult to determine 
 whether there is a significant difference in mean heart rate between the groups.
@@ -216,14 +216,14 @@ controlHR <- heart_rate %>%
                 filter(exercise_group == "control") %>% 
                 select(heart_rate) %>% 
                 unlist() 
-meanDiff <- mean(controlHR) - mean(moderateHR)
+meanDiff <- mean(moderateHR) - mean(controlHR)
 meanDiff
 ```
 
 The actual difference in mean heart rates between the two groups is
-`r  round(mean(controlHR) - mean(moderateHR), 2)`. Another way of 
-stating this is that the moderate-intensity group had a mean heart rate that was
-`r round(((mean(controlHR) - mean(moderateHR))/mean(controlHR)) * 100, 1)` 
+`r  round(mean(moderateHR) - mean(controlHR), 2)`. Another way of 
+stating this is that the control group had a mean heart rate that was
+`r round((mean(moderateHR) - mean(controlHR))/mean(moderateHR)) * 100, 1)` 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -243,7 +243,7 @@ for those samples.
 # calculate the sample mean of 100 people in each group
 moderate100 <- mean(sample(moderateHR, size = 100))
 control100 <- mean(sample(controlHR, size = 100))
-control100 - moderate100 
+moderate100 - control100
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -253,7 +253,7 @@ means.
 # calculate the sample mean of 100 people in each group
 moderate100 <- mean(sample(moderateHR, size = 100))
 control100 <- mean(sample(controlHR, size = 100))
-control100 - moderate100
+moderate100 - control100
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again

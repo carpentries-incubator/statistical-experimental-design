@@ -172,6 +172,30 @@ experimental units.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+In the graphic below, four mice in each experimental design are assigned to
+either enzyme kit A or kit B. In the first design, one blood sample is drawn 
+from each mouse and tested with kit A or kit B. In the second design, two blood 
+samples are drawn from each mouse and tested with kit A or kit B. In the third 
+design, two blood samples are drawn from each mouse and one sample is tested 
+with kit A and the other with kit B.
+
+How many biological replicates are in each design?  
+What are the experimental units in each design?  
+What are the advantages of design C?
+
+![three different experimental designs](fig/three-experimental-designs.png)
+[adapted from Statistical Design and Analysis of Biological Experiments by Hans-Michael Kaltenbach](https://n.ethz.ch/~kahans/doe2021/principles-of-experimental-design.html#the-language-of-experimental-design)
+
+Pseudoreplication occurs when multiple samples are taken from the same entity.
+For example, if two blood sample are taken from a mouse and each sample receives
+treatment A, the entity to which the treatment is applied 
+(the experimental unit) is the mouse, not the blood sample. When each of two
+blood samples from a mouse receives different treatments, e.g. one blood sample
+is assigned to kit A and the other to kit B, the blood sample is the 
+experimental unit, the entity to which treatment is applied. The same goes for
+cell lines. Dividing a cell line into multiples and treating all multiples with
+the same treatment is still only one replicate.
+
 ## Randomization
 
 :::::::::::::::::::::::::::::::::::::::  challenge

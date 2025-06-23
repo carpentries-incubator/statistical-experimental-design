@@ -71,8 +71,9 @@ and after one, three, and five years. Heart rate, blood pressure, leg and grip
 strength, cognitive function, and other health indicators were measured during
 clinical exams.
 
-![experimental design for Generation 100 study](fig/generation-100-experimental-design)
+![experimental design for Generation 100 study](fig/generation-100-experimental-design.png)
 
+[Generation 100: Does exercise make older adults live longer?](https://www.ntnu.edu/cerg/generation100)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
