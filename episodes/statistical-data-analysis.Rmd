@@ -384,7 +384,14 @@ assuming that no effect exists.
 The alternative hypothesis challenges the null by stating that an effect exists 
 and that the mean difference, $\mu_A$, is greater than zero. The difference 
 between  $\mu_0$ and  $\mu_A$ is known as the effect size, which is expressed in 
-units of standard deviation: $d = (\mu_A - \mu_0) / \sigma$. 
+units of standard deviation: $d = (\mu_A - \mu_0) / \sigma$.  
+
+If mathematical symbols and Greek letters are confusing, think of them as emoji
+language. For example,   
+
+$\mu$ is a :cow:  
+$\alpha$ is a :dog:  
+$\sigma$ is a :bug:  
 
 ## Probability and probability distributions
 
