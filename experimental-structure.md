@@ -21,7 +21,17 @@ source: Rmd
 
 
 Well-designed experiments can deliver information that has a clear impact on 
-human health. The 
+human health. The main goals of good experimental design are to develop valid 
+scientific conclusions and to efficiently use resources - time, money, and
+materials - to deliver meaningful results. These results include estimates that
+are precise enough to be meaningful, not fuzzy and useless. Statistical tests
+should have enough power to detect a real effect if it's there. Ultimately
+this can protect conclusions by ruling out extraneous factors or biases, and
+with certainty and confidence claiming that the effect is a direct result of the
+treatment and not something else.
+
+
+The 
 [Generation 100 study](https://bmjopen.bmj.com/content/5/2/e007519)
 evaluated the effects of exercise on more than 1500 elderly Norwegians from
 Trondheim, Norway, to determine if exercise led to a longer active and healthy
