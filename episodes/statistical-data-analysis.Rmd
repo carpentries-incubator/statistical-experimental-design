@@ -21,7 +21,7 @@ source: Rmd
 
 ```{r, include=FALSE}
 library(tidyverse)
-heart_rate <- read_csv("data/heart_rate.csv")
+heart_rate <- read_csv("data/simulated_heart_rates.csv")
 ```
 
 ## A picture is worth a thousand words
