@@ -61,10 +61,10 @@ Download the files using the code below.
 
 ```r
 download.file(url      = "https://raw.githubusercontent.com/carpentries-incubator/statistical-experimental-design/refs/heads/main/episodes/data/simulated_heart_rates.csv",
-              destfile = "Desktop/data/heart_rate.csv",
+              destfile = "./data/heart_rate.csv",
               mode     = "wb")
 download.file(url      = "https://raw.githubusercontent.com/carpentries-incubator/statistical-experimental-design/refs/heads/main/episodes/data/drugExercise.csv",
-              destfile = "Desktop/data/drugExercise.csv",
+              destfile = "./data/drugExercise.csv",
               mode     = "wb")
 ```
 
