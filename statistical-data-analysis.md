@@ -661,6 +661,12 @@ use confidence intervals.
 result$conf.int
 ```
 
+``` output
+[1] 1.839507 3.198619
+attr(,"conf.level")
+[1] 0.95
+```
+
 The confidence interval states that the true difference in means is between
 1.84 and 3.2. We can
 say, with 95% confidence, that high intensity exercise could decrease mean 
@@ -806,7 +812,7 @@ different population.
 
 
 ``` r
-# sample size = 783 per group
+# sample size = 522 per group
 # delta = the observed effect size, meanDiff
 # sd = standard deviation 
 # significance level (Type 1 error probability or 
@@ -814,7 +820,7 @@ different population.
 # type = two-sample t-test
 # What is the power of this experiment to detect 
 #                     an effect of size meanDiff?
-power.t.test(n = 783, delta = meanDiff, sd = sd(heart_rate$heart_rate), 
+power.t.test(n = 522, delta = meanDiff, sd = sd(heart_rate$heart_rate), 
              sig.level = 0.05, type = "two.sample")
 ```
 
@@ -822,11 +828,11 @@ power.t.test(n = 783, delta = meanDiff, sd = sd(heart_rate$heart_rate),
 
      Two-sample t test power calculation 
 
-              n = 783
+              n = 522
           delta = 2.519063
              sd = 6.861167
       sig.level = 0.05
-          power = 0.9999999
+          power = 0.9999635
     alternative = two.sided
 
 NOTE: n is number in *each* group
@@ -860,6 +866,7 @@ power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate),
 
 NOTE: n is number in *each* group
 ```
+
 As a rule of thumb, Lehr's equation streamlines calculation of sample size 
 assuming equal variances and sample sizes drawn from a normal distribution.
 The effect size is standardized by dividing the difference in group means by the
@@ -879,6 +886,7 @@ n
 ``` output
 [1] 118.6965
 ```
+
 Often budget constraints determine sample size. Lehr's equation can be 
 rearranged to determine the effect size that can be detected for a given 
 sample size.
@@ -895,6 +903,7 @@ detectableDifferenceInMeans
 ``` output
 [1] 2.744467
 ```
+
 Try increasing or decreasing the sample size (100) to see how the detectable 
 difference in mean changes. Note the relationship: for very large effects, you
 can get away with smaller sample sizes. For small effects, you need large 
