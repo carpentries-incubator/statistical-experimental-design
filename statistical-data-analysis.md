@@ -237,7 +237,7 @@ meanDiff
 
 The actual difference in mean heart rates between the two groups is
 2.52. Another way of 
-stating this is that the control group had a mean heart rate that was
+stating this is that the high intensity group had a mean heart rate that was
 3.9 
 percent lower than the control group. This is the *observed effect size*.
 
@@ -625,16 +625,13 @@ accessing individual elements with the `$` operator.
 
 ``` r
 # save the t-test result and access the p-value alone
-# result <- t.test(x = control_group$heart_rate,
+result <- t.test(x = control_group$heart_rate,
                  y = high_group$heart_rate)
-# result$p.value
+result$p.value
 ```
 
-``` error
-Error in parse(text = input): <text>:3:43: unexpected ')'
-2: # result <- t.test(x = control_group$heart_rate,
-3:                  y = high_group$heart_rate)
-                                             ^
+``` output
+[1] 6.855193e-13
 ```
 
 The p-value indicates a statistically significant difference between exercise
