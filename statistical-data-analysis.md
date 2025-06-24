@@ -618,6 +618,7 @@ sample estimates:
 mean of x mean of y 
  64.24299  61.72393 
 ```
+
 ## The perils of p-values
 You can access the p-value alone from the t-test by saving the results and 
 accessing individual elements with the `$` operator.
@@ -657,14 +658,14 @@ use confidence intervals.
 
 ``` r
 # access the confidence interval
-# result$conf.int
+result$conf.int
 ```
 
 The confidence interval states that the true difference in means is between
- and . We can
+1.84 and 3.2. We can
 say, with 95% confidence, that high intensity exercise could decrease mean 
-heart rate from  to 
- beats per minute. Note that these are 
+heart rate from 1.84 to 
+3.2 beats per minute. Note that these are 
 *simulated data and are not the real outcomes* of the Generation 100 study. 
 
 A 95% confidence interval states that 95% of random intervals will contain the 
@@ -765,6 +766,7 @@ sample estimates:
 ratio of variances 
                  1 
 ```
+
 The F test reports that the variances between the groups are not the same, 
 however, the ratio of variances is very close to 1 as indicated by the 
 confidence interval.
