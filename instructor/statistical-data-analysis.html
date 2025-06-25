@@ -354,7 +354,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Statistics in Data Analysis</h1>
-        <p>Last updated on 2025-06-24 |
+        <p>Last updated on 2025-06-25 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/statistical-data-analysis.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -930,7 +930,22 @@ deviation (the square root of the variance).</p>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fl">1</span> <span class="op">-</span> <span class="fu">pnorm</span><span class="op">(</span><span class="va">meanDiff</span>, mean<span class="op">=</span><span class="fu">mean</span><span class="op">(</span><span class="va">null</span><span class="op">)</span>, sd<span class="op">=</span><span class="fu">sd</span><span class="op">(</span><span class="va">null</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="co"># the proportion of values BELOW the mean difference between high-intensity and</span></span>
+<span><span class="co"># control exercise groups</span></span>
+<span><span class="fu">pnorm</span><span class="op">(</span><span class="va">meanDiff</span>, mean<span class="op">=</span><span class="fu">mean</span><span class="op">(</span><span class="va">null</span><span class="op">)</span>, sd<span class="op">=</span><span class="fu">sd</span><span class="op">(</span><span class="va">null</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] 0.9964357</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># the proportion of values ABOVE the mean difference between high-intensity and</span></span>
+<span><span class="co"># control exercise groups</span></span>
+<span><span class="fl">1</span> <span class="op">-</span> <span class="fu">pnorm</span><span class="op">(</span><span class="va">meanDiff</span>, mean<span class="op">=</span><span class="fu">mean</span><span class="op">(</span><span class="va">null</span><span class="op">)</span>, sd<span class="op">=</span><span class="fu">sd</span><span class="op">(</span><span class="va">null</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -944,7 +959,7 @@ interval.</p>
 <p>Real-world populations may be approximated by the mathematical ideal
 of the normal distribution. Repeat the sampling we did earlier and
 produce a new histogram of the sample.</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -992,7 +1007,7 @@ it was drawn?</li>
 <p>If you have doubts about whether the sample follows a normal
 distribution, a quantile-quantile (QQ) plot can make interpretation
 easier.</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1019,7 +1034,7 @@ in mean values, while the <strong>alternative hypothesis</strong> states
 that there is a difference in the means of the two
 <strong>samples</strong> from the whole <strong>population</strong> of
 elders in Norway.</p>
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1052,7 +1067,7 @@ mean of x mean of y
 <hr class="half-width"><p>You can access the p-value alone from the t-test by saving the
 results and accessing individual elements with the <code>$</code>
 operator.</p>
-<div class="codewrapper sourceCode" id="cb29">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1085,7 +1100,7 @@ absence. There could still be an effect.</p>
 want is scientific significance. Confidence intervals include estimates
 of the effect size and uncertainty associated with these estimates. When
 reporting results, use confidence intervals.</p>
-<div class="codewrapper sourceCode" id="cb31">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1162,7 +1177,7 @@ comparing standard deviations (the square root of the variance) as we
 are in comparing means.</p>
 <figure><img src="../fig/statistical-data-analysis-rendered-compare-means-standard-deviation-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>As a rule of thumb, if the ratio of the larger to the smaller
 variance is less than 4, the groups have equal variances.</p>
-<div class="codewrapper sourceCode" id="cb33">
+<div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1183,7 +1198,7 @@ variance is less than 4, the groups have equal variances.</p>
 </div>
 <p>A more formal approach uses an F test to compare variances between
 samples drawn from a normal population.</p>
-<div class="codewrapper sourceCode" id="cb35">
+<div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1214,7 +1229,7 @@ experimental design. Sample size is an important component of
 statistical power (the power to detect an effect). To get a better sense
 of statistical power, let’s simulate a t-test for two groups with
 different means and equal variances.</p>
-<div class="codewrapper sourceCode" id="cb37">
+<div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1242,7 +1257,7 @@ different means and equal variances.</p>
 <p>Let’s calculate the statistical power of our experiment so far, and
 then determine the sample size we would need to run a similar experiment
 on a different population.</p>
-<div class="codewrapper sourceCode" id="cb39">
+<div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1276,7 +1291,7 @@ NOTE: n is number in *each* group</code></pre>
 standard. If we were to repeat the experiment with a different
 population of elders (e.g.  Icelandic elders), what is the minimum
 sample size we would need for each exercise group?</p>
-<div class="codewrapper sourceCode" id="cb41">
+<div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1308,7 +1323,7 @@ size assuming equal variances and sample sizes drawn from a normal
 distribution. The effect size is standardized by dividing the difference
 in group means by the standard deviation. <em>Cohen’s d</em> describes
 standardized effect sizes from 0.01 (very small) to 2.0 (huge).</p>
-<div class="codewrapper sourceCode" id="cb43">
+<div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1327,7 +1342,7 @@ standardized effect sizes from 0.01 (very small) to 2.0 (huge).</p>
 <p>Often budget constraints determine sample size. Lehr’s equation can
 be rearranged to determine the effect size that can be detected for a
 given sample size.</p>
-<div class="codewrapper sourceCode" id="cb45">
+<div class="codewrapper sourceCode" id="cb47">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1436,8 +1451,8 @@ quantify effects against random variation.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/statistical-data-analysis.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/statistical-data-analysis.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-06-24",
-  "datePublished": "2025-06-24"
+  "dateModified": "2025-06-25",
+  "datePublished": "2025-06-25"
 }
 
   </script><script>

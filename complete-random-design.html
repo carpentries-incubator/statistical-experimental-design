@@ -352,7 +352,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Designs</h1>
-        <p>Last updated on 2025-06-23 |
+        <p>Last updated on 2025-06-25 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -432,7 +432,7 @@ treatment assignments?<br></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>How would you randomize the 1,500+ individuals in the study to one
 of the treatment levels?<br>
@@ -476,18 +476,18 @@ at these important differences in a later episode on <a href="https://carpentrie
 Complete Block Designs</a>.</p>
 </section><section><h2 class="section-heading" id="analysis-of-variance-anova">Analysis of variance (ANOVA)<a class="anchor" aria-label="anchor" href="#analysis-of-variance-anova"></a></h2>
 <hr class="half-width"><p>Previously we tested the difference in means between two treatment
-groups, moderate intensity and control, using a two-sample t-test. We
-could continue using the t-test to determine whether there is a
-significant difference between high intensity and moderate intensity,
-and between high intensity and control groups. This would be tedious
-though because we would need to test each possible combination of two
-treatment groups separately. It is also susceptible to bias. If we were
-to test the difference in means between the highest and lowest heart
-rate groups (high intensity vs. control), there is more than a 5%
-probability that just by random chance we can obtain a p-value less than
-.05. Comparing the highest to the lowest mean groups biases the t-test
-to report a statistically significant difference when in reality there
-might be no difference in means.</p>
+groups, high intensity and control, using a two-sample t-test. We could
+continue using the t-test to determine whether there is a significant
+difference between high intensity and moderate intensity, and between
+moderate intensity and control groups. This would be tedious though
+because we would need to test each possible combination of two treatment
+groups separately. It is also susceptible to bias. If we were to test
+the difference in means between the highest and lowest heart rate groups
+(high vs. moderate intensity), there is more than a 5% probability that
+just by random chance we can obtain a p-value less than .05. Comparing
+the highest to the lowest mean groups biases the t-test to report a
+statistically significant difference when in reality there might be no
+difference in means.</p>
 <p>Analysis of variance (ANOVA) addresses two sources of variation in
 the data: 1) the variation within each treatment group; and 2) the
 variation among the treatment groups. In the boxplots below, the
@@ -673,7 +673,7 @@ all groups equals 46713.</p>
 <p>The mean squares values (<code>Mean Sq</code>) divides the Sum of
 Squares by the degrees of freedom. The treatment mean squares, TMS,
 equals</p>
-<p>( 26960 / 2 = 1.348^{4} ).</p>
+<p>( 26960 / 2 = 1.3480108^{4} ).</p>
 <p>The treatment mean square is a measure of the variance among the
 treatment groups, which is shown horizontally in the boxplots as upward
 or downward shift of the treatment groups relative to one another.</p>
@@ -683,7 +683,7 @@ square is an estimate of variance within the groups, which is shown in
 the vertical length of the each boxplot and its whiskers.</p>
 <p>The <code>F value</code>, or F statistic, equals the treatment mean
 square divided by the error mean square, or among-group variation
-divided by within-group variation (1.348^{4} / 29.9 = 451.04).</p>
+divided by within-group variation (1.3480108^{4} / 29.9 = 451.04).</p>
 <p><code>F value</code> = among-group variance / within-group
 variance</p>
 <p>These variance estimates are statistically independent of one
@@ -732,7 +732,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>How can you check whether variances are equal?<br>
 A visual like a boxplot can be used to check whether variances are
@@ -768,7 +768,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> More formal tests of normality and equal variances </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>More formal tests of normality and equal variance include the
 Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
@@ -1209,8 +1209,8 @@ homogeneous.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-06-23",
-  "datePublished": "2025-06-24"
+  "dateModified": "2025-06-25",
+  "datePublished": "2025-06-25"
 }
 
   </script><script>
