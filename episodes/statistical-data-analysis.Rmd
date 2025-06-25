@@ -461,6 +461,12 @@ and high-intensity groups. We can compute the proportion of values below a value
 deviation (the square root of the variance). 
 
 ```{r pnorm}
+# the proportion of values BELOW the mean difference between high-intensity and
+# control exercise groups
+pnorm(meanDiff, mean=mean(null), sd=sd(null))
+
+# the proportion of values ABOVE the mean difference between high-intensity and
+# control exercise groups
 1 - pnorm(meanDiff, mean=mean(null), sd=sd(null))
 ```
 
