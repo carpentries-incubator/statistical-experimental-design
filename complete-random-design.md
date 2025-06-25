@@ -97,13 +97,13 @@ things here and will look at these important differences in a later episode on
 
 ## Analysis of variance (ANOVA)
 Previously we tested the difference in means between two treatment groups, 
-moderate intensity and control, using a two-sample t-test. We could continue 
+high intensity and control, using a two-sample t-test. We could continue 
 using the t-test to determine whether there is a significant difference between 
-high intensity and moderate intensity, and between high intensity and control 
+high intensity and moderate intensity, and between moderate intensity and control 
 groups. This would be tedious though because we would need to test each possible
 combination of two treatment groups separately. It is also susceptible to bias.
 If we were to test the difference in means between the highest and lowest heart
-rate groups (high intensity vs. control), there is more than a 5% probability 
+rate groups (high vs. moderate intensity), there is more than a 5% probability 
 that just by random chance we can obtain a p-value less than .05. Comparing the 
 highest to the lowest mean groups biases the t-test to report a statistically 
 significant difference when in reality there might be no difference in means.
@@ -269,7 +269,7 @@ freedom. The treatment mean squares, TMS, equals
 / 
 2 
 = 
-1.348\times 10^{4}
+1.3480108\times 10^{4}
 ). 
 
 The treatment mean square is a measure of the variance among the treatment 
@@ -286,7 +286,7 @@ in the vertical length of the each boxplot and its whiskers.
 
 The `F value`, or F statistic, equals the treatment mean square divided by the
 error mean square, or among-group variation divided by within-group variation
-(1.348\times 10^{4} /
+(1.3480108\times 10^{4} /
 29.9 = 
 451.04).
 

@@ -516,6 +516,18 @@ deviation (the square root of the variance).
 
 
 ``` r
+# the proportion of values BELOW the mean difference between high-intensity and
+# control exercise groups
+pnorm(meanDiff, mean=mean(null), sd=sd(null))
+```
+
+``` output
+[1] 0.9964357
+```
+
+``` r
+# the proportion of values ABOVE the mean difference between high-intensity and
+# control exercise groups
 1 - pnorm(meanDiff, mean=mean(null), sd=sd(null))
 ```
 
