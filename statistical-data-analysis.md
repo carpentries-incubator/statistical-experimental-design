@@ -394,7 +394,7 @@ mean(null >= meanDiff)
 
 Approximately 0.4% of the 10,000 
 simulations are greater than the observed difference in means. We can expect 
-then that we will see a difference in means approximately 
+then that we will see a difference in means this great or greater approximately 
 0.4% of the time even if there is no 
 effect of exercise on heart rate. This is known as a **p-value**.
 
@@ -409,7 +409,16 @@ significance of the difference in mean values?
 :::::::::::::::  solution
 
 ## Solution to Exercise 5
-
+The p-value tells us that a difference in means this great or greater is highly
+improbable assuming that the null hypothesis is true and that this difference in
+means was drawn from a null distribution. **This is not the same as saying that
+the p-value represents the probability that the null hypothesis is true.** We
+assume the null hypothesis is true when we calculate a p-value. The degree of 
+improbability of getting a mean difference this great or greater is evidence
+against the null hypothesis and support for an alternative hypothesis that the
+sample comes from a population with a different mean.  
+A low p-value tells us that an improbable event has occurred assuming the null 
+is true. It provides statistical significance, but not biological significance.
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -587,7 +596,13 @@ drawn?
 :::::::::::::::  solution
 
 ## Solution to Exercise 6
-
+1. Yes, it appears normally distributed.
+2. Probably around 65-66.
+3. Sample mean using R: 65.6, which will vary because each sample is different and will have a different mean.
+4. SD somewhere between 5 and 7
+5. SD using R: 6.5 which will vary because each sample is different and will have a different standard deviation.
+6. Number of people with resting heart rate between 60 and 70: 55-60
+7. The majority of people in this population will have a resting heart rather close to the mean of the sample population (65.6). If normally distributed, 68% of population heart rates will lie within 1 standard deviation of the mean, or approximately 59.1 to 72.1. 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -735,12 +750,17 @@ in means.
 :::::::::::::::  solution
 
 ## Solution to Exercise 7
+1. False. A p-value of 0.02 means that if the null hypothesis is true that there
+is a 2% chance of observing a difference as extreme as the one found in the data. 
+2. True, a p-value of 0.02 indicates that the difference is statistically
+significant if we use the typical 0.05 threshold.
+3. False. A 95% confidence interval says that 95% of confidence intervals 
+generated will contain the true value.
+4. True. A p-value tells you if the result is statistically significant while 
+the confidence interval shows the range of values likely to contain the true 
+value.
 
 :::::::::::::::::::::::::
-
-
-
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -869,8 +889,8 @@ NOTE: n is number in *each* group
 ```
 In biomedical studies, statistical power of 80% (0.8) is an accepted standard. 
 If we were to repeat the experiment with a different population of elders (e.g. 
-Icelandic elders), what is the minimum sample size we would need for each 
-exercise group?
+Norwegian elders from a different city, or Finnish elders), what is the minimum
+sample size we would need for each exercise group?
 
 
 ``` r
