@@ -414,12 +414,10 @@ reality an effect exists. An ideal test is both specific (low false positive or
 $\alpha$) and sensitive (low false negative rate or $\beta$). $\alpha$ and 
 $\beta$ are inversely related. Increasing the false positive rate $\alpha$
 decreases the false negative rate $\beta$ and also reduces power ($1 - \beta$).
-Increasing power reduces the false negative rate ($\beta$) and increases the 
-false positive rate ($\alpha$). The tradeoff depends on the consequences of a 
-false positive versus those for a false negative. A false positive might lead
-to a paper retraction, while a false negative might mean missing an opportunity
-to publish an interesting result. Generally the consequences of false positives
-outweight those of false negatives, so $\alpha$ is set much lower than $\beta$.
+The tradeoff depends on the consequences of a false positive versus those for a 
+false negative. A false positive might lead to a paper retraction, while a false negative might mean missing an opportunity to publish an interesting result. 
+Generally the consequences of false positives outweigh those of false negatives, 
+so $\alpha$ is set much lower than $\beta$.
 
 If mathematical symbols and Greek letters are confusing, think of them as emoji
 language. For example,   
