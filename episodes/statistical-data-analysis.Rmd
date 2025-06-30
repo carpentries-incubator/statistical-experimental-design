@@ -391,16 +391,34 @@ assuming that no effect exists.
 ![](fig/Alternative-hypothesis.png){alt='alternative hypothesis'}
 
 The alternative hypothesis challenges the null by stating that an effect exists 
-and that the mean difference, $\mu_A$, is greater than zero. The difference 
-between  $\mu_0$ and  $\mu_A$ is known as the effect size, which is expressed in 
-units of standard deviation: $d = (\mu_A - \mu_0) / \sigma$.  
+and that the mean difference, $\mu_A$, is greater than zero. If we have a value
+greater than the critical value, we might select an alternative distribution 
+with a different mean than the null distribution. The difference between  
+$\mu_0$ and $\mu_A$ is known as the effect size, which is expressed in units of 
+standard deviation: $d = (\mu_A - \mu_0) / \sigma$. Power or sensitivity 
+($1 - \beta$) is the chance of appropriately rejecting the null hypothesis if 
+the data are drawn from the alternative distribution. $\beta$ is the chance of
+a false negative, or not rejecting the null hypothesis when data are drawn from
+the alternative distribution (Type II error rate). If we have a value that falls 
+within this region, it is possible to falsely accept the null hypothesis when in 
+reality an effect exists. An ideal test is both specific (low false positive or 
+$\alpha$) and sensitive (low false negative rate or $\beta$). $\alpha$ and 
+$\beta$ are inversely related. Increasing the false positive rate $\alpha$
+decreases the false negative rate $\beta$ and also reduces power ($1 - \beta$).
+Increasing power reduces the false negative rate ($\beta$) and increases the 
+false positive rate ($\alpha$). The tradeoff depends on the consequences of a 
+false positive versus those for a false negative. A false positive might lead
+to a paper retraction, while a false negative might mean missing an opportunity
+to publish an interesting result. Generally the consequences of false positives
+outweight those of false negatives, so $\alpha$ is set much lower than $\beta$.
 
 If mathematical symbols and Greek letters are confusing, think of them as emoji
 language. For example,   
 
-$\mu$ is a :cow:  
-$\alpha$ is a :dog:  
-$\sigma$ is a :bug:  
+$\mu$ is a :cow:, the mean  
+$\alpha$ is a :dog:, the Type I (false positive) rate  
+$\sigma$ is a :bug:, the standard deviation which describes spread   
+$\beta$ is a :horse:, the Type II (false negative) rate 
 
 ## Probability and probability distributions
 
