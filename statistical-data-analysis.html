@@ -354,7 +354,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Statistics in Data Analysis</h1>
-        <p>Last updated on 2025-06-25 |
+        <p>Last updated on 2025-06-30 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/statistical-data-analysis.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -867,12 +867,34 @@ high. Specificity describes the likelihood of true negatives, or
 accepting the null hypothesis when it is true and correctly assuming
 that no effect exists.</p>
 <figure><img src="fig/Null-hypothesis.png" alt="null hypothesis" class="figure mx-auto d-block"></figure><figure><img src="fig/Alternative-hypothesis.png" alt="alternative hypothesis" class="figure mx-auto d-block"></figure><p>The alternative hypothesis challenges the null by stating that an
-effect exists and that the mean difference, <span class="math inline">\(\mu_A\)</span>, is greater than zero. The
-difference between <span class="math inline">\(\mu_0\)</span> and <span class="math inline">\(\mu_A\)</span> is known as the effect size, which
-is expressed in units of standard deviation: <span class="math inline">\(d = (\mu_A - \mu_0) / \sigma\)</span>.</p>
+effect exists and that the mean difference, <span class="math inline">\(\mu_A\)</span>, is greater than zero. If we have a
+value greater than the critical value, we might select an alternative
+distribution with a different mean than the null distribution. The
+difference between<br><span class="math inline">\(\mu_0\)</span> and <span class="math inline">\(\mu_A\)</span> is known as the effect size, which
+is expressed in units of standard deviation: <span class="math inline">\(d = (\mu_A - \mu_0) / \sigma\)</span>. Power or
+sensitivity (<span class="math inline">\(1 - \beta\)</span>) is the
+chance of appropriately rejecting the null hypothesis if the data are
+drawn from the alternative distribution. <span class="math inline">\(\beta\)</span> is the chance of a false negative,
+or not rejecting the null hypothesis when data are drawn from the
+alternative distribution (Type II error rate). If we have a value that
+falls within this region, it is possible to falsely accept the null
+hypothesis when in reality an effect exists. An ideal test is both
+specific (low false positive or <span class="math inline">\(\alpha\)</span>) and sensitive (low false negative
+rate or <span class="math inline">\(\beta\)</span>). <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are inversely related. Increasing
+the false positive rate <span class="math inline">\(\alpha\)</span>
+decreases the false negative rate <span class="math inline">\(\beta\)</span> and also reduces power (<span class="math inline">\(1 - \beta\)</span>). Increasing power reduces the
+false negative rate (<span class="math inline">\(\beta\)</span>) and
+increases the false positive rate (<span class="math inline">\(\alpha\)</span>). The tradeoff depends on the
+consequences of a false positive versus those for a false negative. A
+false positive might lead to a paper retraction, while a false negative
+might mean missing an opportunity to publish an interesting result.
+Generally the consequences of false positives outweight those of false
+negatives, so <span class="math inline">\(\alpha\)</span> is set much
+lower than <span class="math inline">\(\beta\)</span>.</p>
 <p>If mathematical symbols and Greek letters are confusing, think of
 them as emoji language. For example,</p>
-<p><span class="math inline">\(\mu\)</span> is a <span class="emoji" data-emoji="cow">🐮</span><br><span class="math inline">\(\alpha\)</span> is a <span class="emoji" data-emoji="dog">🐶</span><br><span class="math inline">\(\sigma\)</span> is a <span class="emoji" data-emoji="bug">🐛</span></p>
+<p><span class="math inline">\(\mu\)</span> is a <span class="emoji" data-emoji="cow">🐮</span>, the mean<br><span class="math inline">\(\alpha\)</span> is a <span class="emoji" data-emoji="dog">🐶</span>, the Type I (false positive) rate<br><span class="math inline">\(\sigma\)</span> is a <span class="emoji" data-emoji="bug">🐛</span>, the standard deviation which describes
+spread<br><span class="math inline">\(\beta\)</span> is a <span class="emoji" data-emoji="horse">🐴</span>, the Type II (false negative) rate</p>
 </section><section><h2 class="section-heading" id="probability-and-probability-distributions">Probability and probability distributions<a class="anchor" aria-label="anchor" href="#probability-and-probability-distributions"></a></h2>
 <hr class="half-width"><p>Suppose you have measured the resting heart rate of the entire
 population of elderly Norwegians 70 or older, not just the 1,567 from
@@ -1449,8 +1471,8 @@ quantify effects against random variation.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/statistical-data-analysis.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/statistical-data-analysis.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-06-25",
-  "datePublished": "2025-06-25"
+  "dateModified": "2025-06-30",
+  "datePublished": "2025-06-30"
 }
 
   </script><script>
