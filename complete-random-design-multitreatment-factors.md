@@ -166,35 +166,18 @@ variability do these remaining 4 degrees of freedom contain? The answer is
 interaction - the interaction between drug doses and exercise durations. 
 
 
-``` error
-Error in names(x) <- value: 'names' attribute [6] must be the same length as the vector [2]
-```
-
-
-
 Table: ANOVA Table for Completely Randomized Design with Two or More Treatment Factors
 
-|source.of.variation |Df                                |
-|:-------------------|:---------------------------------|
-|treatment 1         |$k_1 - 1$                         |
-|treatment 2         |$k_2 - 1$                         |
-|interaction         |$(k_1 - 1) * (k_2 - 1)$           |
-|error               |$(k_1 - 1) * (k_2 - 1) * (n - 1)$ |
+|source of variation |Df                      |Sum Sq |Mean Sq=Sum Sq/Df |F value |prob(>F) |
+|:-------------------|:-----------------------|:------|:-----------------|:-------|:--------|
+|treatment 1         |$k_1 - 1$               |Sum Sq |Mean Sq=Sum Sq/Df |F value |prob(>F) |
+|treatment 2         |$k_2 - 1$               |Sum Sq |Mean Sq=Sum Sq/Df |F value |prob(>F) |
+|interaction         |$(k_1 - 1) * (k_2 - 1)$ |Sum Sq |Mean Sq=Sum Sq/Df |F value |prob(>F) |
+|error               |$k_1 * k_2 * (n - 1)$   |Sum Sq |Mean Sq=Sum Sq/Df |F value |prob(>F) |
 
 We can visualize interactions for all combinations of drug dose and exercise 
 duration with an interaction plot that shows mean change in glucose levels on 
 the y-axis.  
-
-The interaction plots shows wide variation in mean glucose changes at a drug 
-dose of 20 mg/kg, and also at 0 min/day exercise. The vertical bars extending 
-above and below each mean value are the standard deviations for that group.
-Notice that the bars for the 10 mg/kg drug dose group are the longest, 
-indicating higher variability that we also saw in the boxplots. If we plot 
-exercise on the x-axis, the same patterns show up differently. At 60 min/day
-exercise, there is considerable overlap between the standard deviation bars in 
-the three drug dosage groups. There is not a clear distinction indicating that 
-the drug has an effect, although the 0 drug dosage group does appear to benefit
-from more exercise.
 
 
 ``` r
@@ -207,7 +190,7 @@ ggplot(meansSD, aes(x=DrugDose, y=meanChange, group=Exercise, color=Exercise)) +
        title = "Mean change in glucose by drug doseage") 
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplot-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotDrug-1.png" style="display: block; margin: auto;" />
 
 ``` r
 ggplot(meansSD, aes(x=Exercise, y=meanChange, group=DrugDose, color=DrugDose)) + 
@@ -219,10 +202,36 @@ ggplot(meansSD, aes(x=Exercise, y=meanChange, group=DrugDose, color=DrugDose)) +
        title = "Mean change in glucose by exercise") 
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplot-2.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotDrug-2.png" style="display: block; margin: auto;" />
+  
+The interaction plots shows wide variation in mean glucose changes at a drug 
+dose of 20 mg/kg, and also at 0 min/day exercise. The vertical bars extending 
+above and below each mean value are the standard deviations for that group.
+Notice that the bars for the 10 mg/kg drug dose group are the longest, 
+indicating higher variability that we also saw in the boxplots.  
+
+If we plot exercise on the x-axis, the same patterns show up differently. 
+
+
+``` r
+ggplot(meansSD, aes(x=Exercise, y=meanChange, group=DrugDose, color=DrugDose)) + 
+    geom_line() +
+    geom_point() +
+    geom_errorbar(aes(ymin=meanChange-stDev, ymax=meanChange+stDev), width=.2,
+                  position=position_dodge(0.05), alpha=.5) +
+  labs(y = "Δ Glucose (mg/dL)",
+       title = "Mean change in glucose by exercise") 
+```
+
+<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotExercise-1.png" style="display: block; margin: auto;" />
+
+At 60 min/day exercise, there is considerable overlap between the standard 
+deviation bars in the three drug dosage groups. There is not a clear distinction 
+indicating that the drug has an effect, although the 0 drug dosage group does 
+appear to benefit from more exercise.  
 
 If lines were parallel we could assume no interaction between drug and exercise. 
-Since they are not  parallel we should assume interaction between exercise and 
+Since they are not parallel we should assume interaction between exercise and 
 drug dose. The F-test from an ANOVA will tell us whether this apparent 
 interaction is real or random, specifically whether it is more pronounced than 
 would be expected due to random variation.
