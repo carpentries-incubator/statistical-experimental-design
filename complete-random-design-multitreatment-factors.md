@@ -165,6 +165,22 @@ degrees of freedom. That leaves 8 - 4 = 4 degrees of freedom left over. What
 variability do these remaining 4 degrees of freedom contain? The answer is
 interaction - the interaction between drug doses and exercise durations. 
 
+
+``` error
+Error in names(x) <- value: 'names' attribute [6] must be the same length as the vector [2]
+```
+
+
+
+Table: ANOVA Table for Completely Randomized Design with Two or More Treatment Factors
+
+|source.of.variation |Df                                |
+|:-------------------|:---------------------------------|
+|treatment 1         |$k_1 - 1$                         |
+|treatment 2         |$k_2 - 1$                         |
+|interaction         |$(k_1 - 1) * (k_2 - 1)$           |
+|error               |$(k_1 - 1) * (k_2 - 1) * (n - 1)$ |
+
 We can visualize interactions for all combinations of drug dose and exercise 
 duration with an interaction plot that shows mean change in glucose levels on 
 the y-axis.  
