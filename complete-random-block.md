@@ -125,9 +125,14 @@ freedom for the ANOVA where $n$ = 261, the number of participants in each
 block.
 
 
-``` error
-Error in kable(text_tbl, caption = "ANOVA Table for Completely Randomized Block Design"): could not find function "kable"
-```
+Table: ANOVA Table for Completely Randomized Block Design
+
+|source of variation |Df                  |Sum Sq |Mean Sq=Sum Sq/Df |F value |prob(>F) |
+|:-------------------|:-------------------|:------|:-----------------|:-------|:--------|
+|treatment           |$k - 1$             |Sum Sq |Mean Sq=Sum Sq/Df |F value |prob(>F) |
+|block               |$b - 1$             |Sum Sq |Mean Sq=Sum Sq/Df |F value |prob(>F) |
+|interaction         |$(k - 1) * (b - 1)$ |Sum Sq |Mean Sq=Sum Sq/Df |F value |prob(>F) |
+|error               |$k * b * (n - 1)$   |Sum Sq |Mean Sq=Sum Sq/Df |F value |prob(>F) |
 
 
 ``` r
@@ -199,6 +204,9 @@ source of variation, (e.g. sex), from the comparison of treatments.
 <!-- included in the equation along with the effect of the treatment. -->
 
 ## Sizing a randomized block experiment
+
+![Power curves comparing completely randomized design with randomized complete block design. Sample size is on the x axis and statistical power on the y axis. The sample size represents n for a completely randomized design, or the number of blocks for a randomized complete block design.](./fig/CRDvsRCBD.png)
+[Excerpted from Statistical Design and Analysis of Biological Experiments by Hans-Michael Kaltenbach](hhttps://n.ethz.ch/~kahans/doe2021/ch-blocking.html#power-analysis-and-sample-size-1)
 
 ## True replication
 
