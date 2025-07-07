@@ -352,7 +352,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Designs</h1>
-        <p>Last updated on 2025-07-01 |
+        <p>Last updated on 2025-07-07 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -434,7 +434,7 @@ treatment assignments?<br></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>How would you randomize the 1,500+ individuals in the study to one
 of the treatment levels?<br>
@@ -734,7 +734,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>How can you check whether variances are equal?<br>
 A visual like a boxplot can be used to check whether variances are
@@ -770,7 +770,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> More formal tests of normality and equal variances </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>More formal tests of normality and equal variance include the
 Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
@@ -1101,9 +1101,57 @@ NOTE: n is number in *each* group</code></pre>
 <p>To obtain an effect size as large as the observed effect size between
 control and moderate-intensity exercise groups, you would need 15
 participants per group to obtain 80% statistical power.</p>
+<div id="challenge-3-sizing-other-completely-randomized-designs" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="challenge-3-sizing-other-completely-randomized-designs" class="callout-inner">
+<h3 class="callout-title">Challenge 3: Sizing other completely randomized designs</h3>
+<div class="callout-content">
 <p>Would you expect to need more or fewer participants per group to
-investigate the difference between control and high-intensity exercise
-on heart rate? Between moderate- and high-intensity?</p>
+investigate the difference between:<br>
+1. control and high-intensity exercise on heart rate?<br>
+1. moderate- and high-intensity?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
+<p>Recall the inverse relationship between effect size and sample size.
+Smaller effects require larger samples sizes, while larger effects
+permit small sample sizes. Check the observed effect sizes for the other
+two combinations of exercise groups.</p>
+<ol style="list-style-type: decimal"><li>
+</li></ol><pre><code><span><span class="va">highMean</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">filter</span><span class="op">(</span><span class="va">exercise_group</span> <span class="op">==</span> <span class="st">"high intensity"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu">mean</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">delta</span> <span class="op">&lt;-</span> <span class="va">controlMean</span> <span class="op">-</span> <span class="va">highMean</span></span>
+<span><span class="va">delta</span></span></code></pre>
+<p>The difference between high intensity and control group means is
+smaller, which will require a larger sample size to obtain 80%
+statistical power.</p>
+<pre><code><span><span class="fu">power.t.test</span><span class="op">(</span>delta <span class="op">=</span> <span class="va">delta</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, sd <span class="op">=</span> <span class="fu">sd</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span>,</span>
+<span>             sig.level <span class="op">=</span> <span class="fl">0.05</span>, type <span class="op">=</span> <span class="st">"two.sample"</span>, power <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></code></pre>
+<p>The number of participants required per group is much larger because
+the observed effect size between high intensity and control groups is
+much smaller.</p>
+<ol start="2" style="list-style-type: decimal"><li>Delta is now the difference in means between moderate and high
+intensity means.</li>
+</ol><pre><code><span><span class="va">delta</span> <span class="op">&lt;-</span> <span class="va">moderateMean</span> <span class="op">-</span> <span class="va">highMean</span></span>
+<span><span class="va">delta</span></span></code></pre>
+<p>The observed effect size between these two groups is large, so a
+smaller sample size will reach 80% statistical power.</p>
+<pre><code><span><span class="fu">power.t.test</span><span class="op">(</span>delta <span class="op">=</span> <span class="va">delta</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, sd <span class="op">=</span> <span class="fu">sd</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span>,</span>
+<span>     sig.level <span class="op">=</span> <span class="fl">0.05</span>, type <span class="op">=</span> <span class="st">"two.sample"</span>, power <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="a-single-quantitative-factor">A Single Quantitative Factor<a class="anchor" aria-label="anchor" href="#a-single-quantitative-factor"></a></h2>
 <hr class="half-width"><p>So far we have been working with a single qualitative factor,
 exercise. Often our experiments involve quantitative factors such as
@@ -1114,15 +1162,15 @@ the data. We’ve been doing this with linear modeling already even when
 working with a qualitative factor. We want to design an experiment with
 enough replicates to estimate the slope of a line with good precision.
 The equation for a linear model:</p>
-<p><span class="math inline">\(y = \alpha + \beta*x +
+<p><span class="math inline">\(y = \beta_0 + \beta_1*x +
 \epsilon\)</span></p>
 <p>is often the first model we fit to the data. The slope of the line is
-represented by <span class="math inline">\(\beta\)</span> and the
+represented by <span class="math inline">\(\beta_1\)</span> and the
 experimental error, <span class="math inline">\(\epsilon\)</span>, is
-the distance from each data point to the line. In the following graphic,
-what would you say about how well the model fits the data, or how large
-the sum of the errors is? The linear model is shown in blue and the
-confidence interval shown in gray.</p>
+the distance from each data point to the line. <span class="math inline">\(\beta_0\)</span> is the intercept or the mean
+value. In the following graphic, what would you say about how well the
+model fits the data, or how large the sum of the errors is? The linear
+model is shown in blue and the confidence interval shown in gray.</p>
 <figure><img src="../fig/complete-random-design-rendered-linear-fit-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Linear models can be a good first approximation but not so in this
 case. The model fits badly. Sometimes nature throws a curve, not a line,
 and a different model is needed. In this case a quadratic model with a
@@ -1211,7 +1259,7 @@ homogeneous.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/complete-random-design.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-07-01",
+  "dateModified": "2025-07-07",
   "datePublished": "2025-07-07"
 }
 
