@@ -184,7 +184,7 @@ What are the experimental units in each design?
 What are the advantages of design C?
 
 ![three different experimental designs](fig/three-experimental-designs.png)
-[adapted from Statistical Design and Analysis of Biological Experiments by Hans-Michael Kaltenbach](https://n.ethz.ch/~kahans/doe2021/principles-of-experimental-design.html#the-language-of-experimental-design)
+[Excerpted from Statistical Design and Analysis of Biological Experiments by Hans-Michael Kaltenbach](https://n.ethz.ch/~kahans/doe2021/principles-of-experimental-design.html#the-language-of-experimental-design)
 
 Pseudoreplication occurs when multiple samples are taken from the same entity.
 For example, if two blood sample are taken from a mouse and each sample receives
