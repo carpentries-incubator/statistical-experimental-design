@@ -50,7 +50,7 @@ stratified (blocked) by sex and cohabitation status (living with someone vs.
 living alone) to form 4 blocks. The three treatment levels (control, moderate-
 and high-intensity exercise) were randomly assigned within each block. As such,
 we would **analyze** the experiment **as designed** in blocks. Let's revisit
-these data with blocking by sex in mind. Read in the data again if needed.
+these data with blocking by sex only. Read in the data again if needed.
 
 
 ``` r
@@ -79,7 +79,7 @@ Let's extract the means and standard deviations for exercise groups by sex.
 ``` r
 g100meansSD <- heart_rate %>%
   group_by(sex, exercise_group) %>%
-  summarise(meanChange = round(mean(heart_rate), 3),
+  summarise(mean = round(mean(heart_rate), 3),
             stDev = sd(heart_rate))
 g100meansSD
 ```
@@ -87,14 +87,14 @@ g100meansSD
 ``` output
 # A tibble: 6 × 4
 # Groups:   sex [2]
-  sex   exercise_group     meanChange stDev
-  <chr> <chr>                   <dbl> <dbl>
-1 F     control                  62.5  5.27
-2 F     high intensity           63.0  5.58
-3 F     moderate intensity       73.0  4.92
-4 M     control                  66.1  5.36
-5 M     high intensity           60.4  5.30
-6 M     moderate intensity       70.0  5.02
+  sex   exercise_group      mean stDev
+  <chr> <chr>              <dbl> <dbl>
+1 F     control             62.5  5.27
+2 F     high intensity      63.0  5.58
+3 F     moderate intensity  73.0  4.92
+4 M     control             66.1  5.36
+5 M     high intensity      60.4  5.30
+6 M     moderate intensity  70.0  5.02
 ```
 
 Use these summary statistics in an interaction plot to determine if there is an
@@ -102,13 +102,16 @@ interaction between exercise (treatment) and sex (block).
 
 
 ``` r
-ggplot(g100meansSD, aes(x=exercise_group, y=meanChange, group=sex, color=sex)) + 
+ggplot(g100meansSD, 
+       aes(x=exercise_group, y=mean, group=sex, color=sex)) + 
     geom_line() +
     geom_point() +
-    geom_errorbar(aes(ymin=meanChange-stDev, ymax=meanChange+stDev), width=.2,
-                  position=position_dodge(0.05), alpha=.5) +
+    geom_errorbar(aes(ymin=mean-stDev, ymax=mean+stDev),
+                  width=.2,
+                  position=position_dodge(0.05), 
+                  alpha=.5) +
   labs(y = "Heart rate",
-       title = "Mean change in heart rate by exercise group and sex") 
+       title = "Mean heart rate by exercise group and sex") 
 ```
 
 <img src="fig/complete-random-block-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
@@ -117,7 +120,14 @@ It appears that there is an interaction between exercise and sex given that the
 lines cross over one another. The effect of exercise is different depending on
 sex. The F-test from an ANOVA will tell us whether this apparent interaction is 
 real or random, specifically whether it is more pronounced than would be 
-expected due to random variation.
+expected due to random variation. The table below describes the degrees of 
+freedom for the ANOVA where $n$ = 261, the number of participants in each
+block.
+
+
+``` error
+Error in kable(text_tbl, caption = "ANOVA Table for Completely Randomized Block Design"): could not find function "kable"
+```
 
 
 ``` r
