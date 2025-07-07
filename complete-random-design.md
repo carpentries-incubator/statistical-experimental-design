@@ -722,9 +722,61 @@ and moderate-intensity exercise groups, you would need
 15
 participants per group to obtain 80% statistical power.
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge 3: Sizing other completely randomized designs
+
 Would you expect to need more or fewer participants per group to investigate
-the difference between control and high-intensity exercise on heart rate?
-Between moderate- and high-intensity?
+the difference between:  
+1. control and high-intensity exercise on heart rate?  
+1. moderate- and high-intensity?
+
+:::::::::::::::  solution
+## Solution
+Recall the inverse relationship between effect size and sample size. Smaller
+effects require larger samples sizes, while larger effects permit small sample
+sizes. Check the observed effect sizes for the other two combinations of 
+exercise groups.
+
+1. 
+```
+highMean <- heart_rate %>%
+  filter(exercise_group == "high intensity") %>%
+  summarise(mean = mean(heart_rate)) 
+delta <- controlMean - highMean
+delta
+```
+The difference between high intensity and control group means is smaller, which
+will require a larger sample size to obtain 80% statistical power.
+
+```
+power.t.test(delta = delta[[1]], sd = sd(heart_rate$heart_rate), 
+             sig.level = 0.05, type = "two.sample", power = 0.8)
+```
+
+The number of participants required per group is much larger because the 
+observed effect size between high intensity and control groups is much smaller.
+
+2. Delta is now the difference in means between moderate and high intensity
+means.
+
+```
+delta <- moderateMean - highMean
+delta
+```
+The observed effect size between these two groups is large, so a smaller sample
+size will reach 80% statistical power.
+
+```
+power.t.test(delta = delta[[1]], sd = sd(heart_rate$heart_rate), 
+     sig.level = 0.05, type = "two.sample", power = 0.8)
+```
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## A Single Quantitative Factor
 So far we have been working with a single qualitative factor, exercise. Often
@@ -736,13 +788,14 @@ modeling already even when working with a qualitative factor. We want to design
 an experiment with enough replicates to estimate the slope of a line with good
 precision. The equation for a linear model:  
 
-$y = \alpha + \beta*x + \epsilon$
+$y = \beta_0 + \beta_1*x + \epsilon$
 
 is often the first model we fit to the data. The slope of the line is 
-represented by $\beta$ and the experimental error, $\epsilon$, is the distance
-from each data point to the line. In the following graphic, what would you say
-about how well the model fits the data, or how large the sum of the errors is?
-The linear model is shown in blue and the confidence interval shown in gray.
+represented by $\beta_1$ and the experimental error, $\epsilon$, is the distance
+from each data point to the line. $\beta_0$ is the intercept or the mean
+value. In the following graphic, what would you say about how well the model 
+fits the data, or how large the sum of the errors is? The linear model is shown 
+in blue and the confidence interval shown in gray.
 
 <img src="fig/complete-random-design-rendered-linear-fit-1.png" style="display: block; margin: auto;" />
 
