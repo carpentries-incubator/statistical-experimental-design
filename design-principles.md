@@ -256,32 +256,32 @@ random_allocation
 
 ``` output
    mouse_ID random_number treatment
-1         A            18      chow
-2         B            79  high fat
-3         C            61  high fat
-4         D            65  high fat
-5         E            99  high fat
-6         F            48      chow
-7         G            98      chow
-8         H            97  high fat
-9         I            26      chow
-10        J            90      chow
-11        K            21  high fat
-12        L            81  high fat
-13        M            23  high fat
-14        N            59  high fat
-15        O            55  high fat
-16        P            85  high fat
-17        Q            19  high fat
-18        R            24      chow
-19        S            95  high fat
-20        T            82      chow
-21        U            70      chow
-22        V            36      chow
-23        W            50      chow
-24        X            96      chow
-25        Y            28      chow
-26        Z            78      chow
+1         A            35  high fat
+2         B            72      chow
+3         C            13  high fat
+4         D             1  high fat
+5         E            42      chow
+6         F            43  high fat
+7         G             5  high fat
+8         H            88      chow
+9         I            69  high fat
+10        J            27  high fat
+11        K            61  high fat
+12        L            29  high fat
+13        M            98      chow
+14        N            33  high fat
+15        O            17  high fat
+16        P            50      chow
+17        Q            82      chow
+18        R            65  high fat
+19        S            31  high fat
+20        T            30      chow
+21        U            18      chow
+22        V             3  high fat
+23        W            53  high fat
+24        X            44      chow
+25        Y            41  high fat
+26        Z            47  high fat
 ```
 
 This might produce unequal numbers between treatment and control groups. It
@@ -297,7 +297,7 @@ table(random_allocation$treatment)
 ``` output
 
     chow high fat 
-      13       13 
+       9       17 
 ```
 
 To randomly assign samples to groups with equal numbers, you can do the
@@ -320,32 +320,32 @@ equal_allocation
 
 ``` output
    mouse_ID random_number treatment
-1         A            18      chow
-2         Q            19      chow
-3         K            21      chow
-4         M            23      chow
-5         R            24      chow
-6         I            26      chow
-7         Y            28      chow
-8         V            36      chow
-9         F            48      chow
-10        W            50      chow
-11        O            55      chow
-12        N            59      chow
-13        C            61      chow
-14        D            65  high fat
-15        U            70  high fat
-16        Z            78  high fat
-17        B            79  high fat
-18        L            81  high fat
-19        T            82  high fat
-20        P            85  high fat
-21        J            90  high fat
-22        S            95  high fat
-23        X            96  high fat
-24        H            97  high fat
-25        G            98  high fat
-26        E            99  high fat
+1         D             1      chow
+2         V             3      chow
+3         G             5      chow
+4         C            13      chow
+5         O            17      chow
+6         U            18      chow
+7         J            27      chow
+8         L            29      chow
+9         T            30      chow
+10        S            31      chow
+11        N            33      chow
+12        A            35      chow
+13        Y            41      chow
+14        E            42  high fat
+15        F            43  high fat
+16        X            44  high fat
+17        Z            47  high fat
+18        P            50  high fat
+19        W            53  high fat
+20        K            61  high fat
+21        R            65  high fat
+22        I            69  high fat
+23        B            72  high fat
+24        Q            82  high fat
+25        H            88  high fat
+26        M            98  high fat
 ```
 
 You can write out this treatment plan to a comma-separated values (csv) file,
@@ -467,7 +467,13 @@ so, how you would set up the blocks.
 :::::::::::::::  solution
 
 ## Solution to Exercise 4
-
+1. Each batch or run would be one block. Samples would be randomly assigned to
+each block, otherwise, external factors could potentially influence each run
+and introduce systematic variation (batch effects).  
+2.  Treat each equipment model as a block. Different equipment models may have
+inherent differences in measurement accuracy or calibration. Samples should be randomized across equipment models (blocks).  
+3. Block by sample processing time (morning, afternoon, evening) and randomize samples across time blocks.  
+4. No blocks because the systematic or random error would impact all samples.
 :::::::::::::::::::::::::
 
 

@@ -394,7 +394,7 @@ mean(null >= meanDiff)
 
 Approximately 0.4% of the 10,000 
 simulations are greater than the observed difference in means. We can expect 
-then that we will see a difference in means this great or greater approximately 
+then that we will see a difference in means approximately 
 0.4% of the time even if there is no 
 effect of exercise on heart rate. This is known as a **p-value**.
 
@@ -454,32 +454,16 @@ assuming that no effect exists.
 ![](fig/Alternative-hypothesis.png){alt='alternative hypothesis'}
 
 The alternative hypothesis challenges the null by stating that an effect exists 
-and that the mean difference, $\mu_A$, is greater than zero. If we have a value
-greater than the critical value, we might select an alternative distribution 
-with a different mean than the null distribution. The difference between  
-$\mu_0$ and $\mu_A$ is known as the effect size, which is expressed in units of 
-standard deviation: $d = (\mu_A - \mu_0) / \sigma$. Power or sensitivity 
-($1 - \beta$) is the chance of appropriately rejecting the null hypothesis if 
-the data are drawn from the alternative distribution. $\beta$ is the chance of
-a false negative, or not rejecting the null hypothesis when data are drawn from
-the alternative distribution (Type II error rate). If we have a value that falls 
-within this region, it is possible to falsely accept the null hypothesis when in 
-reality an effect exists. An ideal test is both specific (low false positive or 
-$\alpha$) and sensitive (low false negative rate or $\beta$). $\alpha$ and 
-$\beta$ are inversely related. Increasing the false positive rate $\alpha$
-decreases the false negative rate $\beta$ and also reduces power ($1 - \beta$).
-The tradeoff depends on the consequences of a false positive versus those for a 
-false negative. A false positive might lead to a paper retraction, while a false negative might mean missing an opportunity to publish an interesting result. 
-Generally the consequences of false positives outweigh those of false negatives, 
-so $\alpha$ is set much lower than $\beta$.
+and that the mean difference, $\mu_A$, is greater than zero. The difference 
+between  $\mu_0$ and  $\mu_A$ is known as the effect size, which is expressed in 
+units of standard deviation: $d = (\mu_A - \mu_0) / \sigma$.  
 
 If mathematical symbols and Greek letters are confusing, think of them as emoji
 language. For example,   
 
-$\mu$ is a :cow:, the mean  
-$\alpha$ is a :dog:, the Type I (false positive) rate  
-$\sigma$ is a :bug:, the standard deviation which describes spread   
-$\beta$ is a :horse:, the Type II (false negative) rate 
+$\mu$ is a :cow:  
+$\alpha$ is a :dog:  
+$\sigma$ is a :bug:  
 
 ## Probability and probability distributions
 
@@ -593,7 +577,7 @@ drawn?
 
 :::::::::::::::  solution
 
-## Solution to Exercise 6
+## Solution to Exercise 
 1. Yes, it appears normally distributed.
 2. Probably around 65-66.
 3. Sample mean using R: 65.6, which will vary because each sample is different and will have a different mean.
@@ -748,17 +732,12 @@ in means.
 :::::::::::::::  solution
 
 ## Solution to Exercise 7
-1. False. A p-value of 0.02 means that if the null hypothesis is true that there
-is a 2% chance of observing a difference as extreme as the one found in the data. 
-2. True, a p-value of 0.02 indicates that the difference is statistically
-significant if we use the typical 0.05 threshold.
-3. False. A 95% confidence interval says that 95% of confidence intervals 
-generated will contain the true value.
-4. True. A p-value tells you if the result is statistically significant while 
-the confidence interval shows the range of values likely to contain the true 
-value.
 
 :::::::::::::::::::::::::
+
+
+
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -887,8 +866,8 @@ NOTE: n is number in *each* group
 ```
 In biomedical studies, statistical power of 80% (0.8) is an accepted standard. 
 If we were to repeat the experiment with a different population of elders (e.g. 
-Norwegian elders from a different city, or Finnish elders), what is the minimum
-sample size we would need for each exercise group?
+Icelandic elders), what is the minimum sample size we would need for each 
+exercise group?
 
 
 ``` r
