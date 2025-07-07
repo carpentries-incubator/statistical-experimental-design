@@ -1862,17 +1862,21 @@ the significance of the difference in mean values?</p>
 <div class="accordion-body">
 <p>The p-value tells us that a difference in means this great or greater
 is highly improbable assuming that the null hypothesis is true and that
-this difference in means was drawn from a null distribution.
-<strong>This is not the same as saying that the p-value represents the
-probability that the null hypothesis is true.</strong> We assume the
-null hypothesis is true when we calculate a p-value. The degree of
-improbability of getting a mean difference this great or greater is
-evidence against the null hypothesis and support for an alternative
-hypothesis that the sample comes from a population with a different
-mean.<br>
-A low p-value tells us that an improbable event has occurred assuming
-the null is true. It provides statistical significance, but not
-biological significance.</p>
+this difference in means was drawn from a null distribution. In other
+words, a p value tells us about the probability of getting the data we
+got if the null hypothesis is true. <strong>This is not the same as
+saying that the p-value represents the probability that the null
+hypothesis is true.</strong> We assume the null hypothesis is true when
+we calculate a p-value. The degree of improbability for getting a mean
+difference this great or greater is evidence against the null hypothesis
+and support for an alternative hypothesis that the sample comes from a
+population with a different mean. A low p-value tells us that an
+improbable event has occurred assuming the null is true. Another way of
+saying this is that a low p-value is strong evidence that the difference
+in means is statistically significant (so you would reject the null
+hypothesis). A p value provides statistical significance, but not
+biological significance. Subject matter expertise is required to
+interpret biological significance of a low p value.</p>
 </div>
 </div>
 </div>
@@ -2049,19 +2053,25 @@ it was drawn?</li>
 <div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
-<li>Yes, it appears normally distributed.</li>
-<li>Probably around 65-66.</li>
-<li>Sample mean using R: 65.6, which will vary because each sample is
-different and will have a different mean.</li>
-<li>SD somewhere between 5 and 7</li>
-<li>SD using R: 6.5 which will vary because each sample is different and
-will have a different standard deviation.</li>
+<li>Yes, it appears to be normally distributed.</li>
+<li>The mean is probably around 65 to 66.</li>
+<li>
+<code>mean(sample100)</code> = 65.6, which will vary because each
+sample of 100 is different and will have a different mean.</li>
+<li>Standard deviation appears to be somewhere between 5 and 7.</li>
+<li>
+<code>sd(sample100)</code> = 6.5 which will vary because each sample
+of 100 is different and will have a different standard deviation.</li>
 <li>Number of people with resting heart rate between 60 and 70:
 55-60</li>
 <li>The majority of people in this population will have a resting heart
 rather close to the mean of the sample population (65.6). If normally
 distributed, 68% of population heart rates will lie within 1 standard
-deviation of the mean, or approximately 59.1 to 72.1.</li>
+deviation of the mean, or approximately 59.1 to 72.1. Individuals with
+heart rates as low as 55 and as high as 90 can be seen. Since this
+sample has a normal distribution it is a good representation of the
+population, though we could replicate the random sampling many times to
+confirm.</li>
 </ol>
 </div>
 </div>
