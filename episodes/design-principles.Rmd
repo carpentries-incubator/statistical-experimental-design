@@ -399,7 +399,13 @@ so, how you would set up the blocks.
 :::::::::::::::  solution
 
 ## Solution to Exercise 4
-
+1. Each batch or run would be one block. Samples would be randomly assigned to
+each block, otherwise, external factors could potentially influence each run
+and introduce systematic variation (batch effects).  
+2.  Treat each equipment model as a block. Different equipment models may have
+inherent differences in measurement accuracy or calibration. Samples should be randomized across equipment models (blocks).  
+3. Block by sample processing time (morning, afternoon, evening) and randomize samples across time blocks.  
+4. No blocks because the systematic or random error would impact all samples.
 :::::::::::::::::::::::::
 
 

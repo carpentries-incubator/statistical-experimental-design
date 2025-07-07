@@ -355,7 +355,8 @@ significance of the difference in mean values?
 :::::::::::::::  solution
 
 ## Solution to Exercise 5
-
+p value tells us about the probability of getting the data we got if the null hypothesis is true. A low p-value is strong evidence that the difference in 
+means is statistically significant (so you would reject the null hypothesis). 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -501,6 +502,16 @@ drawn?
 :::::::::::::::  solution
 
 ## Solution to Exercise 6
+1.        Yes, the distribution is normal.   
+2.        Mean = around 65. 
+3.        mean(sample100) = 65.146. Means will be different for every sample of
+100 since the sample mean is a random variable.
+4.        SD = about 5. 
+5.        sd(sample100) = 7.17. As with the sample mean, the sample standard 
+deviation is a random variable and will differ with each sample.
+6.        About 50. 
+7.        The resting heart rate of this population is primarily 60-70, but individuals with heart rates as low as 55 and as high as 90 can be seen. Since
+this sample has a normal distribution it is a good representation of the population, but we could replicate the random sampling many times to confirm.
 
 :::::::::::::::::::::::::
 

@@ -219,9 +219,22 @@ share your answers in the collaborative document.
 
 ## Solution
 
-1 and 2 describe nonblind data collection reporting increased treatment
-effects. Inflated effect sizes are a common problem with nonblinded studies.
-In 3 and 4 the experimenter
+1. The data collection was not blinded since the clinician knew which treatment
+had been assigned. The clinician perceived increased aggression in those given
+testosterone, yet this is subjective. This is an example of observer bias, the
+tendency for observers to perceive exactly what they expect or want to see
+rather than seeing things accurately or objectively.  
+2. This is similar to the first example of observer bias. Since the study was
+not blinded, the clinician knew who received the antidepressant and reported a
+positive effect. Nonblinded data collection often reports increased treatment
+effects even when these aren't real. Inflated effect sizes are a common problem with nonblinded studies.  
+3. In a nonblinded study researchers might treat groups differently as in this case. Unequal treatment of groups outside of the experimental variable 
+introduces confounding because extra food could influence responses. This could
+create an effect assumed to be due to treatment but in reality was based on 
+differences in food quantity between treatment groups.  
+4. In a nonblinded study researchers can treat groups differently, even if subconsciously, which can influence the responses of the participants. Nonverbal cues such as head-nodding, jaw tightening, or averting gaze can bias patient responses.
+
+
 
 :::::::::::::::::::::::::
 
