@@ -2573,7 +2573,7 @@ treatment assignments?<br>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How would you randomize the 1,500+ individuals in the study to one
@@ -2905,7 +2905,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How can you check whether variances are equal?<br>
@@ -2945,7 +2945,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> More formal tests of normality and equal variances </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>More formal tests of normality and equal variance include the
 Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
@@ -3307,7 +3307,7 @@ investigate the difference between:<br>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Recall the inverse relationship between effect size and sample size.
 Smaller effects require larger samples sizes, while larger effects
@@ -3759,7 +3759,7 @@ primarily ANOVA.</li>
 </div>
 </section></section><section id="aio-complete-random-block"><p>Content from <a href="complete-random-block.html">Randomized Complete Block Designs</a></p>
 <hr>
-<p>Last updated on 2025-07-01 |
+<p>Last updated on 2025-07-07 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-block.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
@@ -3826,7 +3826,7 @@ blocks. The three treatment levels (control, moderate- and
 high-intensity exercise) were randomly assigned within each block. As
 such, we would <strong>analyze</strong> the experiment <strong>as
 designed</strong> in blocks. Let’s revisit these data with blocking by
-sex in mind. Read in the data again if needed.</p>
+sex only. Read in the data again if needed.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3854,7 +3854,7 @@ by sex.</p>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">g100meansSD</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">sex</span>, <span class="va">exercise_group</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">summarise</span><span class="op">(</span>meanChange <span class="op">=</span> <span class="fu">round</span><span class="op">(</span><span class="fu">mean</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>  <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu">round</span><span class="op">(</span><span class="fu">mean</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>,</span>
 <span>            stDev <span class="op">=</span> <span class="fu">sd</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">g100meansSD</span></span></code></pre>
 </div>
@@ -3863,14 +3863,14 @@ by sex.</p>
 </h3>
 <pre class="output" tabindex="0"><code># A tibble: 6 × 4
 # Groups:   sex [2]
-  sex   exercise_group     meanChange stDev
-  &lt;chr&gt; &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt;
-1 F     control                  62.5  5.27
-2 F     high intensity           63.0  5.58
-3 F     moderate intensity       73.0  4.92
-4 M     control                  66.1  5.36
-5 M     high intensity           60.4  5.30
-6 M     moderate intensity       70.0  5.02</code></pre>
+  sex   exercise_group      mean stDev
+  &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt;
+1 F     control             62.5  5.27
+2 F     high intensity      63.0  5.58
+3 F     moderate intensity  73.0  4.92
+4 M     control             66.1  5.36
+5 M     high intensity      60.4  5.30
+6 M     moderate intensity  70.0  5.02</code></pre>
 </div>
 <p>Use these summary statistics in an interaction plot to determine if
 there is an interaction between exercise (treatment) and sex
@@ -3879,21 +3879,31 @@ there is an interaction between exercise (treatment) and sex
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">g100meansSD</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">exercise_group</span>, y<span class="op">=</span><span class="va">meanChange</span>, group<span class="op">=</span><span class="va">sex</span>, color<span class="op">=</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">g100meansSD</span>, </span>
+<span>       <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">exercise_group</span>, y<span class="op">=</span><span class="va">mean</span>, group<span class="op">=</span><span class="va">sex</span>, color<span class="op">=</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">geom_errorbar</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>ymin<span class="op">=</span><span class="va">meanChange</span><span class="op">-</span><span class="va">stDev</span>, ymax<span class="op">=</span><span class="va">meanChange</span><span class="op">+</span><span class="va">stDev</span><span class="op">)</span>, width<span class="op">=</span><span class="fl">.2</span>,</span>
-<span>                  position<span class="op">=</span><span class="fu">position_dodge</span><span class="op">(</span><span class="fl">0.05</span><span class="op">)</span>, alpha<span class="op">=</span><span class="fl">.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_errorbar</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>ymin<span class="op">=</span><span class="va">mean</span><span class="op">-</span><span class="va">stDev</span>, ymax<span class="op">=</span><span class="va">mean</span><span class="op">+</span><span class="va">stDev</span><span class="op">)</span>,</span>
+<span>                  width<span class="op">=</span><span class="fl">.2</span>,</span>
+<span>                  position<span class="op">=</span><span class="fu">position_dodge</span><span class="op">(</span><span class="fl">0.05</span><span class="op">)</span>, </span>
+<span>                  alpha<span class="op">=</span><span class="fl">.5</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">labs</span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Heart rate"</span>,</span>
-<span>       title <span class="op">=</span> <span class="st">"Mean change in heart rate by exercise group and sex"</span><span class="op">)</span> </span></code></pre>
+<span>       title <span class="op">=</span> <span class="st">"Mean heart rate by exercise group and sex"</span><span class="op">)</span> </span></code></pre>
 </div>
 <figure><img src="../fig/complete-random-block-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>It appears that there is an interaction between exercise and sex
 given that the lines cross over one another. The effect of exercise is
 different depending on sex. The F-test from an ANOVA will tell us
 whether this apparent interaction is real or random, specifically
 whether it is more pronounced than would be expected due to random
-variation.</p>
-<div class="codewrapper sourceCode" id="cb6">
+variation. The table below describes the degrees of freedom for the
+ANOVA where <span class="math inline">\(n\)</span> = 261, the number of
+participants in each block.</p>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in kable(text_tbl, caption = "ANOVA Table for Completely Randomized Block Design"): could not find function "kable"</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
