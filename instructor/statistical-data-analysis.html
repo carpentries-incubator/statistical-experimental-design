@@ -18,13 +18,13 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="incubator-logo" alt="Carpentries Incubator" src="../assets/images/incubator-logo.svg"><span class="badge text-bg-danger">
-          <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
+        <img id="incubator-logo" alt="Carpentries Incubator" src="../assets/images/incubator-logo.svg"><span class="badge text-bg-warning">
+          <abbr title="This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.">
             <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="external-link alert-link">
-              <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
-              Pre-Alpha
+              <i aria-hidden="true" class="icon" data-feather="alert-triangle" style="border-radius: 5px"></i>
+              Alpha
             </a>
-            <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+            <span class="visually-hidden">This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.</span>
           </abbr>
         </span>
 
@@ -354,7 +354,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Statistics in Data Analysis</h1>
-        <p>Last updated on 2025-07-01 |
+        <p>Last updated on 2025-07-07 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/statistical-data-analysis.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -810,8 +810,8 @@ treatment and control groups?</p>
 </div>
 <p>Approximately 0.4% of the 10,000 simulations are greater than the
 observed difference in means. We can expect then that we will see a
-difference in means this great or greater approximately 0.4% of the time
-even if there is no effect of exercise on heart rate. This is known as a
+difference in means approximately 0.4% of the time even if there is no
+effect of exercise on heart rate. This is known as a
 <strong>p-value</strong>.</p>
 <div id="exercise-5-what-does-a-p-value-mean" class="callout challenge">
 <div class="callout-square">
@@ -881,32 +881,12 @@ high. Specificity describes the likelihood of true negatives, or
 accepting the null hypothesis when it is true and correctly assuming
 that no effect exists.</p>
 <figure><img src="../fig/Null-hypothesis.png" alt="null hypothesis" class="figure mx-auto d-block"></figure><figure><img src="../fig/Alternative-hypothesis.png" alt="alternative hypothesis" class="figure mx-auto d-block"></figure><p>The alternative hypothesis challenges the null by stating that an
-effect exists and that the mean difference, <span class="math inline">\(\mu_A\)</span>, is greater than zero. If we have a
-value greater than the critical value, we might select an alternative
-distribution with a different mean than the null distribution. The
-difference between<br><span class="math inline">\(\mu_0\)</span> and <span class="math inline">\(\mu_A\)</span> is known as the effect size, which
-is expressed in units of standard deviation: <span class="math inline">\(d = (\mu_A - \mu_0) / \sigma\)</span>. Power or
-sensitivity (<span class="math inline">\(1 - \beta\)</span>) is the
-chance of appropriately rejecting the null hypothesis if the data are
-drawn from the alternative distribution. <span class="math inline">\(\beta\)</span> is the chance of a false negative,
-or not rejecting the null hypothesis when data are drawn from the
-alternative distribution (Type II error rate). If we have a value that
-falls within this region, it is possible to falsely accept the null
-hypothesis when in reality an effect exists. An ideal test is both
-specific (low false positive or <span class="math inline">\(\alpha\)</span>) and sensitive (low false negative
-rate or <span class="math inline">\(\beta\)</span>). <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are inversely related. Increasing
-the false positive rate <span class="math inline">\(\alpha\)</span>
-decreases the false negative rate <span class="math inline">\(\beta\)</span> and also reduces power (<span class="math inline">\(1 - \beta\)</span>). The tradeoff depends on the
-consequences of a false positive versus those for a false negative. A
-false positive might lead to a paper retraction, while a false negative
-might mean missing an opportunity to publish an interesting result.
-Generally the consequences of false positives outweigh those of false
-negatives, so <span class="math inline">\(\alpha\)</span> is set much
-lower than <span class="math inline">\(\beta\)</span>.</p>
+effect exists and that the mean difference, <span class="math inline">\(\mu_A\)</span>, is greater than zero. The
+difference between <span class="math inline">\(\mu_0\)</span> and <span class="math inline">\(\mu_A\)</span> is known as the effect size, which
+is expressed in units of standard deviation: <span class="math inline">\(d = (\mu_A - \mu_0) / \sigma\)</span>.</p>
 <p>If mathematical symbols and Greek letters are confusing, think of
 them as emoji language. For example,</p>
-<p><span class="math inline">\(\mu\)</span> is a <span class="emoji" data-emoji="cow">🐮</span>, the mean<br><span class="math inline">\(\alpha\)</span> is a <span class="emoji" data-emoji="dog">🐶</span>, the Type I (false positive) rate<br><span class="math inline">\(\sigma\)</span> is a <span class="emoji" data-emoji="bug">🐛</span>, the standard deviation which describes
-spread<br><span class="math inline">\(\beta\)</span> is a <span class="emoji" data-emoji="horse">🐴</span>, the Type II (false negative) rate</p>
+<p><span class="math inline">\(\mu\)</span> is a <span class="emoji" data-emoji="cow">🐮</span><br><span class="math inline">\(\alpha\)</span> is a <span class="emoji" data-emoji="dog">🐶</span><br><span class="math inline">\(\sigma\)</span> is a <span class="emoji" data-emoji="bug">🐛</span></p>
 </section><section><h2 class="section-heading" id="probability-and-probability-distributions">Probability and probability distributions<a class="anchor" aria-label="anchor" href="#probability-and-probability-distributions"></a></h2>
 <hr class="half-width"><p>Suppose you have measured the resting heart rate of the entire
 population of elderly Norwegians 70 or older, not just the 1,567 from
@@ -1026,7 +1006,7 @@ it was drawn?</li>
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6">
-  Solution to Exercise 6
+  Solution to Exercise
   </h4>
 </button>
 <div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
@@ -1203,17 +1183,8 @@ p-value.</li>
 </button>
 <div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
-<ol style="list-style-type: decimal"><li>False. A p-value of 0.02 means that if the null hypothesis is true
-that there is a 2% chance of observing a difference as extreme as the
-one found in the data.</li>
-<li>True, a p-value of 0.02 indicates that the difference is
-statistically significant if we use the typical 0.05 threshold.</li>
-<li>False. A 95% confidence interval says that 95% of confidence
-intervals generated will contain the true value.</li>
-<li>True. A p-value tells you if the result is statistically significant
-while the confidence interval shows the range of values likely to
-contain the true value.</li>
-</ol></div>
+
+</div>
 </div>
 </div>
 </div>
@@ -1342,9 +1313,8 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 <p>In biomedical studies, statistical power of 80% (0.8) is an accepted
 standard. If we were to repeat the experiment with a different
-population of elders (e.g.  Norwegian elders from a different city, or
-Finnish elders), what is the minimum sample size we would need for each
-exercise group?</p>
+population of elders (e.g.  Icelandic elders), what is the minimum
+sample size we would need for each exercise group?</p>
 <div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1499,14 +1469,14 @@ quantify effects against random variation.</li>
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "software, data, lesson, The Carpentries",
+  "keywords": "design, analysis, experiments, statistics",
   "name": "Statistics in Data Analysis",
   "creativeWorkStatus": "active",
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/statistical-data-analysis.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/instructor/statistical-data-analysis.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-07-01",
-  "datePublished": "2025-07-02"
+  "dateModified": "2025-07-07",
+  "datePublished": "2025-07-07"
 }
 
   </script><script>
