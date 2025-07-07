@@ -487,12 +487,40 @@ whether it is more pronounced than would be expected due to random
 variation. The table below describes the degrees of freedom for the
 ANOVA where <span class="math inline">\(n\)</span> = 261, the number of
 participants in each block.</p>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in kable(text_tbl, caption = "ANOVA Table for Completely Randomized Block Design"): could not find function "kable"</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb7">
+<table style="width:100%;" class="table"><caption>ANOVA Table for Completely Randomized Block Design</caption>
+<colgroup><col width="24%"><col width="24%"><col width="8%"><col width="21%"><col width="9%"><col width="10%"></colgroup><thead><tr class="header"><th align="left">source of variation</th>
+<th align="left">Df</th>
+<th align="left">Sum Sq</th>
+<th align="left">Mean Sq=Sum Sq/Df</th>
+<th align="left">F value</th>
+<th align="left">prob(&gt;F)</th>
+</tr></thead><tbody><tr class="odd"><td align="left">treatment</td>
+<td align="left"><span class="math inline">\(k - 1\)</span></td>
+<td align="left">Sum Sq</td>
+<td align="left">Mean Sq=Sum Sq/Df</td>
+<td align="left">F value</td>
+<td align="left">prob(&gt;F)</td>
+</tr><tr class="even"><td align="left">block</td>
+<td align="left"><span class="math inline">\(b - 1\)</span></td>
+<td align="left">Sum Sq</td>
+<td align="left">Mean Sq=Sum Sq/Df</td>
+<td align="left">F value</td>
+<td align="left">prob(&gt;F)</td>
+</tr><tr class="odd"><td align="left">interaction</td>
+<td align="left"><span class="math inline">\((k - 1) * (b -
+1)\)</span></td>
+<td align="left">Sum Sq</td>
+<td align="left">Mean Sq=Sum Sq/Df</td>
+<td align="left">F value</td>
+<td align="left">prob(&gt;F)</td>
+</tr><tr class="even"><td align="left">error</td>
+<td align="left"><span class="math inline">\(k * b * (n -
+1)\)</span></td>
+<td align="left">Sum Sq</td>
+<td align="left">Mean Sq=Sum Sq/Df</td>
+<td align="left">F value</td>
+<td align="left">prob(&gt;F)</td>
+</tr></tbody></table><div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -557,7 +585,10 @@ from the comparison of treatments.</p>
 <!-- When analyzing a random complete block design, the effect of the block is -->
 <!-- included in the equation along with the effect of the treatment. -->
 </section><section><h2 class="section-heading" id="sizing-a-randomized-block-experiment">Sizing a randomized block experiment<a class="anchor" aria-label="anchor" href="#sizing-a-randomized-block-experiment"></a></h2>
-<hr class="half-width"></section><section><h2 class="section-heading" id="true-replication">True replication<a class="anchor" aria-label="anchor" href="#true-replication"></a></h2>
+<hr class="half-width"><p><img src=".././fig/CRDvsRCBD.png" alt="Power curves comparing completely randomized design with randomized complete block design. Sample size is on the x axis and statistical power on the y axis. The sample size represents n for a completely randomized design, or the number of blocks for a randomized complete block design." class="figure"><a href="hhttps://n.ethz.ch/~kahans/doe2021/ch-blocking.html#power-analysis-and-sample-size-1" class="external-link">Excerpted
+from Statistical Design and Analysis of Biological Experiments by
+Hans-Michael Kaltenbach</a></p>
+</section><section><h2 class="section-heading" id="true-replication">True replication<a class="anchor" aria-label="anchor" href="#true-replication"></a></h2>
 <hr class="half-width"></section><section><h2 class="section-heading" id="balanced-incomplete-block-designs">Balanced incomplete block designs<a class="anchor" aria-label="anchor" href="#balanced-incomplete-block-designs"></a></h2>
 <hr class="half-width"><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
