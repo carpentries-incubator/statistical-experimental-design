@@ -53,7 +53,7 @@ stratified (blocked) by sex and cohabitation status (living with someone vs.
 living alone) to form 4 blocks. The three treatment levels (control, moderate-
 and high-intensity exercise) were randomly assigned within each block. As such,
 we would **analyze** the experiment **as designed** in blocks. Let's revisit
-these data with blocking by sex in mind. Read in the data again if needed.
+these data with blocking by sex only. Read in the data again if needed.
 
 ```{r load_data, eval=FALSE}
 heart_rate <- read_csv("data/simulated_heart_rates.csv")
@@ -77,7 +77,7 @@ Let's extract the means and standard deviations for exercise groups by sex.
 ```{r, message=FALSE}
 g100meansSD <- heart_rate %>%
   group_by(sex, exercise_group) %>%
-  summarise(meanChange = round(mean(heart_rate), 3),
+  summarise(mean = round(mean(heart_rate), 3),
             stDev = sd(heart_rate))
 g100meansSD
 ```
@@ -86,20 +86,45 @@ Use these summary statistics in an interaction plot to determine if there is an
 interaction between exercise (treatment) and sex (block).
 
 ```{r}
-ggplot(g100meansSD, aes(x=exercise_group, y=meanChange, group=sex, color=sex)) + 
+ggplot(g100meansSD, 
+       aes(x=exercise_group, y=mean, group=sex, color=sex)) + 
     geom_line() +
     geom_point() +
-    geom_errorbar(aes(ymin=meanChange-stDev, ymax=meanChange+stDev), width=.2,
-                  position=position_dodge(0.05), alpha=.5) +
+    geom_errorbar(aes(ymin=mean-stDev, ymax=mean+stDev),
+                  width=.2,
+                  position=position_dodge(0.05), 
+                  alpha=.5) +
   labs(y = "Heart rate",
-       title = "Mean change in heart rate by exercise group and sex") 
+       title = "Mean heart rate by exercise group and sex") 
 ```
 
 It appears that there is an interaction between exercise and sex given that the
 lines cross over one another. The effect of exercise is different depending on
 sex. The F-test from an ANOVA will tell us whether this apparent interaction is 
 real or random, specifically whether it is more pronounced than would be 
-expected due to random variation.
+expected due to random variation. The table below describes the degrees of 
+freedom for the ANOVA where $n$ = 261, the number of participants in each
+block.
+
+```{r anova_table, echo=FALSE}
+text_tbl <- data.frame('source of variation' = c('treatment', 
+                                                 'block',
+                                                 'interaction',
+                                                 'error'),
+                       'Df' = c("$k - 1$",
+                                "$b - 1$",
+                                "$(k - 1) * (b - 1)$",
+                                "$k * b * (n - 1)$"), 
+                       'Sum Sq', 
+                       'Mean Sq=Sum Sq/Df',
+                       'F value',
+                       'prob(>F)'
+                       )
+colnames(text_tbl) = c('source of variation', 'Df', 'Sum Sq', 
+                       'Mean Sq=Sum Sq/Df', 'F value', 'prob(>F)')
+kable(text_tbl,
+      caption = 'ANOVA Table for Completely Randomized Block Design') 
+```
 
 ```{r anova_lm_sex}
 anova(lm(heart_rate ~ exercise_group*sex, data = heart_rate))
