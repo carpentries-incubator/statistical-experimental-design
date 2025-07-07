@@ -204,6 +204,10 @@ source of variation, (e.g. sex), from the comparison of treatments.
 <!-- included in the equation along with the effect of the treatment. -->
 
 ## Sizing a randomized block experiment
+- point 1
+- point 2
+- point 3
+- drive it home
 
 ![Power curves comparing completely randomized design with randomized complete block design. Sample size is on the x axis and statistical power on the y axis. The sample size represents n for a completely randomized design, or the number of blocks for a randomized complete block design.](./fig/CRDvsRCBD.png)
 [Excerpted from Statistical Design and Analysis of Biological Experiments by Hans-Michael Kaltenbach](hhttps://n.ethz.ch/~kahans/doe2021/ch-blocking.html#power-analysis-and-sample-size-1)
