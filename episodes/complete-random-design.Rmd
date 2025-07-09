@@ -145,11 +145,12 @@ The output tells us that there are two terms in the model we provided:
 `exercise_group` plus some experimental error (`Residuals`). The response is 
 heart rate. As an equation the linear model looks like this:  
 
-$y = \beta_0 + \beta_1*x + \epsilon$
+$y = \mu + \beta*x + \epsilon$
 
-where $y$ is the response (heart rate), $\beta_0$ is the intercept or mean 
-value, $x$ is the treatment (exercise group), $\beta_1$ is the effect size, 
-and $\epsilon$ is experimental error, also called `Residuals`. If you don't like mathematical equations, think of them in emoji language.
+where $y$ is the response (heart rate), $\mu$ is the overall mean, $x$ is the 
+treatment (exercise group), $\beta$ is the effect size, and $\epsilon$ is 
+experimental error, also called `Residuals`. If you don't like mathematical 
+equations, think of them in emoji language.
 
 :heartpulse: = :heartbeat: + :boom: * (:runner::walking::dancer:) + :sparkles:
 

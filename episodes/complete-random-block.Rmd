@@ -116,10 +116,10 @@ text_tbl <- data.frame('source of variation' = c('treatment',
                                 "$b - 1$",
                                 "$(k - 1) * (b - 1)$",
                                 "$k * b * (n - 1)$"), 
-                       'Sum Sq', 
-                       'Mean Sq=Sum Sq/Df',
-                       'F value',
-                       'prob(>F)'
+                       '', 
+                       '',
+                       '',
+                       ''
                        )
 colnames(text_tbl) = c('source of variation', 'Df', 'Sum Sq', 
                        'Mean Sq=Sum Sq/Df', 'F value', 'prob(>F)')
@@ -130,6 +130,7 @@ kable(text_tbl,
 ```{r anova_lm_sex}
 anova(lm(heart_rate ~ exercise_group*sex, data = heart_rate))
 ```
+
 As before, we read the ANOVA table from the bottom up starting with the 
 interaction `exercise_group:sex`. Since the interaction is significant, you 
 should not compare sexes across exercise groups because the exercise effects are 
@@ -182,24 +183,41 @@ source of variation, (e.g. sex), from the comparison of treatments.
 <!-- When analyzing a random complete block design, the effect of the block is -->
 <!-- included in the equation along with the effect of the treatment. -->
 
-## Sizing a randomized block experiment
-- point 1
-- point 2
-- point 3
-- drive it home
-
+## Sizing a randomized complete block experiment
+A randomized complete block experiment can have greater statistical power than a 
+completely randomized design. The increased power is the result of smaller 
+residual variance within homogeneous blocks. Unless the blocking factor is 
+ineffective or the measurement error very large, within-block residual variance 
+will be small relative to between-block variance. This smaller residual variance
+increases statistical power.  
+If there is no interaction between block and treatment, sizing a randomized 
+complete block design is similar to sizing a completely randomized design. The 
+main difference is that the within-block variance serves as the residual 
+variance. In the figure below, a completely randomized design with a single 
+treatment factor that has $k$ = 3 levels and $n$ = 10 samples per treatment 
+group will have only 20% power when residual variance = 2 (see solid gray line). 
+When the experiment is organized into $b$ = 10 blocks, power jumps drastically
+as within block variance decreases. When within-block variance = 0.5, power
+increases to more than 60%. Within-block variance of 0.25 reaches beyond the 80% 
+power threshold. In each case the total error variance sums to 2 when 
+within-block and between-block variances are added together. For example, 
+within-block variance of 0.25 accompanies between-block variance of 1.75. 
+                        
 ![Power curves comparing completely randomized design with randomized complete block design. Sample size is on the x axis and statistical power on the y axis. The sample size represents n for a completely randomized design, or the number of blocks for a randomized complete block design.](./fig/CRDvsRCBD.png)
-[Excerpted from Statistical Design and Analysis of Biological Experiments by Hans-Michael Kaltenbach](hhttps://n.ethz.ch/~kahans/doe2021/ch-blocking.html#power-analysis-and-sample-size-1)
+[Excerpted from Statistical Design and Analysis of Biological Experiments by Hans-Michael Kaltenbach](https://n.ethz.ch/~kahans/doe2021/ch-blocking.html#power-analysis-and-sample-size-1)
 
-## True replication
-
-## Balanced incomplete block designs
+A power curve such as the one above can be used to size a completely 
+randomized block design. The curve above assumes a Type 1 error rate ($\alpha$)
+of .05 and a standardized effect size (Cohen's d) of .0625 for the treatment
+main effect in the completely randomized design. That standardized effect size 
+increases for the block design as a direct result of smaller residual variation 
+within the blocks, making the blocked design more efficient.
 
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Replication, randomization and blocking determine the validity and usefulness of an experiment.
+- Randomized blocked designs increase efficiency and statistical power.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
