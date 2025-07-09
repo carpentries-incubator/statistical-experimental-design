@@ -271,9 +271,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#design-issues">Design issues</a></li>
-<li><a href="#sizing-a-randomized-block-experiment">Sizing a randomized block experiment</a></li>
-<li><a href="#true-replication">True replication</a></li>
-<li><a href="#balanced-incomplete-block-designs">Balanced incomplete block designs</a></li>
+<li><a href="#sizing-a-randomized-complete-block-experiment">Sizing a randomized complete block experiment</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -347,7 +345,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Randomized Complete Block Designs</h1>
-        <p>Last updated on 2025-07-07 |
+        <p>Last updated on 2025-07-09 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-block.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -494,30 +492,30 @@ participants in each block.</p>
 <th align="left">prob(&gt;F)</th>
 </tr></thead><tbody><tr class="odd"><td align="left">treatment</td>
 <td align="left"><span class="math inline">\(k - 1\)</span></td>
-<td align="left">Sum Sq</td>
-<td align="left">Mean Sq=Sum Sq/Df</td>
-<td align="left">F value</td>
-<td align="left">prob(&gt;F)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr><tr class="even"><td align="left">block</td>
 <td align="left"><span class="math inline">\(b - 1\)</span></td>
-<td align="left">Sum Sq</td>
-<td align="left">Mean Sq=Sum Sq/Df</td>
-<td align="left">F value</td>
-<td align="left">prob(&gt;F)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr><tr class="odd"><td align="left">interaction</td>
 <td align="left"><span class="math inline">\((k - 1) * (b -
 1)\)</span></td>
-<td align="left">Sum Sq</td>
-<td align="left">Mean Sq=Sum Sq/Df</td>
-<td align="left">F value</td>
-<td align="left">prob(&gt;F)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr><tr class="even"><td align="left">error</td>
 <td align="left"><span class="math inline">\(k * b * (n -
 1)\)</span></td>
-<td align="left">Sum Sq</td>
-<td align="left">Mean Sq=Sum Sq/Df</td>
-<td align="left">F value</td>
-<td align="left">prob(&gt;F)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr></tbody></table><div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -582,25 +580,46 @@ from the comparison of treatments.</p>
 <!-- ``` -->
 <!-- When analyzing a random complete block design, the effect of the block is -->
 <!-- included in the equation along with the effect of the treatment. -->
-</section><section><h2 class="section-heading" id="sizing-a-randomized-block-experiment">Sizing a randomized block experiment<a class="anchor" aria-label="anchor" href="#sizing-a-randomized-block-experiment"></a></h2>
-<hr class="half-width"><ul><li>point 1</li>
-<li>point 2</li>
-<li>point 3</li>
-<li>drive it home</li>
-</ul><p><img src="./fig/CRDvsRCBD.png" alt="Power curves comparing completely randomized design with randomized complete block design. Sample size is on the x axis and statistical power on the y axis. The sample size represents n for a completely randomized design, or the number of blocks for a randomized complete block design." class="figure"><a href="hhttps://n.ethz.ch/~kahans/doe2021/ch-blocking.html#power-analysis-and-sample-size-1" class="external-link">Excerpted
+</section><section><h2 class="section-heading" id="sizing-a-randomized-complete-block-experiment">Sizing a randomized complete block experiment<a class="anchor" aria-label="anchor" href="#sizing-a-randomized-complete-block-experiment"></a></h2>
+<hr class="half-width"><p>A randomized complete block experiment can have greater statistical
+power than a completely randomized design. The increased power is the
+result of smaller residual variance within homogeneous blocks. Unless
+the blocking factor is ineffective or the measurement error very large,
+within-block residual variance will be small relative to between-block
+variance. This smaller residual variance increases statistical
+power.<br>
+If there is no interaction between block and treatment, sizing a
+randomized complete block design is similar to sizing a completely
+randomized design. The main difference is that the within-block variance
+serves as the residual variance. In the figure below, a completely
+randomized design with a single treatment factor that has <span class="math inline">\(k\)</span> = 3 levels and <span class="math inline">\(n\)</span> = 10 samples per treatment group will
+have only 20% power when residual variance = 2 (see solid gray line).
+When the experiment is organized into <span class="math inline">\(b\)</span> = 10 blocks, power jumps drastically as
+within block variance decreases. When within-block variance = 0.5, power
+increases to more than 60%. Within-block variance of 0.25 reaches beyond
+the 80% power threshold. In each case the total error variance sums to 2
+when within-block and between-block variances are added together. For
+example, within-block variance of 0.25 accompanies between-block
+variance of 1.75.</p>
+<p><img src="./fig/CRDvsRCBD.png" alt="Power curves comparing completely randomized design with randomized complete block design. Sample size is on the x axis and statistical power on the y axis. The sample size represents n for a completely randomized design, or the number of blocks for a randomized complete block design." class="figure"><a href="https://n.ethz.ch/~kahans/doe2021/ch-blocking.html#power-analysis-and-sample-size-1" class="external-link">Excerpted
 from Statistical Design and Analysis of Biological Experiments by
 Hans-Michael Kaltenbach</a></p>
-</section><section><h2 class="section-heading" id="true-replication">True replication<a class="anchor" aria-label="anchor" href="#true-replication"></a></h2>
-<hr class="half-width"></section><section><h2 class="section-heading" id="balanced-incomplete-block-designs">Balanced incomplete block designs<a class="anchor" aria-label="anchor" href="#balanced-incomplete-block-designs"></a></h2>
-<hr class="half-width"><div id="keypoints1" class="callout keypoints">
+<p>A power curve such as the one above can be used to size a completely
+randomized block design. The curve above assumes a Type 1 error rate
+(<span class="math inline">\(\alpha\)</span>) of .05 and a standardized
+effect size (Cohen’s d) of .0625 for the treatment main effect in the
+completely randomized design. That standardized effect size increases
+for the block design as a direct result of smaller residual variation
+within the blocks, making the blocked design more efficient.</p>
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
-<ul><li>Replication, randomization and blocking determine the validity and
-usefulness of an experiment.</li>
+<ul><li>Randomized blocked designs increase efficiency and statistical
+power.</li>
 </ul></div>
 </div>
 </div>
@@ -662,8 +681,8 @@ usefulness of an experiment.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-block.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-block.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-07-07",
-  "datePublished": "2025-07-08"
+  "dateModified": "2025-07-09",
+  "datePublished": "2025-07-09"
 }
 
   </script><script>

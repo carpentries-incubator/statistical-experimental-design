@@ -910,7 +910,7 @@ instrument readings, animal behavior, and indoor relative humidity.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Solution to Exercise 1 </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>1). random, because the scale is broken and provides any kind of
 random reading it comes up with (inconsistent reading)<br>
@@ -965,7 +965,7 @@ experimental units there are?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution to Exercise 2 </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>1). One biological sample (not replicated) with five technical
 replicates. The only conclusion to be drawn from the measurements would
@@ -1046,7 +1046,7 @@ Can you foresee any problems with the experimental results?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Solution to Exercise 3 </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Since each treatment is run on only one day, the day effectively
 becomes the experimental unit (explain this). Each experimental unit
@@ -1213,7 +1213,7 @@ groups?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>1). Scenario: One technician processed samples A through M, and a
 different technician processed samples N through Z. Might the first
@@ -1297,7 +1297,7 @@ experiment.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Solution to Exercise 3 </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1332,7 +1332,7 @@ humidity increased.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Solution to Exercise 4 </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Each batch or run would be one block. Samples would be randomly
@@ -2482,7 +2482,7 @@ quantify effects against random variation.</li>
 </div>
 </section></section><section id="aio-complete-random-design"><p>Content from <a href="complete-random-design.html">Completely Randomized Designs</a></p>
 <hr>
-<p>Last updated on 2025-07-07 |
+<p>Last updated on 2025-07-09 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2566,7 +2566,7 @@ treatment assignments?<br>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How would you randomize the 1,500+ individuals in the study to one
@@ -2677,15 +2677,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 provided: <code>exercise_group</code> plus some experimental error
 (<code>Residuals</code>). The response is heart rate. As an equation the
 linear model looks like this:</p>
-<p><span class="math inline">\(y = \beta_0 + \beta_1*x +
-\epsilon\)</span></p>
+<p><span class="math inline">\(y = \mu + \beta*x + \epsilon\)</span></p>
 <p>where <span class="math inline">\(y\)</span> is the response (heart
-rate), <span class="math inline">\(\beta_0\)</span> is the intercept or
-mean value, <span class="math inline">\(x\)</span> is the treatment
-(exercise group), <span class="math inline">\(\beta_1\)</span> is the
-effect size, and <span class="math inline">\(\epsilon\)</span> is
-experimental error, also called <code>Residuals</code>. If you don’t
-like mathematical equations, think of them in emoji language.</p>
+rate), <span class="math inline">\(\mu\)</span> is the overall mean,
+<span class="math inline">\(x\)</span> is the treatment (exercise
+group), <span class="math inline">\(\beta\)</span> is the effect size,
+and <span class="math inline">\(\epsilon\)</span> is experimental error,
+also called <code>Residuals</code>. If you don’t like mathematical
+equations, think of them in emoji language.</p>
 <p><span class="emoji" data-emoji="heartpulse">💗</span> = <span class="emoji" data-emoji="heartbeat">💓</span> + <span class="emoji" data-emoji="boom">💥</span> * (<span class="emoji" data-emoji="runner">🏃</span><span class="emoji" data-emoji="walking">🚶</span><span class="emoji" data-emoji="dancer">💃</span>) + <span class="emoji" data-emoji="sparkles">✨</span></p>
 <p>To help interpret the rest of the ANOVA output, the following table
 defines each element.</p>
@@ -2900,7 +2899,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How can you check whether variances are equal?<br>
@@ -2940,7 +2939,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> More formal tests of normality and equal variances </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>More formal tests of normality and equal variance include the
 Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
@@ -3302,7 +3301,7 @@ investigate the difference between:<br>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Recall the inverse relationship between effect size and sample size.
 Smaller effects require larger samples sizes, while larger effects
@@ -3753,7 +3752,7 @@ primarily ANOVA.</li>
 </div>
 </section></section><section id="aio-complete-random-block"><p>Content from <a href="complete-random-block.html">Randomized Complete Block Designs</a></p>
 <hr>
-<p>Last updated on 2025-07-07 |
+<p>Last updated on 2025-07-09 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-block.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -3913,36 +3912,36 @@ participants in each block.</p>
 <tr class="odd">
 <td align="left">treatment</td>
 <td align="left"><span class="math inline">\(k - 1\)</span></td>
-<td align="left">Sum Sq</td>
-<td align="left">Mean Sq=Sum Sq/Df</td>
-<td align="left">F value</td>
-<td align="left">prob(&gt;F)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">block</td>
 <td align="left"><span class="math inline">\(b - 1\)</span></td>
-<td align="left">Sum Sq</td>
-<td align="left">Mean Sq=Sum Sq/Df</td>
-<td align="left">F value</td>
-<td align="left">prob(&gt;F)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
 <td align="left">interaction</td>
 <td align="left"><span class="math inline">\((k - 1) * (b -
 1)\)</span></td>
-<td align="left">Sum Sq</td>
-<td align="left">Mean Sq=Sum Sq/Df</td>
-<td align="left">F value</td>
-<td align="left">prob(&gt;F)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">error</td>
 <td align="left"><span class="math inline">\(k * b * (n -
 1)\)</span></td>
-<td align="left">Sum Sq</td>
-<td align="left">Mean Sq=Sum Sq/Df</td>
-<td align="left">F value</td>
-<td align="left">prob(&gt;F)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -4010,23 +4009,39 @@ from the comparison of treatments.</p>
 <!-- ``` -->
 <!-- When analyzing a random complete block design, the effect of the block is -->
 <!-- included in the equation along with the effect of the treatment. -->
-</section><section><h2 class="section-heading" id="sizing-a-randomized-block-experiment">Sizing a randomized block experiment<a class="anchor" aria-label="anchor" href="#sizing-a-randomized-block-experiment"></a>
+</section><section><h2 class="section-heading" id="sizing-a-randomized-complete-block-experiment">Sizing a randomized complete block experiment<a class="anchor" aria-label="anchor" href="#sizing-a-randomized-complete-block-experiment"></a>
 </h2>
 <hr class="half-width">
-<ul>
-<li>point 1</li>
-<li>point 2</li>
-<li>point 3</li>
-<li>drive it home</li>
-</ul>
-<p><img src="./fig/CRDvsRCBD.png" alt="Power curves comparing completely randomized design with randomized complete block design. Sample size is on the x axis and statistical power on the y axis. The sample size represents n for a completely randomized design, or the number of blocks for a randomized complete block design." class="figure"><a href="hhttps://n.ethz.ch/~kahans/doe2021/ch-blocking.html#power-analysis-and-sample-size-1" class="external-link">Excerpted
+<p>A randomized complete block experiment can have greater statistical
+power than a completely randomized design. The increased power is the
+result of smaller residual variance within homogeneous blocks. Unless
+the blocking factor is ineffective or the measurement error very large,
+within-block residual variance will be small relative to between-block
+variance. This smaller residual variance increases statistical
+power.<br>
+If there is no interaction between block and treatment, sizing a
+randomized complete block design is similar to sizing a completely
+randomized design. The main difference is that the within-block variance
+serves as the residual variance. In the figure below, a completely
+randomized design with a single treatment factor that has <span class="math inline">\(k\)</span> = 3 levels and <span class="math inline">\(n\)</span> = 10 samples per treatment group will
+have only 20% power when residual variance = 2 (see solid gray line).
+When the experiment is organized into <span class="math inline">\(b\)</span> = 10 blocks, power jumps drastically as
+within block variance decreases. When within-block variance = 0.5, power
+increases to more than 60%. Within-block variance of 0.25 reaches beyond
+the 80% power threshold. In each case the total error variance sums to 2
+when within-block and between-block variances are added together. For
+example, within-block variance of 0.25 accompanies between-block
+variance of 1.75.</p>
+<p><img src="./fig/CRDvsRCBD.png" alt="Power curves comparing completely randomized design with randomized complete block design. Sample size is on the x axis and statistical power on the y axis. The sample size represents n for a completely randomized design, or the number of blocks for a randomized complete block design." class="figure"><a href="https://n.ethz.ch/~kahans/doe2021/ch-blocking.html#power-analysis-and-sample-size-1" class="external-link">Excerpted
 from Statistical Design and Analysis of Biological Experiments by
 Hans-Michael Kaltenbach</a></p>
-</section><section><h2 class="section-heading" id="true-replication">True replication<a class="anchor" aria-label="anchor" href="#true-replication"></a>
-</h2>
-<hr class="half-width"></section><section><h2 class="section-heading" id="balanced-incomplete-block-designs">Balanced incomplete block designs<a class="anchor" aria-label="anchor" href="#balanced-incomplete-block-designs"></a>
-</h2>
-<hr class="half-width">
+<p>A power curve such as the one above can be used to size a completely
+randomized block design. The curve above assumes a Type 1 error rate
+(<span class="math inline">\(\alpha\)</span>) of .05 and a standardized
+effect size (Cohen’s d) of .0625 for the treatment main effect in the
+completely randomized design. That standardized effect size increases
+for the block design as a direct result of smaller residual variation
+within the blocks, making the blocked design more efficient.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -4035,8 +4050,8 @@ Hans-Michael Kaltenbach</a></p>
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
-<li>Replication, randomization and blocking determine the validity and
-usefulness of an experiment.</li>
+<li>Randomized blocked designs increase efficiency and statistical
+power.</li>
 </ul>
 </div>
 </div>
@@ -4145,8 +4160,8 @@ units repeatedly during the study.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/aio.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/aio.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-07-08",
-  "datePublished": "2025-07-08"
+  "dateModified": "2025-07-09",
+  "datePublished": "2025-07-09"
 }
 
   </script><script>
