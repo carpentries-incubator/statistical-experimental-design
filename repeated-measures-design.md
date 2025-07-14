@@ -19,6 +19,7 @@ source: Rmd
 
 
 
+Repeated measures designs, also called longitudinal designs, investigate change in response over time in the same experimental unit.  
 ## Drug effect on heart rate
 
 ## Among-subject vs. within-subject variability
