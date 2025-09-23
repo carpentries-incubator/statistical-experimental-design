@@ -256,32 +256,32 @@ random_allocation
 
 ``` output
    mouse_ID random_number treatment
-1         A            77  high fat
+1         A            11  high fat
 2         B            65  high fat
-3         C            28      chow
-4         D            75  high fat
-5         E            38      chow
-6         F            92      chow
-7         G            80      chow
-8         H            83  high fat
-9         I            40      chow
-10        J            97  high fat
-11        K            89  high fat
-12        L            41  high fat
-13        M            60      chow
-14        N            73  high fat
-15        O            16      chow
-16        P            57  high fat
-17        Q            46      chow
-18        R            15  high fat
-19        S            23  high fat
-20        T             6      chow
-21        U            63  high fat
-22        V            56      chow
-23        W            17  high fat
-24        X            70      chow
-25        Y            98      chow
-26        Z            22      chow
+3         C            29  high fat
+4         D            59  high fat
+5         E            16      chow
+6         F            62      chow
+7         G            63  high fat
+8         H            31  high fat
+9         I            87  high fat
+10        J            42      chow
+11        K            78      chow
+12        L            22      chow
+13        M            97  high fat
+14        N            40      chow
+15        O            27  high fat
+16        P            74      chow
+17        Q            64      chow
+18        R            83  high fat
+19        S            86      chow
+20        T            28      chow
+21        U            36      chow
+22        V            51  high fat
+23        W            67  high fat
+24        X            91  high fat
+25        Y            66      chow
+26        Z            98      chow
 ```
 
 This might produce unequal numbers between treatment and control groups. It
@@ -320,32 +320,32 @@ equal_allocation
 
 ``` output
    mouse_ID random_number treatment
-1         T             6      chow
-2         R            15      chow
-3         O            16      chow
-4         W            17      chow
-5         Z            22      chow
-6         S            23      chow
-7         C            28      chow
-8         E            38      chow
-9         I            40      chow
-10        L            41      chow
-11        Q            46      chow
-12        V            56      chow
-13        P            57      chow
-14        M            60  high fat
-15        U            63  high fat
+1         A            11      chow
+2         E            16      chow
+3         L            22      chow
+4         O            27      chow
+5         T            28      chow
+6         C            29      chow
+7         H            31      chow
+8         U            36      chow
+9         N            40      chow
+10        J            42      chow
+11        V            51      chow
+12        D            59      chow
+13        F            62      chow
+14        G            63  high fat
+15        Q            64  high fat
 16        B            65  high fat
-17        X            70  high fat
-18        N            73  high fat
-19        D            75  high fat
-20        A            77  high fat
-21        G            80  high fat
-22        H            83  high fat
-23        K            89  high fat
-24        F            92  high fat
-25        J            97  high fat
-26        Y            98  high fat
+17        Y            66  high fat
+18        W            67  high fat
+19        P            74  high fat
+20        K            78  high fat
+21        R            83  high fat
+22        S            86  high fat
+23        I            87  high fat
+24        X            91  high fat
+25        M            97  high fat
+26        Z            98  high fat
 ```
 
 You can write out this treatment plan to a comma-separated values (csv) file,
