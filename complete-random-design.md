@@ -126,7 +126,7 @@ heart_rate %>%
   geom_boxplot()
 ```
 
-<img src="fig/complete-random-design-rendered-boxplots-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-rendered-boxplots-1.png" alt="" style="display: block; margin: auto;" />
 
 By eye it appears that there is a difference in mean heart rate between exercise
 groups, and that increasing exercise intensity decreases mean heart rate. We 
@@ -258,7 +258,7 @@ for all 522 data points in the group, then sum up ($\sum$) the areas of all the
 boxes for that group. Repeat the process with the other two groups, then add all 
 of the group sums ($\sum\sum$) together. 
 
-<img src="fig/complete-random-design-rendered-boxplot-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-rendered-boxplot-1.png" alt="" style="display: block; margin: auto;" />
 
 This used to be a manual process. Fortunately R does all of this labor for us. 
 The ANOVA table tells us that the sum of all squares for all groups equals 
@@ -800,13 +800,13 @@ value. In the following graphic, what would you say about how well the model
 fits the data, or how large the sum of the errors is? The linear model is shown 
 in blue and the confidence interval shown in gray.
 
-<img src="fig/complete-random-design-rendered-linear-fit-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-rendered-linear-fit-1.png" alt="" style="display: block; margin: auto;" />
 
 Linear models can be a good first approximation but not so in this case. The 
 model fits badly. Sometimes nature throws a curve, not a line, and a different
 model is needed. In this case a quadratic model with a squared term fits better.
 
-<img src="fig/complete-random-design-rendered-quadratic-fit-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-rendered-quadratic-fit-1.png" alt="" style="display: block; margin: auto;" />
 
 The distances from each data point to the line are much smaller. Plotting the 
 data is the first step to discovering these kinds of relationships between

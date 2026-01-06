@@ -66,7 +66,7 @@ heart_rate %>% ggplot(aes(exercise_group, heart_rate)) +
   facet_grid(rows = vars(sex))
 ```
 
-<img src="fig/complete-random-block-rendered-boxplot_grid-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-block-rendered-boxplot_grid-1.png" alt="" style="display: block; margin: auto;" />
 
 Each panel in the plot above is one block, one for females, one for males.
 What patterns do you see?
@@ -114,7 +114,7 @@ ggplot(g100meansSD,
        title = "Mean heart rate by exercise group and sex") 
 ```
 
-<img src="fig/complete-random-block-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-block-rendered-unnamed-chunk-3-1.png" alt="" style="display: block; margin: auto;" />
 
 It appears that there is an interaction between exercise and sex given that the
 lines cross over one another. The effect of exercise is different depending on

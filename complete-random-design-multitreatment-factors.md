@@ -117,7 +117,7 @@ ggplot(drugExercise, aes(x = DrugDose, y = Delta, fill = Exercise)) +
        y = "Δ Glucose (mg/dL)", x = "Drug Dosage (mg/kg)")
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_drugX-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_drugX-1.png" alt="" style="display: block; margin: auto;" />
 
 This pattern is repeated for the 10 mg/kg drug dose, where less exercise leads
 to greater change in glucose levels and more exercise leads to smaller changes.
@@ -144,7 +144,7 @@ ggplot(drugExercise, aes(x = Exercise, y = Delta, fill = DrugDose)) +
   scale_fill_brewer(palette = "PuOr") # use a different color palette
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_exerciseX-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_exerciseX-1.png" alt="" style="display: block; margin: auto;" />
 
 ## Interaction between factors
 We could analyze these data as if it were simply a completely randomized design
@@ -190,7 +190,7 @@ ggplot(meansSD, aes(x=DrugDose, y=meanChange, group=Exercise, color=Exercise)) +
        title = "Mean change in glucose by drug doseage") 
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotDrug-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotDrug-1.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
 ggplot(meansSD, aes(x=Exercise, y=meanChange, group=DrugDose, color=DrugDose)) + 
@@ -202,7 +202,7 @@ ggplot(meansSD, aes(x=Exercise, y=meanChange, group=DrugDose, color=DrugDose)) +
        title = "Mean change in glucose by exercise") 
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotDrug-2.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotDrug-2.png" alt="" style="display: block; margin: auto;" />
   
 The interaction plots shows wide variation in mean glucose changes at a drug 
 dose of 20 mg/kg, and also at 0 min/day exercise. The vertical bars extending 
@@ -223,7 +223,7 @@ ggplot(meansSD, aes(x=Exercise, y=meanChange, group=DrugDose, color=DrugDose)) +
        title = "Mean change in glucose by exercise") 
 ```
 
-<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotExercise-1.png" style="display: block; margin: auto;" />
+<img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotExercise-1.png" alt="" style="display: block; margin: auto;" />
 
 At 60 min/day exercise, there is considerable overlap between the standard 
 deviation bars in the three drug dosage groups. There is not a clear distinction 
