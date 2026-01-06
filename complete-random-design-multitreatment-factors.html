@@ -345,7 +345,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Design with More than One Treatment Factor</h1>
-        <p>Last updated on 2025-11-11 |
+        <p>Last updated on 2026-01-06 |
 
         <a href="https://github.com/carpentries-incubator/statistical-experimental-design/edit/main/episodes/complete-random-design-multitreatment-factors.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -478,7 +478,7 @@ don’t seem to have much effect.</p>
 <span>  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Change in Glucose by Drug and Exercise"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Δ Glucose (mg/dL)"</span>, x <span class="op">=</span> <span class="st">"Drug Dosage (mg/kg)"</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_drugX-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>This pattern is repeated for the 10 mg/kg drug dose, where less
+<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_drugX-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>This pattern is repeated for the 10 mg/kg drug dose, where less
 exercise leads to greater change in glucose levels and more exercise
 leads to smaller changes. However, each boxplot shows outliers as dots
 extending above and below the boxes. This makes it difficult to
@@ -504,7 +504,7 @@ doses.</p>
 <span>       y <span class="op">=</span> <span class="st">"Δ Glucose (mg/dL)"</span>, x <span class="op">=</span> <span class="st">"Exercise duration (min/day)"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">scale_fill_brewer</span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"PuOr"</span><span class="op">)</span> <span class="co"># use a different color palette</span></span></code></pre>
 </div>
-<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_exerciseX-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><section><h2 class="section-heading" id="interaction-between-factors">Interaction between factors<a class="anchor" aria-label="anchor" href="#interaction-between-factors"></a></h2>
+<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-boxplots_exerciseX-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><section><h2 class="section-heading" id="interaction-between-factors">Interaction between factors<a class="anchor" aria-label="anchor" href="#interaction-between-factors"></a></h2>
 <hr class="half-width"><p>We could analyze these data as if it were simply a completely
 randomized design with 9 treatments (3 drug doses and 3 exercise
 durations). The ANOVA would have 8 degrees of freedom for treatments and
@@ -572,7 +572,7 @@ glucose levels on the y-axis.</p>
 <span>  <span class="fu">labs</span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Δ Glucose (mg/dL)"</span>,</span>
 <span>       title <span class="op">=</span> <span class="st">"Mean change in glucose by drug doseage"</span><span class="op">)</span> </span></code></pre>
 </div>
-<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotDrug-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb8">
+<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotDrug-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -584,7 +584,7 @@ glucose levels on the y-axis.</p>
 <span>  <span class="fu">labs</span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Δ Glucose (mg/dL)"</span>,</span>
 <span>       title <span class="op">=</span> <span class="st">"Mean change in glucose by exercise"</span><span class="op">)</span> </span></code></pre>
 </div>
-<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotDrug-2.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The interaction plots shows wide variation in mean glucose changes at
+<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotDrug-2.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The interaction plots shows wide variation in mean glucose changes at
 a drug dose of 20 mg/kg, and also at 0 min/day exercise. The vertical
 bars extending above and below each mean value are the standard
 deviations for that group. Notice that the bars for the 10 mg/kg drug
@@ -604,7 +604,7 @@ differently.</p>
 <span>  <span class="fu">labs</span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Δ Glucose (mg/dL)"</span>,</span>
 <span>       title <span class="op">=</span> <span class="st">"Mean change in glucose by exercise"</span><span class="op">)</span> </span></code></pre>
 </div>
-<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotExercise-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>At 60 min/day exercise, there is considerable overlap between the
+<figure><img src="fig/complete-random-design-multitreatment-factors-rendered-meansSDinteractionplotExercise-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>At 60 min/day exercise, there is considerable overlap between the
 standard deviation bars in the three drug dosage groups. There is not a
 clear distinction indicating that the drug has an effect, although the 0
 drug dosage group does appear to benefit from more exercise.</p>
@@ -738,7 +738,7 @@ primarily ANOVA.</li>
   "url": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design-multitreatment-factors.html",
   "identifier": "https://carpentries-incubator.github.io/statistical-experimental-design/complete-random-design-multitreatment-factors.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-11-11",
+  "dateModified": "2026-01-06",
   "datePublished": "2026-01-06"
 }
 
