@@ -598,7 +598,7 @@ participant’s characteristics? Why or why not?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The research question asked whether exercise, specifically
 high-intensity exercise, would affect healthspan and lifespan of elderly
@@ -666,7 +666,7 @@ room are fed regular chow.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>The individual animal is the experimental unit.</p></li>
@@ -749,7 +749,7 @@ patients.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>The data collection was not blinded since the clinician knew which
@@ -1106,32 +1106,32 @@ the treatment, in this case, regular chow).</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         A            92      chow
-2         B            26      chow
-3         C            32      chow
-4         D            87  high fat
-5         E             9  high fat
-6         F            84      chow
-7         G            34      chow
-8         H             5  high fat
-9         I            25  high fat
-10        J            62      chow
-11        K            12      chow
-12        L             1  high fat
-13        M            20      chow
-14        N            44      chow
-15        O            41  high fat
-16        P            98      chow
-17        Q            83  high fat
-18        R            23  high fat
-19        S             3  high fat
-20        T            48      chow
-21        U            86      chow
-22        V            14      chow
-23        W            13  high fat
-24        X            57  high fat
-25        Y             8      chow
-26        Z            82      chow</code></pre>
+1         A            64      chow
+2         B            82      chow
+3         C            61  high fat
+4         D            68      chow
+5         E            79  high fat
+6         F            95  high fat
+7         G            50      chow
+8         H            26      chow
+9         I            53  high fat
+10        J            16      chow
+11        K            34      chow
+12        L            48      chow
+13        M            22      chow
+14        N            70      chow
+15        O            98      chow
+16        P            35  high fat
+17        Q            86      chow
+18        R            39  high fat
+19        S           100      chow
+20        T            78      chow
+21        U            27  high fat
+22        V            37  high fat
+23        W            91  high fat
+24        X            55  high fat
+25        Y            41  high fat
+26        Z            63  high fat</code></pre>
 </div>
 <p>This might produce unequal numbers between treatment and control
 groups. It isn’t necessary to have equal numbers, however,
@@ -1149,7 +1149,7 @@ when sample numbers are equal.</p>
 </h3>
 <pre class="output" tabindex="0"><code>
     chow high fat
-      15       11 </code></pre>
+      14       12 </code></pre>
 </div>
 <p>To randomly assign samples to groups with equal numbers, you can do
 the following.</p>
@@ -1173,32 +1173,32 @@ the following.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         L             1      chow
-2         S             3      chow
-3         H             5      chow
-4         Y             8      chow
-5         E             9      chow
-6         K            12      chow
-7         W            13      chow
-8         V            14      chow
-9         M            20      chow
-10        R            23      chow
-11        I            25      chow
-12        B            26      chow
-13        C            32      chow
-14        G            34  high fat
-15        O            41  high fat
-16        N            44  high fat
-17        T            48  high fat
-18        X            57  high fat
-19        J            62  high fat
-20        Z            82  high fat
-21        Q            83  high fat
-22        F            84  high fat
-23        U            86  high fat
-24        D            87  high fat
-25        A            92  high fat
-26        P            98  high fat</code></pre>
+1         J            16      chow
+2         M            22      chow
+3         H            26      chow
+4         U            27      chow
+5         K            34      chow
+6         P            35      chow
+7         V            37      chow
+8         R            39      chow
+9         Y            41      chow
+10        L            48      chow
+11        G            50      chow
+12        I            53      chow
+13        X            55      chow
+14        C            61  high fat
+15        Z            63  high fat
+16        A            64  high fat
+17        D            68  high fat
+18        N            70  high fat
+19        T            78  high fat
+20        E            79  high fat
+21        B            82  high fat
+22        Q            86  high fat
+23        W            91  high fat
+24        F            95  high fat
+25        O            98  high fat
+26        S           100  high fat</code></pre>
 </div>
 <p>You can write out this treatment plan to a comma-separated values
 (csv) file, then open it in Excel and use it to record your data
@@ -2601,7 +2601,7 @@ treatment assignments?<br>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How would you randomize the 1,500+ individuals in the study to one
@@ -2734,7 +2734,7 @@ Factor with k levels and n Observations per Treatment</caption>
 <col width="7%">
 <col width="8%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th align="left">source of variation</th>
 <th align="left">Df</th>
 <th align="left">Sum Sq</th>
@@ -2743,7 +2743,7 @@ Factor with k levels and n Observations per Treatment</caption>
 <th align="left">prob(&gt;F)</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">treatments</td>
 <td align="left"><span class="math inline">\(k - 1\)</span></td>
 <td align="left"><span class="math inline">\(n\sum(\bar{y_i} -
@@ -2752,7 +2752,7 @@ Factor with k levels and n Observations per Treatment</caption>
 <td align="left">TMS/EMS</td>
 <td align="left">p-value</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">error</td>
 <td align="left"><span class="math inline">\(k(n - 1)\)</span></td>
 <td align="left"><span class="math inline">\(\sum\sum({y_{ij}} -
@@ -2761,7 +2761,7 @@ Factor with k levels and n Observations per Treatment</caption>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">total</td>
 <td align="left"><span class="math inline">\(nk - 1\)</span></td>
 <td align="left"><span class="math inline">\(\sum\sum({y_{ij}} -
@@ -2936,7 +2936,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>How can you check whether variances are equal?<br>
@@ -2976,7 +2976,7 @@ other and groups randomly assigned?</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> More formal tests of normality and equal variances </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>More formal tests of normality and equal variance include the
 Bartlett test, Shapiro-Wilk test and the Kruskal-Wallis test.</p>
@@ -3340,7 +3340,7 @@ investigate the difference between:<br>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Recall the inverse relationship between effect size and sample size.
 Smaller effects require larger samples sizes, while larger effects
@@ -3622,7 +3622,7 @@ Treatment Factors</caption>
 <col width="9%">
 <col width="10%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th align="left">source of variation</th>
 <th align="left">Df</th>
 <th align="left">Sum Sq</th>
@@ -3631,7 +3631,7 @@ Treatment Factors</caption>
 <th align="left">prob(&gt;F)</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">treatment 1</td>
 <td align="left"><span class="math inline">\(k_1 - 1\)</span></td>
 <td align="left">Sum Sq</td>
@@ -3639,7 +3639,7 @@ Treatment Factors</caption>
 <td align="left">F value</td>
 <td align="left">prob(&gt;F)</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">treatment 2</td>
 <td align="left"><span class="math inline">\(k_2 - 1\)</span></td>
 <td align="left">Sum Sq</td>
@@ -3647,7 +3647,7 @@ Treatment Factors</caption>
 <td align="left">F value</td>
 <td align="left">prob(&gt;F)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">interaction</td>
 <td align="left"><span class="math inline">\((k_1 - 1) * (k_2 -
 1)\)</span></td>
@@ -3656,7 +3656,7 @@ Treatment Factors</caption>
 <td align="left">F value</td>
 <td align="left">prob(&gt;F)</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">error</td>
 <td align="left"><span class="math inline">\(k_1 * k_2 * (n -
 1)\)</span></td>
@@ -3941,7 +3941,7 @@ participants in each block.</p>
 <col width="9%">
 <col width="10%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th align="left">source of variation</th>
 <th align="left">Df</th>
 <th align="left">Sum Sq</th>
@@ -3950,7 +3950,7 @@ participants in each block.</p>
 <th align="left">prob(&gt;F)</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">treatment</td>
 <td align="left"><span class="math inline">\(k - 1\)</span></td>
 <td align="left"></td>
@@ -3958,7 +3958,7 @@ participants in each block.</p>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">block</td>
 <td align="left"><span class="math inline">\(b - 1\)</span></td>
 <td align="left"></td>
@@ -3966,7 +3966,7 @@ participants in each block.</p>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">interaction</td>
 <td align="left"><span class="math inline">\((k - 1) * (b -
 1)\)</span></td>
@@ -3975,7 +3975,7 @@ participants in each block.</p>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">error</td>
 <td align="left"><span class="math inline">\(k * b * (n -
 1)\)</span></td>
@@ -4183,7 +4183,7 @@ unit.<br>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.18.5" class="external-link">sandpaper (0.18.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
